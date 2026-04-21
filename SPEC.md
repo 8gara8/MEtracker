@@ -4,7 +4,7 @@
 **By:** 3D (@8gara8)
 **Date:** April 22, 2026
 **Repo target:** `me-war-intel-brief` (public, owner `@8gara8` on GitHub)
-**Companion design doc:** `ME_War_Intel_Brief_Tech_Design_v1_0.docx` (in this repo at `/docs/DESIGN_v1_0.docx` after first commit)
+**Companion design doc:** `me-war-intel-brief DESIGN v1 1 2026-04-22.docx` at the repo root.
 
 -----
 
@@ -33,7 +33,7 @@ Backfill of the existing 50-brief DOCX archive (Days 33–51 currently in the an
 See the root tree. Key rules:
 
 - **`data/` is gitignored.** Regenerated on every build from `content/briefs/*.mdx` frontmatter via `scripts/build-data.ts`. The routine never touches `data/`.
-- **`docs/DESIGN_v1_0.docx`** is committed by the analyst manually.
+- **`me-war-intel-brief DESIGN v1 1 2026-04-22.docx`** lives at the repo root and is committed by the analyst manually.
 - **`routine/examples/README.md`** is a placeholder; few-shot exemplars (Days 40, 47, 50) are added in Phase 1.5.
 - **`SPEC.md`** (this file) stays in the repo. Git history preserves prior versions.
 

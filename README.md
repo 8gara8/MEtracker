@@ -19,8 +19,8 @@ Three parts in a loop:
 3. **Presenter** — a Next.js 15 (App Router) site deployed on Vercel, rebuilt
    on every push.
 
-See `docs/DESIGN_v1_0.docx` (committed separately by the analyst) for the full
-design rationale, and `SPEC.md` at the repo root for the canonical build spec.
+See `me-war-intel-brief DESIGN v1 1 2026-04-22.docx` at the repo root for the
+full design rationale, and `SPEC.md` for the canonical build spec.
 
 ## Repo layout (highlights)
 
