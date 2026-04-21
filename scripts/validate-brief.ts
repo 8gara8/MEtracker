@@ -130,6 +130,15 @@ async function validateOne(
     .filter((b): b is LoadedBrief & { day: number } => typeof b.day === 'number')
     .sort((a, b) => a.day - b.day);
 
+  if (day !== undefined) {
+    const duplicates = peers.filter((b) => b.day === day);
+    for (const dup of duplicates) {
+      errors.push(
+        `Duplicate day: day ${day} already exists at ${path.relative(process.cwd(), dup.file)}. Every brief must claim a unique day number.`,
+      );
+    }
+  }
+
   const prev = peers.filter((b) => b.day < (day ?? 0)).pop();
 
   if (prev && day !== undefined) {

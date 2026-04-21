@@ -31,7 +31,7 @@ jobs:
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             base="${{ github.event.pull_request.base.sha }}"
             head="${{ github.event.pull_request.head.sha }}"
-            files=$(git diff --name-only --diff-filter=AM "$base" "$head" -- 'content/briefs/*.mdx' 'content/briefs/*.md' || true)
+            files=$(git diff --name-only --diff-filter=AMR "$base" "$head" -- 'content/briefs/*.mdx' 'content/briefs/*.md' || true)
           else
             files=$(ls content/briefs/*.mdx content/briefs/*.md 2>/dev/null || true)
           fi
