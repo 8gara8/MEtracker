@@ -17,6 +17,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      (process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : 'http://localhost:3000'),
+  ),
   title: 'ME War Intel Brief',
   description:
     'Daily intelligence brief on the 2026 US-Israeli war on Iran (Operation Epic Fury).',
