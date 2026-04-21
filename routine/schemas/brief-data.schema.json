@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://me-war-intel-brief/schemas/brief-data.json",
+  "title": "Aggregated brief data (build output)",
+  "description": "Shape of data/index.json entries (one per brief).",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "day",
+      "date",
+      "slug",
+      "title",
+      "escalation_direction",
+      "escalation_risk_7d",
+      "spillover_risk",
+      "ceasefire_probability_30d",
+      "key_developments"
+    ],
+    "properties": {
+      "day": { "type": "integer" },
+      "date": { "type": "string" },
+      "slug": { "type": "string" },
+      "title": { "type": "string" },
+      "escalation_direction": { "type": "string" },
+      "escalation_risk_7d": { "type": "string" },
+      "spillover_risk": { "type": "string" },
+      "ceasefire_probability_30d": { "type": "integer" },
+      "quiet_day": { "type": "boolean" },
+      "key_developments": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    }
+  }
+}

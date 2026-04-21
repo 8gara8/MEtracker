@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://me-war-intel-brief/schemas/brief-frontmatter.json",
+  "title": "ME War Intel Brief Frontmatter",
+  "description": "YAML frontmatter schema for daily brief MDX files.",
+  "type": "object",
+  "required": [
+    "day",
+    "date",
+    "title",
+    "escalation_direction",
+    "escalation_risk_7d",
+    "spillover_risk",
+    "ceasefire_probability_30d",
+    "quiet_day",
+    "key_developments",
+    "sources",
+    "casualties_snapshot",
+    "clocks"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "day": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 999,
+      "description": "Day count from 2026-02-28 (Day 1)."
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 200
+    },
+    "escalation_direction": {
+      "enum": ["escalating", "mixed", "de-escalating"]
+    },
+    "escalation_risk_7d": {
+      "enum": ["critical", "extreme", "conditional", "low"]
+    },
+    "spillover_risk": {
+      "enum": ["critical", "conditional", "contained"]
+    },
+    "ceasefire_probability_30d": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "quiet_day": { "type": "boolean" },
+    "gap_acknowledged": { "type": "boolean" },
+    "casualty_revision": { "type": "boolean" },
+    "key_developments": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10,
+      "items": { "type": "string", "minLength": 5 }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "url", "accessed_at"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "url": { "type": "string", "format": "uri" },
+          "accessed_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "casualties_snapshot": {
+      "type": "object",
+      "required": ["us", "israel", "iran", "other"],
+      "additionalProperties": false,
+      "properties": {
+        "us": { "$ref": "#/definitions/actorCasualty" },
+        "israel": { "$ref": "#/definitions/actorCasualty" },
+        "iran": { "$ref": "#/definitions/actorCasualty" },
+        "other": { "$ref": "#/definitions/actorCasualty" }
+      }
+    },
+    "clocks": {
+      "type": "object",
+      "required": [
+        "political_will",
+        "active_deadlines",
+        "energy_infrastructure",
+        "interceptor_capacity",
+        "negotiation_capacity",
+        "oil_reserves"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "political_will": { "$ref": "#/definitions/clock" },
+        "active_deadlines": { "$ref": "#/definitions/clock" },
+        "energy_infrastructure": { "$ref": "#/definitions/clock" },
+        "interceptor_capacity": { "$ref": "#/definitions/clock" },
+        "negotiation_capacity": { "$ref": "#/definitions/clock" },
+        "oil_reserves": { "$ref": "#/definitions/clock" }
+      }
+    }
+  },
+  "definitions": {
+    "actorCasualty": {
+      "type": "object",
+      "required": ["killed", "wounded", "delta_24_48h"],
+      "additionalProperties": false,
+      "properties": {
+        "killed": { "type": "integer", "minimum": 0 },
+        "wounded": { "type": "integer", "minimum": 0 },
+        "delta_24_48h": { "type": "string" }
+      }
+    },
+    "clock": {
+      "type": "object",
+      "required": ["state", "trajectory"],
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "enum": ["critical", "low", "degraded", "moderate", "high", "ample", "none"]
+        },
+        "trajectory": {
+          "enum": ["improving", "stable", "worsening", "draining", "n/a"]
+        }
+      }
+    }
+  }
+}
