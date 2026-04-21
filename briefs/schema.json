@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Middle East War Intel Brief Metadata",
+  "type": "object",
+  "required": ["day", "date", "gauges", "sources_count", "source_categories"],
+  "properties": {
+    "day": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Days since Feb 28, 2026 (inclusive)"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "ceasefire_day": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "gauges": {
+      "type": "object",
+      "minProperties": 3,
+      "maxProperties": 3,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["level", "label", "detail"],
+        "properties": {
+          "level": { "enum": ["green", "yellow", "red"] },
+          "label": {
+            "type": "string",
+            "maxLength": 30,
+            "description": "2-3 word assessment (e.g., 'FRAGILE', 'HOLDING', 'CLOSED')"
+          },
+          "detail": {
+            "type": "string",
+            "maxLength": 500,
+            "description": "One-sentence context for the gauge"
+          }
+        }
+      }
+    },
+    "probabilities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "description": "Scenario probability estimates (3-5 scenarios)"
+    },
+    "casualties": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "description": "Casualty counts. Downward revisions permitted — the MD prose must explain."
+    },
+    "markets": {
+      "type": "object",
+      "additionalProperties": { "type": "number" }
+    },
+    "sources_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "source_categories": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "enum": [
+          "western_mainstream_press",
+          "international_regional_press",
+          "iranian_state_media",
+          "iranian_officials_direct",
+          "israeli_military_government",
+          "arab_regional_governments",
+          "russia_china_adversary",
+          "human_rights_monitoring",
+          "us_government_agencies",
+          "european_international_bodies",
+          "think_tanks_analysts",
+          "market_maritime_data"
+        ]
+      },
+      "description": "Which of the 12 source categories (§3.1) were represented in today's research. Non-Quiet-Day briefs require >= 6 distinct values. Enforced by validate.js."
+    },
+    "hormuz_ships_24h": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

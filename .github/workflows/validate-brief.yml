@@ -1,0 +1,44 @@
+name: Validate Brief
+
+on:
+  pull_request:
+    paths:
+      - 'briefs/**'
+      - 'context/rolling.md'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install validation dependencies
+        working-directory: scripts/validation
+        run: npm ci
+
+      - name: Run validation suite
+        run: node scripts/validation/validate.js
+
+      - name: Enable auto-merge on success
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr merge --auto --squash ${{ github.event.pull_request.number }}
+
+      - name: Label for review on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr edit ${{ github.event.pull_request.number }} --add-label needs-review
