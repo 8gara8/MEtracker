@@ -9,23 +9,45 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: '#1B2A4A',
-        accent: '#2E75B6',
-        escalating: '#CC0000',
-        'escalating-bg': '#FFE5E5',
-        mixed: '#8A5A00',
-        'mixed-bg': '#FFF5E5',
-        deescalating: '#006600',
-        'deescalating-bg': '#E5FFE5',
-        body: '#333333',
-        muted: '#666666',
+        paper: {
+          bg: '#F3EEE3',
+          'bg-deep': '#EAE2D0',
+          ink: '#14161A',
+          'ink-soft': '#3B3E45',
+          'ink-mute': '#6B6A62',
+          rule: '#14161A',
+          'rule-soft': '#C9BFA8',
+          card: '#FBF8F0',
+        },
+        accent: {
+          DEFAULT: '#B33A2E',
+          amber: '#C48416',
+          green: '#3E6B3A',
+        },
+        badge: {
+          esc: '#F1D9D5',
+          mix: '#F3E3C6',
+          de: '#D9E3D3',
+        },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-jetbrains-mono)', 'ui-monospace', 'monospace'],
+        display: ['var(--font-newsreader)', 'Georgia', 'serif'],
+        sans: ['var(--font-plex-sans)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-plex-mono)', 'ui-monospace', 'monospace'],
+      },
+      letterSpacing: {
+        section: '0.22em',
+        label: '0.14em',
+        metalabel: '0.12em',
+        pill: '0.08em',
+        stamp: '0.16em',
       },
       maxWidth: {
+        page: '1280px',
         prose: '72ch',
+      },
+      borderRadius: {
+        none: '0',
       },
     },
   },

@@ -1,5 +1,11 @@
+import { getLatestBrief } from '@/lib/briefs';
 import { loadCasualtiesHistory } from '@/lib/data-aggregation';
-import { CasualtiesArea } from '@/components/charts/CasualtiesArea';
+import {
+  CasualtiesArea,
+  CasualtiesLegend,
+} from '@/components/charts/CasualtiesArea';
+import { CasualtiesBlock } from '@/components/CasualtiesBlock';
+import { SectionRule } from '@/components/design/SectionRule';
 
 export const metadata = {
   title: 'Casualties — ME War Intel Brief',
@@ -7,25 +13,45 @@ export const metadata = {
 
 export default function CasualtiesPage() {
   const data = loadCasualtiesHistory();
-  const latest = data[data.length - 1];
+  const latest = getLatestBrief();
+  const maxTotal =
+    data.length === 0
+      ? 0
+      : Math.max(
+          ...data.map(
+            (d) =>
+              d.us.killed + d.israel.killed + d.iran.killed + d.other.killed,
+          ),
+        );
+
   return (
     <div>
-      <h1 className="mb-2 text-2xl font-bold text-navy">Cumulative casualties (KIA)</h1>
-      <p className="mb-6 max-w-prose text-sm text-muted">
-        Stacked cumulative killed-in-action figures by actor, pulled from each brief&apos;s
-        frontmatter snapshot. Figures are the brief&apos;s reported cumulative total;
-        individual briefs provide the sourcing and dual-count detail where available.
+      <SectionRule
+        number={1}
+        label="Cumulative casualties — KIA by actor"
+        right={maxTotal ? `max ${maxTotal.toLocaleString()}` : undefined}
+      />
+      <p className="mb-[14px] max-w-[680px] font-sans text-[13px] leading-[1.55] text-paper-ink-soft">
+        Stacked area. Figures are analytical estimates drawn from open-source
+        reporting; casualty revisions are flagged in the frontmatter of
+        individual briefs. No counts decrease without an explicit{' '}
+        <span className="font-mono text-paper-ink">casualty_revision: true</span>{' '}
+        acknowledgment.
       </p>
       {data.length === 0 ? (
-        <p className="text-muted">No data yet.</p>
+        <p className="text-paper-ink-mute">No data yet.</p>
       ) : (
         <>
           <CasualtiesArea data={data} />
+          <CasualtiesLegend data={data} />
           {latest && (
-            <p className="mt-4 font-mono text-xs text-muted">
-              Latest snapshot (Day {latest.day}, {latest.date}): US {latest.us.killed} · Israel{' '}
-              {latest.israel.killed} · Iran {latest.iran.killed} · Other {latest.other.killed}
-            </p>
+            <>
+              <SectionRule number={2} label="Latest brief snapshot" />
+              <CasualtiesBlock
+                snapshot={latest.frontmatter.casualties_snapshot}
+                history={data}
+              />
+            </>
           )}
         </>
       )}

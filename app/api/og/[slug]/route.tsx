@@ -4,28 +4,32 @@ import { getBriefBySlug } from '@/lib/briefs';
 export const runtime = 'nodejs';
 
 const BADGE_COLORS: Record<string, { bg: string; fg: string }> = {
-  escalating: { bg: '#FFE5E5', fg: '#CC0000' },
-  critical: { bg: '#FFE5E5', fg: '#CC0000' },
-  extreme: { bg: '#FFE5E5', fg: '#CC0000' },
-  mixed: { bg: '#FFF5E5', fg: '#8A5A00' },
-  conditional: { bg: '#FFF5E5', fg: '#8A5A00' },
-  'de-escalating': { bg: '#E5FFE5', fg: '#006600' },
-  low: { bg: '#E5FFE5', fg: '#006600' },
-  contained: { bg: '#E5FFE5', fg: '#006600' },
+  escalating: { bg: '#F1D9D5', fg: '#B33A2E' },
+  critical: { bg: '#F1D9D5', fg: '#B33A2E' },
+  extreme: { bg: '#F1D9D5', fg: '#B33A2E' },
+  pivotal: { bg: '#F1D9D5', fg: '#B33A2E' },
+  mixed: { bg: '#F3E3C6', fg: '#C48416' },
+  conditional: { bg: '#F3E3C6', fg: '#C48416' },
+  moderate: { bg: '#F3E3C6', fg: '#C48416' },
+  'de-escalating': { bg: '#D9E3D3', fg: '#3E6B3A' },
+  low: { bg: '#D9E3D3', fg: '#3E6B3A' },
+  contained: { bg: '#D9E3D3', fg: '#3E6B3A' },
 };
 
 function badgeStyle(value: string) {
-  const c = BADGE_COLORS[value] ?? { bg: '#f3f4f6', fg: '#333333' };
+  const c = BADGE_COLORS[value] ?? { bg: 'transparent', fg: '#6B6A62' };
   return {
     backgroundColor: c.bg,
     color: c.fg,
-    borderRadius: 6,
+    border: `1px solid ${c.fg}40`,
+    borderRadius: 0,
     padding: '8px 16px',
     fontSize: 22,
     fontWeight: 700,
     textTransform: 'uppercase' as const,
-    letterSpacing: 1,
+    letterSpacing: 2,
     marginRight: 12,
+    fontFamily: 'monospace',
   };
 }
 
@@ -54,37 +58,56 @@ export async function GET(
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          backgroundColor: '#fafafa',
+          backgroundColor: '#F3EEE3',
           padding: '56px 64px',
-          fontFamily: 'sans-serif',
+          fontFamily: 'serif',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 16,
+            borderBottom: '3px double #14161A',
+            paddingBottom: 14,
+          }}
+        >
           <div
             style={{
               display: 'flex',
-              backgroundColor: '#1B2A4A',
-              color: '#ffffff',
-              padding: '10px 18px',
-              borderRadius: 6,
-              fontSize: 28,
-              fontWeight: 700,
-              fontFamily: 'monospace',
+              fontSize: 40,
+              fontWeight: 600,
+              color: '#14161A',
+              letterSpacing: -0.8,
             }}
           >
-            Day {day}
+            <span style={{ fontStyle: 'italic', marginRight: 10 }}>ME</span> WAR
+            — Intel Brief
           </div>
-          <div style={{ display: 'flex', fontSize: 24, color: '#666' }}>{date}</div>
+          <div
+            style={{
+              display: 'flex',
+              marginLeft: 'auto',
+              fontSize: 20,
+              color: '#6B6A62',
+              fontFamily: 'monospace',
+              letterSpacing: 2,
+              textTransform: 'uppercase',
+            }}
+          >
+            Day {String(day).padStart(3, '0')} · {date}
+          </div>
         </div>
 
         <div
           style={{
             display: 'flex',
-            fontSize: 52,
-            lineHeight: 1.1,
-            fontWeight: 700,
-            color: '#1B2A4A',
+            fontSize: 56,
+            lineHeight: 1.05,
+            fontWeight: 600,
+            color: '#14161A',
             marginTop: 24,
+            letterSpacing: -1.5,
           }}
         >
           {displayTitle}
@@ -101,13 +124,16 @@ export async function GET(
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            fontSize: 22,
-            color: '#666',
-            borderTop: '2px solid #2E75B6',
+            fontSize: 18,
+            color: '#6B6A62',
+            borderTop: '1px solid #C9BFA8',
             paddingTop: 16,
+            fontFamily: 'monospace',
+            letterSpacing: 2,
+            textTransform: 'uppercase',
           }}
         >
-          <div style={{ display: 'flex' }}>ME War Intel Brief</div>
+          <div style={{ display: 'flex' }}>ME War Intel Brief · 3D</div>
           <div style={{ display: 'flex' }}>@8gara8</div>
         </div>
       </div>
