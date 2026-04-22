@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://me-war-intel-brief/schemas/brief-frontmatter.json",
   "title": "ME War Intel Brief Frontmatter",
-  "description": "YAML frontmatter schema for daily brief MDX files.",
+  "description": "YAML frontmatter schema for daily brief MDX files (v1.2).",
   "type": "object",
   "required": [
     "day",
@@ -12,7 +12,6 @@
     "escalation_risk_7d",
     "spillover_risk",
     "ceasefire_probability_30d",
-    "quiet_day",
     "key_developments",
     "sources",
     "casualties_snapshot",
@@ -20,6 +19,9 @@
   ],
   "additionalProperties": false,
   "properties": {
+    "report_type": {
+      "type": "string"
+    },
     "day": {
       "type": "integer",
       "minimum": 1,
@@ -28,12 +30,11 @@
     },
     "date": {
       "type": "string",
-      "format": "date",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
     },
     "title": {
       "type": "string",
-      "minLength": 10,
+      "minLength": 1,
       "maxLength": 200
     },
     "escalation_direction": {
@@ -56,7 +57,6 @@
     "key_developments": {
       "type": "array",
       "minItems": 1,
-      "maxItems": 10,
       "items": { "type": "string", "minLength": 5 }
     },
     "sources": {
@@ -68,8 +68,8 @@
         "additionalProperties": false,
         "properties": {
           "name": { "type": "string", "minLength": 1 },
-          "url": { "type": "string", "format": "uri" },
-          "accessed_at": { "type": "string", "format": "date-time" }
+          "url": { "type": "string" },
+          "accessed_at": { "type": "string" }
         }
       }
     },
@@ -87,21 +87,21 @@
     "clocks": {
       "type": "object",
       "required": [
-        "political_will",
-        "active_deadlines",
-        "energy_infrastructure",
-        "interceptor_capacity",
         "negotiation_capacity",
-        "oil_reserves"
+        "active_deadline",
+        "interceptor_reconstitution",
+        "energy_infrastructure",
+        "humanitarian_escalation",
+        "coalition_cohesion"
       ],
       "additionalProperties": false,
       "properties": {
-        "political_will": { "$ref": "#/definitions/clock" },
-        "active_deadlines": { "$ref": "#/definitions/clock" },
-        "energy_infrastructure": { "$ref": "#/definitions/clock" },
-        "interceptor_capacity": { "$ref": "#/definitions/clock" },
         "negotiation_capacity": { "$ref": "#/definitions/clock" },
-        "oil_reserves": { "$ref": "#/definitions/clock" }
+        "active_deadline": { "$ref": "#/definitions/clock" },
+        "interceptor_reconstitution": { "$ref": "#/definitions/clock" },
+        "energy_infrastructure": { "$ref": "#/definitions/clock" },
+        "humanitarian_escalation": { "$ref": "#/definitions/clock" },
+        "coalition_cohesion": { "$ref": "#/definitions/clock" }
       }
     }
   },
@@ -122,10 +122,25 @@
       "additionalProperties": false,
       "properties": {
         "state": {
-          "enum": ["critical", "low", "degraded", "moderate", "high", "ample", "none"]
+          "enum": [
+            "active",
+            "advancing",
+            "approaching",
+            "critical",
+            "deteriorating",
+            "elevated",
+            "expiring",
+            "extension_likely",
+            "holding",
+            "improving",
+            "paused",
+            "strained",
+            "strong",
+            "unclear"
+          ]
         },
         "trajectory": {
-          "enum": ["improving", "stable", "worsening", "draining", "n/a"]
+          "enum": ["improving", "worsening", "unchanged", "deadline_removed"]
         }
       }
     }
