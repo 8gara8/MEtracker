@@ -14,12 +14,6 @@ const briefDataBySlug: Record<string, BriefData> = {
   '2026-02-28-day-001': day001,
 };
 
-export function getBriefData(slug: string): BriefData {
-  const data = briefDataBySlug[slug];
-  if (!data) {
-    throw new Error(
-      `Missing brief data for slug "${slug}". Create content/briefs/${slug}.data.ts and register it in lib/brief-data.ts.`,
-    );
-  }
-  return data;
+export function getBriefData(slug: string): BriefData | null {
+  return briefDataBySlug[slug] ?? null;
 }

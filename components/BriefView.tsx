@@ -16,9 +16,11 @@ export function BriefView({ brief }: { brief: Brief }) {
   const data = getBriefData(brief.slug);
   const components = {
     ...mdxComponents,
-    EscalationGauge: () => <EscalationGauge {...data.escalation} />,
-    EventsTable: () => <EventsTable events={data.events} />,
-    CasualtiesTable: () => <CasualtiesTable {...data.casualties} />,
+    ...(data && {
+      EscalationGauge: () => <EscalationGauge {...data.escalation} />,
+      EventsTable: () => <EventsTable events={data.events} />,
+      CasualtiesTable: () => <CasualtiesTable {...data.casualties} />,
+    }),
   };
   return (
     <article className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_16rem]">

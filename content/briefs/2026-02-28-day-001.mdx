@@ -43,12 +43,24 @@ casualties_snapshot:
   iran:   { killed: 380, wounded: 1200, delta_24_48h: "+380/+1200" }
   other:  { killed: 0,   wounded: 0,    delta_24_48h: "+0/+0" }
 clocks:
-  political_will:        { state: "high",     trajectory: "stable" }
-  active_deadlines:      { state: "none",     trajectory: "n/a" }
-  energy_infrastructure: { state: "degraded", trajectory: "worsening" }
-  interceptor_capacity:  { state: "high",     trajectory: "draining" }
-  negotiation_capacity:  { state: "low",      trajectory: "stable" }
-  oil_reserves:          { state: "ample",    trajectory: "stable" }
+  negotiation_capacity:
+    state: "deteriorating"
+    trajectory: "worsening"
+  active_deadline:
+    state: "paused"
+    trajectory: "unchanged"
+  interceptor_reconstitution:
+    state: "strained"
+    trajectory: "worsening"
+  energy_infrastructure:
+    state: "deteriorating"
+    trajectory: "worsening"
+  humanitarian_escalation:
+    state: "elevated"
+    trajectory: "worsening"
+  coalition_cohesion:
+    state: "strained"
+    trajectory: "worsening"
 ---
 
 {/* Seed content. Specific figures (casualty totals, damage assessments, diplomatic signals) are approximate placeholders inherited from the well-known Day 1 timeline of Operation Epic Fury and should be replaced or confirmed during the Phase 1.5 backfill. Source URLs are web.archive.org placeholders. */}
