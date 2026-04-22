@@ -66,27 +66,43 @@ Today's date: use the current date when you read this. Day count: compute from
 
 ## Hard rules
 
+The hard rules below apply to the **normal flash path**. All of them are
+overridden on the **promoted-run path** (see the final rule and the
+promoted-run section that follows it), where the absence of today's morning
+brief forces you to write a full brief instead of a flash note.
+
 - **Never restate the morning brief.** A flash is a delta, not a digest.
-- **Never create a new `.mdx` file.** The repo's v1 schema/validator does not
-  yet accept flash files; your only writable surface today is the
-  `## Evening flash notes` section of `content/context.md`.
-- **Never touch any other section of `content/context.md`.** Not `Current war
-  status`, not `Cumulative state`, not `Active deadlines` — leave those to the
-  morning Routine.
+- **Never create a new `.mdx` file.** (Normal flash path only.) The repo's v1
+  schema/validator does not yet accept flash files; on the normal flash path
+  your only writable surface is the `## Evening flash notes` section of
+  `content/context.md`. On the promoted-run path, this rule is lifted — you
+  create the full-brief `.mdx` per `PROMPT_morning.md` step 6.
+- **Never touch any other section of `content/context.md`.** (Normal flash
+  path only.) Not `Current war status`, not `Cumulative state`, not `Active
+  deadlines` — leave those to the morning Routine. On the promoted-run path,
+  you rewrite `content/context.md` in full per the morning prompt.
 - **Never change casualty numbers or clock states in any frontmatter.**
-  Describe changes qualitatively in your flash note; tomorrow morning's Routine
-  captures formal numbers.
+  (Normal flash path only.) Describe changes qualitatively in your flash
+  note; tomorrow morning's Routine captures formal numbers. On the
+  promoted-run path, you write casualty numbers and clock states as the
+  morning Routine normally would.
 - **Never touch `app/`, `components/`, `lib/`, `data/`, or anything under
   `routine/`.** This is a content routine. The one exception — active only
   on the promoted-run path below — is `lib/brief-data.ts`, which must be
   edited to register the new sidecar per `PROMPT_morning.md` step 6.
-- **No silently fabricated data.** If nothing is confirmable, write a
-  no-material-change flash instead of speculating.
+- **No silently fabricated data.** (Both paths.) If nothing is confirmable on
+  the normal flash path, write a no-material-change flash instead of
+  speculating. On the promoted-run path, flag uncertain fields per the
+  morning prompt.
 - **If today's morning brief does not exist** (morning Routine failed), you
   are **promoted** to writing the full brief. Follow `routine/PROMPT_morning.md`
-  instead — full schema, 8-source floor, sidecar, and all — and set
-  `gap_acknowledged: true` in the brief frontmatter. The promoted path
-  requires creating `content/briefs/<slug>.data.ts` and registering it in
-  `lib/brief-data.ts` (the morning prompt's one `lib/` exception); do that,
-  overriding the "never touch `lib/`" rule above for this specific file.
-- **No partial commits.** If you cannot produce a valid note, commit nothing.
+  instead — full schema, 8-source floor, sidecar, rewritten `content/context.md`,
+  and all — and set `gap_acknowledged: true` in the brief frontmatter. On the
+  promoted-run path, the "never create a new `.mdx` file," "never touch other
+  sections of `content/context.md`," "never change casualty numbers or clock
+  states," and "never touch `lib/`" rules above are all lifted to the extent
+  required by the morning prompt's steps 6 and 7.
+- **No partial commits.** (Both paths.) On the normal flash path, if you
+  cannot produce a valid note, commit nothing. On the promoted-run path, if
+  you cannot produce both the brief MDX and a correctly updated
+  `content/context.md`, commit nothing.
