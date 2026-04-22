@@ -15,21 +15,28 @@ import { ClockKeys } from '@/lib/types';
 
 const STATE_SCORE: Record<string, number> = {
   critical: 0,
-  low: 1,
-  degraded: 2,
-  moderate: 3,
-  high: 4,
-  ample: 5,
-  none: 2.5,
+  expiring: 0.5,
+  deteriorating: 1,
+  paused: 1,
+  strained: 2,
+  elevated: 2,
+  unclear: 2.5,
+  approaching: 3,
+  advancing: 3,
+  extension_likely: 3,
+  active: 4,
+  holding: 4,
+  improving: 4,
+  strong: 5,
 };
 
 const CLOCK_LABELS: Record<ClockKey, string> = {
-  political_will: 'Political will',
-  active_deadlines: 'Active deadlines',
-  energy_infrastructure: 'Energy infrastructure',
-  interceptor_capacity: 'Interceptor capacity',
   negotiation_capacity: 'Negotiation capacity',
-  oil_reserves: 'Oil reserves',
+  active_deadline: 'Active deadline',
+  interceptor_reconstitution: 'Interceptor reconstitution',
+  energy_infrastructure: 'Energy infrastructure',
+  humanitarian_escalation: 'Humanitarian escalation',
+  coalition_cohesion: 'Coalition cohesion',
 };
 
 function SmallMultiple({

@@ -10,22 +10,28 @@ export const SpilloverRisk = z.enum(['critical', 'conditional', 'contained']);
 export type SpilloverRisk = z.infer<typeof SpilloverRisk>;
 
 export const ClockState = z.enum([
+  'active',
+  'advancing',
+  'approaching',
   'critical',
-  'low',
-  'degraded',
-  'moderate',
-  'high',
-  'ample',
-  'none',
+  'deteriorating',
+  'elevated',
+  'expiring',
+  'extension_likely',
+  'holding',
+  'improving',
+  'paused',
+  'strained',
+  'strong',
+  'unclear',
 ]);
 export type ClockState = z.infer<typeof ClockState>;
 
 export const ClockTrajectory = z.enum([
   'improving',
-  'stable',
   'worsening',
-  'draining',
-  'n/a',
+  'unchanged',
+  'deadline_removed',
 ]);
 export type ClockTrajectory = z.infer<typeof ClockTrajectory>;
 
@@ -44,34 +50,35 @@ export type ActorCasualty = z.infer<typeof ActorCasualtySchema>;
 
 export const SourceSchema = z.object({
   name: z.string().min(1),
-  url: z.string().url(),
+  url: z.union([z.string().url(), z.literal('')]),
   accessed_at: z.string(),
 });
 export type Source = z.infer<typeof SourceSchema>;
 
 export const ClockKeys = [
-  'political_will',
-  'active_deadlines',
-  'energy_infrastructure',
-  'interceptor_capacity',
   'negotiation_capacity',
-  'oil_reserves',
+  'active_deadline',
+  'interceptor_reconstitution',
+  'energy_infrastructure',
+  'humanitarian_escalation',
+  'coalition_cohesion',
 ] as const;
 
 export type ClockKey = (typeof ClockKeys)[number];
 
 export const BriefFrontmatterSchema = z.object({
+  report_type: z.string().optional(),
   day: z.number().int().min(1).max(999),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-  title: z.string().min(10),
+  title: z.string(),
   escalation_direction: EscalationDirection,
   escalation_risk_7d: EscalationRisk7d,
   spillover_risk: SpilloverRisk,
   ceasefire_probability_30d: z.number().int().min(0).max(100),
-  quiet_day: z.boolean(),
+  quiet_day: z.boolean().optional().default(false),
   gap_acknowledged: z.boolean().optional(),
   casualty_revision: z.boolean().optional(),
-  key_developments: z.array(z.string()).min(1).max(10),
+  key_developments: z.array(z.string()).min(1),
   sources: z.array(SourceSchema).min(1),
   casualties_snapshot: z.object({
     us: ActorCasualtySchema,
@@ -80,12 +87,12 @@ export const BriefFrontmatterSchema = z.object({
     other: ActorCasualtySchema,
   }),
   clocks: z.object({
-    political_will: ClockSchema,
-    active_deadlines: ClockSchema,
-    energy_infrastructure: ClockSchema,
-    interceptor_capacity: ClockSchema,
     negotiation_capacity: ClockSchema,
-    oil_reserves: ClockSchema,
+    active_deadline: ClockSchema,
+    interceptor_reconstitution: ClockSchema,
+    energy_infrastructure: ClockSchema,
+    humanitarian_escalation: ClockSchema,
+    coalition_cohesion: ClockSchema,
   }),
 });
 
