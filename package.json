@@ -1,0 +1,42 @@
+{
+  "name": "me-war-intel-brief",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Daily intelligence brief on the 2026 US-Israeli war on Iran (Operation Epic Fury). Produced autonomously by a Claude Code Routine.",
+  "license": "MIT",
+  "scripts": {
+    "build:data": "tsx scripts/build-data.ts",
+    "prebuild": "npm run build:data",
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start",
+    "lint": "next lint",
+    "validate-brief": "tsx scripts/validate-brief.ts"
+  },
+  "dependencies": {
+    "@next/mdx": "^15.0.0",
+    "@vercel/og": "^0.6.3",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "date-fns": "^3.6.0",
+    "gray-matter": "^4.0.3",
+    "next": "^15.0.0",
+    "next-mdx-remote": "^5.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^2.12.7",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.11.1",
+    "eslint-config-next": "^15.0.0",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  }
+}
