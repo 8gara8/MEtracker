@@ -6,6 +6,27 @@ substantive content of several sections below is **scaffolded**: the analyst
 `/mnt/skills/user/me-war-intel-brief/SKILL.md` after the repo is live. Until
 then, the structure and marked placeholders below define what goes where.
 
+## 0. Cadence and timezone
+
+The brief publishes **twice daily**, both cadences anchored to Asia/Taipei
+(analyst's home timezone):
+
+- **09:00 Asia/Taipei (01:00 UTC) — morning full brief.** The canonical brief
+  for the day. Full frontmatter schema, minimum 8 sources, escalation gauge,
+  events table, casualties table, multi-clock strategic implications. Driven
+  by `routine/PROMPT_morning.md`.
+- **18:00 Asia/Taipei (10:00 UTC) — evening flash.** A lightweight intra-day
+  delta capturing material developments since the morning run. Under the v2
+  light-touch scope, the flash appends a paragraph to the
+  `## Evening flash notes` section of `content/context.md` rather than writing
+  a new brief file. Driven by `routine/PROMPT_flash.md`. See §6 below for
+  editorial guidance.
+
+The morning Routine rewrites `content/context.md` in full and resets the
+`## Evening flash notes` section to `(None yet for today.)`; the evening
+Routine only touches that one section. Everything else in this document
+applies primarily to the morning Routine; flash-specific guidance is in §6.
+
 ## 1. Research conventions
 
 ### Priority sources
@@ -163,3 +184,65 @@ never put object or array literals as props on the structural components in the
   is being made.
 
 <!-- ANALYST: insert any additional per-section guidance from the existing skill -->
+
+## 6. Flash reports (evening Routine only)
+
+The 18:00 Asia/Taipei flash is a **delta, not a digest**. Under the v2
+light-touch scope, the flash writes a single time-stamped paragraph to the
+`## Evening flash notes` section of `content/context.md`. It does not create a
+new `.mdx` file, does not touch the validator's current single-brief-per-day
+model, and does not change any numbers that the morning brief already
+published.
+
+### Material-change taxonomy
+
+A flash is warranted when one or more of the following has happened in the
+~9 hours since the morning run (roughly 01:00–10:00 UTC):
+
+- New strike, attack, or military operation
+- Change in ceasefire-track status (new talks, collapsed talks, new terms)
+- Casualty figure revision > 10% for any actor
+- Named mediator entering or exiting
+- Significant market move: Brent > 3%, notable equity moves on war-sensitive
+  names, or a visible shift in Asian LNG pricing
+- Unexpected diplomatic statement from a previously-uninvolved party
+- A cluster of smaller developments that together shift tomorrow's framing
+
+If none of the above is satisfied, write a **no-material-change flash** —
+one to three terse sentences noting that posture is unchanged across the
+dimensions you checked.
+
+### Length and tone
+
+- **Material-change flash:** 3–6 sentences. Lead with the development, give
+  one-line implication, and flag whether the change argues for an update to
+  escalation direction or 30-day ceasefire probability in tomorrow's morning
+  brief. Minimum 3 dated, web-cited sources.
+- **No-material-change flash:** 1–3 sentences. No source floor (the whole
+  point is that the research window turned up nothing material).
+
+### What flashes never contain
+
+- Casualty numbers in any structured form. Describe revisions qualitatively;
+  tomorrow's morning brief captures formal figures.
+- Clock-dimension state changes. Clocks move on day-level timescales, not
+  6-hour ones.
+- A restatement of the morning brief's analysis. If you find yourself
+  rewriting the morning's Strategic Implications, stop — that's a digest,
+  not a flash.
+
+### Format
+
+Prepend each flash note with the UTC timestamp of the Routine run, bolded:
+
+> **[10:12 UTC]** Iran fires four ballistic missiles at Haifa ~17:00 Tel Aviv
+> time; initial reports indicate two intercepted and two causing property
+> damage. Iran's statement frames the strike as a response to the Red Sea
+> naval incident earlier today. Analytical judgment: this argues for escalation
+> direction to remain `escalating` in tomorrow's brief and for ceasefire
+> probability to stay pinned in the single digits. (Times of Israel,
+> Reuters, Al Jazeera — accessed 2026-04-22T09:58Z.)
+
+Replace the placeholder line `(None yet for today.)` left by the morning
+Routine with the flash note. If a previous flash already ran today (rare;
+only in manual reruns), append below that one rather than overwriting it.

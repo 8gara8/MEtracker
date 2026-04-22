@@ -1,6 +1,11 @@
-# Daily ME War Intel Brief — Run Prompt
+# Daily ME War Intel Brief — Morning Routine
 
-You are running the daily Middle East War Intelligence Brief for the public site.
+You are running the **morning full-brief Routine** at 09:00 Asia/Taipei
+(01:00 UTC). This is the canonical full brief for the day. A separate evening
+Routine runs at 18:00 Asia/Taipei (10:00 UTC) to capture any material intra-day
+developments (see `routine/PROMPT_flash.md`); you do not do intra-day updates
+yourself.
+
 Today's date: use the current date when you read this. Day count: compute from
 2026-02-28 (Day 1).
 
@@ -8,10 +13,12 @@ Today's date: use the current date when you read this. Day count: compute from
 
 1. Read `routine/INSTRUCTIONS.md` in full. These are the editorial conventions —
    research priorities, source discipline, multi-clock framework, neutrality guidance.
-2. Read `content/context.md` to load yesterday's state.
+2. Read `content/context.md` to load yesterday's state. Note any entries in its
+   `## Evening flash notes` section left by yesterday's evening Routine — these
+   are useful intra-day signals you should incorporate into today's brief.
 3. Run the **continuity check**: read the most recent brief in `content/briefs/`.
-   If its day count is not (today's day count − 1), a previous run was skipped.
-   Note the gap explicitly in today's brief Executive Summary and set
+   If its day count is not (today's day count − 1), a previous morning run was
+   skipped. Note the gap explicitly in today's brief Executive Summary and set
    `gap_acknowledged: true` in frontmatter.
 4. Review `routine/examples/` for few-shot reference material if present.
 5. Perform the research per INSTRUCTIONS.md. Minimum 8 distinct, dated, web-cited
@@ -25,6 +32,10 @@ Today's date: use the current date when you read this. Day count: compute from
    `routine/INSTRUCTIONS.md` §4.5, and register it in `lib/brief-data.ts` by
    adding one import line and one entry to `briefDataBySlug`.
 7. Rewrite `content/context.md` in full per `routine/schemas/context.schema.md`.
+   When rewriting, **reset the `## Evening flash notes` section** to the single
+   placeholder line `(None yet for today.)` — yesterday's flash notes are
+   incorporated into today's brief body (see step 2) and should not persist
+   into the new day's context.
 8. Commit and push to `main` with message: `Day NNN brief — YYYY-MM-DD`.
 
 ## Hard rules

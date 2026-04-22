@@ -2,17 +2,31 @@
 
 **For:** Claude Code
 **By:** 3D (@8gara8)
-**Date:** April 22, 2026
+**Date:** April 22, 2026 (v1.2 — twice-daily + Asia/Taipei)
 **Repo target:** `me-war-intel-brief` (public, owner `@8gara8` on GitHub)
-**Companion design doc:** `me-war-intel-brief DESIGN v1 1 2026-04-22.docx` at the repo root.
+**Companion design doc:** `ME_War_Intel_Brief_DESIGN_v1_2.docx` (committed to `docs/` by analyst). The earlier `me-war-intel-brief DESIGN v1 1 2026-04-22.docx` at the repo root remains in place as the design baseline.
+
+> **v1.2 changes from v1.1:** the routine cadence moves from once daily to
+> **twice daily**, both anchored to **Asia/Taipei** (analyst's timezone):
+> a morning full brief at 09:00 (01:00 UTC) and an evening flash at 18:00
+> (10:00 UTC). The v1.2 build is **light-touch**: the site, schemas, and
+> validator stay single-brief-per-day; flashes are captured as appended notes
+> to `content/context.md`'s `## Evening flash notes` section and folded into
+> the next morning's full brief by the morning Routine. A later build will
+> promote flashes to dedicated `.mdx` files with a flash page treatment.
 
 -----
 
 ## What you're building
 
-A **public daily intelligence website** that publishes one analytical brief per day on the 2026 US-Israeli war on Iran (Operation Epic Fury). The brief is researched and written autonomously by a Claude Code Routine running on Anthropic cloud infrastructure (`claude.ai/code/scheduled`). The site is Next.js on Vercel, statically rebuilt on every commit. The whole loop is **producer (routine) → store (this repo) → presenter (Vercel site)**, with git as the audit trail.
+A **public twice-daily intelligence site** that publishes analytical coverage of the 2026 US-Israeli war on Iran (Operation Epic Fury). Two Claude Code Routines run on Anthropic cloud infrastructure (`claude.ai/code/scheduled`):
 
-The analyst handles: (1) creating the empty GitHub repo, (2) authorizing Claude Code's GitHub access to it, (3) linking the repo to a new Vercel project, (4) configuring the routine at claude.ai/code/scheduled. Everything else is scaffolded by this repo.
+1. A **morning full-brief Routine** at 09:00 Asia/Taipei (01:00 UTC), which researches and writes the canonical daily brief.
+2. An **evening flash Routine** at 18:00 Asia/Taipei (10:00 UTC), which does targeted research on the ~9-hour window since the morning run and appends a time-stamped flash note to `content/context.md`.
+
+The site is Next.js on Vercel, statically rebuilt on every commit. The whole loop is **producers (two routines) → store (this repo) → presenter (Vercel site)**, with git as the audit trail.
+
+The analyst handles: (1) creating the empty GitHub repo, (2) authorizing Claude Code's GitHub access to it, (3) linking the repo to a new Vercel project, (4) configuring **both** routines at claude.ai/code/scheduled. Everything else is scaffolded by this repo.
 
 -----
 
@@ -168,25 +182,42 @@ One seed brief at `content/briefs/2026-02-28-day-001.mdx` covering Day 1 (war st
 
 ## 7. Seed `content/context.md`
 
-Fixed section structure (see `routine/schemas/context.schema.md`): Current war status, Cumulative state, Active deadlines, Diplomatic state, Standing analytical threads, What to watch tomorrow. The routine rewrites this file in full on every run.
+Fixed section structure (see `routine/schemas/context.schema.md`): Current war status, Cumulative state, Active deadlines, Diplomatic state, Standing analytical threads, What to watch tomorrow, **Evening flash notes**. The morning Routine rewrites this file in full on every run, resetting the Evening flash notes section to `(None yet for today.)`. The evening flash Routine only appends to that one section and leaves every other section untouched.
 
 -----
 
-## 8. `routine/PROMPT.md`
+## 8. Routine prompts
 
-Short run-time prompt that points at `INSTRUCTIONS.md` and lays out the hard rules:
+Two prompt files drive the two cadences.
+
+### 8.1 `routine/PROMPT_morning.md`
+
+Run-time prompt for the 09:00 Asia/Taipei (01:00 UTC) morning Routine. Points at `INSTRUCTIONS.md` and lays out the hard rules for writing the canonical full brief:
 
 - No partial commits.
 - No silently fabricated data.
-- Cite every source.
+- Cite every source (minimum 8 unless `quiet_day: true`).
 - Don't touch `data/`.
 - Don't edit `app/`, `components/`, `lib/`, or `routine/` unless tasked with a structural change.
+- On rewrite, reset `content/context.md`'s `## Evening flash notes` section to `(None yet for today.)` — yesterday's flash notes are incorporated into today's brief body (per step 2 of the morning prompt) and should not persist.
+
+### 8.2 `routine/PROMPT_flash.md`
+
+Run-time prompt for the 18:00 Asia/Taipei (10:00 UTC) evening flash Routine. This is a **lightweight delta**, not a re-research:
+
+- Read today's morning brief to establish the baseline; do not re-cover it.
+- Research only the ~9-hour window since the morning run.
+- Write one time-stamped paragraph to `content/context.md`'s `## Evening flash notes` section — either a material-change flash (3–6 sentences, min 3 sources) or a no-material-change flash (1–3 sentences, no source floor).
+- **Do not create a new `.mdx` file.** Under v1.2 light-touch scope, the repo's brief schema and validator remain single-brief-per-day. The only writable surface is the flash-notes section of `content/context.md`.
+- Never touch any other section of `content/context.md`.
+- Never change casualty numbers or clock states anywhere.
+- If the morning Routine failed and no morning brief exists for today, the evening Routine is **promoted** to writing a full brief per `PROMPT_morning.md` with `gap_acknowledged: true`.
 
 -----
 
 ## 9. `routine/INSTRUCTIONS.md`
 
-The editorial brain: research conventions, multi-clock framework, editorial style, standing analytical threads, per-section writing guidance. Scaffolded with `<!-- ANALYST: insert content here -->` placeholders to be filled from the existing skill's content.
+Shared editorial brain for both Routines: cadence and timezone (§0), research conventions, multi-clock framework, editorial style, standing analytical threads, per-section writing guidance, and flash-specific editorial guidance (§6 — material-change taxonomy, length and tone, what flashes never contain, flash note format). Scaffolded with `<!-- ANALYST: insert content here -->` placeholders to be filled from the existing skill's content.
 
 -----
 
@@ -241,4 +272,6 @@ Project description, live URL (placeholder), architecture overview, local dev in
 - `npm run validate-brief content/briefs/2026-02-28-day-001.mdx` passes.
 - GitHub Actions run completes.
 - Repo pushed.
-- README explains Vercel link, routine config, first manual run.
+- Both `routine/PROMPT_morning.md` and `routine/PROMPT_flash.md` exist and describe the 09:00 / 18:00 Asia/Taipei cadence.
+- `content/context.md` contains an `## Evening flash notes` section with the `(None yet for today.)` placeholder.
+- README explains Vercel link, **both** routine configs (morning + evening, with UTC schedules 01:00 and 10:00), and first manual runs of each.

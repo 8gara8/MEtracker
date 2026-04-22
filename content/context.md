@@ -61,3 +61,7 @@ reported.
 - Any mediation offer from Oman, Qatar, Switzerland, or China, and Tehran's
   initial posture toward each.
 - Houthi activity against Red Sea shipping and any US naval response.
+
+## Evening flash notes
+
+(None yet for today.)

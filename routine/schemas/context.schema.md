@@ -1,6 +1,6 @@
 # `content/context.md` — Structure Schema
 
-This document defines the required structure of `content/context.md`. The routine rewrites this file in full on every run. It is not append-only.
+This document defines the required structure of `content/context.md`. The **morning** Routine rewrites this file in full on every run. The **evening** flash Routine appends only to the `## Evening flash notes` section and leaves every other section untouched.
 
 ## Required front matter
 
@@ -22,6 +22,7 @@ The file must contain exactly these second-level (`##`) sections, in this order:
 4. **## Diplomatic state** — brief prose on any active or offered mediation tracks.
 5. **## Standing analytical threads** — bullet list of the durable analytical threads being tracked across briefs (Taiwan LNG, interceptor depletion, US political will, semiconductor supply chain, plus any newly surfaced threads).
 6. **## What to watch tomorrow** — 3–7 bullets of concrete signals to monitor in the next 24 hours.
+7. **## Evening flash notes** — placeholder `(None yet for today.)` when the morning Routine rewrites the file; one or more time-stamped paragraphs when the evening Routine has appended notes. Morning Routine always resets this section to the placeholder so yesterday's notes do not persist.
 
 ## Style
 
