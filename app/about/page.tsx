@@ -9,32 +9,43 @@ export default function AboutPage() {
 
       <h2>What this is</h2>
       <p>
-        A daily intelligence brief on the 2026 US-Israeli war on Iran (Operation Epic Fury),
-        produced autonomously by a Claude Code Routine and published by 3D (
+        A twice-daily intelligence series on the 2026 US-Israeli war on Iran
+        (Operation Epic Fury), produced autonomously by two Claude Code Routines
+        and published by 3D (
         <a href="https://x.com/8gara8" target="_blank" rel="noreferrer noopener">
           @8gara8
         </a>
-        ). Each brief synthesizes that day&apos;s developments through a fixed analytical
-        framework: an escalation gauge, a key-events table, a casualty ledger, and a
-        multi-clock strategic-implications section.
+        ). Each day, a <strong>full morning brief</strong> (09:00 Asia/Taipei)
+        synthesizes developments through a fixed analytical framework — escalation
+        gauge, key events, casualty ledger, multi-clock strategic implications. An{' '}
+        <strong>evening flash</strong> (18:00 Asia/Taipei) notes any material
+        intra-day developments since the morning run; flashes are intentionally
+        lightweight, captured as short time-stamped notes on the rolling context
+        and folded into the next morning&apos;s full brief rather than published
+        as separate pages.
       </p>
 
       <h2>What this is not</h2>
       <p>
-        This is one analyst&apos;s daily synthesis, not a wire service. It is not
-        comprehensive coverage. It is not an institutional product. It is not real-time.
-        It is not affiliated with any organization, government, or news outlet. The
-        ceasefire probability figures are analytical judgments, not market-derived odds.
+        This is one analyst&apos;s synthesis, not a wire service. It is not
+        comprehensive coverage. It is not an institutional product. It is not
+        real-time. It is not affiliated with any organization, government, or
+        news outlet. The ceasefire probability figures are analytical judgments,
+        not market-derived odds. Evening flashes are time-stamped intra-day
+        notes, not breaking-news alerts.
       </p>
 
       <h2>Methodology</h2>
       <p>
-        Each brief draws from a minimum of 8 dated, web-cited sources, prioritizing Al
-        Jazeera, Reuters, AP, NPR, CBS/NBC/ABC News, Times of Israel, CENTCOM releases,
-        and Wikipedia&apos;s Timeline of the 2026 Iran war. Casualty figures use dual
-        sourcing where available (HRANA alongside official Iranian figures). Analytical
-        judgments are explicitly prefixed with &quot;Analytical judgment:&quot; and are
-        distinguished from sourced facts.
+        Each morning full brief draws from a minimum of 8 dated, web-cited sources,
+        prioritizing Al Jazeera, Reuters, AP, NPR, CBS/NBC/ABC News, Times of Israel,
+        CENTCOM releases, and Wikipedia&apos;s Timeline of the 2026 Iran war. Casualty
+        figures use dual sourcing where available (HRANA alongside official Iranian
+        figures). Each material-change evening flash draws on a minimum of 3 dated
+        sources from the same priority list; no-material-change flashes are logged
+        as terse one-to-three-sentence notes. Analytical judgments across both
+        cadences are explicitly prefixed with &quot;Analytical judgment:&quot; and
+        are distinguished from sourced facts.
       </p>
 
       <h2>Open source</h2>
