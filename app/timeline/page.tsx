@@ -56,7 +56,7 @@ export default function TimelinePage() {
               title="7-day risk (ordinal)"
               rows={riskRows}
               max={4}
-              labels={['low', 'cond', 'ext', 'crit', '—']}
+              labels={['', 'low', 'cond', 'ext', 'crit']}
               color={COLORS.accent}
             />
             <MiniLine

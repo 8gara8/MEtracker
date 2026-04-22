@@ -9,7 +9,8 @@ export function Masthead() {
   const latest = getLatestBrief();
   const index = loadIndex();
   const day = latest?.frontmatter.day;
-  const totalDays = index.length || day || 0;
+  const maxIndexDay = index.reduce((m, e) => (e.day > m ? e.day : m), 0);
+  const totalDays = Math.max(maxIndexDay, day ?? 0);
   const displayDate = latest?.frontmatter.date
     ? format(parseISO(latest.frontmatter.date), 'yyyy-MM-dd')
     : '';

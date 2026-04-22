@@ -3,6 +3,16 @@ import type { BriefFrontmatter, CasualtiesHistoryEntry } from '@/lib/types';
 import { COLORS } from '@/lib/design-tokens';
 import { Sparkbar } from './design/Sparkbar';
 
+// Parse "+142/+850" (killed/wounded) from frontmatter's delta_24_48h string.
+function parseDelta(raw: string): { dk: number; dw: number } {
+  const [kRaw, wRaw] = (raw ?? '').split('/');
+  const toNum = (s: string | undefined) => {
+    const m = (s ?? '').match(/-?\d+/);
+    return m ? parseInt(m[0], 10) : 0;
+  };
+  return { dk: toNum(kRaw), dw: toNum(wRaw) };
+}
+
 type ActorKey = 'us' | 'israel' | 'iran' | 'other';
 
 const ACTORS: Array<{ key: ActorKey; label: string; color: string }> = [
@@ -19,15 +29,11 @@ export function CasualtiesBlock({
   snapshot: BriefFrontmatter['casualties_snapshot'];
   history: CasualtiesHistoryEntry[];
 }) {
-  const prev = history.length >= 2 ? history[history.length - 2] : null;
-
   return (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {ACTORS.map((a) => {
         const current = snapshot[a.key];
-        const previous = prev ? prev[a.key] : null;
-        const dk = previous ? current.killed - previous.killed : 0;
-        const dw = previous ? current.wounded - previous.wounded : 0;
+        const { dk, dw } = parseDelta(current.delta_24_48h);
         const hist = history.map((h) => h[a.key].killed);
         return (
           <div
