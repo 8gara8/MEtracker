@@ -21,7 +21,7 @@
     "date-fns": "^3.6.0",
     "gray-matter": "^4.0.3",
     "next": "^15.0.0",
-    "next-mdx-remote": "^5.0.0",
+    "next-mdx-remote": "^6.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "recharts": "^2.12.7",

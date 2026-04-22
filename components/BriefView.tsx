@@ -14,7 +14,7 @@ export function BriefView({ brief }: { brief: Brief }) {
       <div className="min-w-0">
         <BriefHeader frontmatter={brief.frontmatter} />
         <div className="prose-brief">
-          <MDXRemote source={brief.content} components={mdxComponents} />
+          <MDXRemote source={brief.content} components={mdxComponents} options={{ blockJS: false }} />
         </div>
         <BriefFooter frontmatter={brief.frontmatter} />
       </div>
