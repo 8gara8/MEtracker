@@ -32,7 +32,16 @@ jobs:
             base="${{ github.event.pull_request.base.sha }}"
             head="${{ github.event.pull_request.head.sha }}"
             files=$(git diff --name-only --diff-filter=AMR "$base" "$head" -- 'content/briefs/*.mdx' 'content/briefs/*.md' || true)
+            deletions=$(git diff --name-only --diff-filter=D "$base" "$head" -- 'content/briefs/*.mdx' 'content/briefs/*.md' || true)
           else
+            files=$(ls content/briefs/*.mdx content/briefs/*.md 2>/dev/null || true)
+            deletions=""
+          fi
+          # If any brief was deleted, re-validate all remaining briefs so continuity gaps
+          # introduced by the deletion surface through validate-brief.ts's peer checks.
+          if [ -n "$deletions" ]; then
+            echo "Brief deletion(s) detected; validating the full current brief set:"
+            echo "$deletions"
             files=$(ls content/briefs/*.mdx content/briefs/*.md 2>/dev/null || true)
           fi
           echo "files<<EOF" >> "$GITHUB_OUTPUT"

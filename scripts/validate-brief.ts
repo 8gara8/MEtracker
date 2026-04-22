@@ -77,7 +77,8 @@ function extractSection(body: string, heading: string): string | null {
   return lines.slice(start, end).join('\n').trim();
 }
 
-async function checkUrl(url: string): Promise<boolean> {
+async function checkUrl(url: unknown): Promise<boolean> {
+  if (typeof url !== 'string' || url.length === 0) return false;
   if (url.includes('web.archive.org')) return true;
   try {
     const ctrl = new AbortController();
