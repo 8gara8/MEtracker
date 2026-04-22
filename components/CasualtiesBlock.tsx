@@ -3,14 +3,14 @@ import type { BriefFrontmatter, CasualtiesHistoryEntry } from '@/lib/types';
 import { COLORS } from '@/lib/design-tokens';
 import { Sparkbar } from './design/Sparkbar';
 
-// Parse "+142/+850" (killed/wounded) from frontmatter's delta_24_48h string.
-function parseDelta(raw: string): { dk: number; dw: number } {
-  const [kRaw, wRaw] = (raw ?? '').split('/');
-  const toNum = (s: string | undefined) => {
-    const m = (s ?? '').match(/-?\d+/);
-    return m ? parseInt(m[0], 10) : 0;
-  };
-  return { dk: toNum(kRaw), dw: toNum(wRaw) };
+// Parse strict "+k/+w" deltas (e.g. "+142/+850"). Returns nulls for
+// free-form prose (e.g. "200+ Hezbollah targets struck") so we don't
+// fabricate KIA/WIA badges from arbitrary numbers in narrative text.
+const STRICT_DELTA_RE = /^\s*\+?(\d+)\s*\/\s*\+?(\d+)\s*$/;
+function parseDelta(raw: string): { dk: number | null; dw: number | null } {
+  const m = (raw ?? '').match(STRICT_DELTA_RE);
+  if (!m) return { dk: null, dw: null };
+  return { dk: parseInt(m[1], 10), dw: parseInt(m[2], 10) };
 }
 
 type ActorKey = 'us' | 'israel' | 'iran' | 'other';
@@ -56,7 +56,7 @@ export function CasualtiesBlock({
                 style={{ letterSpacing: '-0.02em' }}
               >
                 {current.killed.toLocaleString()}
-                {dk > 0 && (
+                {dk !== null && dk > 0 && (
                   <span className="ml-1.5 font-mono text-[12px] text-accent">+{dk}</span>
                 )}
               </span>
@@ -65,7 +65,7 @@ export function CasualtiesBlock({
               </span>
               <span className="font-display text-[22px] font-medium text-paper-ink-soft tabular">
                 {current.wounded.toLocaleString()}
-                {dw > 0 && (
+                {dw !== null && dw > 0 && (
                   <span className="ml-1.5 font-mono text-[11px] text-accent-amber">
                     +{dw}
                   </span>
