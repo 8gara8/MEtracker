@@ -9,10 +9,10 @@ export const metadata = {
 };
 
 const RISK_SCORE: Record<string, number> = {
-  low: 1,
-  conditional: 2,
-  extreme: 3,
-  critical: 4,
+  low: 0,
+  conditional: 1,
+  extreme: 2,
+  critical: 3,
 };
 
 export default function TimelinePage() {
@@ -56,7 +56,7 @@ export default function TimelinePage() {
               title="7-day risk (ordinal)"
               rows={riskRows}
               max={4}
-              labels={['', 'low', 'cond', 'ext', 'crit']}
+              labels={['low', 'cond', 'ext', 'crit', '']}
               color={COLORS.accent}
             />
             <MiniLine
