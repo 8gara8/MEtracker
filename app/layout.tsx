@@ -1,18 +1,28 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
-import { SiteHeader } from '@/components/layout/SiteHeader';
+import { Newsreader, IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
+import { Masthead } from '@/components/layout/Masthead';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import './globals.css';
 
-const inter = Inter({
+const newsreader = Newsreader({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-newsreader',
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
   display: 'swap',
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const plexSans = IBM_Plex_Sans({
   subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
+  variable: '--font-plex-sans',
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  variable: '--font-plex-mono',
+  weight: ['300', '400', '500', '600'],
   display: 'swap',
 });
 
@@ -36,11 +46,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="min-h-screen bg-[#fafafa]">
-        <SiteHeader />
-        <main className="mx-auto max-w-6xl px-4 py-6">{children}</main>
-        <SiteFooter />
+    <html
+      lang="en"
+      className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable}`}
+    >
+      <body className="min-h-screen bg-paper-bg text-paper-ink">
+        <div className="mx-auto max-w-page px-6 py-7 md:px-11">
+          <Masthead />
+          <main>{children}</main>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

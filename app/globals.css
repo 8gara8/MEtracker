@@ -7,47 +7,63 @@
 }
 
 html {
-  background-color: #fafafa;
+  background-color: #F3EEE3;
 }
 
 body {
-  color: #333333;
-  font-family: var(--font-inter), system-ui, sans-serif;
+  color: #14161A;
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'ss01', 'ss02';
 }
 
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Prose styling inside brief body (MDX) */
 .prose-brief {
   max-width: 72ch;
+  color: #3B3E45;
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
 }
 
 .prose-brief h2 {
-  color: #1B2A4A;
-  font-weight: 700;
-  font-size: 1.35rem;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
-  border-bottom: 2px solid #2E75B6;
-  padding-bottom: 0.25rem;
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+  color: #14161A;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding-top: 8px;
+  margin-top: 28px;
+  margin-bottom: 16px;
+  border-top: 1px solid #14161A;
 }
 
 .prose-brief h3 {
-  color: #1B2A4A;
+  font-family: var(--font-newsreader), Georgia, serif;
+  color: #14161A;
   font-weight: 600;
-  font-size: 1.1rem;
-  margin-top: 1.25rem;
+  font-size: 22px;
+  line-height: 1.15;
+  margin-top: 1.75rem;
   margin-bottom: 0.5rem;
 }
 
 .prose-brief p {
-  color: #333333;
-  line-height: 1.7;
+  color: #3B3E45;
+  line-height: 1.65;
   margin-bottom: 1rem;
+  text-wrap: pretty;
 }
 
 .prose-brief ul,
 .prose-brief ol {
   margin-bottom: 1rem;
-  padding-left: 1.5rem;
+  padding-left: 1.25rem;
 }
 
 .prose-brief ul {
@@ -64,18 +80,39 @@ body {
 }
 
 .prose-brief a {
-  color: #2E75B6;
+  color: #B33A2E;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 .prose-brief strong {
-  color: #1B2A4A;
+  color: #14161A;
+  font-weight: 600;
+}
+
+.prose-brief em {
+  font-style: italic;
+  color: #14161A;
 }
 
 .prose-brief code {
-  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
-  background-color: #f3f4f6;
-  padding: 0.1rem 0.3rem;
-  border-radius: 0.25rem;
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  background-color: #EAE2D0;
+  color: #14161A;
+  padding: 0.05rem 0.3rem;
   font-size: 0.9em;
+}
+
+.prose-brief blockquote {
+  border-left: 3px solid #B33A2E;
+  padding-left: 14px;
+  color: #14161A;
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: 15px;
+  line-height: 1.55;
+  background: #FBF8F0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin: 1.25rem 0;
 }

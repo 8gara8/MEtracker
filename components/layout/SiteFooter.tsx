@@ -1,38 +1,21 @@
 import React from 'react';
-import Link from 'next/link';
+import { format, parseISO } from 'date-fns';
+import { getLatestBrief } from '@/lib/briefs';
 
 export function SiteFooter() {
+  const latest = getLatestBrief();
+  const stamp = latest?.frontmatter.date
+    ? `${format(parseISO(latest.frontmatter.date), 'yyyy-MM-dd')}T01:00Z`
+    : '';
   return (
-    <footer className="mt-12 border-t border-gray-200 bg-white">
-      <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-muted md:flex-row md:items-center md:justify-between">
-        <div>
-          By{' '}
-          <a
-            className="text-accent hover:underline"
-            href="https://x.com/8gara8"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            @8gara8
-          </a>
-          . Source on{' '}
-          <a
-            className="text-accent hover:underline"
-            href="https://github.com/8gara8/me-war-intel-brief"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            GitHub
-          </a>
-          .
-        </div>
-        <div className="text-muted">
-          Not investment, military, or policy advice.{' '}
-          <Link href="/about" className="text-accent hover:underline">
-            Read methodology
-          </Link>
-          .
-        </div>
+    <footer className="mt-12 border-t border-paper-rule-soft pt-4 font-mono text-[10px] uppercase tracking-metalabel text-paper-ink-mute">
+      <div className="flex flex-wrap items-center gap-4">
+        <span>© 2026 3D · @8gara8</span>
+        <span>·</span>
+        <span>Git audit trail: /content/briefs/</span>
+        <span>·</span>
+        <span>Next.js 15 · Vercel · MIT</span>
+        {stamp && <span className="ml-auto">Brief timestamp: {stamp}</span>}
       </div>
     </footer>
   );

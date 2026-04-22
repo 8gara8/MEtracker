@@ -1,9 +1,9 @@
 import React from 'react';
-import type { ClocksHistoryEntry, BriefFrontmatter } from '@/lib/types';
+import type { BriefFrontmatter, ClocksHistoryEntry } from '@/lib/types';
 import { CLOCK_ORDER, clockScore } from '@/lib/design-tokens';
-import { ClockDial } from '@/components/design/ClockDial';
+import { ClockDial } from './design/ClockDial';
 
-export function ClocksGrid({
+export function ClocksStrip({
   clocks,
   history,
 }: {
@@ -11,7 +11,7 @@ export function ClocksGrid({
   history: ClocksHistoryEntry[];
 }) {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-2 gap-[10px] md:grid-cols-3 lg:grid-cols-6">
       {CLOCK_ORDER.map((k) => {
         const clock = clocks[k];
         const spark = history.map((h) => clockScore(h.clocks[k].state));

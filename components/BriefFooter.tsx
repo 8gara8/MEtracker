@@ -1,34 +1,36 @@
 import React from 'react';
-import { format, parseISO } from 'date-fns';
 import type { BriefFrontmatter } from '@/lib/types';
 
 export function BriefFooter({ frontmatter }: { frontmatter: BriefFrontmatter }) {
+  const sources = frontmatter.sources ?? [];
+  if (sources.length === 0) return null;
   return (
-    <footer className="mt-10 border-t border-gray-200 pt-6">
-      <h2 className="mb-3 text-lg font-semibold text-navy">Sources</h2>
-      <ol className="list-decimal space-y-1 pl-5 text-sm text-body">
-        {frontmatter.sources.map((s, i) => {
-          let accessed = s.accessed_at;
-          try {
-            accessed = format(parseISO(s.accessed_at), 'yyyy-MM-dd HH:mm') + ' UTC';
-          } catch {
-            // keep raw string
-          }
-          return (
-            <li key={i}>
-              <a
-                className="text-accent hover:underline"
-                href={s.url}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                {s.name}
-              </a>{' '}
-              <span className="text-muted">— accessed {accessed}</span>
-            </li>
-          );
-        })}
-      </ol>
-    </footer>
+    <ol className="m-0 list-none p-0">
+      {sources.map((s, i) => (
+        <li
+          key={i}
+          className="grid gap-2.5 border-b border-dotted border-paper-rule-soft py-1.5 font-mono text-[11px] text-paper-ink-soft"
+          style={{ gridTemplateColumns: 'auto 1fr' }}
+        >
+          <span className="text-paper-ink-mute">[{String(i + 1).padStart(2, '0')}]</span>
+          <span>
+            <span className="text-paper-ink">{s.name}</span>
+            {s.url && (
+              <>
+                <br />
+                <a
+                  className="text-paper-ink-mute hover:text-accent"
+                  href={s.url}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  ↳ {s.url}
+                </a>
+              </>
+            )}
+          </span>
+        </li>
+      ))}
+    </ol>
   );
 }
