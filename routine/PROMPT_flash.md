@@ -51,8 +51,15 @@ Today's date: use the current date when you read this. Day count: compute from
      tomorrow's morning Routine; you do not change any numbers yourself).
      Minimum 3 dated, web-cited sources listed inline as footnotes or at the
      end of the paragraph.
-6. Replace the `(None yet for today.)` placeholder with your note. Leave every
-   other section of `content/context.md` untouched.
+6. Write your note to the `## Evening flash notes` section of
+   `content/context.md`:
+   - If the section contains the `(None yet for today.)` placeholder (the
+     normal case), **replace** the placeholder with your note.
+   - If the section already contains a prior flash note from earlier today
+     (a manual rerun), **append** your note below the existing one rather
+     than overwriting it — intra-day history must be preserved for the
+     next morning's brief to incorporate.
+   Leave every other section of `content/context.md` untouched.
 7. Commit and push to `main`. Message:
    - `Day NNN flash — YYYY-MM-DD` for material-change flashes, or
    - `Day NNN flash (quiet) — YYYY-MM-DD` for no-material-change flashes.
@@ -70,11 +77,16 @@ Today's date: use the current date when you read this. Day count: compute from
   Describe changes qualitatively in your flash note; tomorrow morning's Routine
   captures formal numbers.
 - **Never touch `app/`, `components/`, `lib/`, `data/`, or anything under
-  `routine/`.** This is a content routine.
+  `routine/`.** This is a content routine. The one exception — active only
+  on the promoted-run path below — is `lib/brief-data.ts`, which must be
+  edited to register the new sidecar per `PROMPT_morning.md` step 6.
 - **No silently fabricated data.** If nothing is confirmable, write a
   no-material-change flash instead of speculating.
 - **If today's morning brief does not exist** (morning Routine failed), you
   are **promoted** to writing the full brief. Follow `routine/PROMPT_morning.md`
   instead — full schema, 8-source floor, sidecar, and all — and set
-  `gap_acknowledged: true` in the brief frontmatter.
+  `gap_acknowledged: true` in the brief frontmatter. The promoted path
+  requires creating `content/briefs/<slug>.data.ts` and registering it in
+  `lib/brief-data.ts` (the morning prompt's one `lib/` exception); do that,
+  overriding the "never touch `lib/`" rule above for this specific file.
 - **No partial commits.** If you cannot produce a valid note, commit nothing.
