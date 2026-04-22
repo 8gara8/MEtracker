@@ -20,7 +20,10 @@ Today's date: use the current date when you read this. Day count: compute from
    Executive Summary.
 6. Write today's brief to `content/briefs/YYYY-MM-DD-day-NNN.mdx` per the schema in
    `routine/schemas/brief-frontmatter.schema.json` and the body structure in
-   `SPEC.md` §2.2. Filename day must be zero-padded to three digits.
+   `SPEC.md` §2.2. Filename day must be zero-padded to three digits. Also create
+   the structured-data sidecar `content/briefs/YYYY-MM-DD-day-NNN.data.ts` per
+   `routine/INSTRUCTIONS.md` §4.5, and register it in `lib/brief-data.ts` by
+   adding one import line and one entry to `briefDataBySlug`.
 7. Rewrite `content/context.md` in full per `routine/schemas/context.schema.md`.
 8. Commit and push to `main` with message: `Day NNN brief — YYYY-MM-DD`.
 
@@ -38,7 +41,9 @@ Today's date: use the current date when you read this. Day count: compute from
 - **Don't touch `data/`.** That directory is build-time generated.
 - **Don't edit anything in `app/`, `components/`, `lib/`, or `routine/`** unless
   the analyst has explicitly tasked you with a structural change — this is a
-  content routine, not a code-modification routine.
+  content routine, not a code-modification routine. The one exception is
+  `lib/brief-data.ts`: the daily run adds one import and one map entry there
+  to register the new sidecar (see Step 6).
 
 The GitHub Actions validator will reject the PR (and the routine should treat the
 rejection as a run failure) if the brief violates the schema or the rules in

@@ -99,6 +99,27 @@ in `content/context.md`.
 
 <!-- ANALYST: insert any newly surfaced threads here as the war evolves -->
 
+## 4.5 Structured component data — sidecar module
+
+Structured data for `<EscalationGauge>`, `<EventsTable>`, and `<CasualtiesTable>`
+does **not** live inside the `.mdx` file. For each brief, create a sibling
+TypeScript module at `content/briefs/<slug>.data.ts` that default-exports a
+`BriefData` object (see `lib/brief-data.ts` for the type). The MDX body
+references each component as a bare tag (`<EscalationGauge />`, `<EventsTable />`,
+`<CasualtiesTable />`); `components/BriefView.tsx` supplies the props from the
+sidecar at render time.
+
+After creating the sidecar, register it in `lib/brief-data.ts` by adding an
+`import` and a one-line entry to `briefDataBySlug` keyed by the brief slug. The
+build will fail fast if a brief is rendered without a matching sidecar entry.
+
+This is a **security boundary**: `next-mdx-remote@6` ships with
+`blockJS: true`, which blocks JavaScript expressions inside MDX to prevent a
+prompt-injected source from landing executable code in the rendered output.
+Keep the hardening intact — never pass `blockJS: false` to `MDXRemote`, and
+never put object or array literals as props on the structural components in the
+`.mdx` file.
+
 ## 5. Per-section writing guidance
 
 ### Executive Summary
