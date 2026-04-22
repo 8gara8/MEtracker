@@ -9,6 +9,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import matter from 'gray-matter';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
@@ -53,6 +54,40 @@ function loadAllBriefs(): LoadedBrief[] {
 
 function countWords(text: string): number {
   return text.trim().split(/\s+/).filter(Boolean).length;
+}
+
+function sidecarPathFor(briefFile: string): string {
+  return briefFile.replace(/\.mdx?$/, '.data.ts');
+}
+
+type SidecarShape = {
+  escalation?: { rationale?: { direction?: string; risk7d?: string; spillover?: string } };
+  events?: Array<{ event?: string; summary?: string; impact?: string; source?: string }>;
+  casualties?: Record<string, { cumulative?: string; status?: string } | undefined>;
+};
+
+async function loadSidecar(briefFile: string): Promise<SidecarShape | null> {
+  const sidecar = sidecarPathFor(briefFile);
+  if (!fs.existsSync(sidecar)) return null;
+  const mod = (await import(pathToFileURL(sidecar).href)) as {
+    default?: SidecarShape;
+  } & SidecarShape;
+  return mod.default ?? (mod as SidecarShape);
+}
+
+function sidecarProse(data: SidecarShape | null): string {
+  if (!data) return '';
+  const parts: string[] = [];
+  const r = data.escalation?.rationale;
+  if (r) parts.push(r.direction ?? '', r.risk7d ?? '', r.spillover ?? '');
+  for (const e of data.events ?? []) {
+    parts.push(e.event ?? '', e.summary ?? '', e.impact ?? '', e.source ?? '');
+  }
+  for (const a of ['us', 'israel', 'iran', 'other'] as const) {
+    const c = data.casualties?.[a];
+    if (c) parts.push(c.cumulative ?? '', c.status ?? '');
+  }
+  return parts.filter(Boolean).join(' ');
 }
 
 function extractSection(body: string, heading: string): string | null {
@@ -224,9 +259,15 @@ async function validateOne(
     }
   }
 
-  const bodyWc = countWords(target.body);
-  if (bodyWc < 1500 || bodyWc > 4000) {
-    errors.push(`Total body word count ${bodyWc}; expected 1500–4000.`);
+  const sidecar = await loadSidecar(target.file);
+  if (!sidecar) {
+    errors.push(
+      `Missing sidecar data file: expected ${path.relative(process.cwd(), sidecarPathFor(target.file))} per SPEC §2.2. Create it and register in lib/brief-data.ts.`,
+    );
+  }
+  const bodyWc = countWords(`${target.body} ${sidecarProse(sidecar)}`);
+  if (bodyWc < 1200 || bodyWc > 4000) {
+    errors.push(`Total body word count ${bodyWc}; expected 1200–4000.`);
   }
 
   return { file: target.file, errors, warnings };

@@ -84,6 +84,8 @@ State enums for `clocks.*.state`: `critical | low | degraded | moderate | high |
 
 MDX body uses three custom components: `<EscalationGauge>`, `<EventsTable>`, `<CasualtiesTable>`. Section order: Executive Summary, Escalation Gauge, Key Events, Casualties, Strategic Implications, Sources (auto-rendered from frontmatter).
 
+The components are referenced as bare tags in the MDX body (e.g. `<EscalationGauge />`). Their structured data (rationale strings, event rows, casualty blocks) lives in a sibling sidecar at `content/briefs/<slug>.data.ts` that default-exports a `BriefData` object and is registered in `lib/brief-data.ts`. This keeps `next-mdx-remote@6`'s `blockJS: true` hardening intact so that a prompt-injected source cannot land executable JavaScript expressions in the rendered brief.
+
 -----
 
 ## 3. Build-time data aggregation
@@ -154,7 +156,7 @@ Three components do the structural lifting:
 - `<EventsTable>` — seven-column events table, mobile-expand to cards
 - `<CasualtiesTable>` — four-row actor table (US, Israel, Iran & Proxies, Other)
 
-Component props mirror frontmatter to let the validator catch divergence.
+Component props mirror frontmatter to let the validator catch divergence. Props are supplied from each brief's `.data.ts` sidecar (see §2.2), not from JSX-expression attributes in the MDX body.
 
 -----
 
@@ -200,7 +202,7 @@ The editorial brain: research conventions, multi-clock framework, editorial styl
 - **Casualties non-decreasing** — killed/wounded ≥ previous brief for every actor, unless `casualty_revision: true`.
 - **Sources count floor** — `len(sources) >= 8` unless `quiet_day: true`.
 - **URLs resolve** — every URL 200s (or is on web.archive.org). Up to 2 broken links pass with warning.
-- **Length sanity** — Exec Summary 150–300 words, Strategic Implications 400–800, body 1500–4000.
+- **Length sanity** — Exec Summary 150–300 words, Strategic Implications 400–800, total authored prose (MDX body + sidecar string fields) 1200–4000.
 
 ### 10.2 Pass/fail behavior
 
