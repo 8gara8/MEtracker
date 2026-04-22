@@ -9,6 +9,7 @@ import {
 } from '@/lib/data-aggregation';
 import { BriefHeader } from './BriefHeader';
 import { BriefFooter } from './BriefFooter';
+import { HeadlineBar } from './HeadlineBar';
 import { EscalationGauge } from './EscalationGauge';
 import { EventsTable } from './EventsTable';
 import { CasualtiesTable } from './CasualtiesTable';
@@ -37,6 +38,7 @@ export function BriefView({ brief }: { brief: Brief }) {
   return (
     <article>
       <BriefHeader frontmatter={brief.frontmatter} />
+      <HeadlineBar frontmatter={brief.frontmatter} />
 
       <SectionRule number={1} label="Multi-clock state" right="6 indicators" />
       <ClocksStrip clocks={brief.frontmatter.clocks} history={clocksHistory} />
@@ -46,20 +48,27 @@ export function BriefView({ brief }: { brief: Brief }) {
         label="Key developments"
         right={`${brief.frontmatter.key_developments.length} items`}
       />
-      <ol className="m-0 list-none p-0">
+      <ol
+        className="m-0 grid list-none grid-cols-1 gap-x-10 p-0 md:grid-cols-2"
+      >
         {brief.frontmatter.key_developments.map((h, i) => (
           <li
             key={i}
-            className="grid gap-3 border-b border-paper-rule-soft py-[10px]"
+            className="grid gap-3.5 border-b border-paper-rule-soft py-3"
             style={{ gridTemplateColumns: 'auto 1fr' }}
           >
             <span
-              className="font-mono text-[11px] text-accent"
+              className="pt-0.5 font-mono text-[11px] text-accent"
               style={{ letterSpacing: '0.08em' }}
             >
               {String(i + 1).padStart(2, '0')}
             </span>
-            <span className="font-sans text-[14px] leading-[1.45] text-paper-ink">{h}</span>
+            <span
+              className="font-sans text-[15px] leading-[1.45] text-paper-ink"
+              style={{ textWrap: 'pretty' }}
+            >
+              {h}
+            </span>
           </li>
         ))}
       </ol>
@@ -70,7 +79,14 @@ export function BriefView({ brief }: { brief: Brief }) {
       </div>
 
       <SectionRule
-        number={4}
+        number={7}
+        label="Sources"
+        right={`${brief.frontmatter.sources.length} citations`}
+      />
+      <BriefFooter frontmatter={brief.frontmatter} />
+
+      <SectionRule
+        number={8}
         label="Casualties snapshot"
         right="Cumulative · ±24–48h Δ"
       />
@@ -78,13 +94,6 @@ export function BriefView({ brief }: { brief: Brief }) {
         snapshot={brief.frontmatter.casualties_snapshot}
         history={casualtiesHistory}
       />
-
-      <SectionRule
-        number={5}
-        label="Sources"
-        right={`${brief.frontmatter.sources.length} citations`}
-      />
-      <BriefFooter frontmatter={brief.frontmatter} />
     </article>
   );
 }
