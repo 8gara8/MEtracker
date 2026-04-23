@@ -119,6 +119,34 @@ const data: BriefData = {
         "Pakistan Munir+Sharif authored Trump's Tuesday extension; Dar met US and Chinese ambassadors Monday. MSC (Swiss-Italian) and Greek flag-state diplomatic engagement expected on Francesca/Epaminondas. UK-led 40-nation freedom-of-navigation coalition still in planning. Qatar Ras Laffan 17% LNG out for 3–5 years (force majeure).",
     },
   },
+  exec:
+    "Iran delivered the retaliation it had telegraphed. IRGC Navy gunboats fired on the Liberia-flagged Epaminondas, seized it and the Panama-flagged MSC Francesca, and engaged a third vessel (Euphoria) within hours of Trump's Tuesday-evening indefinite ceasefire extension. Both seized ships were escorted to the Iranian coast. The White House response was the day's most analytically significant move: Press Secretary Leavitt told Fox News the actions are not ceasefire violations because the ships are neither American nor Israeli — a narrow definition that lets Iran execute a controlled, non-US-flagged reprisal without forcing US kinetic response. Trump reinforced the posture with \"no time frame\" on the war and no \"firm deadline\" for an Iranian proposal. CENTCOM's Adm. Cooper simultaneously said US forces are \"rearming, retooling, and adjusting tactics\" during the truce — a rearmament cycle Iran has equivalent access to. Brent closed at $101.91 (+3.5%) erasing Tuesday's post-extension rally. Analytical judgment: the 7-day trajectory is a controlled tit-for-tat within an indefinite truce frame, one Greek-crewed injury or one US-flagged hull away from collapse.",
+  implications: [
+    {
+      title: "The \"not-a-violation\" doctrine is the day's structural move",
+      body:
+        'Leavitt narrowed the US definition of ceasefire-breaching conduct to direct attacks on US or Israeli assets, functionally ceding a harassment lane over non-US-flagged commercial shipping. Iran will test this lane further; the question is how far. MSC Francesca and Epaminondas are high-value detainments but not US hulls, so gunboat activity against international shipping is now a freedom-of-navigation problem for a 40-nation coalition rather than a US-Iran bilateral issue. Combined with "no time frame," this is the first day the US has explicitly decoupled "non-US hull incidents" from "ceasefire status."',
+    },
+    {
+      title: 'The fractured-regime frame has now gone both ways — creating a negotiation trap',
+      body:
+        "CNN and Euronews sharpened the picture: Supreme Leader Mojtaba Khamenei unseen since succession, reportedly incapacitated; IRGC commander Ahmad Vahidi acting as decisional axis, gating Pezeshkian's appointments and access to Khamenei. Pezeshkian's civilian track (dialogue welcomed, blockade the obstacle) ran parallel to the IRGC's military track (the Hormuz seizures) on the same day. Trump's demand for a \"unified proposal\" cannot be satisfied because the regime authoring it is structurally disunified — the demand has effectively become an indefinite suspension condition both capitals can live with.",
+    },
+    {
+      title: 'Every day of indefinite truce raises the ceiling of the next escalation',
+      body:
+        'Adm. Cooper\'s "rearming, retooling" statement is operationally an admission that the truce is functioning as mutual production and adaptation cycles rather than de-escalation. Iran has equivalent access: satellite imagery continues to show missile-base clearance. The next kinetic round, if it comes, will be better-resourced on both sides. Brent at $101.91 understates structural tightening — tanker traffic "light" Wednesday per CNBC, hull insurers re-pricing, and Ras Laffan 17% out for 3–5 years mean the energy channel stays loaded even without new kinetic forcing functions.',
+    },
+  ],
+  casualtyNotes: {
+    us: 'Military fatalities limited to Red Sea and Iraq base actions; no new KIA today. CENTCOM publicly in "rearm, retool, TTP-adjust" posture during the truce window.',
+    israel:
+      'No new KIA but Hezbollah drone targeted IDF troops in southern Lebanon on Day 8 of the 10-day Lebanon truce. Israel–Lebanon direct talks reopen Thursday in Washington; Netanyahu: "war not yet ended."',
+    iran:
+      "Iran Legal Medicine Organization updated to 'nearly 3,400' KIA; no new Iranian-side military losses reported in Wednesday maritime operations. Civilian (Pezeshkian/Araghchi) and military (IRGC/Vahidi) tracks now publicly separated.",
+    other:
+      "Aggregated Lebanon, Iraq, and Gulf-state totals unchanged today. MSC (Swiss-Italian) and Greek flag-state diplomatic engagement now activated on the Francesca/Epaminondas seizures; UK-led 40-nation freedom-of-navigation coalition still in planning.",
+  },
 };
 
 export default data;
