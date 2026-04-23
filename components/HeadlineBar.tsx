@@ -55,7 +55,7 @@ export function HeadlineBar({ frontmatter }: { frontmatter: BriefFrontmatter }) 
         return (
           <div
             key={t.label}
-            className="flex flex-col gap-1.5 px-[18px] py-[14px]"
+            className="flex min-w-0 flex-col gap-1.5 px-[18px] py-[14px]"
             style={{
               borderRight: isLast ? undefined : `1px solid ${COLORS.ruleSoft}`,
             }}
@@ -66,15 +66,15 @@ export function HeadlineBar({ frontmatter }: { frontmatter: BriefFrontmatter }) 
             >
               <span
                 aria-hidden
-                className="inline-block"
+                className="inline-block shrink-0"
                 style={{ width: 8, height: 8, background: c }}
               />
-              {t.label}
+              <span className="truncate">{t.label}</span>
             </div>
             <div
-              className="font-display font-semibold tabular"
+              className="font-display font-semibold tabular break-words"
               style={{
-                fontSize: 28,
+                fontSize: 'clamp(18px, 5.2vw, 28px)',
                 lineHeight: 1.05,
                 letterSpacing: '-0.015em',
                 color: valueColor,
