@@ -3,6 +3,7 @@ import type { EventRow } from '@/components/EventsTable';
 import type { CasualtiesTableProps } from '@/components/CasualtiesTable';
 
 import day001 from '@/content/briefs/2026-02-28-day-001.data';
+import day055 from '@/content/briefs/2026-04-23-day-055.data';
 
 export type BriefData = {
   escalation: EscalationGaugeProps;
@@ -12,6 +13,7 @@ export type BriefData = {
 
 const briefDataBySlug: Record<string, BriefData> = {
   '2026-02-28-day-001': day001,
+  '2026-04-23-day-055': day055,
 };
 
 export function getBriefData(slug: string): BriefData | null {

@@ -33,28 +33,63 @@ jobs:
             head="${{ github.event.pull_request.head.sha }}"
             files=$(git diff --name-only --diff-filter=AMR "$base" "$head" -- 'content/briefs/*.mdx' 'content/briefs/*.md' || true)
             deletions=$(git diff --name-only --diff-filter=D "$base" "$head" -- 'content/briefs/*.mdx' 'content/briefs/*.md' || true)
-            sidecar_changes=$(git diff --name-only "$base" "$head" -- 'content/briefs/*.data.ts' || true)
+            sidecar_edits=$(git diff --name-only --diff-filter=MR "$base" "$head" -- 'content/briefs/*.data.ts' || true)
+            sidecar_adds=$(git diff --name-only --diff-filter=A "$base" "$head" -- 'content/briefs/*.data.ts' || true)
+            sidecar_dels=$(git diff --name-only --diff-filter=D "$base" "$head" -- 'content/briefs/*.data.ts' || true)
           else
             files=$(ls content/briefs/*.mdx content/briefs/*.md 2>/dev/null || true)
             deletions=""
-            sidecar_changes=""
+            sidecar_edits=""
+            sidecar_adds=""
+            sidecar_dels=""
           fi
           # If any brief was deleted, re-validate all remaining briefs so continuity gaps
           # introduced by the deletion surface through validate-brief.ts's peer checks.
-          # Sidecar (.data.ts) edits also trigger full-set validation: the brief-length
-          # check reads sidecar prose, so a sidecar-only change can violate the word-count
+          # Sidecar (.data.ts) *edits* also trigger full-set validation: the brief-length
+          # check reads sidecar prose, so a sidecar-only edit can violate the word-count
           # floor without touching any .mdx file.
-          if [ -n "$deletions" ] || [ -n "$sidecar_changes" ]; then
+          if [ -n "$deletions" ] || [ -n "$sidecar_edits" ]; then
             if [ -n "$deletions" ]; then
               echo "Brief deletion(s) detected:"
               echo "$deletions"
             fi
-            if [ -n "$sidecar_changes" ]; then
-              echo "Sidecar (.data.ts) change(s) detected:"
-              echo "$sidecar_changes"
+            if [ -n "$sidecar_edits" ]; then
+              echo "Sidecar (.data.ts) edit(s) detected:"
+              echo "$sidecar_edits"
             fi
             echo "Validating the full current brief set."
             files=$(ls content/briefs/*.mdx content/briefs/*.md 2>/dev/null || true)
+          elif [ -n "$sidecar_adds" ] || [ -n "$sidecar_dels" ]; then
+            # Sidecar *additions or deletions* for existing briefs (e.g. a backfill adding
+            # a sidecar, or a PR removing one) must still run the validator so the
+            # sidecar-presence + word-count checks fire on the companion .mdx. For each
+            # affected sidecar, pull its companion .mdx into $files (de-duplicated against
+            # entries already there from a same-PR .mdx change). A deletion leaves the
+            # companion orphaned, so the validator will correctly surface the missing
+            # sidecar error.
+            if [ -n "$sidecar_adds" ]; then
+              echo "Sidecar (.data.ts) addition(s) detected:"
+              echo "$sidecar_adds"
+            fi
+            if [ -n "$sidecar_dels" ]; then
+              echo "Sidecar (.data.ts) deletion(s) detected:"
+              echo "$sidecar_dels"
+            fi
+            sidecar_presence_changes=$(printf '%s\n%s' "$sidecar_adds" "$sidecar_dels")
+            while IFS= read -r sidecar; do
+              [ -z "$sidecar" ] && continue
+              companion="${sidecar%.data.ts}.mdx"
+              if [ ! -f "$companion" ]; then
+                companion="${sidecar%.data.ts}.md"
+              fi
+              if [ -f "$companion" ] && ! printf '%s\n' "$files" | grep -qxF "$companion"; then
+                if [ -z "$files" ]; then
+                  files="$companion"
+                else
+                  files=$(printf '%s\n%s' "$files" "$companion")
+                fi
+              fi
+            done <<< "$sidecar_presence_changes"
           fi
           echo "files<<EOF" >> "$GITHUB_OUTPUT"
           echo "$files" >> "$GITHUB_OUTPUT"
