@@ -1,10 +1,12 @@
 import type { MDXComponents } from 'mdx/types';
-import { EscalationGauge } from '@/components/EscalationGauge';
-import { EventsTable } from '@/components/EventsTable';
-import { CasualtiesTable } from '@/components/CasualtiesTable';
+
+// v3 layout renders escalation, events, and casualties in the page chrome
+// (BriefView). The MDX shortcodes are kept for backward compatibility with
+// existing briefs but render nothing so sections don't duplicate.
+const NoopShortcode = () => null;
 
 export const mdxComponents: MDXComponents = {
-  EscalationGauge,
-  EventsTable,
-  CasualtiesTable,
+  EscalationGauge: NoopShortcode,
+  EventsTable: NoopShortcode,
+  CasualtiesTable: NoopShortcode,
 };

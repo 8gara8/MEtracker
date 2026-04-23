@@ -8,13 +8,16 @@ import {
   loadClocksHistory,
 } from '@/lib/data-aggregation';
 import { BriefHeader } from './BriefHeader';
-import { BriefFooter } from './BriefFooter';
 import { HeadlineBar } from './HeadlineBar';
-import { EscalationGauge } from './EscalationGauge';
-import { EventsTable } from './EventsTable';
-import { CasualtiesTable } from './CasualtiesTable';
 import { ClocksStrip } from './ClocksStrip';
+import { OverallRead } from './OverallRead';
+import { GaugeExplanations } from './GaugeExplanations';
+import { KeyDevelopments } from './KeyDevelopments';
+import { ImplicationsGrid } from './ImplicationsGrid';
 import { CasualtiesBlock } from './CasualtiesBlock';
+import { CasualtiesDetails } from './CasualtiesDetails';
+import { FlashCard } from './FlashCard';
+import { SourcesList } from './SourcesList';
 import { SectionRule } from './design/SectionRule';
 
 export function BriefView({ brief }: { brief: Brief }) {
@@ -26,67 +29,62 @@ export function BriefView({ brief }: { brief: Brief }) {
     (h) => h.day <= brief.frontmatter.day,
   );
 
-  const components = {
-    ...mdxComponents,
-    ...(data && {
-      EscalationGauge: () => <EscalationGauge {...data.escalation} />,
-      EventsTable: () => <EventsTable events={data.events} />,
-      CasualtiesTable: () => <CasualtiesTable {...data.casualties} />,
-    }),
-  };
+  const events = data?.events;
+  const keyDevCount = events?.length ?? brief.frontmatter.key_developments.length;
+  const showImplications = Boolean(data?.implications?.length);
+  const showMdxNarrative = !showImplications;
 
   return (
     <article>
       <BriefHeader frontmatter={brief.frontmatter} />
       <HeadlineBar frontmatter={brief.frontmatter} />
 
-      <SectionRule number={1} label="Multi-clock state" right="6 indicators" />
+      {/* §01 Escalation gauge — clocks + overall read + per-gauge explanations */}
+      <SectionRule
+        number={1}
+        label="Escalation gauge"
+        right="6 clocks · overall assessment"
+      />
       <ClocksStrip clocks={brief.frontmatter.clocks} history={clocksHistory} />
+      {data?.exec && <OverallRead exec={data.exec} />}
+      <GaugeExplanations clocks={brief.frontmatter.clocks} />
 
+      {/* §02 Key developments — color-scan cues + full write-ups */}
       <SectionRule
         number={2}
         label="Key developments"
-        right={`${brief.frontmatter.key_developments.length} items`}
+        right={`${keyDevCount} items · color + detail`}
       />
-      <ol
-        className="m-0 grid list-none grid-cols-1 gap-x-10 p-0 md:grid-cols-2"
-      >
-        {brief.frontmatter.key_developments.map((h, i) => (
-          <li
-            key={i}
-            className="grid gap-3.5 border-b border-paper-rule-soft py-3"
-            style={{ gridTemplateColumns: 'auto 1fr' }}
-          >
-            <span
-              className="pt-0.5 font-mono text-[11px] text-accent"
-              style={{ letterSpacing: '0.08em' }}
-            >
-              {String(i + 1).padStart(2, '0')}
-            </span>
-            <span
-              className="font-sans text-[15px] leading-[1.45] text-paper-ink"
-              style={{ textWrap: 'pretty' }}
-            >
-              {h}
-            </span>
-          </li>
-        ))}
-      </ol>
-
-      <SectionRule number={3} label="Executive narrative" />
-      <div className="prose-brief max-w-none">
-        <MDXRemote source={brief.content} components={components} />
-      </div>
-
-      <SectionRule
-        number={7}
-        label="Sources"
-        right={`${brief.frontmatter.sources.length} citations`}
+      <KeyDevelopments
+        events={events}
+        headlines={brief.frontmatter.key_developments}
+        fallbackDirection={brief.frontmatter.escalation_direction}
       />
-      <BriefFooter frontmatter={brief.frontmatter} />
 
+      {/* §03 Strategic implications (curated) OR analyst narrative (MDX) */}
+      {showImplications && data?.implications ? (
+        <>
+          <SectionRule
+            number={3}
+            label="Strategic implications"
+            right={`${data.implications.length} threads`}
+          />
+          <ImplicationsGrid implications={data.implications} />
+        </>
+      ) : null}
+
+      {showMdxNarrative && (
+        <>
+          <SectionRule number={3} label="Analyst narrative" />
+          <div className="prose-brief max-w-none">
+            <MDXRemote source={brief.content} components={mdxComponents} />
+          </div>
+        </>
+      )}
+
+      {/* §04 Casualties snapshot */}
       <SectionRule
-        number={8}
+        number={4}
         label="Casualties snapshot"
         right="Cumulative · ±24–48h Δ"
       />
@@ -94,6 +92,34 @@ export function BriefView({ brief }: { brief: Brief }) {
         snapshot={brief.frontmatter.casualties_snapshot}
         history={casualtiesHistory}
       />
+
+      {/* §05 Casualties details — per-actor notes directly below the snapshot */}
+      <SectionRule number={5} label="Casualties details" right="Per-actor notes" />
+      <CasualtiesDetails
+        snapshot={brief.frontmatter.casualties_snapshot}
+        history={casualtiesHistory}
+        notes={data?.casualtyNotes}
+      />
+
+      {/* §06 Evening flash (optional) */}
+      {data?.flash && (
+        <>
+          <SectionRule
+            number={6}
+            label="Evening flash (18:00 TPE)"
+            right="+9h delta"
+          />
+          <FlashCard flash={data.flash} />
+        </>
+      )}
+
+      {/* §07 Sources — always last */}
+      <SectionRule
+        number={7}
+        label="Sources"
+        right={`${brief.frontmatter.sources.length} citations`}
+      />
+      <SourcesList frontmatter={brief.frontmatter} />
     </article>
   );
 }
