@@ -11,7 +11,7 @@ export function ClocksStrip({
   history: ClocksHistoryEntry[];
 }) {
   return (
-    <div className="grid grid-cols-2 gap-[10px] md:grid-cols-3 lg:grid-cols-6">
+    <div className="grid grid-cols-2 gap-[10px] sm:grid-cols-3 xl:grid-cols-6">
       {CLOCK_ORDER.map((k) => {
         const clock = clocks[k];
         const spark = history.map((h) => clockScore(h.clocks[k].state));

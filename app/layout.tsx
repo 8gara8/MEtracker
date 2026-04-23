@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable}`}
     >
       <body className="min-h-screen bg-paper-bg text-paper-ink">
-        <div className="mx-auto max-w-page px-6 py-7 md:px-11">
+        <div className="mx-auto max-w-page px-[14px] py-4 md:px-6 md:py-[22px] xl:px-11 xl:py-7">
           <Masthead />
           <main>{children}</main>
           <SiteFooter />

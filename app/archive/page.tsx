@@ -26,46 +26,36 @@ export default function ArchivePage() {
         <p className="text-paper-ink-mute">No briefs published yet.</p>
       ) : (
         <div className="border border-paper-rule-soft">
-          <div
-            className="hidden border-b-2 border-paper-ink bg-paper-card px-[14px] py-2 font-mono text-[10px] uppercase tracking-label text-paper-ink-mute md:grid"
-            style={{
-              gridTemplateColumns:
-                '70px 100px minmax(0,1fr) 120px 120px 100px',
-            }}
-          >
-            <div>Day</div>
-            <div>Date</div>
-            <div>Title</div>
-            <div>Direction</div>
-            <div>Risk / 7d</div>
-            <div>C/F 30d</div>
+          <div className="archive-row is-header border-b-2 border-paper-ink bg-paper-card px-[14px] py-2 font-mono text-[10px] uppercase tracking-label text-paper-ink-mute">
+            <div className="col-day">Day</div>
+            <div className="col-date">Date</div>
+            <div className="col-title">Title</div>
+            <div className="col-dir">Direction</div>
+            <div className="col-risk">Risk / 7d</div>
+            <div className="col-pct">C/F 30d</div>
           </div>
           {briefs.map((b) => (
             <Link
               key={b.slug}
               href={`/brief/${b.slug}`}
-              className="block border-b border-paper-rule-soft border-l-[3px] border-l-transparent px-[14px] py-3 transition-colors hover:border-l-accent hover:bg-paper-card md:grid md:items-baseline md:gap-2"
-              style={{
-                gridTemplateColumns:
-                  '70px 100px minmax(0,1fr) 120px 120px 100px',
-              }}
+              className="archive-row border-b border-paper-rule-soft border-l-[3px] border-l-transparent px-[14px] py-3 transition-colors hover:border-l-accent hover:bg-paper-card"
             >
-              <div className="font-mono text-[13px] tabular text-accent">
+              <div className="col-day font-mono text-[13px] tabular text-accent">
                 {String(b.frontmatter.day).padStart(3, '0')}
               </div>
-              <div className="font-mono text-[12px] tabular text-paper-ink-soft">
+              <div className="col-date font-mono text-[12px] tabular text-paper-ink-soft">
                 {b.frontmatter.date}
               </div>
-              <div className="font-display text-[16px] font-medium leading-[1.3] text-paper-ink">
+              <div className="col-title font-display text-[16px] font-medium leading-[1.3] text-paper-ink">
                 {b.frontmatter.title}
               </div>
-              <div className="mt-1 md:mt-0">
+              <div className="col-dir">
                 <Pill value={b.frontmatter.escalation_direction} />
               </div>
-              <div className="mt-1 md:mt-0">
+              <div className="col-risk">
                 <Pill value={b.frontmatter.escalation_risk_7d} />
               </div>
-              <div className="mt-1 font-mono text-[13px] tabular text-paper-ink-soft md:mt-0">
+              <div className="col-pct font-mono text-[13px] tabular text-paper-ink-soft">
                 {b.frontmatter.ceasefire_probability_30d}%
               </div>
             </Link>

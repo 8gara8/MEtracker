@@ -7,6 +7,13 @@ const config: Config = {
     './content/**/*.{mdx,md}',
   ],
   theme: {
+    screens: {
+      sm: '520px',
+      md: '720px',
+      lg: '1024px',
+      xl: '1100px',
+      '2xl': '1440px',
+    },
     extend: {
       colors: {
         paper: {
@@ -43,7 +50,7 @@ const config: Config = {
         stamp: '0.16em',
       },
       maxWidth: {
-        page: '1280px',
+        page: '1440px',
         prose: '72ch',
       },
       borderRadius: {
