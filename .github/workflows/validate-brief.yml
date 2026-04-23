@@ -34,17 +34,18 @@ jobs:
             files=$(git diff --name-only --diff-filter=AMR "$base" "$head" -- 'content/briefs/*.mdx' 'content/briefs/*.md' || true)
             deletions=$(git diff --name-only --diff-filter=D "$base" "$head" -- 'content/briefs/*.mdx' 'content/briefs/*.md' || true)
             sidecar_edits=$(git diff --name-only --diff-filter=MR "$base" "$head" -- 'content/briefs/*.data.ts' || true)
+            sidecar_adds=$(git diff --name-only --diff-filter=A "$base" "$head" -- 'content/briefs/*.data.ts' || true)
           else
             files=$(ls content/briefs/*.mdx content/briefs/*.md 2>/dev/null || true)
             deletions=""
             sidecar_edits=""
+            sidecar_adds=""
           fi
           # If any brief was deleted, re-validate all remaining briefs so continuity gaps
           # introduced by the deletion surface through validate-brief.ts's peer checks.
           # Sidecar (.data.ts) *edits* also trigger full-set validation: the brief-length
           # check reads sidecar prose, so a sidecar-only edit can violate the word-count
-          # floor without touching any .mdx file. Sidecar *additions* are handled via the
-          # companion .mdx already in $files — no full-set scan needed for new briefs.
+          # floor without touching any .mdx file.
           if [ -n "$deletions" ] || [ -n "$sidecar_edits" ]; then
             if [ -n "$deletions" ]; then
               echo "Brief deletion(s) detected:"
@@ -56,6 +57,28 @@ jobs:
             fi
             echo "Validating the full current brief set."
             files=$(ls content/briefs/*.mdx content/briefs/*.md 2>/dev/null || true)
+          elif [ -n "$sidecar_adds" ]; then
+            # Sidecar *additions* for existing briefs (e.g. a backfill adding a sidecar
+            # for a brief whose .mdx is untouched) must still run the validator so the
+            # sidecar-presence + word-count checks fire. For each added sidecar, pull
+            # its companion .mdx into $files (de-duplicated against entries already there
+            # from a same-PR .mdx addition).
+            echo "Sidecar (.data.ts) addition(s) detected:"
+            echo "$sidecar_adds"
+            while IFS= read -r sidecar; do
+              [ -z "$sidecar" ] && continue
+              companion="${sidecar%.data.ts}.mdx"
+              if [ ! -f "$companion" ]; then
+                companion="${sidecar%.data.ts}.md"
+              fi
+              if [ -f "$companion" ] && ! printf '%s\n' "$files" | grep -qxF "$companion"; then
+                if [ -z "$files" ]; then
+                  files="$companion"
+                else
+                  files=$(printf '%s\n%s' "$files" "$companion")
+                fi
+              fi
+            done <<< "$sidecar_adds"
           fi
           echo "files<<EOF" >> "$GITHUB_OUTPUT"
           echo "$files" >> "$GITHUB_OUTPUT"
