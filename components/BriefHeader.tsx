@@ -15,10 +15,8 @@ export function BriefHeader({ frontmatter }: { frontmatter: BriefFrontmatter }) 
         {frontmatter.date}
       </div>
       <h1
-        className="m-0 mb-7 font-display font-semibold text-paper-ink"
+        className="brief-h1 m-0 mb-7 font-display font-semibold text-paper-ink"
         style={{
-          fontSize: 48,
-          lineHeight: 1.05,
           letterSpacing: '-0.025em',
           textWrap: 'balance',
           maxWidth: '24ch',

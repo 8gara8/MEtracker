@@ -21,8 +21,8 @@ export type EventsTableProps = {
 export function EventsTable({ events }: EventsTableProps) {
   return (
     <div>
-      <div className="hidden border border-paper-rule-soft bg-paper-card md:block">
-        <table className="w-full border-collapse font-sans text-[13px]">
+      <div className="hidden overflow-x-auto border border-paper-rule-soft bg-paper-card md:block">
+        <table className="w-full min-w-[900px] border-collapse font-sans text-[13px]">
           <thead>
             <tr className="border-b-2 border-paper-ink font-mono text-[10px] uppercase tracking-label text-paper-ink-mute">
               <th className="w-9 px-[10px] py-2 text-left font-normal">#</th>

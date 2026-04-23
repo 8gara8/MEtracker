@@ -17,16 +17,16 @@ export function Masthead() {
 
   return (
     <div className="mb-2">
-      <div className="mb-[10px] flex items-baseline gap-5 border-b-[3px] border-double border-paper-rule pb-[10px]">
+      <div className="mb-[10px] flex flex-wrap items-center gap-x-5 gap-y-2 border-b-[3px] border-double border-paper-rule pb-[10px] md:items-baseline">
         <div
-          className="flex-shrink-0 whitespace-nowrap font-display text-[26px] font-semibold text-paper-ink"
+          className="flex-1 whitespace-nowrap font-display text-[22px] font-semibold text-paper-ink md:flex-none md:text-[26px]"
           style={{ letterSpacing: '-0.02em', lineHeight: 1 }}
         >
           <span className="italic">ME</span> WAR
           <span className="font-normal text-paper-ink-mute"> · Intel Brief</span>
         </div>
-        <div className="ml-auto flex items-center gap-3">
-          <span className="hidden whitespace-nowrap font-mono text-[10px] uppercase tracking-label text-paper-ink-mute sm:inline">
+        <div className="flex items-center gap-3 md:ml-auto">
+          <span className="hidden whitespace-nowrap font-mono text-[10px] uppercase tracking-label text-paper-ink-mute md:inline">
             Twice daily · 3D @8gara8
           </span>
           <Stamp text="Unclassified · OSINT" angle={-3} />
