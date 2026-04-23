@@ -33,25 +33,26 @@ jobs:
             head="${{ github.event.pull_request.head.sha }}"
             files=$(git diff --name-only --diff-filter=AMR "$base" "$head" -- 'content/briefs/*.mdx' 'content/briefs/*.md' || true)
             deletions=$(git diff --name-only --diff-filter=D "$base" "$head" -- 'content/briefs/*.mdx' 'content/briefs/*.md' || true)
-            sidecar_changes=$(git diff --name-only "$base" "$head" -- 'content/briefs/*.data.ts' || true)
+            sidecar_edits=$(git diff --name-only --diff-filter=MR "$base" "$head" -- 'content/briefs/*.data.ts' || true)
           else
             files=$(ls content/briefs/*.mdx content/briefs/*.md 2>/dev/null || true)
             deletions=""
-            sidecar_changes=""
+            sidecar_edits=""
           fi
           # If any brief was deleted, re-validate all remaining briefs so continuity gaps
           # introduced by the deletion surface through validate-brief.ts's peer checks.
-          # Sidecar (.data.ts) edits also trigger full-set validation: the brief-length
-          # check reads sidecar prose, so a sidecar-only change can violate the word-count
-          # floor without touching any .mdx file.
-          if [ -n "$deletions" ] || [ -n "$sidecar_changes" ]; then
+          # Sidecar (.data.ts) *edits* also trigger full-set validation: the brief-length
+          # check reads sidecar prose, so a sidecar-only edit can violate the word-count
+          # floor without touching any .mdx file. Sidecar *additions* are handled via the
+          # companion .mdx already in $files — no full-set scan needed for new briefs.
+          if [ -n "$deletions" ] || [ -n "$sidecar_edits" ]; then
             if [ -n "$deletions" ]; then
               echo "Brief deletion(s) detected:"
               echo "$deletions"
             fi
-            if [ -n "$sidecar_changes" ]; then
-              echo "Sidecar (.data.ts) change(s) detected:"
-              echo "$sidecar_changes"
+            if [ -n "$sidecar_edits" ]; then
+              echo "Sidecar (.data.ts) edit(s) detected:"
+              echo "$sidecar_edits"
             fi
             echo "Validating the full current brief set."
             files=$(ls content/briefs/*.mdx content/briefs/*.md 2>/dev/null || true)
