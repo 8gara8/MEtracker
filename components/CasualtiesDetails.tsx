@@ -5,6 +5,15 @@ import { COLORS } from '@/lib/design-tokens';
 
 type ActorKey = 'us' | 'israel' | 'iran' | 'other';
 
+// Label the Δ interval based on the actual gap between the current brief's day
+// number and the previous brief's day number — the dataset skips days (e.g.
+// missing day 25), so "~24h" is only correct when the briefs are adjacent.
+function intervalBetween(prevDay: number, currDay: number): string {
+  const days = Math.max(1, currDay - prevDay);
+  if (days <= 3) return `~${days * 24}h`;
+  return `~${days}d`;
+}
+
 const ACTORS: Array<{
   key: ActorKey;
   label: string;
@@ -102,12 +111,14 @@ export function CasualtiesDetails({
   const totalKIA = ACTORS.reduce((acc, a) => acc + snapshot[a.key].killed, 0);
   const totalWIA = ACTORS.reduce((acc, a) => acc + snapshot[a.key].wounded, 0);
 
+  const current = history.length >= 1 ? history[history.length - 1] : null;
   const prev = history.length >= 2 ? history[history.length - 2] : null;
   const prevKIA = prev
     ? ACTORS.reduce((acc, a) => acc + prev[a.key].killed, 0)
     : totalKIA;
   const deltaKIA = totalKIA - prevKIA;
   const deltaPct = prevKIA === 0 ? 0 : (deltaKIA / prevKIA) * 100;
+  const intervalLabel = current && prev ? intervalBetween(prev.day, current.day) : null;
 
   return (
     <div>
@@ -121,7 +132,11 @@ export function CasualtiesDetails({
         <DetailStat
           label="KIA Δ vs. prior brief"
           value={`${deltaKIA >= 0 ? '+' : ''}${deltaKIA.toLocaleString()}`}
-          sub={prev ? `${deltaPct.toFixed(1)}% · ~24h` : 'No prior brief'}
+          sub={
+            prev && intervalLabel
+              ? `${deltaPct.toFixed(1)}% · ${intervalLabel}`
+              : 'No prior brief'
+          }
           accent
           isLast
         />
