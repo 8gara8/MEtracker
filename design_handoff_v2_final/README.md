@@ -1,5 +1,7 @@
 # Handoff: ME War Intel Brief — Site Redesign (v2)
 
+> **📱 Responsive update:** A responsive/mobile pass was added after this README was finalized. Read [`RESPONSIVE_ADDENDUM.md`](./RESPONSIVE_ADDENDUM.md) **alongside** this document — it supersedes anything in here that says "desktop-first" or "max-width 1280px."
+
 ## Overview
 
 This handoff describes a visual + structural redesign of the **ME War Intel Brief** (`github.com/8gara8/MEtracker`). The existing Next.js 15 / Tailwind site is functional but visually basic; this redesign elevates it to an **editorial intelligence dossier** — broadsheet-grade typography married to SITREP data density.

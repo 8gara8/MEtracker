@@ -13,9 +13,7 @@ const ArchiveView = ({ briefs, theme, onNav, currentDay, setDay }) => {
         the morning Routine at 09:00 Asia/Taipei (01:00 UTC). Flash notes from the 18:00 run are folded into the next morning's brief.
       </div>
       <div style={{ border: `1px solid ${theme.ruleSoft}` }}>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "70px 100px 1fr 120px 120px 100px",
+        <div className="mw-archive-row mw-archive-header" style={{
           padding: "8px 14px",
           borderBottom: `2px solid ${theme.ink}`,
           fontFamily: theme.font.mono, fontSize: 10,
@@ -30,10 +28,9 @@ const ArchiveView = ({ briefs, theme, onNav, currentDay, setDay }) => {
           return (
             <button key={b.day}
               onClick={() => { setDay(b.day); onNav("today"); }}
+              className="mw-archive-row"
               style={{
-                display: "grid",
-                gridTemplateColumns: "70px 100px 1fr 120px 120px 100px",
-                padding: "12px 14px", alignItems: "baseline", gap: 8,
+                padding: "12px 14px", alignItems: "baseline",
                 background: active ? theme.cardBg : "transparent",
                 borderBottom: `1px solid ${theme.ruleSoft}`,
                 borderLeft: active ? `3px solid ${theme.accent}` : "3px solid transparent",
@@ -119,7 +116,7 @@ const TimelineView = ({ briefs, theme, onNav, setDay }) => {
       </div>
 
       {/* Risk / Ceasefire small multiples */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 20 }}>
+      <div className="mw-2col-plain" style={{ marginTop: 20 }}>
         <MiniLine title="7-day risk (ordinal)" theme={theme} briefs={briefs}
           y={b => window.RISK_SCORE[b.risk7d]} max={4} labels={["low","cond","ext","crit"]} color={theme.accent} />
         <MiniLine title="Ceasefire probability / 30d (%)" theme={theme} briefs={briefs}
@@ -251,7 +248,7 @@ const ClocksDashboardView = ({ briefs, theme }) => {
       <div style={{ fontFamily: theme.font.sans, fontSize: 13, color: theme.inkSoft, marginBottom: 14, maxWidth: 680, lineHeight: 1.55 }}>
         Six analytical clocks track the pressures that govern the war's pace. The pattern across dials matters more than any single one; see the sparkline for trajectory.
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+      <div className="mw-clocks-dash">
         {window.CLOCK_ORDER.map(k => {
           const spark = briefs.map(b => window.ClockScore(b.clocks[k]));
           return (
@@ -323,7 +320,7 @@ const AboutView = ({ theme }) => (
     </p>
 
     <window.SectionRule theme={theme} number={2} label="Cadence" />
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }}>
+    <div className="mw-2col">
       <CadenceCard theme={theme} label="Morning — full brief" time="09:00 Asia/Taipei · 01:00 UTC"
         body="Full research, canonical MDX written, casualty figures updated, all six clocks reassessed, context.md rewritten in full. Minimum 8 cited sources unless quiet_day is flagged." />
       <CadenceCard theme={theme} label="Evening — flash" time="18:00 Asia/Taipei · 10:00 UTC"

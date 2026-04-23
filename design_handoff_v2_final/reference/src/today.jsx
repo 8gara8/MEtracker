@@ -4,34 +4,32 @@ const Masthead = ({ theme, brief, day, totalDays, onNav, view }) => {
   return (
     <div style={{ marginBottom: 8 }}>
       {/* Masthead bar */}
-      <div style={{
-        display: "flex", alignItems: "center", gap: 14,
+      <div className="mw-masthead-bar" style={{
         borderBottom: `3px double ${theme.rule}`,
         paddingBottom: 8, marginBottom: 14,
       }}>
-        <div style={{
+        <div className="mw-masthead-title" style={{
           fontFamily: theme.font.display,
-          fontSize: 32, fontWeight: 600, letterSpacing: "-0.02em",
+          fontWeight: 600, letterSpacing: "-0.02em",
           color: theme.ink,
         }}>
           <span style={{ fontStyle: "italic" }}>ME</span> WAR — Intel Brief
         </div>
-        <div style={{
-          fontFamily: theme.font.mono, fontSize: 10, color: theme.inkMute,
+        <div className="mw-masthead-meta" style={{
+          fontFamily: theme.font.mono, color: theme.inkMute,
           letterSpacing: "0.12em", textTransform: "uppercase",
-          borderLeft: `1px solid ${theme.ruleSoft}`, paddingLeft: 12,
+          borderLeftColor: theme.ruleSoft,
         }}>
           Twice daily · Asia/Taipei 09:00 · 18:00<br/>
           Autonomous research · Git-audited · 3D @8gara8
         </div>
-        <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 10 }}>
+        <div className="mw-masthead-stamp">
           <window.Stamp text="Unclassified · OSINT" theme={theme} angle={-3} />
         </div>
       </div>
 
       {/* Sub-bar: nav */}
-      <div style={{
-        display: "flex", alignItems: "center", gap: 0,
+      <div className="mw-subnav" style={{
         borderBottom: `1px solid ${theme.ruleSoft}`,
         fontFamily: theme.font.sans, fontSize: 12,
         letterSpacing: "0.16em", textTransform: "uppercase", fontWeight: 600,
@@ -42,7 +40,7 @@ const Masthead = ({ theme, brief, day, totalDays, onNav, view }) => {
         ].map(([k,l]) => (
           <NavTab key={k} id={k} label={l} theme={theme} onNav={onNav} view={view} />
         ))}
-        <div style={{ marginLeft: "auto", display: "flex", alignItems: "baseline", gap: 10, padding: "8px 0" }}>
+        <div className="mw-subnav-dateline" style={{ marginLeft: "auto", display: "flex", alignItems: "baseline", gap: 10, padding: "8px 0", whiteSpace: "nowrap" }}>
           <window.Num theme={theme}>{brief.date}</window.Num>
           <span style={{ color: theme.inkMute, fontFamily: theme.font.mono, fontSize: 11 }}>·</span>
           <span style={{ fontFamily: theme.font.mono, fontSize: 11, color: theme.inkMute }}>
@@ -75,7 +73,7 @@ const TodayView = ({ brief, history, theme, onNav, totalDays }) => {
   return (
     <div>
       {/* Dateline / title */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 24, alignItems: "end", marginBottom: 18 }}>
+      <div className="mw-hero" style={{ marginBottom: 18 }}>
         <div>
           <div style={{
             fontFamily: theme.font.mono, fontSize: 10, letterSpacing: "0.2em",
@@ -83,21 +81,21 @@ const TodayView = ({ brief, history, theme, onNav, totalDays }) => {
           }}>
             ▮ Daily Brief · Day {String(brief.day).padStart(3,"0")} · {brief.weekday} {brief.date}
           </div>
-          <h1 style={{
+          <h1 className="mw-hero-title" style={{
             fontFamily: theme.font.display,
-            fontSize: 52, lineHeight: 1.02, letterSpacing: "-0.025em",
+            letterSpacing: "-0.025em",
             fontWeight: 600, color: theme.ink, margin: 0,
             textWrap: "balance",
           }}>
             {brief.title}
           </h1>
         </div>
-        <div style={{ textAlign: "right", minWidth: 220 }}>
+        <div className="mw-hero-indicators">
           <div style={{
             fontFamily: theme.font.mono, fontSize: 10, color: theme.inkMute,
             letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 6,
           }}>Headline indicators</div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "flex-end" }}>
+          <div className="mw-hero-indicators-rows">
             <IndicatorRow label="Direction" value={brief.direction} theme={theme} />
             <IndicatorRow label="7-day risk" value={brief.risk7d} theme={theme} />
             <IndicatorRow label="Spillover" value={brief.spillover} theme={theme} />
@@ -113,7 +111,7 @@ const TodayView = ({ brief, history, theme, onNav, totalDays }) => {
       </div>
 
       {/* Key developments + Exec summary layout */}
-      <div style={{ display: "grid", gridTemplateColumns: "1.35fr 1fr", gap: 40, marginTop: 8 }}>
+      <div className="mw-2col-hero" style={{ marginTop: 8 }}>
         <div>
           <window.SectionRule theme={theme} number={2} label="Executive summary" right={`${brief.exec ? brief.exec.split(/\s+/).length + " words" : "—"}`} />
           <p style={{
@@ -164,7 +162,7 @@ const TodayView = ({ brief, history, theme, onNav, totalDays }) => {
       {brief.implications && (
         <div>
           <window.SectionRule theme={theme} number={5} label="Strategic implications" right={`${brief.implications.length} threads`} />
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 28 }}>
+          <div className="mw-3col">
             {brief.implications.map((im, i) => (
               <div key={i} style={{ borderTop: `2px solid ${theme.ink}`, paddingTop: 12 }}>
                 <div style={{
@@ -187,7 +185,7 @@ const TodayView = ({ brief, history, theme, onNav, totalDays }) => {
       )}
 
       {/* Flash note + sources */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, marginTop: 12 }}>
+      <div className="mw-2col" style={{ marginTop: 12 }}>
         {brief.flash && (
           <div>
             <window.SectionRule theme={theme} number={6} label="Evening flash (18:00 TPE)" right="+9h delta" />
@@ -250,7 +248,7 @@ const IndicatorRow = ({ label, value, theme, raw }) => (
 
 const EventsTable = ({ events, theme }) => {
   return (
-    <div style={{ border: `1px solid ${theme.ruleSoft}`, background: theme.cardBg }}>
+    <div className="mw-events-wrap" style={{ border: `1px solid ${theme.ruleSoft}`, background: theme.cardBg }}>
       <table style={{
         width: "100%", borderCollapse: "collapse",
         fontFamily: theme.font.sans, fontSize: 13,
@@ -303,7 +301,7 @@ const CasualtiesBlock = ({ brief, history, theme }) => {
   // Delta 24–48h: current - previous brief
   const prev = history[history.length - 2] || brief;
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 12 }}>
+    <div className="mw-cas-grid">
       {actors.map(a => {
         const [k, w] = brief.casualties[a.key];
         const [pk, pw] = prev.casualties[a.key];

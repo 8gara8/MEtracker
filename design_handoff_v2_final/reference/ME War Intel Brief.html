@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=1280" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ME War — Intel Brief</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,8 +16,188 @@
   body { font-family: 'IBM Plex Sans', system-ui, sans-serif; min-height: 100vh; }
   button { font: inherit; }
   /* Reserve space for fixed bottom scrubber */
-  #root > div > div:first-child { padding-bottom: 88px !important; }
+  #root > div > div:first-child { padding-bottom: 108px !important; }
   ::selection { background: #B33A2E; color: #fff; }
+
+  /* =========================================================
+     Responsive layout classes
+     Breakpoints: mobile <720, tablet 720–1100, desktop >=1100
+     ========================================================= */
+
+  /* Page gutters — override the inline desktop padding on narrow screens */
+  @media (max-width: 720px) {
+    #root [data-page-shell] {
+      padding: 16px 14px !important;
+    }
+  }
+  @media (min-width: 721px) and (max-width: 1024px) {
+    #root [data-page-shell] {
+      padding: 22px 24px !important;
+    }
+  }
+
+  /* --- Masthead (title bar + sub-nav) --- */
+  .mw-masthead-bar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  .mw-masthead-title { font-size: 32px; }
+  .mw-masthead-meta { font-size: 10px; padding-left: 12px; border-left: 1px solid var(--mw-rule-soft, transparent); }
+  .mw-masthead-stamp { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+  @media (max-width: 720px) {
+    .mw-masthead-title { font-size: 22px !important; letter-spacing: -0.01em !important; flex: 1 1 100%; }
+    .mw-masthead-meta { display: none !important; }
+    .mw-masthead-stamp { margin-left: 0 !important; }
+  }
+
+  /* --- Sub-nav tabs: scroll horizontally on mobile --- */
+  .mw-subnav { display: flex; align-items: center; }
+  .mw-subnav-tabs { display: contents; }
+  @media (max-width: 900px) {
+    .mw-subnav {
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .mw-subnav::-webkit-scrollbar { display: none; }
+    .mw-subnav-dateline { display: none !important; }
+    .mw-subnav button { white-space: nowrap; padding: 10px 12px !important; font-size: 11px !important; }
+  }
+
+  /* --- Today: dateline + title row + indicators --- */
+  .mw-hero { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; }
+  .mw-hero-title { font-size: 52px; line-height: 1.02; }
+  .mw-hero-indicators { text-align: right; min-width: 220px; }
+  .mw-hero-indicators-rows { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+  @media (max-width: 900px) {
+    .mw-hero { grid-template-columns: 1fr !important; gap: 18px !important; }
+    .mw-hero-title { font-size: 32px !important; line-height: 1.08 !important; }
+    .mw-hero-indicators { text-align: left !important; min-width: 0 !important; }
+    .mw-hero-indicators-rows { align-items: flex-start !important; }
+  }
+  @media (min-width: 901px) and (max-width: 1200px) {
+    .mw-hero-title { font-size: 42px !important; }
+  }
+
+  /* --- Today: exec + key dev two-col --- */
+  .mw-2col-hero { display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; }
+  @media (max-width: 900px) {
+    .mw-2col-hero { grid-template-columns: 1fr !important; gap: 24px !important; }
+  }
+
+  /* --- Generic 2-col (flash / sources, cadence) --- */
+  .mw-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  @media (max-width: 720px) {
+    .mw-2col { grid-template-columns: 1fr !important; gap: 24px !important; }
+  }
+
+  /* --- Implications 3-col --- */
+  .mw-3col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+  @media (max-width: 900px) {
+    .mw-3col { grid-template-columns: 1fr !important; gap: 20px !important; }
+  }
+  @media (min-width: 901px) and (max-width: 1100px) {
+    .mw-3col { grid-template-columns: 1fr 1fr !important; }
+  }
+
+  /* --- Casualties block (4 cards) --- */
+  .mw-cas-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; }
+  @media (max-width: 720px) {
+    .mw-cas-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+
+  /* --- 6-clock strip --- */
+  .mw-clocks-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+  @media (max-width: 1100px) {
+    .mw-clocks-strip { grid-template-columns: repeat(3, 1fr) !important; }
+  }
+  @media (max-width: 520px) {
+    .mw-clocks-strip { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+
+  /* --- Clocks dashboard 3-col --- */
+  .mw-clocks-dash { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 900px) {
+    .mw-clocks-dash { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (max-width: 520px) {
+    .mw-clocks-dash { grid-template-columns: 1fr !important; }
+  }
+
+  /* --- Timeline small multiples --- */
+  .mw-2col-plain { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 720px) {
+    .mw-2col-plain { grid-template-columns: 1fr !important; }
+  }
+
+  /* --- Archive rows (grid layout) --- */
+  .mw-archive-row {
+    display: grid;
+    grid-template-columns: 70px 100px 1fr 120px 120px 100px;
+    gap: 8px;
+  }
+  @media (max-width: 900px) {
+    .mw-archive-row {
+      grid-template-columns: 50px 1fr auto !important;
+      grid-template-areas:
+        "day date date"
+        "day title title"
+        "day dir pct" !important;
+      row-gap: 4px !important;
+    }
+    .mw-archive-row > *:nth-child(1) { grid-area: day; align-self: start; }
+    .mw-archive-row > *:nth-child(2) { grid-area: date; }
+    .mw-archive-row > *:nth-child(3) { grid-area: title; }
+    .mw-archive-row > *:nth-child(4) { grid-area: dir; }
+    .mw-archive-row > *:nth-child(5) { display: none !important; }
+    .mw-archive-row > *:nth-child(6) { grid-area: pct; text-align: right; }
+    .mw-archive-header > *:nth-child(5) { display: none !important; }
+  }
+
+  /* --- Events table: horizontal scroll on narrow --- */
+  .mw-events-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  @media (max-width: 900px) {
+    .mw-events-wrap table { min-width: 900px; }
+  }
+
+  /* --- Scrubber --- */
+  .mw-scrubber {
+    position: fixed; left: 0; right: 0; bottom: 0;
+    padding: 10px 20px;
+    display: flex; align-items: center; gap: 14px;
+    z-index: 50;
+  }
+  .mw-scrubber-label { display: inline-block; }
+  .mw-scrubber-current { min-width: 130px; text-align: right; }
+  @media (max-width: 720px) {
+    .mw-scrubber { padding: 8px 10px !important; gap: 8px !important; flex-wrap: wrap; }
+    .mw-scrubber-label { display: none !important; }
+    .mw-scrubber-current {
+      order: -1;
+      flex: 1 1 100%;
+      min-width: 0 !important;
+      text-align: left !important;
+    }
+    .mw-scrubber-track { height: 28px; }
+    .mw-scrubber-track button { height: 20px !important; }
+    .mw-scrubber-track button.active { height: 28px !important; }
+  }
+
+  /* --- Footer --- */
+  @media (max-width: 720px) {
+    .mw-footer > *:last-child { margin-left: 0 !important; flex: 1 1 100%; }
+  }
+
+  /* --- Tweaks panel: full-width sheet on mobile --- */
+  @media (max-width: 520px) {
+    .mw-tweaks {
+      top: auto !important;
+      right: 0 !important;
+      left: 0 !important;
+      bottom: 0 !important;
+      width: 100% !important;
+      max-height: 70vh;
+      overflow: auto;
+    }
+  }
 </style>
 
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -27,1745 +207,12 @@
 <body>
 <div id="root"></div>
 
-<script type="text/babel" data-presets="react">
-
-/* ==== src/data.jsx ==== */
-// Fixture data for 14 days of the war.
-// Grounded in the seed brief — casualties monotonically increase, clocks evolve plausibly.
-// "3D / @8gara8" authorship preserved throughout.
-
-const CLOCK_SCORE = {
-  critical: 0, low: 1, degraded: 2, none: 2.5, moderate: 3, high: 4, ample: 5,
-};
-
-// Days 1–14, anchored to the Day 1 seed from content/briefs/2026-02-28-day-001.mdx
-const BRIEFS = [
-  {
-    day: 1, date: "2026-02-28", weekday: "Sat",
-    title: "Operation Epic Fury commences with strikes on Natanz, Fordow, and Isfahan",
-    direction: "escalating", risk7d: "extreme", spillover: "critical", ceasefire30d: 5, quiet: false,
-    headlines: [
-      "US and Israel launch concurrent strikes on Natanz, Fordow, and Isfahan enrichment sites",
-      "Iran retaliates within hours with ballistic missile barrages on Tel Aviv and Haifa",
-      "Hormuz traffic suspended pending Iranian damage assessment; Brent surges",
-      "Hezbollah, Iraqi militias, and Houthi forces placed on high alert",
-    ],
-    casualties: { us:[0,0], israel:[142,850], iran:[380,1200], other:[0,0] },
-    clocks: {
-      political_will:"high", active_deadlines:"none", energy_infrastructure:"degraded",
-      interceptor_capacity:"high", negotiation_capacity:"low", oil_reserves:"ample",
-    },
-    trajectory: {
-      political_will:"stable", active_deadlines:"n/a", energy_infrastructure:"worsening",
-      interceptor_capacity:"draining", negotiation_capacity:"stable", oil_reserves:"stable",
-    },
-    exec: "Operation Epic Fury opened on February 28, 2026 with concurrent US and Israeli strikes against Iran's three principal enrichment facilities at Natanz, Fordow, and Isfahan — the first direct, sustained military confrontation between Washington and Tehran since the 1979 revolution. B-2 sorties delivered GBU-57 penetrators on Fordow while Israeli F-35I and F-15I formations struck Natanz and Isfahan across a six-hour window. Iran's retaliation came within hours: a large ballistic-missile barrage against Tel Aviv and Haifa, activation of Hezbollah's rocket inventory, and simultaneous Houthi movement against Red Sea shipping. By late evening Iran had suspended all Strait of Hormuz traffic pending damage assessment, and Brent surged in Asian trading. Analytical judgment: with retaliatory capacity intact and interceptor stocks already drawing down, the 72-hour window carries extreme escalation risk and a negligible near-term ceasefire probability.",
-    events: [
-      { id:1, direction:"pivotal", importance:"pivotal", source:"Reuters",
-        event:"Concurrent strikes on Natanz, Fordow, Isfahan (00:12–06:08Z)",
-        summary:"Coordinated US-Israel operation targets three principal enrichment sites across a six-hour window. B-2s deploy GBU-57 against Fordow hardened galleries.",
-        impact:"Opens direct US-Iran kinetic engagement for first time since 1979. Frames war as counter-proliferation operation." },
-      { id:2, direction:"escalating", importance:"pivotal", source:"Times of Israel",
-        event:"Iranian ballistic barrage on Tel Aviv and Haifa (07:40Z)",
-        summary:"Roughly 180 ballistic missiles launched across two waves. Multi-layer intercept with observed impacts in central Tel Aviv and Haifa port district.",
-        impact:"Establishes Iranian escalation ceiling as strategic-level strikes on civilian centers. First meaningful Arrow-3 depletion." },
-      { id:3, direction:"escalating", importance:"high", source:"Al Jazeera",
-        event:"Hormuz shipping traffic suspended (14:30Z)",
-        summary:"IRGC Navy issues Notice to Mariners halting all transit pending damage assessment. Commercial carriers reroute or hold at anchorage.",
-        impact:"Begins the energy-MAD calculus. Brent +14% in overnight Asian trading." },
-      { id:4, direction:"escalating", importance:"high", source:"AP",
-        event:"Hezbollah and Iraqi militia alert postures (16:00Z)",
-        summary:"Hezbollah issues general mobilization; Kataib Hezbollah relocates rocket inventory. No kinetic activity yet on Blue Line.",
-        impact:"Establishes multi-theatre pressure. Anticipates 72-hour rocket campaign against northern Israel." },
-      { id:5, direction:"neutral", importance:"medium", source:"Reuters",
-        event:"Oman and Qatar offer mediation (19:15Z)",
-        summary:"Joint statement offering good offices. Tehran rejects any preconditions that include cessation of enrichment activity.",
-        impact:"No viable mediation track. Signals at least 72h without diplomatic buffer." },
-    ],
-    implications: [
-      { title:"The opening salvo establishes the war's analytical clocks",
-        body:"Day 1 set every multi-clock state simultaneously, and the pattern matters more than any single dial. Political will on both sides is high and stable; there is no domestic audience at hour zero demanding pause. Active deadlines are at none. Energy infrastructure is degraded and worsening. Interceptor capacity is high but already draining. Negotiation capacity is low and stable. Oil reserves are ample but will compress fast if Hormuz closure extends past 72 hours. The war does not need a new trigger to escalate; it needs only time." },
-      { title:"Hormuz closure begins the energy-MAD calculus",
-        body:"The Strait of Hormuz suspension is the single most consequential non-kinetic development of Day 1. Roughly a fifth of global oil and a quarter of LNG crosses the strait. Two second-order threads activate immediately: Taiwan's grid depends on LNG for ~50% of baseload, and Chinese oil imports through Hormuz are large enough that sustained closure forces a Beijing reaction. The energy channel is the fastest path to a ceasefire if Tehran overreaches, and the fastest path to escalation if Washington responds to prolonged closure with direct strikes on Iranian naval assets." },
-      { title:"Interceptor depletion is the hidden clock",
-        body:"Israel's Arrow-3, Arrow-2, and David's Sling inventories are finite; US replenishment cycles are measured in months. The first Iranian barrage revealed engagement rates that, sustained, will compress magazine depth below warning thresholds inside two weeks. The single most important number in coming briefs is not daily casualty totals but the implied burn rate per barrage, back-solved from intercept percentages and observed impacts." },
-    ],
-    sources: [
-      { name:"Reuters — opening strikes coverage", url:"reuters.com/world/middle-east/iran-strikes-day-one/" },
-      { name:"Al Jazeera — Operation Epic Fury live", url:"aljazeera.com/news/liveblog/2026/2/28/iran-war-day-1" },
-      { name:"Associated Press — US CENTCOM briefing", url:"apnews.com/article/iran-strikes-centcom-day-1" },
-      { name:"Times of Israel — Tel Aviv impact coverage", url:"timesofisrael.com/liveblog/iran-missile-barrage-feb-28" },
-      { name:"NPR — analytical rundown", url:"npr.org/2026/02/28/iran-strikes-analysis" },
-      { name:"CBS News — White House statement", url:"cbsnews.com/news/iran-strikes-white-house-day-1" },
-      { name:"Wikipedia — Timeline of the 2026 Iran war", url:"en.wikipedia.org/wiki/Timeline_of_the_2026_Iran_war" },
-      { name:"HRANA — Iran civilian casualty tracker", url:"en-hrana.org/iran-casualty-tracker-feb-28" },
-    ],
-    flash: "18:00 Taipei — Two smaller Iranian barrage waves through the afternoon, both sub-40 missiles. Observed intercept rate ~87%; one impact in Ashkelon industrial zone, no mass-cas. Hormuz remains suspended; IRGC-N issued revised NOTMAR extending closure through at least Day 2. No diplomatic movement. Interceptor burn rate now the critical analytical number — implied magazine depth crossing the 14-day warning threshold earlier than Day 1 modeling suggested.",
-  },
-  {
-    day: 2, date: "2026-03-01", weekday: "Sun",
-    title: "Iranian second-day barrage; Hezbollah opens northern front",
-    direction: "escalating", risk7d: "extreme", spillover: "critical", ceasefire30d: 4, quiet: false,
-    headlines: [
-      "Hezbollah launches sustained rocket fire across Blue Line; 3 Israeli KIA in Kiryat Shmona",
-      "Iranian second-wave ballistic barrage; observed intercept rate drops to ~82%",
-      "Hormuz closure extended; Brent breaks $128",
-      "UNSC emergency session deadlocks on ceasefire language (13-2, US/UK abstaining)",
-    ],
-    casualties: { us:[0,0], israel:[168,940], iran:[510,1610], other:[24,140] },
-    clocks: {
-      political_will:"high", active_deadlines:"none", energy_infrastructure:"degraded",
-      interceptor_capacity:"high", negotiation_capacity:"low", oil_reserves:"ample",
-    },
-    trajectory: {
-      political_will:"stable", active_deadlines:"n/a", energy_infrastructure:"worsening",
-      interceptor_capacity:"draining", negotiation_capacity:"stable", oil_reserves:"stable",
-    },
-  },
-  {
-    day: 3, date: "2026-03-02", weekday: "Mon",
-    title: "Hormuz hot; first tanker detained, Brent $134",
-    direction: "escalating", risk7d: "extreme", spillover: "critical", ceasefire30d: 4, quiet: false,
-    headlines: [
-      "IRGC-N detains Liberian-flagged VLCC off Bandar Abbas; crew held",
-      "Houthis claim strike on Red Sea LNG carrier; vessel afloat, underway to Djibouti",
-      "Pentagon moves second CVN toward Arabian Sea; USS Ford surges from Med",
-      "Taiwan MOEA issues reserve-days statement: LNG 11 days, coal 38 days",
-    ],
-    casualties: { us:[0,0], israel:[191,1030], iran:[640,1920], other:[41,220] },
-    clocks: {
-      political_will:"high", active_deadlines:"none", energy_infrastructure:"low",
-      interceptor_capacity:"moderate", negotiation_capacity:"low", oil_reserves:"moderate",
-    },
-    trajectory: {
-      political_will:"stable", active_deadlines:"n/a", energy_infrastructure:"worsening",
-      interceptor_capacity:"draining", negotiation_capacity:"stable", oil_reserves:"worsening",
-    },
-  },
-  {
-    day: 4, date: "2026-03-03", weekday: "Tue",
-    title: "Iran expands target set: Dimona adjacent strikes, Haifa refinery hit",
-    direction: "escalating", risk7d: "extreme", spillover: "critical", ceasefire30d: 3, quiet: false,
-    headlines: [
-      "Iranian barrage includes strikes within 18km of Dimona; IAEA cites radiological concern",
-      "Haifa refinery secondary explosions; fuel supply to northern Israel compromised",
-      "Beijing calls for 'immediate cessation'; first substantive Chinese statement",
-      "US destroys three Iranian missile sites near Kermanshah in overnight strike",
-    ],
-    casualties: { us:[0,0], israel:[242,1260], iran:[820,2380], other:[58,310] },
-    clocks: {
-      political_will:"high", active_deadlines:"low", energy_infrastructure:"low",
-      interceptor_capacity:"moderate", negotiation_capacity:"low", oil_reserves:"moderate",
-    },
-    trajectory: {
-      political_will:"stable", active_deadlines:"worsening", energy_infrastructure:"worsening",
-      interceptor_capacity:"draining", negotiation_capacity:"stable", oil_reserves:"worsening",
-    },
-  },
-  {
-    day: 5, date: "2026-03-04", weekday: "Wed",
-    title: "Quieter kinetic day, diplomatic maneuvering begins",
-    direction: "mixed", risk7d: "extreme", spillover: "critical", ceasefire30d: 6, quiet: false,
-    headlines: [
-      "Smaller Iranian barrage (sub-40 missiles); intercept rate recovers to 89%",
-      "Qatar hosts first US-Iran proximity talks since war began; no agenda released",
-      "Oil pulls back modestly on talks headline; Brent $121",
-      "Hezbollah rocket tempo steady; no ground incursion",
-    ],
-    casualties: { us:[0,0], israel:[261,1340], iran:[918,2610], other:[72,380] },
-    clocks: {
-      political_will:"high", active_deadlines:"low", energy_infrastructure:"low",
-      interceptor_capacity:"moderate", negotiation_capacity:"low", oil_reserves:"moderate",
-    },
-    trajectory: {
-      political_will:"stable", active_deadlines:"stable", energy_infrastructure:"stable",
-      interceptor_capacity:"draining", negotiation_capacity:"improving", oil_reserves:"stable",
-    },
-  },
-  {
-    day: 6, date: "2026-03-05", weekday: "Thu",
-    title: "Doha talks collapse; Iran announces mobilization",
-    direction: "escalating", risk7d: "critical", spillover: "critical", ceasefire30d: 3, quiet: false,
-    headlines: [
-      "Qatar-hosted proximity talks adjourn without communiqué; Tehran announces partial mobilization",
-      "IRGC chief threatens Gulf US bases directly on state TV",
-      "Interceptor magazine modeling: Arrow-3 at implied 55% pre-war stock",
-      "Oil spikes back to $131 intraday on talk collapse",
-    ],
-    casualties: { us:[0,0], israel:[289,1460], iran:[1082,3050], other:[91,470] },
-    clocks: {
-      political_will:"high", active_deadlines:"low", energy_infrastructure:"low",
-      interceptor_capacity:"degraded", negotiation_capacity:"critical", oil_reserves:"moderate",
-    },
-    trajectory: {
-      political_will:"stable", active_deadlines:"worsening", energy_infrastructure:"stable",
-      interceptor_capacity:"draining", negotiation_capacity:"worsening", oil_reserves:"worsening",
-    },
-  },
-  {
-    day: 7, date: "2026-03-06", weekday: "Fri",
-    title: "Week one closes with interceptor magazine now the binding constraint",
-    direction: "escalating", risk7d: "critical", spillover: "critical", ceasefire30d: 3, quiet: false,
-    headlines: [
-      "IDF acknowledges 'significant' interceptor drawdown; emergency US resupply airlift begins",
-      "Third Iranian major barrage; observed intercept rate 76%, two impacts in Ben Gurion region",
-      "Taiwan LNG reserve crosses 8-day threshold; TSMC issues energy-availability advisory",
-      "Russian FM calls Tehran; no readout",
-    ],
-    casualties: { us:[0,0], israel:[346,1720], iran:[1284,3510], other:[118,580] },
-    clocks: {
-      political_will:"high", active_deadlines:"low", energy_infrastructure:"low",
-      interceptor_capacity:"degraded", negotiation_capacity:"critical", oil_reserves:"low",
-    },
-    trajectory: {
-      political_will:"stable", active_deadlines:"stable", energy_infrastructure:"stable",
-      interceptor_capacity:"draining", negotiation_capacity:"stable", oil_reserves:"worsening",
-    },
-  },
-  {
-    day: 8, date: "2026-03-07", weekday: "Sat",
-    title: "Red Sea incident: Houthi strike cripples US-flagged tanker",
-    direction: "escalating", risk7d: "critical", spillover: "critical", ceasefire30d: 2, quiet: false,
-    headlines: [
-      "Houthi ASCM strike on US-flagged Marlin Luna; vessel adrift, 2 crew KIA",
-      "US conducts retaliatory strikes on Houthi launch sites near Hodeidah",
-      "First US military fatalities of the war",
-      "Egypt closes Suez northbound to combatant-flag vessels pending review",
-    ],
-    casualties: { us:[2,4], israel:[371,1840], iran:[1410,3820], other:[142,680] },
-    clocks: {
-      political_will:"high", active_deadlines:"low", energy_infrastructure:"critical",
-      interceptor_capacity:"degraded", negotiation_capacity:"critical", oil_reserves:"low",
-    },
-    trajectory: {
-      political_will:"stable", active_deadlines:"stable", energy_infrastructure:"worsening",
-      interceptor_capacity:"stable", negotiation_capacity:"stable", oil_reserves:"worsening",
-    },
-  },
-  {
-    day: 9, date: "2026-03-08", weekday: "Sun",
-    title: "Largest barrage to date; Iran signals ceiling with port strikes",
-    direction: "escalating", risk7d: "critical", spillover: "critical", ceasefire30d: 2, quiet: false,
-    headlines: [
-      "220-missile Iranian barrage targets Ashdod and Haifa ports; intercept rate 71%",
-      "Seven vessels damaged or sunk at Haifa; first strategic port degradation",
-      "Brent hits $142; SPR release of 5mbpd authorized by EO",
-      "Jordan closes airspace to military overflights",
-    ],
-    casualties: { us:[2,4], israel:[441,2110], iran:[1562,4180], other:[161,760] },
-    clocks: {
-      political_will:"high", active_deadlines:"degraded", energy_infrastructure:"critical",
-      interceptor_capacity:"low", negotiation_capacity:"critical", oil_reserves:"low",
-    },
-    trajectory: {
-      political_will:"stable", active_deadlines:"worsening", energy_infrastructure:"worsening",
-      interceptor_capacity:"draining", negotiation_capacity:"stable", oil_reserves:"worsening",
-    },
-  },
-  {
-    day: 10, date: "2026-03-09", weekday: "Mon",
-    title: "Back-channel movement via Oman; tactical quiet holds",
-    direction: "mixed", risk7d: "extreme", spillover: "critical", ceasefire30d: 8, quiet: false,
-    headlines: [
-      "Oman-mediated back-channel confirmed; Tehran proposes 72-hour humanitarian pause",
-      "No major Iranian barrage Day 10; first sub-20-launch day",
-      "Interceptor airlift completes first tranche (Arrow-3 components)",
-      "Brent eases to $126 on pause headlines",
-    ],
-    casualties: { us:[2,4], israel:[458,2180], iran:[1604,4290], other:[171,810] },
-    clocks: {
-      political_will:"high", active_deadlines:"degraded", energy_infrastructure:"critical",
-      interceptor_capacity:"low", negotiation_capacity:"low", oil_reserves:"low",
-    },
-    trajectory: {
-      political_will:"stable", active_deadlines:"stable", energy_infrastructure:"stable",
-      interceptor_capacity:"improving", negotiation_capacity:"improving", oil_reserves:"stable",
-    },
-  },
-  {
-    day: 11, date: "2026-03-10", weekday: "Tue",
-    title: "Pause proposal collapses on enrichment precondition",
-    direction: "escalating", risk7d: "critical", spillover: "critical", ceasefire30d: 4, quiet: false,
-    headlines: [
-      "US rejects Iranian pause proposal absent enrichment freeze; Tehran withdraws offer",
-      "Resumed Iranian barrage within four hours; Tel Aviv impacts",
-      "Chinese tanker shadow fleet activity near Kharg Island detected",
-      "Iraqi militias resume rocket fire on US bases at Ain al-Asad and Erbil",
-    ],
-    casualties: { us:[3,9], israel:[508,2390], iran:[1772,4720], other:[196,910] },
-    clocks: {
-      political_will:"high", active_deadlines:"low", energy_infrastructure:"critical",
-      interceptor_capacity:"low", negotiation_capacity:"critical", oil_reserves:"low",
-    },
-    trajectory: {
-      political_will:"stable", active_deadlines:"worsening", energy_infrastructure:"worsening",
-      interceptor_capacity:"draining", negotiation_capacity:"worsening", oil_reserves:"worsening",
-    },
-  },
-  {
-    day: 12, date: "2026-03-11", weekday: "Wed",
-    title: "US strikes on Iranian naval assets in Persian Gulf",
-    direction: "escalating", risk7d: "critical", spillover: "critical", ceasefire30d: 3, quiet: false,
-    headlines: [
-      "US sinks three IRGC-N fast-attack craft near Farsi Island; first direct US-Iran naval engagement",
-      "Iran warns of 'uncontrolled response'; Kharg Island on heightened alert",
-      "Hezbollah fires first Ra'ad 1 variant into Tel Aviv metro; one impact",
-      "Brent $138; SPR releases expanded",
-    ],
-    casualties: { us:[4,14], israel:[559,2580], iran:[1930,5060], other:[218,980] },
-    clocks: {
-      political_will:"high", active_deadlines:"low", energy_infrastructure:"critical",
-      interceptor_capacity:"low", negotiation_capacity:"critical", oil_reserves:"low",
-    },
-    trajectory: {
-      political_will:"stable", active_deadlines:"stable", energy_infrastructure:"stable",
-      interceptor_capacity:"stable", negotiation_capacity:"stable", oil_reserves:"worsening",
-    },
-  },
-  {
-    day: 13, date: "2026-03-12", weekday: "Thu",
-    title: "Quieter kinetic day; diplomatic pulse returns",
-    direction: "mixed", risk7d: "critical", spillover: "critical", ceasefire30d: 6, quiet: true,
-    headlines: [
-      "Smaller Iranian barrage; intercept rate recovers as second airlift tranche lands",
-      "Swiss protecting-power channel reactivates; first direct US-Iran written exchange since Day 1",
-      "Oil eases; Brent $129",
-      "No major Hezbollah activity; first sub-30-rocket day on northern front",
-    ],
-    casualties: { us:[4,14], israel:[578,2640], iran:[1994,5210], other:[226,1010] },
-    clocks: {
-      political_will:"moderate", active_deadlines:"low", energy_infrastructure:"critical",
-      interceptor_capacity:"low", negotiation_capacity:"low", oil_reserves:"low",
-    },
-    trajectory: {
-      political_will:"worsening", active_deadlines:"stable", energy_infrastructure:"stable",
-      interceptor_capacity:"improving", negotiation_capacity:"improving", oil_reserves:"stable",
-    },
-  },
-  {
-    day: 14, date: "2026-03-13", weekday: "Fri",
-    title: "Two-week mark: interceptor airlift stabilizes; talks framework emerges",
-    direction: "mixed", risk7d: "extreme", spillover: "conditional", ceasefire30d: 12, quiet: false,
-    headlines: [
-      "Oman proposes four-point framework: enrichment pause, barrage halt, IAEA access, captive exchange",
-      "Tehran signals conditional acceptance; Jerusalem non-committal",
-      "Arrow-3 magazine back above 60% post-airlift; US authorizes second tranche",
-      "First meaningful oil pullback: Brent $118",
-    ],
-    casualties: { us:[4,14], israel:[602,2720], iran:[2078,5420], other:[234,1050] },
-    clocks: {
-      political_will:"moderate", active_deadlines:"low", energy_infrastructure:"critical",
-      interceptor_capacity:"moderate", negotiation_capacity:"low", oil_reserves:"low",
-    },
-    trajectory: {
-      political_will:"worsening", active_deadlines:"stable", energy_infrastructure:"stable",
-      interceptor_capacity:"improving", negotiation_capacity:"improving", oil_reserves:"improving",
-    },
-  },
-];
-
-const CLOCK_LABELS = {
-  political_will: "Political will",
-  active_deadlines: "Active deadlines",
-  energy_infrastructure: "Energy infrastructure",
-  interceptor_capacity: "Interceptor capacity",
-  negotiation_capacity: "Negotiation capacity",
-  oil_reserves: "Oil reserves",
-};
-
-const CLOCK_ORDER = [
-  "political_will", "active_deadlines", "energy_infrastructure",
-  "interceptor_capacity", "negotiation_capacity", "oil_reserves",
-];
-
-// Direction score for escalation timeline: -1 de-escalating, 0 mixed, +1 escalating
-const DIR_SCORE = { "de-escalating": -1, mixed: 0, escalating: 1 };
-
-// Risk7d ordinal
-const RISK_SCORE = { low: 1, conditional: 2, extreme: 3, critical: 4 };
-
-Object.assign(window, {
-  BRIEFS, CLOCK_SCORE, CLOCK_LABELS, CLOCK_ORDER, DIR_SCORE, RISK_SCORE,
-});
-
-
-/* ==== src/tokens.jsx ==== */
-// Design tokens + shared UI primitives (themed).
-// Three themes: paper (default), classified (dark), terminal (mono).
-
-const THEMES = {
-  paper: {
-    label: "Paper",
-    bg: "#F3EEE3",
-    bgDeep: "#EAE2D0",
-    ink: "#14161A",
-    inkSoft: "#3B3E45",
-    inkMute: "#6B6A62",
-    rule: "#14161A",
-    ruleSoft: "#C9BFA8",
-    accent: "#B33A2E",          // classified red
-    accentAmber: "#C48416",
-    accentGreen: "#3E6B3A",
-    badgeEscBg: "#F1D9D5",
-    badgeMixBg: "#F3E3C6",
-    badgeDeBg:  "#D9E3D3",
-    cardBg: "#FBF8F0",
-    stamp: "#B33A2E",
-    font: {
-      display: "'Newsreader', 'Source Serif Pro', Georgia, serif",
-      sans: "'IBM Plex Sans', 'Söhne', system-ui, sans-serif",
-      mono: "'IBM Plex Mono', 'JetBrains Mono', monospace",
-    },
-  },
-  classified: {
-    label: "Classified",
-    bg: "#0E0F12",
-    bgDeep: "#17181C",
-    ink: "#E8E6DF",
-    inkSoft: "#B9B6AC",
-    inkMute: "#7C7A72",
-    rule: "#E8E6DF",
-    ruleSoft: "#2A2B30",
-    accent: "#E04A3C",
-    accentAmber: "#D99530",
-    accentGreen: "#6BA366",
-    badgeEscBg: "#3A1A17",
-    badgeMixBg: "#3A2B14",
-    badgeDeBg:  "#1C2B1A",
-    cardBg: "#15171B",
-    stamp: "#E04A3C",
-    font: {
-      display: "'Newsreader', 'Source Serif Pro', Georgia, serif",
-      sans: "'IBM Plex Sans', 'Söhne', system-ui, sans-serif",
-      mono: "'IBM Plex Mono', 'JetBrains Mono', monospace",
-    },
-  },
-  terminal: {
-    label: "Terminal",
-    bg: "#0A0A0A",
-    bgDeep: "#121212",
-    ink: "#D8FF9B",
-    inkSoft: "#9BC96D",
-    inkMute: "#4F6A3B",
-    rule: "#3E5A2A",
-    ruleSoft: "#1F2D17",
-    accent: "#FF5D4A",
-    accentAmber: "#FFC14A",
-    accentGreen: "#9BFF7A",
-    badgeEscBg: "#2A1410",
-    badgeMixBg: "#2A2310",
-    badgeDeBg:  "#14240E",
-    cardBg: "#101610",
-    stamp: "#FF5D4A",
-    font: {
-      display: "'IBM Plex Mono', monospace",
-      sans: "'IBM Plex Mono', monospace",
-      mono: "'IBM Plex Mono', monospace",
-    },
-  },
-};
-
-// State -> color token (accent kind)
-function stateTone(state) {
-  switch (state) {
-    case "critical": return "esc";
-    case "low": return "esc";
-    case "degraded": return "mix";
-    case "none": return "neutral";
-    case "moderate": return "mix";
-    case "high": return "ok";
-    case "ample": return "ok";
-    default: return "neutral";
-  }
-}
-
-// For clocks: higher score = better. Inverts meaning for some clocks.
-// political_will, active_deadlines (high/critical = bad for peace)
-// energy_infrastructure, interceptor_capacity, negotiation_capacity, oil_reserves (high = good)
-const CLOCK_POLARITY = {
-  political_will: "invert",         // high = war keeps going
-  active_deadlines: "invert",       // high = ticking ultimatums
-  energy_infrastructure: "normal",
-  interceptor_capacity: "normal",
-  negotiation_capacity: "normal",
-  oil_reserves: "normal",
-};
-
-function clockToneFor(key, state) {
-  const polarity = CLOCK_POLARITY[key];
-  const base = stateTone(state);
-  if (polarity === "invert") {
-    if (base === "ok") return "esc";
-    if (base === "esc") return "ok";
-  }
-  return base;
-}
-
-function toneColor(theme, tone) {
-  switch (tone) {
-    case "esc": return theme.accent;
-    case "mix": return theme.accentAmber;
-    case "ok":  return theme.accentGreen;
-    default:    return theme.inkMute;
-  }
-}
-
-function toneBadgeBg(theme, tone) {
-  switch (tone) {
-    case "esc": return theme.badgeEscBg;
-    case "mix": return theme.badgeMixBg;
-    case "ok":  return theme.badgeDeBg;
-    default:    return "transparent";
-  }
-}
-
-const RiskPill = ({ value, theme }) => {
-  const tone = ["critical","extreme","escalating"].includes(value) ? "esc"
-    : ["conditional","mixed"].includes(value) ? "mix"
-    : ["contained","low","de-escalating"].includes(value) ? "ok"
-    : "neutral";
-  return (
-    <span style={{
-      display: "inline-flex", alignItems: "center", gap: 6,
-      padding: "3px 8px",
-      fontFamily: theme.font.mono, fontSize: 11,
-      letterSpacing: "0.08em", textTransform: "uppercase",
-      color: toneColor(theme, tone),
-      background: toneBadgeBg(theme, tone),
-      border: `1px solid ${toneColor(theme, tone)}40`,
-      borderRadius: 0,
-    }}>
-      <span style={{ width: 6, height: 6, background: toneColor(theme, tone), display: "inline-block" }} />
-      {value}
-    </span>
-  );
-};
-
-const SectionRule = ({ theme, label, number, right }) => (
-  <div style={{
-    display: "flex", alignItems: "baseline", gap: 12,
-    borderTop: `1px solid ${theme.rule}`,
-    paddingTop: 8, marginTop: 36, marginBottom: 14,
-  }}>
-    {number != null && (
-      <span style={{
-        fontFamily: theme.font.mono, fontSize: 10, letterSpacing: "0.14em",
-        color: theme.inkMute,
-      }}>§{String(number).padStart(2,"0")}</span>
-    )}
-    <span style={{
-      fontFamily: theme.font.sans, fontSize: 11, letterSpacing: "0.22em",
-      textTransform: "uppercase", fontWeight: 600, color: theme.ink,
-    }}>{label}</span>
-    {right && <span style={{ marginLeft: "auto",
-      fontFamily: theme.font.mono, fontSize: 10, color: theme.inkMute,
-      letterSpacing: "0.1em", textTransform: "uppercase" }}>{right}</span>}
-  </div>
-);
-
-// Monospaced number with consistent width
-const Num = ({ children, theme, dim }) => (
-  <span style={{
-    fontFamily: theme.font.mono,
-    fontVariantNumeric: "tabular-nums",
-    color: dim ? theme.inkMute : theme.ink,
-  }}>{children}</span>
-);
-
-const Stamp = ({ text, theme, angle = -6 }) => (
-  <span style={{
-    display: "inline-block",
-    transform: `rotate(${angle}deg)`,
-    border: `2px solid ${theme.stamp}`,
-    color: theme.stamp,
-    padding: "4px 10px",
-    fontFamily: theme.font.mono,
-    fontSize: 11,
-    fontWeight: 700,
-    letterSpacing: "0.16em",
-    textTransform: "uppercase",
-    opacity: 0.9,
-  }}>{text}</span>
-);
-
-// Trajectory arrow glyph
-function trajArrow(t) {
-  switch (t) {
-    case "improving": return "↗";
-    case "worsening": return "↘";
-    case "draining":  return "↘";
-    case "stable":    return "→";
-    default:          return "·";
-  }
-}
-
-Object.assign(window, {
-  THEMES, stateTone, CLOCK_POLARITY, clockToneFor, toneColor, toneBadgeBg,
-  RiskPill, SectionRule, Num, Stamp, trajArrow,
-});
-
-
-/* ==== src/clocks.jsx ==== */
-// The clocks strip — 6 small dials + state + trajectory.
-// Used on Today hero and Clocks dashboard.
-
-function ClockScore(state) {
-  return window.CLOCK_SCORE[state] ?? 0;
-}
-
-const ClockDial = ({ clockKey, state, trajectory, theme, sparkData }) => {
-  const label = window.CLOCK_LABELS[clockKey];
-  const tone = window.clockToneFor(clockKey, state);
-  const color = window.toneColor(theme, tone);
-  const score = ClockScore(state);
-  const pct = score / 5; // 0..1
-
-  // Dial: 180° arc, 12 segments, filled proportional to score
-  const SEGS = 12;
-  const filled = Math.round(pct * SEGS);
-
-  return (
-    <div style={{
-      background: theme.cardBg,
-      border: `1px solid ${theme.ruleSoft}`,
-      borderTop: `2px solid ${color}`,
-      padding: "14px 14px 12px",
-      display: "flex", flexDirection: "column", gap: 6,
-      position: "relative",
-    }}>
-      {/* Label row */}
-      <div style={{
-        fontFamily: theme.font.mono, fontSize: 10, letterSpacing: "0.14em",
-        textTransform: "uppercase", color: theme.inkMute, lineHeight: 1.2,
-        minHeight: 24,
-      }}>{label}</div>
-
-      {/* State word — the primary signal */}
-      <div style={{
-        fontFamily: theme.font.display, fontSize: 26, fontWeight: 600,
-        color: color, letterSpacing: "-0.015em", textTransform: "uppercase",
-        lineHeight: 1,
-      }}>{state}</div>
-
-      {/* Trajectory — supporting info */}
-      <div style={{
-        display: "flex", alignItems: "center", gap: 6,
-        fontFamily: theme.font.mono, fontSize: 10,
-        color: theme.inkMute, letterSpacing: "0.08em", textTransform: "uppercase",
-      }}>
-        <span style={{ color: color, fontSize: 12 }}>{window.trajArrow(trajectory)}</span>
-        <span>{trajectory}</span>
-      </div>
-
-      {/* Segmented arc — smaller, bottom */}
-      <svg viewBox="0 0 120 40" width="100%" height="40" style={{ display: "block", marginTop: 4 }}>
-        {Array.from({ length: SEGS }).map((_, i) => {
-          const a0 = Math.PI + (i / SEGS) * Math.PI;
-          const a1 = Math.PI + ((i + 0.85) / SEGS) * Math.PI;
-          const r0 = 26, r1 = 34;
-          const cx = 60, cy = 36;
-          const x00 = cx + r0 * Math.cos(a0), y00 = cy + r0 * Math.sin(a0);
-          const x01 = cx + r1 * Math.cos(a0), y01 = cy + r1 * Math.sin(a0);
-          const x10 = cx + r0 * Math.cos(a1), y10 = cy + r0 * Math.sin(a1);
-          const x11 = cx + r1 * Math.cos(a1), y11 = cy + r1 * Math.sin(a1);
-          const active = i < filled;
-          return (
-            <path key={i}
-              d={`M ${x00} ${y00} L ${x01} ${y01} L ${x11} ${y11} L ${x10} ${y10} Z`}
-              fill={active ? color : theme.ruleSoft}
-              opacity={active ? (0.55 + 0.4 * (i / SEGS)) : 0.45}
-            />
-          );
-        })}
-      </svg>
-
-      {/* Sparkline if history passed — even smaller */}
-      {sparkData && sparkData.length > 1 && (
-        <svg viewBox={`0 0 120 14`} width="100%" height="14" style={{ display: "block" }}>
-          {(() => {
-            const max = 5, min = 0;
-            const path = sparkData.map((s, i) => {
-              const x = (i / (sparkData.length - 1)) * 120;
-              const y = 12 - ((s - min) / (max - min)) * 10;
-              return `${i === 0 ? "M" : "L"} ${x.toFixed(1)} ${y.toFixed(1)}`;
-            }).join(" ");
-            return <>
-              <path d={path} fill="none" stroke={color} strokeWidth="1" opacity="0.6" />
-              <circle
-                cx={(sparkData.length - 1) / Math.max(1, sparkData.length - 1) * 120}
-                cy={12 - ((sparkData[sparkData.length - 1] - min) / (max - min)) * 10}
-                r="1.6" fill={color}
-              />
-            </>;
-          })()}
-        </svg>
-      )}
-    </div>
-  );
-};
-
-const ClocksStrip = ({ brief, history, theme }) => {
-  return (
-    <div style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(6, 1fr)",
-      gap: 10,
-    }}>
-      {window.CLOCK_ORDER.map(k => {
-        const spark = history.map(b => ClockScore(b.clocks[k]));
-        return (
-          <ClockDial
-            key={k}
-            clockKey={k}
-            state={brief.clocks[k]}
-            trajectory={brief.trajectory[k]}
-            theme={theme}
-            sparkData={spark}
-          />
-        );
-      })}
-    </div>
-  );
-};
-
-Object.assign(window, { ClockDial, ClocksStrip, ClockScore });
-
-
-/* ==== src/today.jsx ==== */
-// The "Today" brief view — hero + body.
-
-const Masthead = ({ theme, brief, day, totalDays, onNav, view }) => {
-  return (
-    <div style={{ marginBottom: 8 }}>
-      {/* Masthead bar — compact, single line */}
-      <div style={{
-        display: "flex", alignItems: "baseline", gap: 20,
-        borderBottom: `3px double ${theme.rule}`,
-        paddingBottom: 10, marginBottom: 10,
-      }}>
-        <div style={{
-          fontFamily: theme.font.display,
-          fontSize: 26, fontWeight: 600, letterSpacing: "-0.02em",
-          color: theme.ink, lineHeight: 1, whiteSpace: "nowrap",
-          flexShrink: 0,
-        }}>
-          <span style={{ fontStyle: "italic" }}>ME</span> WAR
-          <span style={{ color: theme.inkMute, fontWeight: 400 }}> · Intel Brief</span>
-        </div>
-        <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 12 }}>
-          <span style={{
-            fontFamily: theme.font.mono, fontSize: 10, color: theme.inkMute,
-            letterSpacing: "0.14em", textTransform: "uppercase", whiteSpace: "nowrap",
-          }}>
-            Twice daily · 3D @8gara8
-          </span>
-          <window.Stamp text="Unclassified · OSINT" theme={theme} angle={-3} />
-        </div>
-      </div>
-
-      {/* Sub-bar: nav */}
-      <div style={{
-        display: "flex", alignItems: "center", gap: 0,
-        borderBottom: `1px solid ${theme.ruleSoft}`,
-        fontFamily: theme.font.sans, fontSize: 12,
-        letterSpacing: "0.16em", textTransform: "uppercase", fontWeight: 600,
-      }}>
-        {[
-          ["today","Today"], ["archive","Archive"], ["timeline","Escalation"],
-          ["casualties","Casualties"], ["clocks","Clocks"], ["about","About"],
-        ].map(([k,l]) => (
-          <NavTab key={k} id={k} label={l} theme={theme} onNav={onNav} view={view} />
-        ))}
-        <div style={{ marginLeft: "auto", display: "flex", alignItems: "baseline", gap: 10, padding: "8px 0" }}>
-          <window.Num theme={theme}>{brief.date}</window.Num>
-          <span style={{ color: theme.inkMute, fontFamily: theme.font.mono, fontSize: 11 }}>·</span>
-          <span style={{ fontFamily: theme.font.mono, fontSize: 11, color: theme.inkMute }}>
-            DAY {String(day).padStart(3,"0")} / {String(totalDays).padStart(3,"0")}
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const NavTab = ({ id, label, theme, onNav, view }) => {
-  const active = view === id;
-  return (
-    <button
-      onClick={() => onNav(id)}
-      style={{
-        background: active ? theme.ink : "transparent",
-        color: active ? theme.bg : theme.ink,
-        border: "none", borderRight: `1px solid ${theme.ruleSoft}`,
-        padding: "10px 16px", cursor: "pointer",
-        fontFamily: "inherit", fontSize: "inherit",
-        letterSpacing: "inherit", textTransform: "inherit", fontWeight: "inherit",
-      }}
-    >{label}</button>
-  );
-};
-
-const TodayView = ({ brief, history, theme, onNav, totalDays }) => {
-  return (
-    <div>
-      {/* Dateline */}
-      <div style={{
-        fontFamily: theme.font.mono, fontSize: 10, letterSpacing: "0.2em",
-        textTransform: "uppercase", color: theme.accent, marginBottom: 10, marginTop: 4,
-      }}>
-        ▮ Daily Brief · Day {String(brief.day).padStart(3,"0")} · {brief.weekday} {brief.date}
-      </div>
-
-      {/* Title — full width, not competing with indicators */}
-      <h1 style={{
-        fontFamily: theme.font.display,
-        fontSize: 48, lineHeight: 1.05, letterSpacing: "-0.025em",
-        fontWeight: 600, color: theme.ink, margin: "0 0 28px",
-        textWrap: "balance", maxWidth: "24ch",
-      }}>
-        {brief.title}
-      </h1>
-
-      {/* Headline indicators — promoted to big status bar */}
-      <HeadlineBar brief={brief} theme={theme} />
-
-      {/* 6-clock strip */}
-      <div style={{ marginTop: 8 }}>
-        <window.SectionRule theme={theme} number={1} label="Multi-clock state" right="6 indicators" />
-        <window.ClocksStrip brief={brief} history={history} theme={theme} />
-      </div>
-
-      {/* Key developments first (scan), exec second (read) */}
-      {brief.headlines && (
-        <div>
-          <window.SectionRule theme={theme} number={2} label="Key developments" right={`${brief.headlines.length} items`} />
-          <ol style={{ listStyle: "none", padding: 0, margin: 0,
-            display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 40px",
-          }}>
-            {brief.headlines.map((h,i) => (
-              <li key={i} style={{
-                display: "grid", gridTemplateColumns: "auto 1fr",
-                gap: 14, padding: "12px 0",
-                borderBottom: `1px solid ${theme.ruleSoft}`,
-              }}>
-                <span style={{
-                  fontFamily: theme.font.mono, fontSize: 11, color: theme.accent,
-                  letterSpacing: "0.08em", paddingTop: 2,
-                }}>{String(i+1).padStart(2,"0")}</span>
-                <span style={{
-                  fontFamily: theme.font.sans, fontSize: 15, lineHeight: 1.45,
-                  color: theme.ink, textWrap: "pretty",
-                }}>{h}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      )}
-
-      {brief.exec && (
-        <div>
-          <window.SectionRule theme={theme} number={3} label="Executive summary" right={`${brief.exec.split(/\s+/).length} words`} />
-          <div style={{
-            maxWidth: 820,
-            fontFamily: theme.font.display,
-            fontSize: 19, lineHeight: 1.55, color: theme.ink,
-            textWrap: "pretty",
-          }}>
-            <span style={{
-              float: "left", fontSize: 64, lineHeight: 0.88, fontWeight: 600,
-              marginRight: 10, marginTop: 8, color: theme.accent,
-              fontFamily: theme.font.display,
-            }}>{brief.exec[0]}</span>
-            {brief.exec.slice(1)}
-            <div style={{ clear: "both" }} />
-          </div>
-        </div>
-      )}
-
-      {/* Events table */}
-      {brief.events && (
-        <div>
-          <window.SectionRule theme={theme} number={4} label="Key events (timeline)" right={`${brief.events.length} entries`} />
-          <EventsTable events={brief.events} theme={theme} />
-        </div>
-      )}
-
-      {/* Strategic Implications */}
-      {brief.implications && (
-        <div>
-          <window.SectionRule theme={theme} number={5} label="Strategic implications" right={`${brief.implications.length} threads`} />
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 28 }}>
-            {brief.implications.map((im, i) => (
-              <div key={i} style={{ borderTop: `2px solid ${theme.ink}`, paddingTop: 12 }}>
-                <div style={{
-                  fontFamily: theme.font.mono, fontSize: 10, letterSpacing: "0.16em",
-                  color: theme.accent, marginBottom: 6, textTransform: "uppercase",
-                }}>Implication {String(i+1).padStart(2,"0")}</div>
-                <h3 style={{
-                  fontFamily: theme.font.display, fontSize: 22, lineHeight: 1.15,
-                  margin: "0 0 8px", fontWeight: 600, color: theme.ink,
-                  textWrap: "balance",
-                }}>{im.title}</h3>
-                <p style={{
-                  fontFamily: theme.font.sans, fontSize: 13.5, lineHeight: 1.55,
-                  color: theme.inkSoft, margin: 0,
-                }}>{im.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Flash note + sources */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, marginTop: 12 }}>
-        {brief.flash && (
-          <div>
-            <window.SectionRule theme={theme} number={6} label="Evening flash (18:00 TPE)" right="+9h delta" />
-            <div style={{
-              border: `1px solid ${theme.ruleSoft}`,
-              borderLeft: `3px solid ${theme.accent}`,
-              background: theme.cardBg, padding: 14,
-              fontFamily: theme.font.display, fontSize: 15, lineHeight: 1.55,
-              color: theme.ink,
-            }}>
-              {brief.flash}
-            </div>
-          </div>
-        )}
-        {brief.sources && (
-          <div>
-            <window.SectionRule theme={theme} number={7} label="Sources" right={`${brief.sources.length} citations`} />
-            <ol style={{ columnCount: 1, padding: 0, margin: 0, listStyle: "none" }}>
-              {brief.sources.map((s, i) => (
-                <li key={i} style={{
-                  display: "grid", gridTemplateColumns: "auto 1fr",
-                  gap: 10, padding: "6px 0",
-                  borderBottom: `1px dotted ${theme.ruleSoft}`,
-                  fontFamily: theme.font.mono, fontSize: 11,
-                  color: theme.inkSoft,
-                }}>
-                  <span style={{ color: theme.inkMute }}>[{String(i+1).padStart(2,"0")}]</span>
-                  <span>
-                    <span style={{ color: theme.ink }}>{s.name}</span>
-                    <br/>
-                    <span style={{ color: theme.inkMute }}>↳ {s.url}</span>
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        )}
-      </div>
-
-      {/* Casualties — placed at the end per editorial preference */}
-      <div>
-        <window.SectionRule theme={theme} number={8} label="Casualties snapshot" right="Cumulative · ±24–48h Δ" />
-        <CasualtiesBlock brief={brief} history={history} theme={theme} />
-      </div>
-    </div>
-  );
-};
-
-const IndicatorRow = ({ label, value, theme, raw }) => (
-  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-    <span style={{
-      fontFamily: theme.font.mono, fontSize: 10, color: theme.inkMute,
-      letterSpacing: "0.12em", textTransform: "uppercase",
-    }}>{label}</span>
-    {raw
-      ? <window.Num theme={theme}>{value}</window.Num>
-      : <window.RiskPill value={value} theme={theme} />}
-  </div>
-);
-
-// Big, scannable headline indicators — the first thing the eye should land on.
-const HeadlineBar = ({ brief, theme }) => {
-  const tone = (v) => ["critical","extreme","escalating"].includes(v) ? "esc"
-    : ["conditional","mixed"].includes(v) ? "mix"
-    : ["contained","low","de-escalating"].includes(v) ? "ok"
-    : "neutral";
-  const cfTone = brief.ceasefire30d >= 20 ? "ok" : brief.ceasefire30d >= 10 ? "mix" : "esc";
-  const tiles = [
-    { label: "Direction",        value: brief.direction,  tone: tone(brief.direction) },
-    { label: "7-day risk",       value: brief.risk7d,     tone: tone(brief.risk7d) },
-    { label: "Spillover",        value: brief.spillover,  tone: tone(brief.spillover) },
-    { label: "Ceasefire · 30d",  value: `${brief.ceasefire30d}%`, tone: cfTone, raw: true },
-  ];
-  return (
-    <div style={{
-      display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0,
-      border: `1px solid ${theme.rule}`,
-      borderLeft: `3px solid ${theme.accent}`,
-      background: theme.cardBg,
-      marginBottom: 6,
-    }}>
-      {tiles.map((t, i) => {
-        const c = window.toneColor(theme, t.tone);
-        return (
-          <div key={i} style={{
-            padding: "14px 18px",
-            borderRight: i < tiles.length - 1 ? `1px solid ${theme.ruleSoft}` : "none",
-            display: "flex", flexDirection: "column", gap: 6,
-          }}>
-            <div style={{
-              display: "flex", alignItems: "center", gap: 8,
-              fontFamily: theme.font.mono, fontSize: 10,
-              letterSpacing: "0.16em", textTransform: "uppercase",
-              color: theme.inkMute,
-            }}>
-              <span style={{ width: 8, height: 8, background: c, display: "inline-block" }} />
-              {t.label}
-            </div>
-            <div style={{
-              fontFamily: theme.font.display,
-              fontSize: 30, fontWeight: 600,
-              letterSpacing: "-0.015em",
-              color: t.tone === "neutral" ? theme.ink : c,
-              textTransform: t.raw ? "none" : "uppercase",
-              lineHeight: 1.05,
-            }}>
-              {t.value}
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-
-const EventsTable = ({ events, theme }) => {
-  return (
-    <div style={{ border: `1px solid ${theme.ruleSoft}`, background: theme.cardBg }}>
-      <table style={{
-        width: "100%", borderCollapse: "collapse",
-        fontFamily: theme.font.sans, fontSize: 13,
-      }}>
-        <thead>
-          <tr style={{
-            borderBottom: `2px solid ${theme.ink}`,
-            fontFamily: theme.font.mono, fontSize: 10,
-            letterSpacing: "0.14em", textTransform: "uppercase",
-            color: theme.inkMute,
-          }}>
-            <th style={{ textAlign: "left", padding: "8px 10px", width: 36 }}>#</th>
-            <th style={{ textAlign: "left", padding: "8px 10px", width: 110 }}>Dir.</th>
-            <th style={{ textAlign: "left", padding: "8px 10px", width: 90 }}>Impt.</th>
-            <th style={{ textAlign: "left", padding: "8px 10px", width: 120 }}>Source</th>
-            <th style={{ textAlign: "left", padding: "8px 10px" }}>Event</th>
-            <th style={{ textAlign: "left", padding: "8px 10px" }}>Summary</th>
-            <th style={{ textAlign: "left", padding: "8px 10px" }}>Impact</th>
-          </tr>
-        </thead>
-        <tbody>
-          {events.map(e => (
-            <tr key={e.id} style={{ borderBottom: `1px solid ${theme.ruleSoft}`, verticalAlign: "top" }}>
-              <td style={{ padding: "10px", fontFamily: theme.font.mono, color: theme.inkMute }}>{String(e.id).padStart(2,"0")}</td>
-              <td style={{ padding: "10px" }}><window.RiskPill value={e.direction} theme={theme} /></td>
-              <td style={{ padding: "10px", fontFamily: theme.font.mono, fontSize: 11,
-                letterSpacing: "0.08em", textTransform: "uppercase",
-                color: e.importance === "pivotal" ? theme.accent : theme.inkSoft,
-                fontWeight: e.importance === "pivotal" ? 700 : 400,
-              }}>{e.importance}</td>
-              <td style={{ padding: "10px", color: theme.inkMute, fontStyle: "italic" }}>{e.source}</td>
-              <td style={{ padding: "10px", color: theme.ink, fontWeight: 500 }}>{e.event}</td>
-              <td style={{ padding: "10px", color: theme.inkSoft, lineHeight: 1.5 }}>{e.summary}</td>
-              <td style={{ padding: "10px", color: theme.inkSoft, lineHeight: 1.5 }}>{e.impact}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
-
-const CasualtiesBlock = ({ brief, history, theme }) => {
-  const actors = [
-    { key:"us",     label:"United States",    color: theme.ink },
-    { key:"israel", label:"Israel",           color: theme.accent },
-    { key:"iran",   label:"Iran & Proxies",   color: theme.accentAmber },
-    { key:"other",  label:"Other",            color: theme.accentGreen },
-  ];
-  // Delta 24–48h: current - previous brief
-  const prev = history[history.length - 2] || brief;
-  return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 12 }}>
-      {actors.map(a => {
-        const [k, w] = brief.casualties[a.key];
-        const [pk, pw] = prev.casualties[a.key];
-        const dk = k - pk, dw = w - pw;
-        return (
-          <div key={a.key} style={{
-            background: theme.cardBg,
-            border: `1px solid ${theme.ruleSoft}`,
-            borderTop: `3px solid ${a.color}`,
-            padding: "14px 14px 12px",
-          }}>
-            <div style={{
-              fontFamily: theme.font.mono, fontSize: 10, letterSpacing: "0.14em",
-              textTransform: "uppercase", color: theme.inkMute, marginBottom: 8,
-            }}>{a.label}</div>
-            <div style={{ display: "grid", gridTemplateColumns: "auto 1fr", gap: "2px 10px", alignItems: "baseline" }}>
-              <span style={{ fontFamily: theme.font.mono, fontSize: 10, color: theme.inkMute, letterSpacing: "0.08em", textTransform: "uppercase" }}>KIA</span>
-              <span style={{ fontFamily: theme.font.display, fontSize: 30, fontWeight: 600, color: theme.ink, letterSpacing: "-0.02em" }}>
-                <window.Num theme={theme}>{k.toLocaleString()}</window.Num>
-                {dk > 0 && <span style={{ fontFamily: theme.font.mono, fontSize: 12, color: theme.accent, marginLeft: 6 }}>+{dk}</span>}
-              </span>
-              <span style={{ fontFamily: theme.font.mono, fontSize: 10, color: theme.inkMute, letterSpacing: "0.08em", textTransform: "uppercase" }}>WIA</span>
-              <span style={{ fontFamily: theme.font.display, fontSize: 22, fontWeight: 500, color: theme.inkSoft }}>
-                <window.Num theme={theme} dim>{w.toLocaleString()}</window.Num>
-                {dw > 0 && <span style={{ fontFamily: theme.font.mono, fontSize: 11, color: theme.accentAmber, marginLeft: 6 }}>+{dw}</span>}
-              </span>
-            </div>
-            {/* Mini bar showing proportion of KIA run */}
-            <Sparkbar
-              values={history.map(h => h.casualties[a.key][0])}
-              color={a.color}
-              theme={theme}
-            />
-          </div>
-        );
-      })}
-    </div>
-  );
-};
-
-const Sparkbar = ({ values, color, theme }) => {
-  const max = Math.max(...values, 1);
-  return (
-    <svg viewBox={`0 0 ${values.length * 10} 24`} width="100%" height="24" style={{ marginTop: 10, display: "block" }}>
-      {values.map((v, i) => {
-        const h = Math.max(1, (v / max) * 22);
-        return (
-          <rect key={i}
-            x={i * 10 + 1} y={24 - h}
-            width={7} height={h}
-            fill={color} opacity={0.35 + 0.6 * (i / Math.max(1, values.length - 1))}
-          />
-        );
-      })}
-    </svg>
-  );
-};
-
-Object.assign(window, { TodayView, Masthead, NavTab, EventsTable, CasualtiesBlock });
-
-
-/* ==== src/views.jsx ==== */
-// Cross-brief views: Archive, Escalation Timeline, Casualties, Clocks Dashboard, About.
-
-const ArchiveView = ({ briefs, theme, onNav, currentDay, setDay }) => {
-  const sorted = [...briefs].sort((a,b) => b.day - a.day);
-  return (
-    <div>
-      <window.SectionRule theme={theme} number={1} label="Archive" right={`${briefs.length} briefs`} />
-      <div style={{
-        fontFamily: theme.font.sans, fontSize: 13, color: theme.inkSoft,
-        marginBottom: 18, maxWidth: 640, lineHeight: 1.55,
-      }}>
-        One MDX file per day, committed to <span style={{ fontFamily: theme.font.mono, color: theme.ink }}>content/briefs/</span> by
-        the morning Routine at 09:00 Asia/Taipei (01:00 UTC). Flash notes from the 18:00 run are folded into the next morning's brief.
-      </div>
-      <div style={{ border: `1px solid ${theme.ruleSoft}` }}>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "70px 100px 1fr 120px 120px 100px",
-          padding: "8px 14px",
-          borderBottom: `2px solid ${theme.ink}`,
-          fontFamily: theme.font.mono, fontSize: 10,
-          letterSpacing: "0.14em", textTransform: "uppercase", color: theme.inkMute,
-          background: theme.cardBg,
-        }}>
-          <div>Day</div><div>Date</div><div>Title</div>
-          <div>Direction</div><div>Risk / 7d</div><div>C/F 30d</div>
-        </div>
-        {sorted.map(b => {
-          const active = b.day === currentDay;
-          return (
-            <button key={b.day}
-              onClick={() => { setDay(b.day); onNav("today"); }}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "70px 100px 1fr 120px 120px 100px",
-                padding: "12px 14px", alignItems: "baseline", gap: 8,
-                background: active ? theme.cardBg : "transparent",
-                borderBottom: `1px solid ${theme.ruleSoft}`,
-                borderLeft: active ? `3px solid ${theme.accent}` : "3px solid transparent",
-                width: "100%", textAlign: "left", cursor: "pointer",
-                fontFamily: "inherit", color: theme.ink,
-              }}>
-              <span style={{ fontFamily: theme.font.mono, fontSize: 13, color: theme.accent }}>
-                {String(b.day).padStart(3,"0")}
-              </span>
-              <span style={{ fontFamily: theme.font.mono, fontSize: 12, color: theme.inkSoft }}>
-                {b.date}
-              </span>
-              <span style={{ fontFamily: theme.font.display, fontSize: 16, lineHeight: 1.3, fontWeight: 500 }}>
-                {b.title}
-              </span>
-              <span><window.RiskPill value={b.direction} theme={theme} /></span>
-              <span><window.RiskPill value={b.risk7d} theme={theme} /></span>
-              <span style={{ fontFamily: theme.font.mono, fontSize: 13, color: theme.inkSoft }}>{b.ceasefire30d}%</span>
-            </button>
-          );
-        })}
-      </div>
-    </div>
-  );
-};
-
-const TimelineView = ({ briefs, theme, onNav, setDay }) => {
-  const W = 1000, H = 260, pad = { l: 50, r: 24, t: 30, b: 40 };
-  const iw = W - pad.l - pad.r, ih = H - pad.t - pad.b;
-  const xs = (i) => pad.l + (i / Math.max(1, briefs.length - 1)) * iw;
-  const ys = (score) => pad.t + ih - ((score + 1) / 2) * ih; // dir score -1..1 -> ih..0
-
-  const points = briefs.map((b, i) => ({ x: xs(i), y: ys(window.DIR_SCORE[b.direction]), b }));
-
-  return (
-    <div>
-      <window.SectionRule theme={theme} number={1} label="Escalation timeline" right="Direction by day" />
-      <div style={{ fontFamily: theme.font.sans, fontSize: 13, color: theme.inkSoft, marginBottom: 14, maxWidth: 640, lineHeight: 1.55 }}>
-        The canonical analytical arc: each brief's <em>direction</em> assessment (escalating / mixed / de-escalating) plotted over the life of the conflict. Click any node to open that day's brief.
-      </div>
-      <div style={{ border: `1px solid ${theme.ruleSoft}`, background: theme.cardBg, padding: 14 }}>
-        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block" }}>
-          {/* Bands */}
-          {[
-            { lo: 1, label: "ESCALATING", color: theme.accent, y: ys(1), h: ys(0) - ys(1) },
-            { lo: 0, label: "MIXED",      color: theme.accentAmber, y: ys(0), h: ys(-1) - ys(0) + 1 },
-          ].map((band, i) => (
-            <g key={i}>
-              <rect x={pad.l} y={band.y} width={iw} height={band.h} fill={band.color} opacity="0.06" />
-              <text x={W - pad.r - 4} y={band.y + 14} textAnchor="end"
-                style={{ fontFamily: theme.font.mono, fontSize: 9, letterSpacing: "0.14em", fill: band.color, opacity: 0.7 }}>
-                {band.label}
-              </text>
-            </g>
-          ))}
-          <rect x={pad.l} y={ys(-1)} width={iw} height={ys(-1.5) - ys(-1)} fill={theme.accentGreen} opacity="0.06" />
-          {/* Gridlines */}
-          {[-1, 0, 1].map(s => (
-            <line key={s} x1={pad.l} x2={W - pad.r} y1={ys(s)} y2={ys(s)}
-              stroke={theme.ruleSoft} strokeDasharray="2 3" />
-          ))}
-          {/* Path */}
-          <path d={points.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" ")}
-            stroke={theme.ink} strokeWidth="1.5" fill="none" />
-          {/* Points */}
-          {points.map((p, i) => (
-            <g key={i} style={{ cursor: "pointer" }} onClick={() => { setDay(p.b.day); onNav("today"); }}>
-              <circle cx={p.x} cy={p.y} r="5"
-                fill={p.b.direction === "escalating" ? theme.accent :
-                      p.b.direction === "mixed" ? theme.accentAmber : theme.accentGreen}
-                stroke={theme.ink} strokeWidth="1" />
-              <text x={p.x} y={H - pad.b + 16} textAnchor="middle"
-                style={{ fontFamily: theme.font.mono, fontSize: 10, fill: theme.inkMute }}>
-                D{String(p.b.day).padStart(2,"0")}
-              </text>
-            </g>
-          ))}
-          {/* Y labels */}
-          <text x={pad.l - 8} y={ys(1) + 3} textAnchor="end" style={{ fontFamily: theme.font.mono, fontSize: 10, fill: theme.inkMute }}>ESC</text>
-          <text x={pad.l - 8} y={ys(0) + 3} textAnchor="end" style={{ fontFamily: theme.font.mono, fontSize: 10, fill: theme.inkMute }}>MIX</text>
-          <text x={pad.l - 8} y={ys(-1) + 3} textAnchor="end" style={{ fontFamily: theme.font.mono, fontSize: 10, fill: theme.inkMute }}>DE</text>
-        </svg>
-      </div>
-
-      {/* Risk / Ceasefire small multiples */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 20 }}>
-        <MiniLine title="7-day risk (ordinal)" theme={theme} briefs={briefs}
-          y={b => window.RISK_SCORE[b.risk7d]} max={4} labels={["low","cond","ext","crit"]} color={theme.accent} />
-        <MiniLine title="Ceasefire probability / 30d (%)" theme={theme} briefs={briefs}
-          y={b => b.ceasefire30d} max={100} labels={["0","25","50","75","100"]} color={theme.accentGreen} />
-      </div>
-    </div>
-  );
-};
-
-const MiniLine = ({ title, theme, briefs, y, max, labels, color }) => {
-  const W = 480, H = 160, pad = { l: 46, r: 14, t: 24, b: 28 };
-  const iw = W - pad.l - pad.r, ih = H - pad.t - pad.b;
-  const xs = i => pad.l + (i / Math.max(1, briefs.length - 1)) * iw;
-  const ys = v => pad.t + ih - (v / max) * ih;
-  const d = briefs.map((b, i) => `${i === 0 ? "M" : "L"} ${xs(i)} ${ys(y(b))}`).join(" ");
-  return (
-    <div style={{ border: `1px solid ${theme.ruleSoft}`, background: theme.cardBg, padding: "12px 14px" }}>
-      <div style={{ fontFamily: theme.font.mono, fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: theme.inkMute, marginBottom: 6 }}>{title}</div>
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%">
-        {[0, 0.25, 0.5, 0.75, 1].map((t, i) => (
-          <g key={i}>
-            <line x1={pad.l} x2={W - pad.r} y1={pad.t + t * ih} y2={pad.t + t * ih}
-              stroke={theme.ruleSoft} strokeDasharray="1 3" />
-            <text x={pad.l - 6} y={pad.t + t * ih + 3} textAnchor="end"
-              style={{ fontFamily: theme.font.mono, fontSize: 9, fill: theme.inkMute }}>
-              {labels[4 - Math.round(t * 4)]}
-            </text>
-          </g>
-        ))}
-        <path d={d} fill="none" stroke={color} strokeWidth="1.6" />
-        {briefs.map((b, i) => (
-          <circle key={i} cx={xs(i)} cy={ys(y(b))} r="2.5" fill={color} />
-        ))}
-        {briefs.map((b, i) => i % 2 === 0 && (
-          <text key={i} x={xs(i)} y={H - pad.b + 14} textAnchor="middle"
-            style={{ fontFamily: theme.font.mono, fontSize: 9, fill: theme.inkMute }}>D{b.day}</text>
-        ))}
-      </svg>
-    </div>
-  );
-};
-
-const CasualtiesView = ({ briefs, theme }) => {
-  const actors = [
-    { key:"iran",   label:"Iran & Proxies",   color: theme.accentAmber },
-    { key:"israel", label:"Israel",           color: theme.accent },
-    { key:"other",  label:"Other",            color: theme.accentGreen },
-    { key:"us",     label:"United States",    color: theme.ink },
-  ];
-
-  // Stacked area data
-  const W = 1000, H = 320, pad = { l: 54, r: 24, t: 20, b: 40 };
-  const iw = W - pad.l - pad.r, ih = H - pad.t - pad.b;
-  const xs = i => pad.l + (i / Math.max(1, briefs.length - 1)) * iw;
-  // Compute stacks
-  const stacks = briefs.map((b, i) => {
-    let acc = 0;
-    const out = {};
-    for (const a of actors) {
-      const v = b.casualties[a.key][0];
-      out[a.key] = { y0: acc, y1: acc + v };
-      acc += v;
-    }
-    out._total = acc;
-    return out;
-  });
-  const maxTotal = Math.max(...stacks.map(s => s._total));
-  const ys = v => pad.t + ih - (v / maxTotal) * ih;
-
-  return (
-    <div>
-      <window.SectionRule theme={theme} number={1} label="Cumulative casualties — KIA by actor" right={`max ${maxTotal.toLocaleString()}`} />
-      <div style={{ fontFamily: theme.font.sans, fontSize: 13, color: theme.inkSoft, marginBottom: 14, maxWidth: 680, lineHeight: 1.55 }}>
-        Stacked area. Figures are analytical estimates drawn from open-source reporting; casualty revisions are flagged in the frontmatter of individual briefs.
-        No counts decrease without an explicit <span style={{ fontFamily: theme.font.mono, color: theme.ink }}>casualty_revision: true</span> acknowledgment.
-      </div>
-      <div style={{ border: `1px solid ${theme.ruleSoft}`, background: theme.cardBg, padding: 14 }}>
-        <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block" }}>
-          {[0, 0.25, 0.5, 0.75, 1].map((t, i) => {
-            const v = Math.round(maxTotal * (1 - t));
-            return (
-              <g key={i}>
-                <line x1={pad.l} x2={W - pad.r} y1={pad.t + t * ih} y2={pad.t + t * ih} stroke={theme.ruleSoft} strokeDasharray="1 3" />
-                <text x={pad.l - 6} y={pad.t + t * ih + 3} textAnchor="end" style={{ fontFamily: theme.font.mono, fontSize: 9, fill: theme.inkMute }}>
-                  {v.toLocaleString()}
-                </text>
-              </g>
-            );
-          })}
-          {actors.map((a, ai) => {
-            const pathTop = stacks.map((s, i) => `${i === 0 ? "M" : "L"} ${xs(i)} ${ys(s[a.key].y1)}`).join(" ");
-            const pathBot = stacks.map((s, i) => ` L ${xs(stacks.length - 1 - i)} ${ys(stacks[stacks.length - 1 - i][a.key].y0)}`).join("");
-            return <path key={a.key} d={pathTop + pathBot + " Z"} fill={a.color} opacity="0.5" stroke={a.color} strokeWidth="1" />;
-          })}
-          {briefs.map((b, i) => i % 2 === 0 && (
-            <text key={i} x={xs(i)} y={H - pad.b + 14} textAnchor="middle" style={{ fontFamily: theme.font.mono, fontSize: 9, fill: theme.inkMute }}>D{b.day}</text>
-          ))}
-        </svg>
-      </div>
-
-      {/* Legend */}
-      <div style={{ display: "flex", gap: 20, marginTop: 14, flexWrap: "wrap" }}>
-        {actors.map(a => {
-          const latest = briefs[briefs.length - 1].casualties[a.key];
-          return (
-            <div key={a.key} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <span style={{ width: 14, height: 14, background: a.color, opacity: 0.65, border: `1px solid ${a.color}` }} />
-              <span style={{ fontFamily: theme.font.sans, fontSize: 13, color: theme.ink }}>{a.label}</span>
-              <span style={{ fontFamily: theme.font.mono, fontSize: 12, color: theme.inkMute }}>
-                KIA {latest[0].toLocaleString()} · WIA {latest[1].toLocaleString()}
-              </span>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Table of latest */}
-      <window.SectionRule theme={theme} number={2} label="Latest brief snapshot" />
-      <window.CasualtiesBlock brief={briefs[briefs.length - 1]} history={briefs} theme={theme} />
-    </div>
-  );
-};
-
-const ClocksDashboardView = ({ briefs, theme }) => {
-  const latest = briefs[briefs.length - 1];
-  return (
-    <div>
-      <window.SectionRule theme={theme} number={1} label="Multi-clock dashboard" right={`Day ${latest.day} state`} />
-      <div style={{ fontFamily: theme.font.sans, fontSize: 13, color: theme.inkSoft, marginBottom: 14, maxWidth: 680, lineHeight: 1.55 }}>
-        Six analytical clocks track the pressures that govern the war's pace. The pattern across dials matters more than any single one; see the sparkline for trajectory.
-      </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
-        {window.CLOCK_ORDER.map(k => {
-          const spark = briefs.map(b => window.ClockScore(b.clocks[k]));
-          return (
-            <window.ClockDial
-              key={k} clockKey={k}
-              state={latest.clocks[k]}
-              trajectory={latest.trajectory[k]}
-              theme={theme}
-              sparkData={spark}
-            />
-          );
-        })}
-      </div>
-
-      {/* Heatmap history */}
-      <window.SectionRule theme={theme} number={2} label="State history (heatmap)" right={`${briefs.length} days`} />
-      <div style={{ border: `1px solid ${theme.ruleSoft}`, background: theme.cardBg, padding: 14, overflow: "auto" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse" }}>
-          <thead>
-            <tr style={{ fontFamily: theme.font.mono, fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", color: theme.inkMute }}>
-              <th style={{ textAlign: "left", padding: "4px 8px", minWidth: 180 }}>Clock</th>
-              {briefs.map(b => (
-                <th key={b.day} style={{ padding: "4px 2px", textAlign: "center", width: 34 }}>
-                  D{String(b.day).padStart(2,"0")}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {window.CLOCK_ORDER.map(k => (
-              <tr key={k}>
-                <td style={{
-                  padding: "8px 8px", fontFamily: theme.font.sans, fontSize: 13,
-                  color: theme.ink, borderRight: `1px solid ${theme.ruleSoft}`,
-                }}>{window.CLOCK_LABELS[k]}</td>
-                {briefs.map(b => {
-                  const tone = window.clockToneFor(k, b.clocks[k]);
-                  const c = window.toneColor(theme, tone);
-                  const score = window.ClockScore(b.clocks[k]);
-                  return (
-                    <td key={b.day} title={`${b.clocks[k]} · ${b.trajectory[k]}`}
-                      style={{
-                        padding: 2, textAlign: "center",
-                      }}>
-                      <div style={{
-                        background: c,
-                        opacity: 0.25 + 0.65 * (score / 5),
-                        height: 22, width: 28, margin: "0 auto",
-                        border: `1px solid ${c}40`,
-                      }} />
-                    </td>
-                  );
-                })}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-};
-
-const AboutView = ({ theme }) => (
-  <div style={{ maxWidth: 780 }}>
-    <window.SectionRule theme={theme} number={1} label="What this is" />
-    <p style={{ fontFamily: theme.font.display, fontSize: 20, lineHeight: 1.5, color: theme.ink, margin: "0 0 18px" }}>
-      A public twice-daily intelligence brief on the 2026 US–Israeli war on Iran (Operation Epic Fury), researched and written autonomously
-      by two scheduled Routines and published to a Next.js site on Vercel. Git is the audit trail. Produced by 3D (<span style={{ fontFamily: theme.font.mono, color: theme.accent }}>@8gara8</span>).
-    </p>
-
-    <window.SectionRule theme={theme} number={2} label="Cadence" />
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 18 }}>
-      <CadenceCard theme={theme} label="Morning — full brief" time="09:00 Asia/Taipei · 01:00 UTC"
-        body="Full research, canonical MDX written, casualty figures updated, all six clocks reassessed, context.md rewritten in full. Minimum 8 cited sources unless quiet_day is flagged." />
-      <CadenceCard theme={theme} label="Evening — flash" time="18:00 Asia/Taipei · 10:00 UTC"
-        body="Targeted research on the ~9-hour window since the morning run. One time-stamped flash note appended to context.md. No casualty or clock revisions. Folded into the next morning's brief." />
-    </div>
-
-    <window.SectionRule theme={theme} number={3} label="What this is not" />
-    <ul style={{ fontFamily: theme.font.sans, fontSize: 14, lineHeight: 1.65, color: theme.inkSoft, paddingLeft: 18 }}>
-      <li>Not a news wire. Briefs are analytical, not real-time.</li>
-      <li>Not authoritative casualty accounting. Figures are open-source estimates; revisions are explicit.</li>
-      <li>Not predictive. Probability assessments are analytical priors, not forecasts.</li>
-      <li>Not partisan. Every call that can cut either way is annotated in the rationale field.</li>
-    </ul>
-
-    <window.SectionRule theme={theme} number={4} label="Methodology" />
-    <p style={{ fontFamily: theme.font.sans, fontSize: 14, lineHeight: 1.65, color: theme.inkSoft }}>
-      Each brief is a single MDX file with a strictly-typed frontmatter schema and a sibling <span style={{ fontFamily: theme.font.mono, color: theme.ink }}>.data.ts</span> sidecar. GitHub Actions validate
-      every PR: frontmatter schema, day continuity, date/filename match, casualty monotonicity, source count floor, URL liveness, and
-      length sanity. Passing PRs auto-merge; failing PRs are flagged <span style={{ fontFamily: theme.font.mono, color: theme.accent }}>needs-review</span>.
-    </p>
-
-    <window.SectionRule theme={theme} number={5} label="Contact" />
-    <p style={{ fontFamily: theme.font.sans, fontSize: 14, color: theme.inkSoft, lineHeight: 1.65 }}>
-      Corrections, missing sources, methodology complaints → <span style={{ fontFamily: theme.font.mono, color: theme.ink }}>@8gara8</span> on X or the repo's
-      <span style={{ fontFamily: theme.font.mono, color: theme.ink }}> Issues</span> tab. Code MIT; prose CC-BY 4.0.
-    </p>
-  </div>
-);
-
-const CadenceCard = ({ theme, label, time, body }) => (
-  <div style={{ border: `1px solid ${theme.ruleSoft}`, background: theme.cardBg, padding: 16 }}>
-    <div style={{ fontFamily: theme.font.mono, fontSize: 10, letterSpacing: "0.14em", color: theme.accent, textTransform: "uppercase", marginBottom: 6 }}>{label}</div>
-    <div style={{ fontFamily: theme.font.display, fontSize: 22, fontWeight: 600, color: theme.ink, marginBottom: 10 }}>{time}</div>
-    <p style={{ fontFamily: theme.font.sans, fontSize: 13.5, lineHeight: 1.55, color: theme.inkSoft, margin: 0 }}>{body}</p>
-  </div>
-);
-
-Object.assign(window, { ArchiveView, TimelineView, CasualtiesView, ClocksDashboardView, AboutView, MiniLine });
-
-
-/* ==== src/app.jsx ==== */
-// App shell + Tweaks panel. Wires everything together.
-
-const { useState, useEffect, useRef } = React;
-
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "theme": "paper",
-  "density": "comfortable",
-  "day": 12,
-  "showStamp": true
-}/*EDITMODE-END*/;
-
-const App = () => {
-  const persisted = (() => {
-    try {
-      return JSON.parse(localStorage.getItem("mewar:state") || "{}");
-    } catch { return {}; }
-  })();
-  const [themeKey, setThemeKey] = useState(persisted.theme || TWEAK_DEFAULTS.theme);
-  const [density, setDensity]   = useState(persisted.density || TWEAK_DEFAULTS.density);
-  const [day, setDay]           = useState(persisted.day ?? TWEAK_DEFAULTS.day);
-  const [view, setView]         = useState(persisted.view || "today");
-  const [tweaksOpen, setTweaksOpen] = useState(false);
-  const [tweaksAvailable, setTweaksAvailable] = useState(false);
-
-  // Persist
-  useEffect(() => {
-    localStorage.setItem("mewar:state", JSON.stringify({ theme: themeKey, density, day, view }));
-    window.__view = view;
-  }, [themeKey, density, day, view]);
-
-  // Edit-mode protocol
-  useEffect(() => {
-    const onMsg = (e) => {
-      const d = e.data || {};
-      if (d.type === "__activate_edit_mode") setTweaksOpen(true);
-      if (d.type === "__deactivate_edit_mode") setTweaksOpen(false);
-    };
-    window.addEventListener("message", onMsg);
-    window.parent.postMessage({ type: "__edit_mode_available" }, "*");
-    setTweaksAvailable(true);
-    return () => window.removeEventListener("message", onMsg);
-  }, []);
-
-  const setTweak = (patch) => {
-    window.parent.postMessage({ type: "__edit_mode_set_keys", edits: patch }, "*");
-  };
-
-  const theme = window.THEMES[themeKey];
-  const briefs = window.BRIEFS;
-  const brief = briefs.find(b => b.day === day) || briefs[briefs.length - 1];
-  const historyUpTo = briefs.filter(b => b.day <= brief.day);
-
-  const contentPad = density === "compact" ? "18px 28px" : density === "roomy" ? "36px 56px" : "28px 44px";
-  const maxW = density === "compact" ? 1200 : density === "roomy" ? 1400 : 1280;
-
-  return (
-    <div style={{
-      minHeight: "100vh",
-      background: theme.bg,
-      color: theme.ink,
-      fontFamily: theme.font.sans,
-      // Subtle paper grain via radial gradients only on paper theme
-      backgroundImage: themeKey === "paper"
-        ? `radial-gradient(circle at 20% 10%, ${theme.bgDeep}22 0%, transparent 40%), radial-gradient(circle at 80% 90%, ${theme.bgDeep}22 0%, transparent 50%)`
-        : themeKey === "terminal"
-        ? "repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 3px)"
-        : "none",
-    }}>
-      <div data-screen-label={`View ${view}`} style={{ maxWidth: maxW, margin: "0 auto", padding: contentPad }}>
-        <window.Masthead theme={theme} brief={brief} day={brief.day} totalDays={briefs.length} onNav={setView} view={view} />
-
-        {view === "today" && (
-          <window.TodayView brief={brief} history={historyUpTo} theme={theme} onNav={setView} totalDays={briefs.length} />
-        )}
-        {view === "archive" && (
-          <window.ArchiveView briefs={briefs} theme={theme} onNav={setView} currentDay={day} setDay={setDay} />
-        )}
-        {view === "timeline" && (
-          <window.TimelineView briefs={briefs} theme={theme} onNav={setView} setDay={setDay} />
-        )}
-        {view === "casualties" && (
-          <window.CasualtiesView briefs={briefs} theme={theme} />
-        )}
-        {view === "clocks" && (
-          <window.ClocksDashboardView briefs={briefs} theme={theme} />
-        )}
-        {view === "about" && (
-          <window.AboutView theme={theme} />
-        )}
-
-        {/* Footer */}
-        <div style={{
-          marginTop: 48, paddingTop: 16,
-          borderTop: `1px solid ${theme.ruleSoft}`,
-          display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap",
-          fontFamily: theme.font.mono, fontSize: 10, letterSpacing: "0.12em",
-          textTransform: "uppercase", color: theme.inkMute,
-        }}>
-          <span>© 2026 3D · @8gara8</span>
-          <span>·</span>
-          <span>Git audit trail: /content/briefs/</span>
-          <span>·</span>
-          <span>Next.js 15 · Vercel · MIT</span>
-          <span style={{ marginLeft: "auto" }}>
-            Brief timestamp: <window.Num theme={theme}>{brief.date}T01:00Z</window.Num>
-          </span>
-        </div>
-      </div>
-
-      {/* Day scrubber — persistent bottom bar */}
-      <DayScrubber briefs={briefs} day={day} setDay={setDay} theme={theme} view={view} setView={setView} />
-
-      {/* Tweaks panel */}
-      {tweaksOpen && (
-        <TweaksPanel
-          themeKey={themeKey} setThemeKey={(v) => { setThemeKey(v); setTweak({ theme: v }); }}
-          density={density} setDensity={(v) => { setDensity(v); setTweak({ density: v }); }}
-          day={day} setDay={(v) => { setDay(v); setTweak({ day: v }); }}
-          briefs={briefs} onClose={() => setTweaksOpen(false)}
-        />
-      )}
-    </div>
-  );
-};
-
-const DayScrubber = ({ briefs, day, setDay, theme, view, setView }) => {
-  return (
-    <div style={{
-      position: "fixed", left: 0, right: 0, bottom: 0,
-      background: theme.bgDeep, borderTop: `1px solid ${theme.rule}`,
-      padding: "10px 20px", display: "flex", alignItems: "center", gap: 14,
-      zIndex: 50, backdropFilter: "blur(4px)",
-    }}>
-      <span style={{ fontFamily: theme.font.mono, fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: theme.inkMute }}>
-        Day scrubber
-      </span>
-      <div style={{ display: "flex", gap: 2, flex: 1, alignItems: "center" }}>
-        {briefs.map(b => {
-          const active = b.day === day;
-          const color = b.direction === "escalating" ? theme.accent :
-                        b.direction === "mixed" ? theme.accentAmber : theme.accentGreen;
-          return (
-            <button key={b.day}
-              onClick={() => { setDay(b.day); if (view !== "today") setView("today"); }}
-              title={`Day ${b.day} — ${b.date} — ${b.title}`}
-              style={{
-                flex: 1, background: active ? color : theme.cardBg,
-                border: `1px solid ${active ? color : theme.ruleSoft}`,
-                height: active ? 36 : 24, cursor: "pointer",
-                transition: "height 0.12s",
-                position: "relative",
-              }}>
-              <span style={{
-                position: "absolute", inset: 0,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontFamily: theme.font.mono, fontSize: 10, color: active ? theme.bg : theme.inkMute,
-                fontWeight: active ? 700 : 400,
-              }}>{b.day}</span>
-            </button>
-          );
-        })}
-      </div>
-      <span style={{ fontFamily: theme.font.mono, fontSize: 11, color: theme.ink, minWidth: 130, textAlign: "right" }}>
-        Day {String(day).padStart(3,"0")} · {briefs.find(b => b.day === day)?.date}
-      </span>
-    </div>
-  );
-};
-
-const TweaksPanel = ({ themeKey, setThemeKey, density, setDensity, day, setDay, briefs, onClose }) => {
-  const theme = window.THEMES[themeKey];
-  return (
-    <div style={{
-      position: "fixed", top: 20, right: 20, width: 300, zIndex: 100,
-      background: theme.cardBg, border: `1px solid ${theme.rule}`,
-      boxShadow: "0 20px 60px rgba(0,0,0,0.25)",
-      fontFamily: theme.font.sans, color: theme.ink,
-    }}>
-      <div style={{
-        padding: "10px 14px", borderBottom: `1px solid ${theme.rule}`,
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        background: theme.bgDeep,
-      }}>
-        <span style={{ fontFamily: theme.font.mono, fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase" }}>
-          Tweaks
-        </span>
-        <button onClick={onClose} style={{
-          background: "none", border: "none", color: theme.inkMute,
-          cursor: "pointer", fontFamily: theme.font.mono, fontSize: 14,
-        }}>×</button>
-      </div>
-
-      <div style={{ padding: 14, display: "flex", flexDirection: "column", gap: 16 }}>
-        <TweakGroup label="Theme" theme={theme}>
-          {Object.entries(window.THEMES).map(([k, t]) => (
-            <TweakOption key={k} active={themeKey === k} onClick={() => setThemeKey(k)} theme={theme}>
-              <span style={{
-                display: "inline-block", width: 10, height: 10,
-                background: t.accent, marginRight: 8,
-              }} />{t.label}
-            </TweakOption>
-          ))}
-        </TweakGroup>
-
-        <TweakGroup label="Density" theme={theme}>
-          {["compact","comfortable","roomy"].map(d => (
-            <TweakOption key={d} active={density === d} onClick={() => setDensity(d)} theme={theme}>
-              {d}
-            </TweakOption>
-          ))}
-        </TweakGroup>
-
-        <TweakGroup label={`Day (${day})`} theme={theme}>
-          <input type="range" min={1} max={briefs.length} value={day}
-            onChange={e => setDay(+e.target.value)}
-            style={{ width: "100%", accentColor: theme.accent }}
-          />
-        </TweakGroup>
-      </div>
-    </div>
-  );
-};
-
-const TweakGroup = ({ label, theme, children }) => (
-  <div>
-    <div style={{
-      fontFamily: theme.font.mono, fontSize: 10, letterSpacing: "0.14em",
-      textTransform: "uppercase", color: theme.inkMute, marginBottom: 6,
-    }}>{label}</div>
-    <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>{children}</div>
-  </div>
-);
-
-const TweakOption = ({ active, onClick, children, theme }) => (
-  <button onClick={onClick} style={{
-    background: active ? theme.ink : "transparent",
-    color: active ? theme.bg : theme.ink,
-    border: `1px solid ${active ? theme.ink : theme.ruleSoft}`,
-    padding: "6px 10px", cursor: "pointer",
-    fontFamily: theme.font.mono, fontSize: 11,
-    letterSpacing: "0.08em", textTransform: "uppercase",
-  }}>{children}</button>
-);
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
-
-
+<script type="text/babel" data-presets="react" src="src/tokens.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/data.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/clocks.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/today.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/views.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/app.jsx"></script>
 </script>
 </body>
 </html>

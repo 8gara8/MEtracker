@@ -51,7 +51,7 @@ const App = () => {
   const historyUpTo = briefs.filter(b => b.day <= brief.day);
 
   const contentPad = density === "compact" ? "18px 28px" : density === "roomy" ? "36px 56px" : "28px 44px";
-  const maxW = density === "compact" ? 1200 : density === "roomy" ? 1400 : 1280;
+  const maxW = density === "compact" ? 1280 : density === "roomy" ? 1600 : 1440;
 
   return (
     <div style={{
@@ -66,7 +66,7 @@ const App = () => {
         ? "repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 3px)"
         : "none",
     }}>
-      <div data-screen-label={`View ${view}`} style={{ maxWidth: maxW, margin: "0 auto", padding: contentPad }}>
+      <div data-screen-label={`View ${view}`} data-page-shell style={{ maxWidth: maxW, margin: "0 auto", padding: contentPad }}>
         <window.Masthead theme={theme} brief={brief} day={brief.day} totalDays={briefs.length} onNav={setView} view={view} />
 
         {view === "today" && (
@@ -89,7 +89,7 @@ const App = () => {
         )}
 
         {/* Footer */}
-        <div style={{
+        <div className="mw-footer" style={{
           marginTop: 48, paddingTop: 16,
           borderTop: `1px solid ${theme.ruleSoft}`,
           display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap",
@@ -125,26 +125,25 @@ const App = () => {
 
 const DayScrubber = ({ briefs, day, setDay, theme, view, setView }) => {
   return (
-    <div style={{
-      position: "fixed", left: 0, right: 0, bottom: 0,
+    <div className="mw-scrubber" style={{
       background: theme.bgDeep, borderTop: `1px solid ${theme.rule}`,
-      padding: "10px 20px", display: "flex", alignItems: "center", gap: 14,
-      zIndex: 50, backdropFilter: "blur(4px)",
+      backdropFilter: "blur(4px)",
     }}>
-      <span style={{ fontFamily: theme.font.mono, fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: theme.inkMute }}>
+      <span className="mw-scrubber-label" style={{ fontFamily: theme.font.mono, fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: theme.inkMute }}>
         Day scrubber
       </span>
-      <div style={{ display: "flex", gap: 2, flex: 1, alignItems: "center" }}>
+      <div className="mw-scrubber-track" style={{ display: "flex", gap: 2, flex: 1, alignItems: "center", minWidth: 0 }}>
         {briefs.map(b => {
           const active = b.day === day;
           const color = b.direction === "escalating" ? theme.accent :
                         b.direction === "mixed" ? theme.accentAmber : theme.accentGreen;
           return (
             <button key={b.day}
+              className={active ? "active" : ""}
               onClick={() => { setDay(b.day); if (view !== "today") setView("today"); }}
               title={`Day ${b.day} — ${b.date} — ${b.title}`}
               style={{
-                flex: 1, background: active ? color : theme.cardBg,
+                flex: 1, minWidth: 0, background: active ? color : theme.cardBg,
                 border: `1px solid ${active ? color : theme.ruleSoft}`,
                 height: active ? 36 : 24, cursor: "pointer",
                 transition: "height 0.12s",
@@ -160,7 +159,7 @@ const DayScrubber = ({ briefs, day, setDay, theme, view, setView }) => {
           );
         })}
       </div>
-      <span style={{ fontFamily: theme.font.mono, fontSize: 11, color: theme.ink, minWidth: 130, textAlign: "right" }}>
+      <span className="mw-scrubber-current" style={{ fontFamily: theme.font.mono, fontSize: 11, color: theme.ink }}>
         Day {String(day).padStart(3,"0")} · {briefs.find(b => b.day === day)?.date}
       </span>
     </div>
@@ -170,7 +169,7 @@ const DayScrubber = ({ briefs, day, setDay, theme, view, setView }) => {
 const TweaksPanel = ({ themeKey, setThemeKey, density, setDensity, day, setDay, briefs, onClose }) => {
   const theme = window.THEMES[themeKey];
   return (
-    <div style={{
+    <div className="mw-tweaks" style={{
       position: "fixed", top: 20, right: 20, width: 300, zIndex: 100,
       background: theme.cardBg, border: `1px solid ${theme.rule}`,
       boxShadow: "0 20px 60px rgba(0,0,0,0.25)",

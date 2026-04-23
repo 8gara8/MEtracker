@@ -97,11 +97,7 @@ const ClockDial = ({ clockKey, state, trajectory, theme, sparkData }) => {
 
 const ClocksStrip = ({ brief, history, theme }) => {
   return (
-    <div style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(6, 1fr)",
-      gap: 10,
-    }}>
+    <div className="mw-clocks-strip">
       {window.CLOCK_ORDER.map(k => {
         const spark = history.map(b => ClockScore(b.clocks[k]));
         return (
