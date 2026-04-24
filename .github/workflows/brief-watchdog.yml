@@ -1,0 +1,99 @@
+name: Brief watchdog
+
+# The morning brief Routine runs externally at 01:00 UTC (09:00 Asia/Taipei) —
+# configured as a Claude Code scheduled session at claude.ai/code/scheduled and
+# committed to `main` via a `claude/...` branch + PR. Because that scheduler is
+# off-repo, a silent failure (session not launched, research errored, push
+# failed) leaves no in-repo signal. This workflow watches for that gap.
+#
+# Fires at 02:30 UTC (10:30 Asia/Taipei) — 90 min after the Routine's expected
+# trigger, safely past GitHub's ~60 min scheduled-workflow delay window — and
+# opens / updates an issue if no commit has landed on main since 01:00 UTC.
+
+on:
+  schedule:
+    - cron: '30 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-morning-brief:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Detect missing morning commit
+        id: check
+        run: |
+          set -e
+          # UTC window 01:00 → now (which is ~02:30 UTC on scheduled runs).
+          since="$(date -u +%Y-%m-%dT01:00:00Z)"
+          count=$(git log --since="$since" --oneline origin/main | wc -l | tr -d ' ')
+          echo "commits_since_0100_utc=$count" >> "$GITHUB_OUTPUT"
+          echo "window_start=$since" >> "$GITHUB_OUTPUT"
+          echo "window_end=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+          echo "Found $count commit(s) on main since $since."
+
+      - name: Open or update gap issue
+        if: steps.check.outputs.commits_since_0100_utc == '0'
+        uses: actions/github-script@v7
+        env:
+          WINDOW_START: ${{ steps.check.outputs.window_start }}
+          WINDOW_END:   ${{ steps.check.outputs.window_end }}
+        with:
+          script: |
+            const { WINDOW_START, WINDOW_END } = process.env;
+            const today = new Date().toISOString().slice(0, 10);
+            const title = `Morning brief Routine did not fire on ${today}`;
+            const marker = '<!-- brief-watchdog -->';
+
+            const body = [
+              marker,
+              `The brief-watchdog workflow ran at **${WINDOW_END}** and found **zero commits on \`main\`** in the window **${WINDOW_START} → ${WINDOW_END}**.`,
+              '',
+              'The morning Routine is expected to land a `Day NNN brief — YYYY-MM-DD` commit on `main` around 01:00–02:00 UTC (09:00–10:00 Asia/Taipei) via a `claude/...` branch + auto-merged PR. Absence of any commit in that window means the scheduled session did not run, silently errored, or failed to push.',
+              '',
+              '### Triage checklist',
+              '- [ ] Check the scheduled-routine status at https://claude.ai/code/scheduled — is it paused, rate-limited, or showing a failed last run?',
+              '- [ ] If the session ran but crashed, read its session transcript for the failing step (research, validator, git push).',
+              '- [ ] If the routine ran but the PR never merged, check the Validate brief workflow run for that branch.',
+              '- [ ] If the scheduler itself is down, regenerate the brief manually per `routine/PROMPT_morning.md` and open a PR titled `Day NNN brief — YYYY-MM-DD`.',
+              '',
+              '_This issue is auto-opened by `.github/workflows/brief-watchdog.yml`. Closing it is fine — a new issue opens the next day the gap recurs._',
+            ].join('\n');
+
+            // Reuse an open watchdog issue from earlier today if one exists (idempotent reruns),
+            // otherwise open a new issue so recurring failures each get their own timestamped ping.
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'brief-watchdog',
+              per_page: 100,
+            });
+            const existing = open.data.find((i) => i.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: `Watchdog re-checked at ${WINDOW_END} — still zero commits on main since ${WINDOW_START}.`,
+              });
+              core.notice(`Updated existing watchdog issue #${existing.number}.`);
+              return;
+            }
+            const created = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+              labels: ['brief-watchdog', 'needs-review'],
+              assignees: ['8gara8'],
+            });
+            core.notice(`Opened watchdog issue #${created.data.number}.`);
