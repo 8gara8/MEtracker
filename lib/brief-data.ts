@@ -5,6 +5,7 @@ import type { CasualtiesTableProps } from '@/components/CasualtiesTable';
 import day001 from '@/content/briefs/2026-02-28-day-001.data';
 import day055 from '@/content/briefs/2026-04-23-day-055.data';
 import day056 from '@/content/briefs/2026-04-24-day-056.data';
+import day057 from '@/content/briefs/2026-04-25-day-057.data';
 
 export type Implication = { title: string; body: string };
 
@@ -30,6 +31,7 @@ const briefDataBySlug: Record<string, BriefData> = {
   '2026-02-28-day-001': day001,
   '2026-04-23-day-055': day055,
   '2026-04-24-day-056': day056,
+  '2026-04-25-day-057': day057,
 };
 
 export function getBriefData(slug: string): BriefData | null {
