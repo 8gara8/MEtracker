@@ -1,0 +1,459 @@
+From 3f3a21534aac07c4a5b27c05583c7ae723d162e8 Mon Sep 17 00:00:00 2001
+From: Claude Morning Routine <claude-routine@anthropic.com>
+Date: Sun, 26 Apr 2026 07:45:47 +0000
+Subject: [PATCH] =?UTF-8?q?Day=20058=20brief=20=E2=80=94=202026-04-26?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ content/briefs/2026-04-26-day-058.data.ts | 152 ++++++++++++++++++++
+ content/briefs/2026-04-26-day-058.mdx     | 165 ++++++++++++++++++++++
+ content/context.md                        |  61 ++++----
+ lib/brief-data.ts                         |   2 +
+ 4 files changed, 350 insertions(+), 30 deletions(-)
+ create mode 100644 content/briefs/2026-04-26-day-058.data.ts
+ create mode 100644 content/briefs/2026-04-26-day-058.mdx
+
+diff --git a/content/briefs/2026-04-26-day-058.data.ts b/content/briefs/2026-04-26-day-058.data.ts
+new file mode 100644
+index 0000000..8fee958
+--- /dev/null
++++ b/content/briefs/2026-04-26-day-058.data.ts
+@@ -0,0 +1,152 @@
++import type { BriefData } from '@/lib/brief-data';
++
++const data: BriefData = {
++  escalation: {
++    direction: 'mixed',
++    risk7d: 'extreme',
++    spillover: 'conditional',
++    rationale: {
++      direction:
++        "Saturday's diplomatic track collapsed and reformed inside twelve hours. Trump cancelled the Witkoff/Kushner Islamabad trip at the last minute — 'We have all the cards, they have none. If they want to talk, all they have to do is call!' — citing 'tremendous infighting and confusion within their leadership.' Trump then told reporters Iran sent an improved paper within ten minutes of the cancellation, still 'not enough.' Araghchi did roughly twenty hours of talks with Munir and Sharif in Islamabad, then departed for Muscat with Tasnim framing the rest of the tour as bilateral. The channel survives in mediated form but the personnel-and-venue scaffolding is gone; the Hegseth ROE, the blockade, and the Bessent waiver clock are all still running.",
++      risk7d:
++        "Hegseth's Pentagon-formalised 'shoot to destroy' ROE remains in force, the US blockade enters its fourteenth day, the Bessent waiver-termination shutter-clock runs into Monday-Tuesday, and the CNN 'dynamic targeting' plan (small boats, mine-layers, dual-use energy nodes, individually-named IRGC leaders including Vahidi) is the contingency campaign on the shelf. Iran's continued mine-laying is now a verbal tripwire for unilateral US declaration of ceasefire violation.",
++      spillover:
++        "Hezbollah's public rejection of the three-week Lebanon extension persists and IDF strikes in southern Lebanon continued through Saturday — IDF opened an internal investigation into footage of soldiers damaging solar panels and water infrastructure in the Christian village of Debel. The flag-state frame remains operational. Iran's economic siege is propagating into a domestic-shortage signal: chicken, rice, eggs and medicine prices have tripled or quadrupled per IMF/CNN reporting, and Mojtaba Khamenei issued a written statement asking Iranians to be 'considerate of one another' over wartime shortages — the new Supreme Leader's first published intervention on the home-front economy.",
++    },
++  },
++  events: [
++    {
++      id: 1,
++      direction: 'escalating',
++      importance: 'pivotal',
++      source: 'Time / CBS / Fox / CNN / NPR / Al Jazeera / The Hill',
++      event: "Trump cancels Witkoff/Kushner Islamabad trip: 'We have all the cards, they have none'",
++      summary:
++        "President Trump cancelled the Witkoff and Kushner Islamabad trip at the last minute Saturday after Iran 'offered a lot, but not enough.' On Truth Social: 'Too much time wasted on traveling, too much work! Besides which, there is tremendous infighting and confusion within their leadership. Nobody knows who is in charge, including them. Also, we have all the cards; they have none! If they want to talk, all they have to do is call!!!' Trump told reporters from Air Force One that Iran sent a 'much better' paper within ten minutes of the cancellation — still 'not enough.'",
++      impact:
++        "Collapses the personnel/venue scaffolding the Day 57 brief flagged as the largest single upside signal of April; preserves the channel only as a phone-mediated process Pakistan and Oman are still hosting. Replicates the April 20 social-post precedent that collapsed a deal that 'seemed close.' The 'we have all the cards' framing locks Trump into a position that requires Iranian capitulation to declare progress, which raises the threshold for any Tehran face-saving counter-offer. Analytical judgment: ceasefire-probability move from 32 to 28 is the appropriate response — the channel survives, the format does not.",
++    },
++    {
++      id: 2,
++      direction: 'mixed',
++      importance: 'pivotal',
++      source: 'NPR / CNN / Euronews / Tasnim / Express Tribune / The Week',
++      event: "Araghchi: ~20h Islamabad talks with Munir & Sharif, then departs for Muscat",
++      summary:
++        "Iranian Foreign Minister Abbas Araghchi spent roughly twenty hours in bilateral sessions with Pakistan's army chief Field Marshal Asim Munir and Prime Minister Shehbaz Sharif before departing for Muscat. Tasnim framed the broader tour as bilateral coordination on regional issues, the war, and (in Russia) defence/strategic ties. Spokesperson Baghaei publicly maintained 'no meeting is planned' between Iranian and US negotiators. Pezeshkian and Sharif spoke by phone April 25; Pakistan PM committed to 'continue sincere efforts' for peace.",
++      impact:
++        "Pakistan reactivated as the principal mediator with both Munir-track (military) and Sharif-track (civilian) channels open simultaneously. Muscat next operationalises Oman's traditional back-channel role; Moscow stop preserves the Russian element of the Vienna trilateral. Iran's structural posture: keep the diplomatic surface moving while refusing the public US-bilateral format the trip would have created. Tehran's domestic cost of any direct-meeting acknowledgement is now higher because SNSC-aligned outlets (Nournews, Tasnim) committed publicly to the no-meeting line on Saturday.",
++    },
++    {
++      id: 3,
++      direction: 'escalating',
++      importance: 'pivotal',
++      source: "Washington Post / Business Standard / AP / Jerusalem Post (Day 57 carry-forward)",
++      event: 'Bessent: no Iranian/Russian oil-at-sea waiver renewal; well-shuttering clock running',
++      summary:
++        "Treasury Secretary Bessent told AP Friday the US will not renew the Iranian or Russian oil-at-sea waivers; on Iran specifically: 'We have the blockade, and there's no oil coming out… in the next two, three days, they're going to have to start shuttering production, which will be very bad for their wells.' The Day 57 brief flagged the permanent-damage clock as the new dominant timer; Bessent's 72-hour window now runs into Monday-Tuesday inside the post-cancellation diplomatic vacuum.",
++      impact:
++        "The trip cancellation removed the obvious face-saving venue for Tehran to trade an enrichment or Hormuz-opening proto-concession for waiver relief. Iran now faces the shutter-clock without a calendared bilateral session at which to bridge it. Forces a binary: either a phone-track concession before Monday-Tuesday physical damage starts accumulating, or accept the well-integrity hit as the cost of refusing to call. Analytical judgment: the cancellation likely accelerates the Bessent timer's bite rather than diluting it — Tehran's tactical option to delay-and-talk just narrowed.",
++    },
++    {
++      id: 4,
++      direction: 'escalating',
++      importance: 'high',
++      source: "CNN / Arab News / The National / CNBC / Pravda Trump (Mojtaba statement)",
++      event: 'Iran economic-siege signals: shortages, Mojtaba Khamenei written statement, IMF projections',
++      summary:
++        "Iran's new Supreme Leader Mojtaba Khamenei issued a written statement asking Iranians to be 'considerate of one another' so 'pressures caused by shortages — which are a natural effect of any war — are reduced on different segments of society.' Pezeshkian acknowledged 'shortages in fuel' requiring 'careful planning' and 'public cooperation,' framing the situation as 'divine grace.' Per CNN, IMF and CNBC: chicken, rice, eggs, and medicine prices tripled or quadrupled; The National reported ~2 million Iranian jobs lost. IMF projects 6.1% GDP contraction for 2026 with 68.9% inflation. Foreign Policy/Arab News framing: peak US economic chokehold; collapse risks emerging.",
++      impact:
++        "Mojtaba Khamenei's first published home-front-economy intervention since assuming the post is the highest-level Iranian admission of war-induced civilian hardship to date. The 'natural effect of any war' framing is doctrinally significant — it accepts the war as the cause rather than blaming sanctions or Israel exclusively, which constrains the regime's domestic mobilisation rhetoric. CNN analysis: Tehran 'may be betting Trump will blink first.' Analytical judgment: this is the first day the home-front economy has produced its own news independent of Hormuz or strikes — a signal that the siege has broken the surface and the regime is positioning rhetorically for a long blockade.",
++    },
++    {
++      id: 5,
++      direction: 'mixed',
++      importance: 'high',
++      source: 'The National / Al Jazeera / CNBC',
++      event: 'Brent settles $105.30 Friday close; ~16% weekly gain into the post-cancellation window',
++      summary:
++        "Brent crude settled +0.25% at $105.30/bbl on Friday April 24/25 close per The National; weekly gain ~16% (Brent), ~14% (WTI). Friday's intraday high of $106.80 traded briefly before paring on the early-Saturday Pakistan-talks headline. Markets close into the weekend with the cancellation news landing post-settlement; Sunday Asian opens are the next price discovery. The National notes: structural curve repricing concentrates on the Pentagon six-month mine-clearance assessment plus the Bessent waiver signal more than on the spot.",
++      impact:
++        "The settled $105 print plus a ~16% weekly gain makes Brent's psychological threshold the new floor rather than ceiling. Asian Sunday-night opens are the first market read on the cancellation; expect prompt to gap higher and curve to flatten if the cancellation is read as terminal, or curve to steepen if read as a phone-track placeholder. For Taiwan/CPC: Q3 procurement assumptions now operate inside a $100-handle floor; CPC's coal-rotation hedge becomes default through the summer.",
++    },
++    {
++      id: 6,
++      direction: 'mixed',
++      importance: 'medium',
++      source: 'Times of Israel / Jerusalem Post / Lebanese media',
++      event: 'IDF investigating Debel solar-panel and water-infrastructure damage; Lebanon ceasefire holds in name',
++      summary:
++        "The IDF opened an internal investigation after Lebanese media published footage of military excavators damaging solar panels in the Christian village of Debel in southern Lebanon. The IDF: 'The actions seen in the video do not align with the values of the IDF and the conduct expected of its soldiers.' Lebanese reporting also documented damage to water infrastructure, homes, roads, and olive trees. The Israel-Lebanon three-week ceasefire extension nominally holds; Hezbollah continues to publicly reject it as 'meaningless' (per Day 57 brief).",
++      impact:
++        "Provides a domestic-image anchor for Hezbollah's 'meaningless' framing — Christian-village energy infrastructure damage in the demarcation zone is a propaganda-symmetric incident IDF cannot dismiss. The Lebanese government's negotiating leverage at the next track session marginally improves; Hezbollah's argument that the truce is 'a government-to-government instrument that excludes the armed actor on the ground' acquires new humanitarian framing. Analytical judgment: the kinetic tempo and the political extension continue to operate on independent clocks.",
++    },
++    {
++      id: 7,
++      direction: 'mixed',
++      importance: 'medium',
++      source: 'CNN / Al Jazeera (Day 57 carry-forward)',
++      event: "Tehran posture hardening: 'no talks under siege,' Trump 'will blink first' framing",
++      summary:
++        "Per CNN's April 25 analysis, Iranian leadership messaging coalesces around a 'no talks under siege' posture, with senior officials in Tehran maintaining that the US blockade is a precondition violation and the diplomatic path requires lifting it first. Pezeshkian, Ghalibaf, and Mohseni Ejei coordinated messaging denies Trump's 'fractured leadership' framing — a continuation of the Thursday Pezeshkian/Araghchi unity stance. CNN headline framing: Tehran 'may be betting Trump will blink first.' Al Jazeera live: 'Tehran rejects talks under siege.'",
++      impact:
++        "Iran is publicly converting the 'unified proposal' demand from a Washington precondition into a Tehran rebuttal — the unification serves to refuse rather than to accept. The 'Trump blinks first' read makes sense only if Iran believes its domestic shortage-tolerance window exceeds Trump's midterm political-pressure window; the Mojtaba Khamenei shortage statement is a hedge against that bet failing. Analytical judgment: Tehran is positioning for a multi-week blockade endurance contest while keeping a Pakistan/Oman/Moscow channel open for the eventual face-saving exit.",
++    },
++  ],
++  casualties: {
++    us: {
++      cumulative: 'KIA: 15 (13 combat + 2 noncombat, incl. 6 KC-135 crew) · WIA: 395',
++      delta: '+0 KIA / +0 WIA',
++      status:
++        'Hegseth-formalised "shoot to destroy" ROE remains in force; blockade enters Day 14. Witkoff/Kushner Islamabad trip cancelled Saturday — channel reduced to phone-mediated process. CNN "dynamic targeting" plan on the shelf (small boats, mine-layers, dual-use energy nodes, individually-named IRGC leaders incl. Vahidi). CSG Lincoln Gulf of Oman; CSG Ford northern Red Sea; CSG Bush transiting toward Arabian Sea.',
++    },
++    israel: {
++      cumulative: 'KIA: 38 (23 civilians + 15 soldiers in Lebanon) · WIA: 6,000+ (Alma). 393+ Iranian attack waves absorbed cumulatively.',
++      delta: '+0 KIA / +0 WIA reported in Saturday window',
++      status:
++        'IDF opened internal investigation after Lebanese-media footage showed soldiers damaging solar panels and water infrastructure in the Christian village of Debel; "actions… do not align with IDF values." Three-week Israel-Lebanon ceasefire extension nominally holds; Hezbollah continues to publicly reject as "meaningless." IDF strikes in south Lebanon security zone reported through Saturday.',
++    },
++    iran: {
++      cumulative: "Iran Legal Medicine Organization: 'nearly 3,400' KIA (April 22). HRANA: 3,636+ killed (April 7). Hengaw: 6,620+ military KIA (April 8). 383 children under 18; 3.2M displaced.",
++      delta: '+0 KIA / +0 WIA reported in Saturday window',
++      status:
++        "Araghchi spent ~20h with Munir/Sharif in Islamabad before departing for Muscat (next stop Moscow per Tasnim). Spokesperson Baghaei maintained 'no meeting is planned' line. Mojtaba Khamenei issued written statement asking Iranians to be 'considerate of one another' over wartime shortages — first published home-front-economy intervention. Pezeshkian acknowledged 'shortages in fuel' requiring 'careful planning' and framed achievements as 'divine grace.' IRGC continues mine-laying per prior Axios sourcing.",
++    },
++    other: {
++      cumulative: 'Lebanon: 2,296+ killed · Iraq: 99+ killed · Gulf states: 32+ killed · UAE: 11 killed / 2,343 projectiles absorbed cumulatively.',
++      delta: '+0 aggregated in Saturday window (Debel infrastructure damage; no fresh KIA reported)',
++      status:
++        'Pakistan re-activated as principal mediator on twin Munir/Sharif tracks; Pezeshkian-Sharif phone call April 25. Oman activated next via Araghchi Muscat stop. Russia preserved as third leg via planned Moscow stop. UN Saturday: continues to flag Israel/Hezbollah strikes as potential international-law breaches. IMF projects 6.1% GDP contraction for Iran in 2026 at 68.9% inflation; ~2M Iranian jobs lost per The National.',
++    },
++  },
++  exec:
++    "Saturday delivered a diplomatic-track collapse and immediate partial reformation inside twelve hours, on top of the Day 57 economic and kinetic pressure envelope still running underneath. Trump cancelled the Witkoff/Kushner Islamabad trip at the last minute — 'We have all the cards, they have none. If they want to talk, all they have to do is call!' — citing Iranian leadership 'infighting and confusion'; Trump then told reporters Iran sent an improved paper within ten minutes of the cancellation, still 'not enough.' Araghchi spent roughly twenty hours with Munir and Sharif in Islamabad before departing for Muscat with Moscow next, while Iran's FM spokesperson maintained 'no meeting is planned' between Iranian and US negotiators. The Hegseth Pentagon-formalised 'shoot to destroy' ROE remains in force; the Bessent oil-waiver shutter-clock now runs into Monday-Tuesday inside a venue-less diplomatic vacuum; Brent settled $105.30 Friday close (~16% on the week) with the cancellation landing post-settlement and Sunday Asian opens the next price-discovery point. The IDF opened an internal investigation into footage of soldiers damaging solar panels and water infrastructure in the Christian village of Debel in southern Lebanon. Mojtaba Khamenei issued his first published home-front-economy statement asking Iranians to be 'considerate of one another' over war shortages; chicken, rice, eggs, and medicine prices have tripled or quadrupled per IMF/CNN reporting. CNN analysis: Tehran 'may be betting Trump will blink first.' Analytical judgment: 30-day ceasefire probability moves 32 → 28 — the channel survives the cancellation, the format does not, and the next inflection is whether the phone-mediated process can produce a face-saving exit before the Bessent shutter-clock starts physically damaging Iranian wells.",
++  implications: [
++    {
++      title: "The trip cancellation is the April 20 social-post precedent applied to a process Trump owns",
++      body:
++        "Trump's Saturday-afternoon cancellation collapses the personnel/venue scaffolding the Day 57 brief flagged as April's largest single upside signal — and does so in the same idiom (Truth Social post, mid-process, mid-travel) that collapsed a deal that 'seemed close' on April 20. The pattern is now consistent enough to read as doctrine: Trump treats the visible commitment of personal-network envoys as a pressure instrument rather than a process commitment, which means Witkoff and Kushner are deployable and recallable on the same news cycle. 'We have all the cards, they have none' frames any Tehran response that does not amount to capitulation as confirmation of Trump's leverage; the framing also compresses Tehran's face-saving exit options to phone calls Pakistan or Oman can intermediate. Iran's response — an improved paper within ten minutes per Trump's reporters-on-Air-Force-One framing, still 'not enough' — confirms Tehran reads the cancellation as a forcing function rather than as channel-closure. Pakistan retained both Munir and Sharif tracks open through Saturday; Oman activates as Araghchi lands in Muscat; Moscow next. Analytical judgment: the channel survives the cancellation but the threshold for acceptable Iranian counter-offer just rose by whatever 'much better than within-ten-minutes' looks like — Tehran's optimal play is now a single, public, pre-Monday concession on either Hormuz-opening logistics or enrichment timing, which the IRGC ascendance thread (Vahidi's growing decisional weight, Mojtaba Khamenei's first home-front statement) makes politically harder to deliver.",
++    },
++    {
++      title: "The Bessent shutter-clock now runs without a venue — and that compresses, not relaxes, the timer",
++      body:
++        "Bessent's 'in the next two, three days they're going to have to start shuttering production, which will be very bad for their wells' was framed Friday as a forcing function pointing at a Monday-Tuesday Witkoff/Kushner-Araghchi meeting. The trip cancellation removed the meeting but not the timer. The arithmetic is unchanged: well-shut-in damage to depleted or partially-watered Iranian reservoirs is not reversible by ceasefire and not deferrable by negotiation — it accumulates the moment the storage cascade exceeds Iran's onshore tank capacity. The cancellation's effect is to concentrate the Iranian regime's choice into a 72-hour window during which it must either issue a phone-mediated proto-concession that Trump can accept as a 'better than within-ten-minutes' improvement, or accept structural well-integrity damage as the political cost of refusing to call. Mojtaba Khamenei's Saturday written statement is the visible domestic positioning ahead of that choice — 'pressures caused by shortages, which are a natural effect of any war' is the rhetorical pre-baking of a long-blockade endurance narrative. This ties to the regime-cohesion thread: the IRGC ascendance line (Vahidi as decisional axis, IRGC mine-laying continuing under Hegseth's 'violation' tripwire) is incompatible with a Hormuz-opening concession at any meaningful scale, and Tehran's coordinated public refusal to acknowledge any US bilateral makes a phone-track concession politically costly. Analytical judgment: the cancellation was a tactical move that made the strategic timer harder to manage — Tehran needed the trip more than Washington did, which is part of why the cancellation worked, and the Bessent clock will resolve the question by physical mechanism if neither side moves before Monday close.",
++    },
++    {
++      title: 'The home-front economy is now its own data series — and Taiwan should treat it as such',
++      body:
++        "Mojtaba Khamenei's Saturday written statement is the highest-level Iranian admission of war-induced civilian hardship to date, and it ties directly to the multi-source domestic-shortage signal: chicken/rice/eggs/medicine prices tripled or quadrupled per IMF and CNN; ~2 million Iranian jobs lost per The National; IMF projects 6.1% GDP contraction at 68.9% inflation. Pezeshkian's 'shortages in fuel… careful planning… divine grace' framing is the first time a senior civilian official has acknowledged the energy-supply consequence of the dual blockade in plain language. CNN's framing — Tehran 'betting Trump will blink first' — is the analytical translation of a regime that has decided shortage-tolerance is a strategic asset to be marketed rather than a vulnerability to be hidden. For Taiwan/CPC the implication is precise: the regime is publicly committing to a longer blockade endurance window than the Pentagon's six-month mine-clearance assessment — meaning MOEA's no-Hormuz-through-October scenario is now the optimistic case, not the pessimistic one, and the procurement plan should be rebuilding from a permanently-curtailed-Iranian-supply baseline rather than a transitory-disruption baseline. The semiconductor-supply-chain thread acquires new texture: TSMC's 2026 CapEx pricing pass-through has to absorb a Brent floor that just moved structurally above the Q1 BoD assumption set, and the back-month curve is now pricing the home-front-endurance signal alongside the kinetic-risk signal. Analytical judgment: Taiwan's policy posture should treat 'Iran chooses long blockade' as the working assumption and prepare a Q4-onward LNG sourcing plan that does not require Hormuz reopening to clear inventory.",
++    },
++  ],
++  casualtyNotes: {
++    us: "No new KIA. The day's casualty-risk drivers shift slightly: cancellation of the Islamabad trip removed the venue at which a face-saving Iranian counter-offer could have been received; the Hegseth ROE plus Bessent shutter-clock now run inside a phone-mediated channel, which raises the kinetic-incident probability in the 72h window where Tehran has to choose between concession and well-damage. CNN 'dynamic targeting' plan stays on the shelf, including the Vahidi naming.",
++    israel:
++      "No new IDF KIA. IDF opened an internal investigation into footage of soldiers damaging solar panels and water infrastructure in the Christian village of Debel in southern Lebanon — an image-management problem more than a kinetic data point, but one that strengthens Hezbollah's 'meaningless ceasefire' framing. Three-week Lebanon extension nominally holds; kinetic tempo continues at Day 57 baseline.",
++    iran:
++      "No new Iranian military losses reported in the Saturday window. Araghchi's ~20-hour Islamabad sessions with Munir and Sharif preceded his Muscat departure; spokesperson Baghaei held the 'no meeting is planned' line publicly; Tasnim/Nournews aligned. Mojtaba Khamenei's first published home-front-economy statement is the highest-level admission of war-induced civilian hardship to date and the regime's domestic positioning ahead of the Bessent shutter-clock window. Vahidi remains the IRGC decisional axis and the named individual in CNN-leaked US targeting options.",
++    other:
++      'Lebanon Debel village damage to solar panels, water infrastructure, homes, roads, and olive trees per Lebanese media; no fresh KIA reported. Pakistan reactivated as principal mediator on twin Munir/Sharif tracks; Pezeshkian-Sharif phone call April 25; Oman activated via Araghchi Muscat stop; Moscow next. UN: Israeli strikes and Hezbollah rockets continue to potentially breach international law. IMF: 6.1% Iran GDP contraction at 68.9% inflation; ~2M Iranian jobs lost.',
++  },
++};
++
++export default data;
+diff --git a/content/briefs/2026-04-26-day-058.mdx b/content/briefs/2026-04-26-day-058.mdx
+new file mode 100644
+index 0000000..f1e2c40
+--- /dev/null
++++ b/content/briefs/2026-04-26-day-058.mdx
+@@ -0,0 +1,165 @@
++---
++report_type: "full"
++day: 58
++date: "2026-04-26"
++title: "Day 58 brief — 2026-04-26"
++escalation_direction: "mixed"
++escalation_risk_7d: "extreme"
++spillover_risk: "conditional"
++ceasefire_probability_30d: 28
++key_developments:
++  - "Trump cancelled the Witkoff/Kushner Islamabad trip at the last minute Saturday: 'Too much time wasted on traveling, too much work! Besides which, there is tremendous infighting and confusion within their leadership. Nobody knows who is in charge, including them. Also, we have all the cards; they have none! If they want to talk, all they have to do is call!!!'"
++  - "Trump told reporters from Air Force One that Iran sent an improved paper within ten minutes of the cancellation — still 'not enough.'"
++  - "Iranian FM Araghchi spent ~20 hours in bilateral sessions with Pakistan's army chief Field Marshal Asim Munir and PM Shehbaz Sharif before departing for Muscat; Tasnim framed the broader tour as bilateral, with Moscow next."
++  - "Iranian FM spokesperson Baghaei publicly maintained 'no meeting is planned' between Iranian and US negotiators throughout Saturday; SNSC-aligned Nournews carried the same line."
++  - "Mojtaba Khamenei issued his first published home-front-economy written statement asking Iranians to be 'considerate of one another' so 'pressures caused by shortages — a natural effect of any war — are reduced on different segments of society.'"
++  - "Pezeshkian acknowledged 'shortages in fuel' requiring 'careful planning' and 'public cooperation,' framing the situation as 'divine grace'; chicken, rice, eggs, and medicine prices have tripled or quadrupled per IMF/CNN; The National reports ~2 million Iranian jobs lost; IMF projects 6.1% GDP contraction at 68.9% inflation."
++  - "Brent settled +0.25% at $105.30 on Friday April 24/25 close per The National — ~16% weekly gain (Brent), ~14% (WTI); Trump's late-Saturday cancellation lands post-settlement, with Sunday Asian opens the next price-discovery point."
++  - "IDF opened internal investigation after Lebanese-media footage showed soldiers damaging solar panels and water infrastructure in the Christian village of Debel in southern Lebanon: 'The actions seen in the video do not align with the values of the IDF.'"
++  - "Pezeshkian-Sharif phone call April 25: Pakistan PM committed to 'continue sincere efforts' for peace; Pezeshkian: confident 'fraternal ties between Iran and Pakistan would continue to strengthen.'"
++sources:
++  - name: "Time — Trump Cancels Iran Peace Talks at Last Minute: 'We Have All the Cards' (April 25)"
++    url: "https://time.com/article/2026/04/25/trump-iran-peace-talks-canceled/"
++    accessed_at: "2026-04-26T01:05:00Z"
++  - name: "CBS News — Trump says he canceled Kushner, Witkoff trip to Pakistan: 'We have all the cards' (April 25)"
++    url: "https://www.cbsnews.com/news/trump-canceled-kushner-witkoff-trip-pakistan-iran-talks/"
++    accessed_at: "2026-04-26T01:07:00Z"
++  - name: "Fortune — Trump calls off sending Witkoff and Kushner to Pakistan as Iran talks fail before they began (April 25)"
++    url: "https://fortune.com/2026/04/25/trump-witkoff-kushner-pakistan-ceasefire-talks-iran-war-hormuz/"
++    accessed_at: "2026-04-26T01:09:00Z"
++  - name: "CNBC — Trump cancels U.S. envoy trip to Pakistan: 'If they want to talk, all they have to do is call' (April 25)"
++    url: "https://www.cnbc.com/2026/04/25/iran-says-no-meeting-with-us-negotiators-planned-in-pakistan.html"
++    accessed_at: "2026-04-26T01:11:00Z"
++  - name: "Fox News — Live Updates: Trump calls off Witkoff, Kushner's trip to Pakistan for US-Iran talks (April 25)"
++    url: "https://www.foxnews.com/live-news/iran-war-trump-us-ceasefire-deal-strait-hormuz-pakistan-talks-april-25"
++    accessed_at: "2026-04-26T01:13:00Z"
++  - name: "CNN — Live updates: Trump says US team won't visit Pakistan as uncertainty surrounds Iran peace talks (April 25)"
++    url: "https://www.cnn.com/2026/04/25/world/live-news/iran-war-israel-pakistan-talks"
++    accessed_at: "2026-04-26T01:15:00Z"
++  - name: "NPR — Iran's foreign minister leaves Pakistan, then Trump cancels U.S. delegation's travel (April 25)"
++    url: "https://www.npr.org/2026/04/25/nx-s1-5799372/iran-middle-east-updates"
++    accessed_at: "2026-04-26T01:17:00Z"
++  - name: "The Hill — Trump tells reporters US received new proposal from Iran after trip cancellation"
++    url: "https://thehill.com/homenews/administration/5849180-trump-tells-reporters-us-received-new-proposal-from-iran-after-trip-cancellation/"
++    accessed_at: "2026-04-26T01:19:00Z"
++  - name: "Mediaite — Trump Claims Iran Sent a 'Much Better' Deal Offer 10 Minutes After Canceling Pakistan Summit"
++    url: "https://www.mediaite.com/politics/trump-claims-iran-sent-a-much-better-deal-offer-10-minutes-after-canceling-pakistan-summit/"
++    accessed_at: "2026-04-26T01:21:00Z"
++  - name: "Al Jazeera — Iran war live: Tehran rejects talks under siege, Trump cancels envoys' trip (April 26)"
++    url: "https://www.aljazeera.com/news/liveblog/2026/4/26/iran-war-live-tehran-rejects-talks-under-siege-trump-cancels-envoys-trip"
++    accessed_at: "2026-04-26T01:23:00Z"
++  - name: "Al Jazeera — Trump puts onus on Iran's authorities as they project hardened stance (April 25)"
++    url: "https://www.aljazeera.com/news/2026/4/25/irans-authorities-project-hardened-stance-with-more-talks-on-horizon"
++    accessed_at: "2026-04-26T01:25:00Z"
++  - name: "Euronews — Trump cancels US negotiators' trip to Pakistan as Araghchi departs Islamabad (April 25)"
++    url: "https://www.euronews.com/2026/04/25/irans-fm-abbas-araghchi-meets-with-pakistan-officials-but-rules-out-direct-talks-with-us"
++    accessed_at: "2026-04-26T01:27:00Z"
++  - name: "Fortune — From maritime trench warfare to a 'sloppy peace': How the Hormuz standoff could play out (April 25)"
++    url: "https://fortune.com/2026/04/25/iran-war-peace-deal-maritime-trench-warfare-naval-blockade-strait-of-hormuz-oil/"
++    accessed_at: "2026-04-26T01:29:00Z"
++  - name: "CNN — Iran is suffering in a standoff with the US — but may be betting Trump will blink first (April 25)"
++    url: "https://www.cnn.com/2026/04/25/middleeast/blockade-us-iran-economy-analysis-intl"
++    accessed_at: "2026-04-26T01:31:00Z"
++  - name: "The National — Oil posts sharp 16% weekly gain amid simmering Hormuz tensions (April 24/25)"
++    url: "https://www.thenationalnews.com/business/markets/2026/04/24/oil-prices-iran-war/"
++    accessed_at: "2026-04-26T01:33:00Z"
++  - name: "CNBC — Iran's economy in charts: Hyperinflation and depreciating rial (April 23)"
++    url: "https://www.cnbc.com/2026/04/23/iran-economy-war-charts-rial-oil-strait-hormuz-blockade.html"
++    accessed_at: "2026-04-26T01:35:00Z"
++  - name: "The National — War pushes Iran's economy to brink as two million jobs vanish (April 21)"
++    url: "https://www.thenationalnews.com/business/economy/2026/04/21/iran-us-war/"
++    accessed_at: "2026-04-26T01:37:00Z"
++  - name: "Foreign Policy — U.S. Blockade, Iran Hormuz Closure Threaten Cease-Fire (April 23)"
++    url: "https://foreignpolicy.com/2026/04/23/trump-iran-war-economic-attrition-blockade-strait-hormuz-ceasefire/"
++    accessed_at: "2026-04-26T01:39:00Z"
++  - name: "Times of Israel — IDF investigating after footage shows soldiers damaging solar panels in south Lebanon town (April 25)"
++    url: "https://www.timesofisrael.com/liveblog_entry/idf-investigating-after-footage-shows-soldiers-damaging-solar-panels-in-south-lebanon-town/"
++    accessed_at: "2026-04-26T01:41:00Z"
++  - name: "Jerusalem Post — IDF launches probe into soldiers destroying solar panels in Lebanese village"
++    url: "https://www.jpost.com/middle-east/article-894118"
++    accessed_at: "2026-04-26T01:43:00Z"
++  - name: "Express Tribune — Pakistan to continue 'sincere efforts' for peace, PM tells Pezeshkian after setback in US-Iran talks"
++    url: "https://tribune.com.pk/story/2604757/pakistan-to-continue-sincere-efforts-for-peace-pm-tells-pezeshkian-after-setback-in-us-iran-talks"
++    accessed_at: "2026-04-26T01:45:00Z"
++  - name: "The Week — 'No direct talks with US': Iran's Abbas Araghchi leaves Islamabad amid uncertainties (April 25)"
++    url: "https://www.theweek.in/news/middle-east/2026/04/25/no-direct-talks-with-us-irans-abbas-araghchi-leaves-islamabad-amid-uncertainties-over-second-round-of-negotiations.html"
++    accessed_at: "2026-04-26T01:47:00Z"
++casualties_snapshot:
++  us:
++    killed: 15
++    wounded: 395
++    delta_24_48h: "no new KIA in Saturday window; Hegseth-formalised 'shoot to destroy' ROE remains in force; blockade enters Day 14"
++  israel:
++    killed: 38
++    wounded: 6000
++    delta_24_48h: "no new IDF KIA in Saturday window; IDF opened internal investigation into Debel solar-panel/water-infrastructure damage footage"
++  iran:
++    killed: 3400
++    wounded: 0
++    delta_24_48h: "no new military losses reported in Saturday window; Mojtaba Khamenei issued first published home-front-economy statement on shortages"
++  other:
++    killed: 2436
++    wounded: 0
++    delta_24_48h: "no new aggregated KIA in Saturday window (Debel infrastructure damage; Indonesian UNIFIL peacekeeper KIA recorded Day 57)"
++clocks:
++  negotiation_capacity:
++    state: "deteriorating"
++    trajectory: "worsening"
++  active_deadline:
++    state: "approaching"
++    trajectory: "worsening"
++  interceptor_reconstitution:
++    state: "advancing"
++    trajectory: "worsening"
++  energy_infrastructure:
++    state: "critical"
++    trajectory: "worsening"
++  humanitarian_escalation:
++    state: "elevated"
++    trajectory: "worsening"
++  coalition_cohesion:
++    state: "strained"
++    trajectory: "worsening"
++---
++
++# Day 58 brief — 2026-04-26
++
++*Day 58 of Operation Epic Fury — 2026-04-26*
++
++## Executive Summary
++
++Saturday delivered a diplomatic-track collapse and immediate partial reformation inside twelve hours, on top of the Day 57 economic and kinetic pressure envelope still running underneath. Trump cancelled the Witkoff/Kushner Islamabad trip at the last minute — "Too much time wasted on traveling, too much work! Besides which, there is tremendous infighting and confusion within their leadership. Nobody knows who is in charge, including them. Also, we have all the cards; they have none! If they want to talk, all they have to do is call!!!" Trump then told reporters from Air Force One that Iran sent an improved paper within ten minutes of the cancellation — still "not enough." Araghchi had spent roughly twenty hours in bilateral sessions with Pakistan's army chief Asim Munir and Prime Minister Sharif before departing for Muscat; Tasnim framed the broader tour as bilateral, with Moscow next, while FM spokesperson Baghaei publicly maintained "no meeting is planned" between Iranian and US negotiators throughout Saturday and SNSC-aligned Nournews carried the same line. The Hegseth Pentagon-formalised "shoot to destroy" ROE remains in force; the Bessent oil-waiver shutter-clock now runs into Monday-Tuesday inside a venue-less diplomatic vacuum; Brent settled $105.30 Friday close (~16% on the week) with the cancellation landing post-settlement and Sunday Asian opens the next price-discovery point. The IDF opened an internal investigation into footage of soldiers damaging solar panels and water infrastructure in the Christian village of Debel in southern Lebanon. Mojtaba Khamenei issued his first published home-front-economy written statement asking Iranians to be "considerate of one another" over war shortages; chicken, rice, eggs, and medicine prices have tripled or quadrupled per IMF/CNN; The National reports ~2 million Iranian jobs lost. CNN analysis: Tehran "may be betting Trump will blink first." Analytical judgment: 30-day ceasefire probability moves 32 → 28 — the channel survives the cancellation, the format does not, and the next inflection is whether the phone-mediated process can produce a face-saving exit before the Bessent shutter-clock starts physically damaging Iranian wells.
++
++## Escalation Gauge
++
++<EscalationGauge />
++
++The three indicators capture a day where the diplomatic track collapsed and partially reformed against an unchanged kinetic and economic pressure envelope. Direction holds at *mixed* because Trump's cancellation eliminated the venue/personnel scaffolding that had been Day 57's largest single upside signal, while Tehran's "improved paper within ten minutes" — even if rejected — confirms the channel survives in mediated form, and Araghchi's Muscat departure operationalises Oman's traditional back-channel role. Seven-day risk holds at *extreme* because the Hegseth Pentagon-formalised "shoot to destroy" ROE is unchanged, the blockade enters its fourteenth day, the Bessent waiver-termination shutter-clock continues to run into Monday-Tuesday, and the CNN "dynamic targeting" plan with Vahidi explicitly named remains on the shelf — the cancellation removed the obvious face-saving venue at which a Tehran proto-concession could have been received. Spillover holds at *conditional* because Hezbollah's "meaningless ceasefire" framing acquires new humanitarian texture from the Debel solar-panel investigation, the flag-state frame remains operational, and Iran's home-front shortage signal converts the regime's economic siege into its own published narrative — Mojtaba Khamenei's "considerate of one another" written statement is the highest-level admission of war-induced civilian hardship to date. Ceasefire probability moves 32 → 28: debit for the cancellation and the venue-less shutter-clock, partial credit for the "improved paper" signal and the surviving Pakistan/Oman/Moscow scaffolding. Analytical judgment: the next inflection is the Sunday Asian-open Brent print and any phone-track concession before the Bessent timer starts physically damaging Iranian wells.
++
++## Key Developments
++
++<EventsTable />
++
++## Casualties
++
++<CasualtiesTable />
++
++## Strategic Implications
++
++**1. The trip cancellation is the April 20 social-post precedent applied to a process Trump owns.**
++
++Trump's Saturday-afternoon cancellation collapses the personnel/venue scaffolding the Day 57 brief flagged as April's largest single upside signal — and does so in the same idiom (Truth Social post, mid-process, mid-travel) that collapsed a deal that "seemed close" on April 20. The pattern is now consistent enough to read as doctrine: Trump treats the visible commitment of personal-network envoys as a pressure instrument rather than a process commitment, which means Witkoff and Kushner are deployable and recallable on the same news cycle. "We have all the cards, they have none" frames any Tehran response that does not amount to capitulation as confirmation of Trump's leverage; the framing also compresses Tehran's face-saving exit options to phone calls Pakistan or Oman can intermediate. Iran's response — an improved paper within ten minutes per Trump's reporters-on-Air-Force-One framing, still "not enough" — confirms Tehran reads the cancellation as a forcing function rather than as channel-closure. Pakistan retained both Munir and Sharif tracks open through Saturday; Oman activates as Araghchi lands in Muscat; Moscow next per Tasnim. Analytical judgment: the channel survives the cancellation but the threshold for an acceptable Iranian counter-offer just rose by whatever "much better than within-ten-minutes" looks like — Tehran's optimal play is now a single, public, pre-Monday concession on either Hormuz-opening logistics or enrichment timing, which the IRGC ascendance thread (Vahidi's growing decisional weight, Mojtaba Khamenei's first home-front statement) makes politically harder to deliver. The April 20 precedent suggests one more such public reset before either a deal or a kinetic flashpoint resolves the question.
++
++**2. The Bessent shutter-clock now runs without a venue — and that compresses, not relaxes, the timer.**
++
++Bessent's Friday "in the next two, three days they're going to have to start shuttering production, which will be very bad for their wells" was framed Friday as a forcing function pointing at a Monday-Tuesday Witkoff/Kushner-Araghchi meeting. The trip cancellation removed the meeting but not the timer. The arithmetic is unchanged: well-shut-in damage to depleted or partially-watered Iranian reservoirs is not reversible by ceasefire and not deferrable by negotiation — it accumulates the moment the storage cascade exceeds Iran's onshore tank capacity, and the IMF GDP contraction projection (6.1% with 68.9% inflation) and ~2-million-jobs-lost data point both reflect a domestic absorption capacity that is already strained. The cancellation's effect is to concentrate the Iranian regime's choice into a 72-hour window during which it must either issue a phone-mediated proto-concession that Trump can accept as a "better than within-ten-minutes" improvement, or accept structural well-integrity damage as the political cost of refusing to call. Mojtaba Khamenei's Saturday written statement is the visible domestic positioning ahead of that choice — "pressures caused by shortages, which are a natural effect of any war" is the rhetorical pre-baking of a long-blockade endurance narrative. This ties to the regime-cohesion thread: the IRGC ascendance line (Vahidi as decisional axis, IRGC mine-laying continuing under Hegseth's "violation" tripwire) is incompatible with a Hormuz-opening concession at any meaningful scale, and Tehran's coordinated public refusal to acknowledge any US bilateral makes a phone-track concession politically costly. Analytical judgment: the cancellation was a tactical move that made the strategic timer harder to manage — Tehran needed the trip more than Washington did, which is part of why the cancellation worked, and the Bessent clock will resolve the question by physical mechanism if neither side moves before Monday close.
++
++**3. The home-front economy is now its own data series — and Taiwan should treat it as such.**
++
++Mojtaba Khamenei's Saturday written statement is the highest-level Iranian admission of war-induced civilian hardship to date, and it ties directly to the multi-source domestic-shortage signal: chicken, rice, eggs, and medicine prices tripled or quadrupled per IMF and CNN; ~2 million Iranian jobs lost per The National; IMF projects 6.1% GDP contraction at 68.9% inflation. Pezeshkian's "shortages in fuel… careful planning… divine grace" framing is the first time a senior civilian official has acknowledged the energy-supply consequence of the dual blockade in plain language. CNN's framing — Tehran "betting Trump will blink first" — is the analytical translation of a regime that has decided shortage-tolerance is a strategic asset to be marketed rather than a vulnerability to be hidden. For Taiwan and CPC the implication is precise: the regime is publicly committing to a longer blockade endurance window than the Pentagon's six-month mine-clearance assessment — meaning MOEA's no-Hormuz-through-October scenario is now the optimistic case, not the pessimistic one, and the procurement plan should be rebuilding from a permanently-curtailed-Iranian-supply baseline rather than a transitory-disruption baseline. The semiconductor-supply-chain thread acquires new texture: TSMC's 2026 CapEx pricing pass-through has to absorb a Brent floor that just moved structurally above the Q1 BoD assumption set, and the back-month curve is now pricing the home-front-endurance signal alongside the kinetic-risk signal. Analytical judgment: Taiwan's policy posture should treat "Iran chooses long blockade" as the working assumption and prepare a Q4-onward LNG sourcing plan that does not require Hormuz reopening to clear inventory.
++
++## Sources & Attribution
++
++Sources (22): Time (Trump cancellation / 'all the cards') · CBS News (Trump cancellation framing) · Fortune (cancellation analytics / 'sloppy peace' Goldman framing) · CNBC (Trump phone-track) · Fox News (cancellation liveblog) · CNN (US team won't visit / 'Trump will blink first' analysis) · NPR (Araghchi departs Pakistan) · The Hill (improved Iran paper) · Mediaite ('much better' offer 10 minutes later) · Al Jazeera (Tehran rejects siege liveblog April 26 / hardened stance / Brent $106) · Euronews (Araghchi 'rules out direct talks') · The National (Brent $105.30 close, ~16% weekly / 2M Iranian jobs lost) · CNBC (Iran economy charts) · Foreign Policy (US blockade economic attrition) · Times of Israel (IDF Debel investigation) · Jerusalem Post (Debel investigation) · Express Tribune (Pezeshkian-Sharif call) · The Week (Araghchi 'no direct talks').
++
++Source category coverage: Western mainstream press ✓ · International/regional press ✓ (Al Jazeera, Euronews, Express Tribune, The Week) · Iranian officials direct ✓ (Pezeshkian fuel-shortage statement; Mojtaba Khamenei written statement; Baghaei X line via CNBC/Al Jazeera) · Israeli press/government ✓ (Times of Israel, Jerusalem Post, IDF spokesperson) · US government/agencies ✓ (Trump Truth Social posts, Trump reporters statements, Treasury Bessent Friday carry-forward) · European/international bodies ✓ (UN Saturday continuing, IMF projections via CNN/National) · Market/maritime data ✓ (The National Brent close, Al Jazeera economy) · Think tanks/analysts ✓ (Foreign Policy, CNN analysis, Goldman Sachs via Fortune) · Iranian state media ✓ (Tasnim and Nournews via Euronews/CNBC) · Russia/China adversary — absent today (Moscow next Araghchi stop) · Human-rights monitoring — absent today. 10 of 12 rubric categories covered.
+diff --git a/content/context.md b/content/context.md
+index 8f2c8fa..80ed935 100644
+--- a/content/context.md
++++ b/content/context.md
+@@ -1,54 +1,55 @@
+ # Rolling Context
+ 
+-Last updated by: morning Routine 2026-04-25 (Day 57)
+-Last brief day: 57
+-Last brief date: 2026-04-25
++Last updated by: morning Routine 2026-04-26 (Day 58)
++Last brief day: 58
++Last brief date: 2026-04-26
+ 
+ ## Current war status
+ 
+-Day 57 of Operation Epic Fury. The US–Iran indefinite ceasefire holds in name, the US naval blockade and Iranian mine-laying both continue, and Friday delivered the first credible two-track day since the war opened: a genuine diplomatic opening and a doubled economic/kinetic pressure envelope in the same news cycle. Trump dispatched Witkoff and Kushner (not Vance) to Pakistan for direct talks with Iranian counterparts; Araghchi landed in Islamabad Friday night with a small delegation, though Iran's FM spokesperson Baghaei publicly said "no meeting is planned." Trump told Reuters Iran is "making an offer and we'll have to see." Simultaneously, Hegseth formalised the "shoot to destroy" ROE at a Pentagon press conference and declared any additional Iranian mine-laying a ceasefire violation; Bessent told AP the Iranian and Russian oil-at-sea waivers will not be renewed and that Iran will "have to start shuttering production in two, three days, which will be very bad for their wells." Brent topped $106.80 intraday before settling near $104.50; only five ships transited Hormuz in 24 hours — roughly 4% of the 140-vessel pre-war baseline. Hezbollah publicly rejected Thursday's three-week Lebanon extension as "meaningless"; six killed in Friday Israeli strikes on southern Lebanon. Analytical judgment: 30-day ceasefire probability moved 30 → 32 — the Witkoff–Kushner dispatch is the largest single upside signal of April, and the simultaneous Bessent waiver cancellation and Hegseth ROE formalisation are the largest downside signal since the blockade itself.
++Day 58 of Operation Epic Fury. The US–Iran indefinite ceasefire holds in name, the US naval blockade enters Day 14, Iranian mine-laying continues, and Saturday delivered a diplomatic-track collapse and immediate partial reformation inside twelve hours. Trump cancelled the Witkoff/Kushner Islamabad trip at the last minute — "Too much time wasted on traveling, too much work! Besides which, there is tremendous infighting and confusion within their leadership… we have all the cards; they have none! If they want to talk, all they have to do is call!!!" — and then told reporters Iran sent an improved paper within ten minutes of the cancellation, still "not enough." Araghchi spent ~20 hours in bilateral sessions with Pakistan's army chief Munir and PM Sharif before departing for Muscat with Moscow next per Tasnim; FM spokesperson Baghaei publicly held the "no meeting is planned" line through Saturday and SNSC-aligned Nournews carried it. Hegseth's Pentagon-formalised "shoot to destroy" ROE remains in force; the Bessent oil-waiver shutter-clock continues to run into Monday-Tuesday inside a venue-less diplomatic vacuum. Brent settled $105.30 Friday close (+0.25% / ~16% weekly) with the cancellation landing post-settlement and Sunday Asian opens the next price discovery. IDF opened an internal investigation after Lebanese-media footage showed soldiers damaging solar panels and water infrastructure in the Christian village of Debel. Mojtaba Khamenei issued his first published home-front-economy statement asking Iranians to be "considerate of one another" over war shortages; Pezeshkian acknowledged "shortages in fuel" requiring "careful planning" / "divine grace"; chicken/rice/eggs/medicine prices tripled or quadrupled per IMF/CNN; ~2M Iranian jobs lost per The National. CNN: Tehran "may be betting Trump will blink first." Analytical judgment: 30-day ceasefire probability moved 32 → 28 — channel survives the cancellation, format does not, and the next inflection is whether the phone-mediated process produces a face-saving exit before the Bessent shutter-clock starts physically damaging Iranian wells.
+ 
+ ## Cumulative state
+ 
+-- Casualties (per Day 57 brief): US 15 KIA / 395 WIA; Israel 38 KIA / 6,000+ WIA; Iran ~3,400 KIA (LMO "nearly 3,400" April 22; HRANA 3,636+ April 7; Hengaw 6,620+ military April 8); Other 2,436+ KIA (Lebanon 2,296+ after Friday +6 / Iraq 99+ / Gulf 32+ / UAE 11). 3.2M Iranians displaced.
+-- Energy: Brent topped $106.80 intraday Friday before settling ~$104.50 (+~18% on the week); WTI above $90. Hormuz transit collapsed to 5 ships in 24 hours (vs. 140 pre-war baseline). Pentagon six-month mine-clearance horizon stands; Bessent announced Iranian/Russian oil-at-sea waivers will not renew — permanent-damage well-shuttering starts in 2–3 days. Qatar Ras Laffan 17% LNG capacity out, 3–5yr repair.
+-- Interceptors: US CENTCOM "rearming, retooling, adjusting TTPs" during the truce window. Hegseth: blockade continues "as long as it takes"; minesweeping tempo tripled; CNN "dynamic targeting" plan on the shelf covers fast-attack boats, mine-layers, dual-use energy nodes, and individually-named IRGC leaders (Vahidi). USN minesweeper/patrol build-up continues to compete with Arrow/David's Sling replenishment for munitions-industrial throughput.
++- Casualties (per Day 58 brief): US 15 KIA / 395 WIA; Israel 38 KIA / 6,000+ WIA; Iran ~3,400 KIA (LMO "nearly 3,400" April 22; HRANA 3,636+ April 7; Hengaw 6,620+ military April 8); Other 2,436+ KIA (Lebanon 2,296+ / Iraq 99+ / Gulf 32+ / UAE 11). 3.2M Iranians displaced.
++- Energy: Brent settled $105.30 Friday close (+0.25%, ~16% weekly gain); WTI ~$95.85, ~14% weekly. Hormuz transit at ~5 ships in 24 hours (~4% of 140-vessel pre-war baseline). Pentagon six-month mine-clearance horizon stands; Bessent waiver-termination shutter-clock running into Monday-Tuesday — well-shut-in damage permanent and not reversible by ceasefire. Qatar Ras Laffan 17% LNG capacity out, 3–5yr repair.
++- Interceptors: US CENTCOM "rearming, retooling" during truce window. Hegseth: blockade continues "as long as it takes"; minesweeping tempo tripled. CNN "dynamic targeting" plan on the shelf (small boats, mine-layers, dual-use energy, individually-named IRGC leaders incl. Vahidi). USN minesweeper/patrol build-up continues to compete with Arrow/David's Sling replenishment for munitions-industrial throughput.
+ 
+ ## Active deadlines
+ 
+-- Israel–Lebanon ceasefire: Thursday three-week Oval Office extension nominally holds; new expiry ~2026-05-15; Hezbollah publicly rejects as "meaningless"; kinetic tempo unchanged.
++- Israel–Lebanon ceasefire: Three-week Oval Office extension nominally holds; new expiry ~2026-05-15; Hezbollah publicly rejects as "meaningless"; kinetic tempo unchanged.
+ - US–Iran ceasefire: open-ended; Hegseth explicitly reserves right to declare further mine-laying a ceasefire violation.
+-- Bessent oil-waiver horizon: Iran faces a "two, three days" well-shuttering clock from Friday statement; ~Monday–Tuesday inflection for physical production damage.
+-- Pentagon mine-clearance horizon: ~six months if uncontested (longer under active Iranian mine-laying).
+-- Islamabad talks window: Witkoff/Kushner arrive Saturday; Araghchi already in-country; Monday–Tuesday substantive meeting is the working assumption.
++- Bessent oil-waiver / well-shuttering horizon: Friday's "two, three days" framing now resolves Monday-Tuesday inside a venue-less diplomatic vacuum.
++- Pentagon mine-clearance horizon: ~six months if uncontested.
++- No scheduled bilateral US–Iran meeting after Saturday cancellation; phone-mediated process via Pakistan / Oman / Moscow is the working scaffolding.
+ 
+ ## Diplomatic state
+ 
+-Witkoff + Kushner dispatched to Pakistan for direct Iran talks — the first US–Iran-facing channel since the April 11–12 Islamabad round collapsed under Vance. Personnel change is the signal: Vance led the collapse, Witkoff/Kushner ran the Lebanon extension. Trump "they're making an offer" (Reuters, April 24). Iran's Foreign Ministry spokesperson Baghaei publicly said "no meeting is planned" while Araghchi arrived in Islamabad — preserving Tehran's disavowal optionality. Araghchi itinerary: Islamabad → Moscow → Muscat per IRNA. Rubio: Iran war objectives achievable "within weeks." Hezbollah firmly rejects Thursday's three-week Lebanon extension — the extension is a government-to-government instrument that excludes the armed actor on the ground. UN warns Israeli strikes and Hezbollah rockets "may breach international law." Pakistan (Munir + Sharif) re-activated as primary mediator. Russia: Araghchi expected Moscow stop next; post-Grossi trilateral. China: back-channel; China–Russia–Iran trilateral with Grossi in Vienna on Thursday remains the most recent PRC visible activation.
++The Saturday Witkoff/Kushner cancellation collapses the personnel/venue scaffolding the Day 57 brief flagged as April's largest single upside signal. Trump "we have all the cards" framing locks the US side into a position that requires Iranian capitulation to declare progress; Iran's "improved paper within ten minutes" — still "not enough" — confirms Tehran reads the cancellation as a forcing function, not channel-closure. Araghchi did ~20h with Munir and Sharif Saturday, then to Muscat with Moscow next per Tasnim. Pakistan retained both Munir-track (military) and Sharif-track (civilian) channels open; Pezeshkian-Sharif phone call April 25; Pakistan PM committed to "continue sincere efforts" for peace. Oman activates as the traditional back-channel via the Muscat stop. Russia preserved as third leg via planned Moscow stop. Iran's home-front messaging coalesces around "no talks under siege": Pezeshkian/Ghalibaf/Mohseni Ejei coordinated denial of Trump's "fractured leadership" framing; Mojtaba Khamenei written statement on shortages is the first published home-front-economy intervention. Vahidi remains decisional axis; SNSC-aligned outlets (Nournews, Tasnim) publicly committed to the no-meeting line on Saturday. Lebanon: three-week extension holds in name; Hezbollah continues to publicly reject as "meaningless"; UN continues to flag both sides as potentially in breach of international law; IDF opens internal investigation into Debel solar-panel/water-infrastructure damage. China: back-channel only post-Vienna trilateral.
+ 
+ ## Standing analytical threads
+ 
+-- **Taiwan LNG vulnerability:** Bessent waiver-termination layers a permanent-supply-removal signal onto the Pentagon's six-month Hormuz-clearance assessment; MOEA Q3 procurement horizon must now run a no-Hormuz-through-October scenario and a permanently-curtailed-sanctioned-flow scenario in parallel. CPC Corp coal-rotation now the default not the hedge.
+-- **Israeli interceptor depletion:** Hegseth-level Hormuz ROE plus CNN "dynamic targeting" plan (small boats, mine-layers, dual-use energy, named IRGC leaders) keep USN minesweeper/patrol build-up in competition with Arrow/David's Sling replenishment for industrial throughput.
+-- **US domestic political pressure:** Trump "Don't rush me" + Rubio "within weeks" + Bessent waiver cancellation form a single through-the-midterms-pressure doctrine; personal-network envoys (Witkoff/Kushner) bypass State/NSC, a feature for Tehran and a risk for Washington.
+-- **Semiconductor supply chain:** TSMC 2026 CapEx and pricing pass-through operate in a cost environment Q1 BoD guidance did not contemplate; Bessent signal propagates back-month LNG/oil repricing into Q3 Taipei demand peak.
+-- **Chinese response posture:** Bessent waiver cancellation forces PRC shadow-fleet buyers fully into sanctions-defiance posture or out; raises Beijing's mediation cost post-Vienna trilateral. Analytical judgment: Beijing's next visible move is the first real test of whether the Grossi trilateral was activation or choreography.
+-- **Regime-cohesion / IRGC ascendance:** Unified Tehran messaging (Pezeshkian / Araghchi) being tested under Bessent's permanent-damage clock. Vahidi now explicitly named in US "dynamic targeting" options — the first named individual since the opening campaign; Mojtaba Khamenei still unseen.
+-- **Non-US-hull harassment lane:** Unchanged from Thursday — Panama and Greece diplomatic protests stand; UK-led 40-nation FoN coalition continues to acquire co-signers.
+-- **Hormuz kinetic small-boat lane:** Formalised at Pentagon echelon Friday — the "shoot to destroy" order is now doctrine and additional mine-laying is explicitly a ceasefire violation. Small-boat US KIA remains the dominant near-term tail risk.
+-- **Permanent-damage clock (NEW THREAD):** Bessent's "shuttering wells in two, three days" framing introduces a new timer that is not reversible by ceasefire alone — physical damage to Iranian reservoir productive capacity from shut-in during the blockade. Tracks differently from sanctions revenue and from Hormuz throughput.
++- **Taiwan LNG vulnerability:** With Tehran publicly committing to a longer blockade endurance window than the Pentagon six-month assessment, MOEA's no-Hormuz-through-October scenario is now the optimistic case rather than the pessimistic one. CPC coal-rotation hedge becomes the default through summer.
++- **Israeli interceptor depletion:** Hegseth-formalised Hormuz ROE plus CNN "dynamic targeting" plan keep USN minesweeper/patrol build-up in competition with Arrow/David's Sling replenishment for industrial throughput.
++- **US domestic political pressure:** Trump "we have all the cards" cancellation completes the through-the-midterms-pressure doctrine begun with "Don't rush me." Personal-network envoys (Witkoff/Kushner) have proven recallable on the same news cycle as deployment — feature for Trump, risk for any Tehran face-saving exit.
++- **Semiconductor supply chain:** TSMC's 2026 CapEx pricing pass-through has to absorb a Brent floor that just moved structurally above Q1 BoD assumptions; back-month curve now prices home-front-endurance signal alongside kinetic-risk signal.
++- **Chinese response posture:** Bessent waiver cancellation forces PRC shadow-fleet buyers fully into sanctions-defiance posture or out. Beijing's next visible move (post-Vienna trilateral) remains the test of whether the Grossi sessions were activation or choreography.
++- **Regime-cohesion / IRGC ascendance:** Mojtaba Khamenei's first published home-front-economy statement is the highest-level Iranian admission of war-induced civilian hardship to date and the regime's positioning ahead of the Bessent shutter-clock window. Vahidi remains decisional axis and named individual in CNN-leaked US targeting options.
++- **Non-US-hull harassment lane:** Unchanged from prior days — Panama and Greece protests stand; UK-led 40-nation FoN coalition continues to acquire co-signers.
++- **Hormuz kinetic small-boat lane:** Hegseth-formalised "shoot to destroy" ROE plus active Iranian mine-laying remain the dominant near-term tail risk; cancellation of Islamabad trip removes the venue at which a face-saving counter-offer could have been received and concentrates the kinetic-incident probability in the 72h window.
++- **Permanent-damage clock:** Bessent's Friday shutter-clock now runs into Monday-Tuesday in a venue-less diplomatic vacuum; well-shut-in damage to Iranian reservoirs is not reversible by ceasefire and not deferrable by negotiation. Mojtaba Khamenei's written statement is the rhetorical pre-baking of a long-blockade endurance narrative.
++- **Home-front endurance contest (NEW THREAD):** Tehran's CNN-summarised "betting Trump will blink first" posture, combined with Mojtaba Khamenei's Saturday written statement and Pezeshkian's "divine grace" framing, converts shortage-tolerance from vulnerability to marketed strategic asset. IMF: 6.1% Iran GDP contraction at 68.9% inflation; ~2M Iranian jobs lost per The National. Tracks the regime's domestic absorption capacity against Trump's midterm political-pressure window.
+ 
+ ## What to watch tomorrow
+ 
+-- Saturday bilateral sessions in Islamabad (Witkoff/Kushner with Pakistani mediators; Araghchi with Pakistani officials). Whether Iran formally acknowledges the US–Iran meeting.
+-- Monday/Tuesday Witkoff–Kushner–Araghchi direct meeting — presence, duration, any joint or Pakistani-delivered readout.
+-- Any Trump social-media posts before or after the weekend sessions (the April 20 precedent: social posts collapsed a deal that "seemed close").
+-- First kinetic encounter under the Hegseth-formalised ROE: any US Navy / Iranian small-boat incident; Fifth Fleet / CENTCOM readouts.
+-- Iranian well-shuttering confirmation: satellite / NIOC / shadow-fleet AIS signals in Kharg / Bandar Abbas over the next 72 hours.
+-- Brent / LNG curve response to combined Bessent + Pakistan-talks signals; Asian LNG insurance quotes; Taiwan MOEA / CPC commentary.
+-- Lebanon kinetic tempo: IDF strike rate, Hezbollah response pattern, any new Touline / Bint Jbeil casualties; UN follow-up on international-law warning.
+-- Chinese response to Bessent waiver cancellation — MOFA press briefing, PBoC/SAFE commentary, any shadow-fleet routing adjustments.
++- Sunday Asian-night Brent open: first market read on the Saturday cancellation; gap higher with curve flattening = market reads cancellation as terminal; curve steepening = phone-track placeholder.
++- Phone-mediated US–Iran process via Pakistan / Oman / Moscow: any public readout of the "improved Iranian paper" or any Trump social post on a counter-counter-offer.
++- First kinetic encounter under the Hegseth-formalised ROE during the venue-less window: any US Navy / Iranian small-boat incident; Fifth Fleet / CENTCOM readouts.
++- Iranian well-shuttering confirmation: satellite / NIOC / shadow-fleet AIS signals in Kharg / Bandar Abbas Sunday-Monday; any Iranian onshore-tank cascade reports.
++- Iran home-front: any further Mojtaba Khamenei statement; any Pezeshkian press-availability on shortages; any IRGC commentary that diverges from the "considerate of one another" framing.
++- Lebanon: IDF Debel investigation timeline and outcome; any Hezbollah operational response to the solar-panel footage; any Berri or Salam intervention.
++- China response to the Bessent waiver cancellation — MOFA Sunday/Monday press briefing, any visible PBoC/SAFE commentary, shadow-fleet routing adjustments.
++- Russia: any Lavrov/Putin readout from Araghchi's planned Moscow stop; any IAEA follow-up.
+ 
+ ## Evening flash notes
+ 
+-**[10:15 UTC]** Iran's split signalling on the Islamabad track hardened modestly through Saturday morning: Araghchi met Pakistan's army chief Asim Munir and Interior Minister Mohsin Naqvi in Islamabad, while semi-official Tasnim and Nournews — the latter affiliated with Iran's Supreme National Security Council — explicitly reported he will not speak with US officials, and FM spokesperson Baghaei reiterated "no meeting is planned." White House press secretary Leavitt framed the US side's intent as "direct talks — intermediated by the Pakistanis," an oxymoron that itself captures the gap; the White House also disclosed Vance is on standby "in case his presence is necessary," preserving a personnel-ladder option the morning brief did not flag. No new kinetic incidents, casualty revisions, or weekend market moves in the window — Friday's $104.50 Brent close is the working baseline into Asian Sunday-night opening, and the Lebanon kinetic tempo has not produced fresh KIA since the Friday Touline / Bint Jbeil count. Analytical judgment: this is a modest debit on the diplomatic-track read of the morning brief — direction should stay `mixed` and 30-day ceasefire probability should not move from 32, but SNSC-aligned outlets carrying the rejection line raises Tehran's domestic cost of any public bilateral acknowledgement and argues for tomorrow's brief to treat the Witkoff–Kushner arrival readout (Pakistani-delivered or otherwise) as the dispositive Day 58 signal. (Euronews, "Iran's FM Abbas Araghchi meets with Pakistan officials but rules out direct talks with US," 2026-04-25; CNBC, "Iran says no meeting with U.S. negotiators planned in Pakistan, with Trump envoys due to head to Islamabad," 2026-04-25; The Week, "A fragile opening for peace in Middle East? Iran explores mediated talks through Pakistan," 2026-04-25 — accessed 2026-04-25T10:00Z.)
++(None yet for today.)
+diff --git a/lib/brief-data.ts b/lib/brief-data.ts
+index 279d5fb..da2d38c 100644
+--- a/lib/brief-data.ts
++++ b/lib/brief-data.ts
+@@ -6,6 +6,7 @@ import day001 from '@/content/briefs/2026-02-28-day-001.data';
+ import day055 from '@/content/briefs/2026-04-23-day-055.data';
+ import day056 from '@/content/briefs/2026-04-24-day-056.data';
+ import day057 from '@/content/briefs/2026-04-25-day-057.data';
++import day058 from '@/content/briefs/2026-04-26-day-058.data';
+ 
+ export type Implication = { title: string; body: string };
+ 
+@@ -32,6 +33,7 @@ const briefDataBySlug: Record<string, BriefData> = {
+   '2026-04-23-day-055': day055,
+   '2026-04-24-day-056': day056,
+   '2026-04-25-day-057': day057,
++  '2026-04-26-day-058': day058,
+ };
+ 
+ export function getBriefData(slug: string): BriefData | null {
+-- 
+2.34.1
+
