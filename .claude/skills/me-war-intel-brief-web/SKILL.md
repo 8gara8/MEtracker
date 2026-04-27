@@ -88,10 +88,17 @@ Target ~250 words per subsection.
 
 ### Step 4b — URL archive-wrap (SPEC §7.2, DESIGN §3.5.12)
 
-Before writing the `.mdx` to disk, transform every URL in the Sources section
-(heading `## Sources` or `## Sources & Attribution` — current briefs use the
-latter) to `https://web.archive.org/web/2026/<original>`. Idempotent: do not
-double-wrap URLs that already contain `web.archive.org/web/`.
+Before writing the `.mdx` to disk, transform every source URL to
+`https://web.archive.org/web/2026/<original>`. Idempotent: do not double-wrap
+URLs that already contain `web.archive.org/web/`.
+
+Two locations to wrap:
+
+1. **Frontmatter `sources:` array — primary target.** This is what
+   `scripts/validate-brief.ts` HEAD-checks; failing to wrap here is what trips
+   the `>2 broken URLs` validator failure mode.
+2. **Body `## Sources` / `## Sources & Attribution` section.** Current briefs
+   use prose-form attribution with no embedded URLs, but wrap any that exist.
 
 Two equivalent paths:
 - **In-process**: rewrite the source list in the draft string before

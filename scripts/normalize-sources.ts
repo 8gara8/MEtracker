@@ -1,9 +1,14 @@
 /**
  * normalize-sources.ts — URL archive-wrap helper (v1.8, SPEC §7.2)
  *
- * Rewrites every URL in an MDX brief's `## Sources` section to its
- * `https://web.archive.org/web/2026/<original>` form. Idempotent: URLs that
- * are already wrapped are left untouched.
+ * Rewrites every URL in a brief's frontmatter `sources:` array AND its
+ * `## Sources` body section to `https://web.archive.org/web/2026/<original>`.
+ * Idempotent: URLs that are already wrapped are left untouched.
+ *
+ * The validator (`scripts/validate-brief.ts`) HEAD-checks every URL in the
+ * frontmatter `sources[].url` field, so the frontmatter is the primary
+ * archive-wrap target. The body section is wrapped too, in case briefs ever
+ * embed bare URLs there (current briefs use prose-form attribution).
  *
  * Usage:
  *   # Pipe form
@@ -32,11 +37,55 @@ export function wrapUrl(url: string): string {
 }
 
 /**
- * Locate the `## Sources` section and return [startLine, endLine] (exclusive).
- * Returns null if no sources section exists.
+ * Locate the YAML frontmatter region. Returns [start, end] indices into
+ * `lines` such that lines[start..end] are the frontmatter body (between the
+ * opening and closing `---` fences). Returns null if no frontmatter.
  */
-function findSourcesRange(lines: string[]): [number, number] | null {
-  // Match both "## Sources" and variants like "## Sources & Attribution".
+function findFrontmatterRange(lines: string[]): [number, number] | null {
+  if (lines.length === 0 || lines[0].trim() !== '---') return null;
+  for (let i = 1; i < lines.length; i++) {
+    if (lines[i].trim() === '---') return [1, i];
+  }
+  return null;
+}
+
+/**
+ * Within [fmStart, fmEnd), locate the indented child block under a top-level
+ * `sources:` key. Returns [start, end] of the child lines, or null if no
+ * sources block exists. The block ends at the next non-indented YAML key or
+ * at fmEnd.
+ */
+function findFrontmatterSourcesBlock(
+  lines: string[],
+  fmStart: number,
+  fmEnd: number,
+): [number, number] | null {
+  let start = -1;
+  for (let i = fmStart; i < fmEnd; i++) {
+    if (/^sources:\s*$/.test(lines[i])) {
+      start = i + 1;
+      break;
+    }
+  }
+  if (start === -1) return null;
+  let end = fmEnd;
+  for (let i = start; i < fmEnd; i++) {
+    // A new top-level YAML key (column-0 letter followed by a colon) ends the
+    // sources block.
+    if (/^\S.*:/.test(lines[i])) {
+      end = i;
+      break;
+    }
+  }
+  return [start, end];
+}
+
+/**
+ * Locate the `## Sources` body section and return [startLine, endLine]
+ * (exclusive). Matches `## Sources` and variants like `## Sources & Attribution`.
+ * Returns null if no such section exists.
+ */
+function findSourcesBodyRange(lines: string[]): [number, number] | null {
   const headingRe = /^##\s+Sources\b/i;
   const anyHeadingRe = /^##\s+/;
   let start = -1;
@@ -57,14 +106,26 @@ function findSourcesRange(lines: string[]): [number, number] | null {
   return [start, end];
 }
 
-export function normalizeSources(input: string): string {
-  const lines = input.split(/\r?\n/);
-  const range = findSourcesRange(lines);
-  if (!range) return input;
-  const [start, end] = range;
+function rewriteUrlsInRange(lines: string[], start: number, end: number): void {
   for (let i = start; i < end; i++) {
     lines[i] = lines[i].replace(URL_RE, (match) => wrapUrl(match));
   }
+}
+
+export function normalizeSources(input: string): string {
+  const lines = input.split(/\r?\n/);
+
+  // 1. Frontmatter `sources:` block — primary target (validator reads this).
+  const fm = findFrontmatterRange(lines);
+  if (fm) {
+    const fmSources = findFrontmatterSourcesBlock(lines, fm[0], fm[1]);
+    if (fmSources) rewriteUrlsInRange(lines, fmSources[0], fmSources[1]);
+  }
+
+  // 2. Body `## Sources [& ...]` section — best-effort for any embedded URLs.
+  const body = findSourcesBodyRange(lines);
+  if (body) rewriteUrlsInRange(lines, body[0], body[1]);
+
   // Preserve original trailing newline behaviour.
   const joined = lines.join('\n');
   return input.endsWith('\n') && !joined.endsWith('\n') ? `${joined}\n` : joined;
