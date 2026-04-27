@@ -139,7 +139,9 @@ function findSourcesBodyRange(lines: string[]): [number, number] | null {
  * for unquoted scalars), so parentheses inside the URL path round-trip safely.
  */
 function rewriteYamlUrlLine(line: string): string {
-  const m = line.match(/^(\s+url:\s*)(.*)$/);
+  // Match both the indented `url: ...` form and the compact list-item form
+  // `- url: ...`. Either may appear under `sources:` as valid YAML.
+  const m = line.match(/^(\s+(?:-\s+)?url:\s*)(.*)$/);
   if (!m) return line;
   const prefix = m[1];
   let valuePart = m[2];
