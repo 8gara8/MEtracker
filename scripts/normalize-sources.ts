@@ -26,14 +26,41 @@ import path from 'node:path';
 
 const ARCHIVE_PREFIX = 'https://web.archive.org/web/2026/';
 
-// Match http(s) URLs. Trailing punctuation that is unlikely to be part of a URL
-// is excluded from the match so we don't wrap a comma or period at end-of-line.
-const URL_RE = /https?:\/\/[^\s<>()\[\]"'`]+[^\s<>()\[\]"'`.,;:!?]/g;
+// Body-section URL match. Allows `(` and `)` inside the path so that URLs like
+// https://en.wikipedia.org/wiki/Iran_(country) round-trip cleanly. Trailing
+// punctuation that's clearly not part of a URL is trimmed post-match.
+const BODY_URL_RE = /https?:\/\/[^\s<>"'`]+/g;
 
 export function wrapUrl(url: string): string {
   if (url.startsWith(ARCHIVE_PREFIX)) return url;
   if (url.includes('web.archive.org/web/')) return url;
   return `${ARCHIVE_PREFIX}${url}`;
+}
+
+/**
+ * Strip trailing characters that are unlikely to be part of a URL when the
+ * URL appears in prose. A trailing `)` is preserved if there's a matching
+ * unbalanced `(` inside the URL (so Wikipedia-style URLs keep their suffix).
+ */
+function trimTrailingPunctuation(url: string): { url: string; trailer: string } {
+  let trailer = '';
+  let cur = url;
+  // Trim simple trailing punctuation first.
+  const simpleTrail = cur.match(/[.,;:!?\]]+$/);
+  if (simpleTrail) {
+    trailer = simpleTrail[0] + trailer;
+    cur = cur.slice(0, -simpleTrail[0].length);
+  }
+  // Balance trailing `)` against `(` count inside the URL.
+  while (cur.endsWith(')')) {
+    const opens = (cur.match(/\(/g) || []).length;
+    const closes = (cur.match(/\)/g) || []).length;
+    if (closes > opens) {
+      trailer = ')' + trailer;
+      cur = cur.slice(0, -1);
+    } else break;
+  }
+  return { url: cur, trailer };
 }
 
 /**
@@ -106,9 +133,52 @@ function findSourcesBodyRange(lines: string[]): [number, number] | null {
   return [start, end];
 }
 
-function rewriteUrlsInRange(lines: string[], start: number, end: number): void {
+/**
+ * Rewrite a YAML `url:` line, preserving quote style and surrounding
+ * whitespace. The URL value is bounded by the closing quote (or by line end
+ * for unquoted scalars), so parentheses inside the URL path round-trip safely.
+ */
+function rewriteYamlUrlLine(line: string): string {
+  const m = line.match(/^(\s+url:\s*)(.*)$/);
+  if (!m) return line;
+  const prefix = m[1];
+  let valuePart = m[2];
+
+  let openQuote = '';
+  let url = valuePart;
+  if (url.startsWith('"') || url.startsWith("'")) {
+    openQuote = url[0];
+    const close = url.lastIndexOf(openQuote);
+    if (close <= 0) return line; // malformed; leave alone
+    url = url.slice(1, close);
+  } else {
+    // Unquoted scalar: strip a trailing YAML inline comment if any.
+    const trimmed = url.replace(/\s+#.*$/, '').trimEnd();
+    url = trimmed;
+  }
+
+  if (!/^https?:\/\//.test(url)) return line;
+  const wrapped = wrapUrl(url);
+  if (wrapped === url) return line;
+
+  if (openQuote) {
+    return `${prefix}${openQuote}${wrapped}${openQuote}`;
+  }
+  return `${prefix}${wrapped}`;
+}
+
+function rewriteFrontmatterUrls(lines: string[], start: number, end: number): void {
   for (let i = start; i < end; i++) {
-    lines[i] = lines[i].replace(URL_RE, (match) => wrapUrl(match));
+    lines[i] = rewriteYamlUrlLine(lines[i]);
+  }
+}
+
+function rewriteBodyUrls(lines: string[], start: number, end: number): void {
+  for (let i = start; i < end; i++) {
+    lines[i] = lines[i].replace(BODY_URL_RE, (match) => {
+      const { url, trailer } = trimTrailingPunctuation(match);
+      return `${wrapUrl(url)}${trailer}`;
+    });
   }
 }
 
@@ -119,12 +189,12 @@ export function normalizeSources(input: string): string {
   const fm = findFrontmatterRange(lines);
   if (fm) {
     const fmSources = findFrontmatterSourcesBlock(lines, fm[0], fm[1]);
-    if (fmSources) rewriteUrlsInRange(lines, fmSources[0], fmSources[1]);
+    if (fmSources) rewriteFrontmatterUrls(lines, fmSources[0], fmSources[1]);
   }
 
   // 2. Body `## Sources [& ...]` section — best-effort for any embedded URLs.
   const body = findSourcesBodyRange(lines);
-  if (body) rewriteUrlsInRange(lines, body[0], body[1]);
+  if (body) rewriteBodyUrls(lines, body[0], body[1]);
 
   // Preserve original trailing newline behaviour.
   const joined = lines.join('\n');
