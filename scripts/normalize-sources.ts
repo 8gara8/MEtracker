@@ -36,7 +36,8 @@ export function wrapUrl(url: string): string {
  * Returns null if no sources section exists.
  */
 function findSourcesRange(lines: string[]): [number, number] | null {
-  const headingRe = /^##\s+Sources\s*$/i;
+  // Match both "## Sources" and variants like "## Sources & Attribution".
+  const headingRe = /^##\s+Sources\b/i;
   const anyHeadingRe = /^##\s+/;
   let start = -1;
   for (let i = 0; i < lines.length; i++) {

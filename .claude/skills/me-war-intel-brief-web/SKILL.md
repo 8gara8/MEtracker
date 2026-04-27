@@ -88,8 +88,9 @@ Target ~250 words per subsection.
 
 ### Step 4b — URL archive-wrap (SPEC §7.2, DESIGN §3.5.12)
 
-Before writing the `.mdx` to disk, transform every URL in the `## Sources`
-section to `https://web.archive.org/web/2026/<original>`. Idempotent: do not
+Before writing the `.mdx` to disk, transform every URL in the Sources section
+(heading `## Sources` or `## Sources & Attribution` — current briefs use the
+latter) to `https://web.archive.org/web/2026/<original>`. Idempotent: do not
 double-wrap URLs that already contain `web.archive.org/web/`.
 
 Two equivalent paths:
