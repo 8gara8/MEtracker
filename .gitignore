@@ -41,3 +41,6 @@ next-env.d.ts
 
 # Vercel
 .vercel
+
+# Cowork Schedule task lock (v1.8)
+.lock
