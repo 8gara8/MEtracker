@@ -1,0 +1,471 @@
+From cb1692146c79a6be512111f1b7fd81fb0a04372b Mon Sep 17 00:00:00 2001
+From: Claude Morning Routine <claude-routine@anthropic.com>
+Date: Tue, 28 Apr 2026 02:14:34 +0000
+Subject: [PATCH] =?UTF-8?q?Day=20060=20brief=20=E2=80=94=202026-04-28?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ content/briefs/2026-04-28-day-060.data.ts | 152 +++++++++++++++++++
+ content/briefs/2026-04-28-day-060.mdx     | 172 ++++++++++++++++++++++
+ content/context.md                        |  67 ++++-----
+ lib/brief-data.ts                         |   2 +
+ 4 files changed, 360 insertions(+), 33 deletions(-)
+ create mode 100644 content/briefs/2026-04-28-day-060.data.ts
+ create mode 100644 content/briefs/2026-04-28-day-060.mdx
+
+diff --git a/content/briefs/2026-04-28-day-060.data.ts b/content/briefs/2026-04-28-day-060.data.ts
+new file mode 100644
+index 0000000..59ec27f
+--- /dev/null
++++ b/content/briefs/2026-04-28-day-060.data.ts
+@@ -0,0 +1,152 @@
++import type { BriefData } from '@/lib/brief-data';
++
++const data: BriefData = {
++  escalation: {
++    direction: 'mixed',
++    risk7d: 'extreme',
++    spillover: 'conditional',
++    rationale: {
++      direction:
++        "Monday delivered a US formal rejection of the Iranian Hormuz-first proposal within 24 hours of its delivery; an Israeli rhetorical escalation on Lebanon to 'burn the entire country' threat level; a public Aoun-versus-Qassem rupture inside the Lebanese state; and a Putin-Araghchi St. Petersburg meeting that converted Russia from back-channel to visible coalition partner. Trump and the NSC reviewed the proposal Monday but Rubio publicly rejected its substance ('what they mean by opening the strait is yes, it's open as long as you coordinate with us, get our permission, or we'll blow you up and you pay us'); Rubio also explicitly ruled out any deal that defers the nuclear program. The four-mediator channel remains open but the proposal as submitted is dead.",
++      risk7d:
++        "The Hegseth-formalised 'shoot to destroy' ROE remains in force; US Navy de-mining (Peterson, Murphy) continues into Day 4 of operations under that ROE; Iranian mine-laying continues per prior Axios sourcing and UK House of Commons reporting that Iran has 'lost track of mines' it planted, meaning Tehran cannot fully reopen the strait even if it wanted to. The Bessent waiver-termination shutter-clock has now resolved into well-shut-in operating window. Brent closed $108.23 Monday (nearly 3% intraday gain); Citi flags a $150 path if disruption persists through June.",
++      spillover:
++        "Israeli Defense Minister Katz publicly threatened Hezbollah chief Qassem with 'fire that will burn Hezbollah and all of Lebanon' — directly to UN coordinator Hennis-Plasschaert. Qassem framed Lebanon-Israel direct talks as a 'grave sin'; Aoun publicly accused Hezbollah of 'dragging Lebanon into war for foreign interests.' The Lebanese government's negotiating mandate is now openly contested by the armed actor, on the record. Hezbollah-IDF strike exchanges continued Monday with the western Galilee drone-siren incident from Day 59 evening flash unresolved.",
++    },
++  },
++  events: [
++    {
++      id: 1,
++      direction: 'escalating',
++      importance: 'pivotal',
++      source: 'Bloomberg / Times of Israel / Athens Times / Ukrainska Pravda / WorldOil / Fox News',
++      event: "Rubio formally rejects Iran Hormuz-first proposal: 'cannot normalize Iran controlling an international waterway'",
++      summary:
++        "Secretary of State Marco Rubio told Fox News the US will reject the Iranian proposal: 'If what they mean by opening the strait is yes, it's open—but you must coordinate with us, get our permission, or we'll blow you up and charge you anyway, then that is not opening… We cannot accept—and it must never become normalized—a system where Iranians decide who uses an international waterway and how much they must pay to do so.' Rubio further appeared to rule out any deal that defers the nuclear program: 'we have to ensure that any deal… is one that definitively prevents them from sprinting towards a nuclear weapon.'",
++      impact:
++        "First formal US-government rejection of Iran's Sunday proposal — Trump-NSC team reviewed it Monday per Leavitt, but the public-facing Cabinet line frames the proposal as definitionally not 'opening' the strait. The Iran-side framing of Hormuz-opening (Iranian permission, Iranian fees) is exactly the architecture Trump invoked in 'I'm the one that kept it closed' on April 23. Rubio's 'never normalize' wording closes the conceptual space for a Hormuz-first deal that preserves Iranian command-and-control of the strait. Analytical judgment: the four-mediator channel survives, but the proposal as submitted is dead; ceasefire probability moves -4 to 26 on the rejection. The window for a proposal that decouples Iranian permission from strait reopening — a substantively different concession — is now ~72 hours before the markets price the rejection structurally.",
++    },
++    {
++      id: 2,
++      direction: 'mixed',
++      importance: 'pivotal',
++      source: 'Jerusalem Post / CNN / Washington Post / CGTN / Al Jazeera / Moscow Times / The Week',
++      event: "Putin-Araghchi St. Petersburg meeting: Russia visible coalition partner; 'strategic partnership at the highest level'",
++      summary:
++        "Putin met Araghchi in St. Petersburg Monday April 27 and pledged 'we will do everything that serves your interests and the interests of all the peoples of the region to ensure that peace is achieved as quickly as possible.' Araghchi described the relationship as 'strategic partnership at the highest level' that will continue 'regardless of circumstances.' Araghchi briefed Putin on the Pakistan-mediated proposal flow. Russia framed itself publicly as a peace-process actor — 'Russia ready to do its best to help bring peace to West Asia.'",
++      impact:
++        "Russia is now operating overtly as a coalition partner in the four-mediator architecture rather than back-channel only. Putin's 'we will do everything' framing is a deliberate echo of the Vienna trilateral activation signal that Day 56 evening flash flagged; the post-rejection meeting positions Moscow to claim mediator credit if Tehran softens on US permission/fees, or to claim Iranian solidarity if Tehran hardens. Moscow Times sourcing: framed by Russian audiences as 'Russia mediates after US-Iran talks collapse,' the same narrative Tehran wants. Analytical judgment: this is the highest-fidelity Russian visible activation of the war and shifts the China-Russia-Iran trilateral architecture from optionality to operating reality. The Bessent waiver cancellation now has a Russian counter-pressure response that will visibly resist its propagation through Asian buyers.",
++    },
++    {
++      id: 3,
++      direction: 'escalating',
++      importance: 'pivotal',
++      source: "Al Jazeera / Times of Israel / VOA Emirates / Naharnet / Middle East Monitor / VINnews",
++      event: "Israel Defense Minister Katz threatens to 'burn Hezbollah and all of Lebanon'",
++      summary:
++        "In a meeting with UN Special Coordinator for Lebanon Jeanine Hennis-Plasschaert, Israeli Defense Minister Israel Katz said Hezbollah chief Naim Qassem is 'playing with fire that will burn Hezbollah and all of Lebanon.' He told the UN envoy: 'If the Lebanese government continues to take cover under the wing of the Hezbollah terrorist organisation, fire will break out and engulf the cedars of Lebanon.' Statement issued by Katz's office; Netanyahu Monday separately said 'military action still needed to counter Hezbollah rockets and drones.'",
++      impact:
++        "Highest-intensity Israeli rhetoric against Lebanon since the original 2024 escalation. The 'cedars of Lebanon' phrasing pre-justifies an expansion of IDF operations to all-Lebanon depth rather than the seven-village forced-evacuation depth Day 59 captured. Katz delivering it in a UN-coordinator meeting (rather than to Israeli press) is a deliberate diplomatic-channel use to put the threat on multiple records simultaneously. Analytical judgment: this raises the kinetic ceiling on the Lebanon track to a Beirut-strike scenario the Day 59 single-clock direct-attack thread did not yet contemplate. Combined with the Aoun-Qassem rupture below, the political safety valves on the Lebanon track are now publicly inoperative.",
++    },
++    {
++      id: 4,
++      direction: 'escalating',
++      importance: 'high',
++      source: "Free Malaysia Today / Athens Times / Al-Monitor / WION / Al Jazeera / Israel National News",
++      event: "Lebanese President Aoun-Hezbollah Qassem public rupture; Aoun: 'Hezbollah dragging Lebanon for foreign interests'",
++      summary:
++        "Hezbollah Secretary General Naim Qassem (Al-Manar TV statement) called Lebanon-Israel direct talks a 'grave sin' — 'We categorically reject direct negotiations with Israel… those in power should know that their actions will not benefit Lebanon or themselves.' 'We will not give up our weapons.' Lebanese President Joseph Aoun fired back, accusing Hezbollah of 'dragging Lebanon into conflict serving external, specifically Iranian interests' — 'My goal is to reach an end to the state of war with Israel, similar to the armistice agreement.' Both publicly accused each other of treason.",
++      impact:
++        "First openly bilateral state-vs-armed-actor rupture inside Lebanon since the Taif Accord era. Aoun's 'foreign interests' framing puts Iran on the record as the principal Hezbollah is serving — a public diplomatic gift to Israel's case for unilateral expansion of operations beyond the buffer zone. Qassem's 'grave sin' framing puts the Aoun-Sharaa US-mediated track into formal Hezbollah opposition territory. Analytical judgment: the Lebanese state cannot now negotiate Hezbollah disarmament terms with Israel because Hezbollah has publicly reserved its arms posture independent of the state. The Day 58 'meaningless ceasefire' framing is now operationalised on the Lebanese-political side, not just the kinetic side.",
++    },
++    {
++      id: 5,
++      direction: 'escalating',
++      importance: 'high',
++      source: "CNBC / Al Jazeera Economy / Bloomberg / Angle360 / Reuters",
++      event: 'Brent closes $108.23 Monday April 27 (~+3%); Citi flags $150 if disruption through June',
++      summary:
++        "Brent crude futures closed April 27 at $108.23/bbl, a near-3% intraday gain on the failed proposal-rejection news cycle and the unresolved Hormuz-first standoff. WTI closed above $96 (similar day percentage). Spot at one point traded above $107.80 intraday before easing. Citi analysts said Brent could reach $150/bbl if oil flows remain disrupted through end of June. Spot price was about 50% higher than at the start of the war on Feb 28.",
++      impact:
++        "The market priced the Rubio rejection cleanly as +3% — confirms the +2 Day 59 move on the Iranian proposal was directional rather than structural, and the rejection has now consumed it. Citi's $150-by-end-of-June framing is the first major-bank base-case downside scenario published; combined with the Bessent waiver-termination shutter-clock and Iran's reported loss of mine tracking, the curve now embeds a permanent-supply-removal signal that did not exist a week ago. For Taiwan/CPC, the Q3 procurement plan now operates above $108 floor with a Citi-flagged $150 risk; MOEA's no-Hormuz-through-October scenario is the central case.",
++    },
++    {
++      id: 6,
++      direction: 'escalating',
++      importance: 'medium',
++      source: 'UK House of Commons Library / 2026 Strait of Hormuz Crisis Wikipedia',
++      event: "Iran has 'lost track of mines' it planted in Hormuz — cannot fully reopen the strait if it wanted to",
++      summary:
++        "Per UK House of Commons Library briefing CBP-10636 and corroborating Wikipedia/Strait-of-Hormuz-crisis sourcing: 'Iran lost track of mines it planted in the Strait of Hormuz, and it is therefore unable to fully open the strait.' This becomes structurally significant in the context of US Navy de-mining (Peterson, Murphy) entering Day 4 of operations and the Iranian Hormuz-first proposal's implicit assumption that Iran could deliver strait-opening on demand.",
++      impact:
++        "If accurate, Iran's proposal to 'reopen' the strait is technically unenforceable on the Iranian side without USN cooperation — which means the Hormuz-first proposal is more bargaining tactic than deliverable concession. The Pentagon six-month framing carried by the Day 58 brief and the Hudson Institute one-week-passageway / four-week-clearance framing from Day 59 both look more credible than Iran's implicit position that it can simply turn the strait back on. Analytical judgment: Tehran knows it needs USN to do most of the de-mining work; the proposal therefore embeds an implicit Iranian acknowledgement that the US has the operational handle even if Tehran has the political handle. This raises the probability that a substantive next-round proposal includes coordinated US-Iran de-mining language rather than a unilateral Iranian 'reopen' commitment.",
++    },
++    {
++      id: 7,
++      direction: 'mixed',
++      importance: 'medium',
++      source: 'Times of Israel April 27 liveblog / France 24 / multi-source carry-forward',
++      event: 'Western Galilee Hezbollah-suspected drone unresolved; Netanyahu cancels criminal-trial testimony for security consult',
++      summary:
++        "Carry-forward from Day 59 evening flash: a Hezbollah-suspected drone triggered sirens in the western Galilee Monday morning (IDF lost contact); Netanyahu cancelled his criminal-trial testimony to chair an emergency security consultation on Hezbollah ceasefire violations. Sgt. Idan Fooks remains the first ceasefire-era direct-attack KIA; six wounded (four severely). IDF strikes continued in southern Lebanon Monday at the same Bint Jbeil/Tibnin/Yater tempo as Sunday, with Bekaa Valley targets added.",
++      impact:
++        "Lebanon kinetic tempo not de-escalated post-Sunday despite Aoun-track diplomatic activity. Bekaa Valley strikes are a depth expansion the prior buffer-zone framing did not include. Netanyahu's cabinet emergency consultation is the structural Israeli decision point on whether to escalate to the Beirut-strike level Katz's 'burn the cedars' threat publicly previewed. Analytical judgment: the next 24 hours of Lebanese-government-versus-Hezbollah dynamics + Netanyahu cabinet output is the determining input on whether this week's Lebanon trajectory matches the Hormuz trajectory.",
++    },
++  ],
++  casualties: {
++    us: {
++      cumulative: 'KIA: 15 (13 combat + 2 noncombat, incl. 6 KC-135 crew) · WIA: 395',
++      delta: '+0 KIA / +0 WIA',
++      status:
++        "Hegseth-formalised 'shoot to destroy' ROE remains in force; blockade enters Day 16 with CENTCOM 38-ships-prevented stat unchanged. USS Frank E. Peterson and USS Michael Murphy de-mining ops enter Day 4 under Adm. Cooper. Hudson timeline: secure passageway in 1 week, full clearance up to 4 weeks. UK House of Commons reporting: Iran has 'lost track of mines it planted' — can't fully reopen even if it wanted to. CSG Lincoln Gulf of Oman; CSG Ford northern Red Sea; CSG Bush transiting toward Arabian Sea. Saturday-night Washington Hilton shooting fully resolved Monday — suspect Allen detained, Trump unaffected operationally.",
++    },
++    israel: {
++      cumulative: 'KIA: 39 (24 civilians + 16 soldiers in Lebanon, incl. Sgt. Fooks Sunday) · WIA: 6,006 (4 severe added Sunday)',
++      delta: '+0 KIA / +0 WIA reported in Monday window',
++      status:
++        "Defense Minister Katz to UN coordinator Hennis-Plasschaert: Hezbollah chief Qassem 'playing with fire that will burn Hezbollah and all of Lebanon.' Netanyahu Monday cabinet: 'military action still needed to counter Hezbollah rockets and drones'; cancelled criminal-trial testimony for emergency security consultation. IDF strikes continued in Bint Jbeil, Tibnin, Yater, plus Bekaa Valley targets. Western Galilee Hezbollah-suspected drone (Monday morning) unresolved.",
++    },
++    iran: {
++      cumulative: "Iran Legal Medicine Organization: 'nearly 3,400' KIA (April 22 figure unchanged). HRANA: 3,636+ (April 7). Hengaw: 6,620+ military (April 8). 383 children under 18; 3.2M displaced.",
++      delta: '+0 KIA / +0 WIA reported in Monday window',
++      status:
++        "Araghchi met Putin in St. Petersburg Monday — 'strategic partnership at the highest level'; Russia 'ready to do its best to help bring peace.' Tehran's Hormuz-first proposal formally rejected by Rubio Monday. Pakistan + Egypt + Turkey + Qatar four-mediator channel remains open but proposal as submitted dead. Mojtaba Khamenei home-front statement carries; Pezeshkian/Ghalibaf/Mohseni Ejei coordinated 'unified leadership' messaging continues. UK House of Commons: Iran lost track of its own mines.",
++    },
++    other: {
++      cumulative: 'Lebanon: 2,310+ killed (cumulative; Monday window unchanged) · Iraq: 99+ killed · Gulf states: 32+ killed · UAE: 11 killed / 2,343 projectiles absorbed cumulatively.',
++      delta: '+0 aggregated reported in Monday window (IDF strikes continuing; daily counts not yet published)',
++      status:
++        "Lebanese President Aoun publicly accuses Hezbollah of 'dragging Lebanon into conflict for foreign Iranian interests.' Hezbollah Sec-Gen Qassem frames Lebanon-Israel direct talks as a 'grave sin'; refuses Hezbollah disarmament. Pakistan + Egypt + Turkey + Qatar four-mediator hub continues; Russia now overtly visible after Putin-Araghchi St. Petersburg meeting. UK-led 40-nation FoN coalition continues acquiring co-signers; Macron-Starmer joint initiative carries. UN Hennis-Plasschaert positioned at the centre of the Katz threat-channel.",
++    },
++  },
++  exec:
++    "Monday delivered a US formal rejection of the Iranian Hormuz-first proposal within 24 hours of its delivery, an Israeli rhetorical escalation on Lebanon to 'burn the entire country' threat level, an unprecedented public Aoun-Qassem rupture inside the Lebanese state, and a Putin-Araghchi St. Petersburg meeting that converted Russia from back-channel to visible coalition partner. Secretary of State Rubio rejected the Iranian proposal directly: 'If what they mean by opening the strait is yes, it's open—but you must coordinate with us, get our permission, or we'll blow you up and charge you anyway, then that is not opening… We cannot accept—and it must never become normalized—a system where Iranians decide who uses an international waterway and how much they must pay to do so.' Rubio also explicitly ruled out any deal that defers Iran's nuclear program. Trump and the NSC reviewed the proposal Monday but the public Cabinet line frames it as definitionally insufficient. Defense Minister Katz, in a meeting with UN Special Coordinator Hennis-Plasschaert, threatened that 'fire will break out and engulf the cedars of Lebanon.' Hezbollah Secretary General Naim Qassem framed Lebanon-Israel direct talks as a 'grave sin' and declared Hezbollah will not give up its weapons; President Aoun fired back, accusing Hezbollah of 'dragging Lebanon into war for foreign [Iranian] interests.' Putin met Araghchi in St. Petersburg and pledged Russia would 'do everything' to bring peace, framing the relationship as 'strategic partnership at the highest level.' Brent closed $108.23 (~+3%); Citi flagged a $150-by-June risk path. UK House of Commons reporting: Iran has 'lost track of mines it planted' in the strait — meaning Tehran cannot fully reopen even if it wanted to. US Navy de-mining (Peterson, Murphy) enters Day 4 of operations under the Hegseth ROE. Analytical judgment: 30-day ceasefire probability moves 30 → 26 — the Iranian proposal that produced Day 59's +2 move was rejected within 24 hours, the Lebanon track has acquired an Israeli all-Lebanon escalation threat layered on an Aoun-Qassem state rupture, and Russia's overt activation post-Vienna trilateral is the diplomatic countermove the four-mediator architecture needed to survive the rejection.",
++  implications: [
++    {
++      title: 'The Rubio rejection has consumed the Day 59 +2 — but the four-mediator channel still has structural reasons to survive',
++      body:
++        "Rubio's Monday public rejection consumes the Day 59 ceasefire-probability gain in clean form: the Iranian Hormuz-first proposal that produced +2 has been declared definitionally insufficient ('that is not opening'), and the nuclear-deferral component has been declared categorically unacceptable ('we have to ensure that any deal… is one that definitively prevents them from sprinting towards a nuclear weapon'). The -4 move to 26 is the price of having the proposal arrive in a non-bilateral format that no US press conference could cancel — the trade-off Tehran made was rapid US Cabinet-level rejection in exchange for a non-cancellable channel. The Day 59 implication that 'Tehran can yield on Hormuz, not on nuclear, in this window' has now collided with Rubio's framing that the nuclear cannot be deferred at all. There are three structural reasons the four-mediator channel survives the rejection: first, Pakistan, Egypt, Turkey, and Qatar are simultaneously committed reputation-bearers — none can be cancelled bilaterally; second, the UK House of Commons 'Iran lost track of its own mines' reporting means Tehran has technical incentive to coordinate de-mining even if it refuses to coordinate command-and-control; third, Putin's St. Petersburg activation Monday gives Russia visible mediator standing that Beijing will likely match within 72 hours rather than cede. Analytical judgment: expect a substantively different next-round proposal from Tehran via the same four mediators — likely a coordinated US-Iran de-mining proposal that decouples Iranian permission/fees from strait reopening, and either a verifiable nuclear pause in lieu of full suspension or a Russian/Chinese third-party guarantor architecture. The window is roughly 72 hours before markets price the rejection structurally.",
++    },
++    {
++      title: 'The Lebanon track is now on a Beirut-strike conditional — Aoun-Qassem rupture removes the political safety valve',
++      body:
++        "Defense Minister Katz's 'fire will break out and engulf the cedars of Lebanon' threat, delivered to UN Special Coordinator Hennis-Plasschaert (rather than to Israeli press), is the highest-intensity Israeli rhetoric against Lebanon since the original 2024 escalation. The 'cedars of Lebanon' phrasing pre-justifies an expansion of IDF operations to all-Lebanon depth rather than the Day 59 seven-village evacuation depth, and the diplomatic-channel choice puts the threat on multiple records simultaneously — UN, Israeli MoD, Lebanese government. The political safety valves on the Lebanon track are now publicly inoperative: Hezbollah Sec-Gen Qassem framed Lebanon-Israel direct talks as a 'grave sin' and reserved the armed posture independent of the Lebanese state, while President Aoun fired back accusing Hezbollah of 'dragging Lebanon into war for foreign Iranian interests' — putting Iran on the record as the principal Hezbollah serves. That public Aoun-Qassem rupture is the first openly bilateral state-vs-armed-actor split in Lebanon since the Taif Accord era. The structural implication: the Lebanese state cannot now negotiate Hezbollah disarmament terms with Israel because Hezbollah has publicly reserved its arms posture independent of the state, which means the Aoun-track US-mediated process and the Hezbollah-IDF kinetic process are now operating on independent and orthogonal clocks — the first delivering political extension paper, the second delivering KIA and burn-Lebanon threats. Analytical judgment: the next 24 hours of Netanyahu cabinet output and any LAF intervention attempts are the determining inputs on whether this week's Lebanon trajectory matches the Hormuz trajectory; absent a US re-intervention specifically aimed at Hezbollah arms-disposition, the kinetic ceiling is now Beirut-strike rather than buffer-zone-expansion.",
++    },
++    {
++      title: 'Russia overtly activated — Beijing 72-hour-clock starts; the China-Russia-Iran trilateral is now operating reality',
++      body:
++        "The Putin-Araghchi St. Petersburg meeting Monday converted the China-Russia-Iran trilateral from optionality (the Vienna trilateral with Grossi flagged on Day 56) to operating reality. Putin's 'we will do everything that serves your interests and the interests of all the peoples of the region to ensure that peace is achieved as quickly as possible' framing is a deliberate echo of the post-Vienna activation signal; Araghchi's 'strategic partnership at the highest level… regardless of circumstances' framing publicly elevates the Russia leg above the Pakistan/Egypt/Turkey/Qatar mediator hub. Russia is now claiming peace-process actor status on the same terms Tehran wants — 'Russia mediates after US-Iran talks collapse' is the Moscow Times-frame narrative tomorrow. This creates a 72-hour Beijing decision window: match Russian visibility (likely with a MOFA-level statement and possible Wang Yi positioning) or cede the trilateral leadership to Moscow. Bessent's waiver-termination signal has now acquired its visible counter-pressure response — Russian and Chinese visible activation will resist the termination's propagation through Asian buyers and complicate the shadow-fleet binary the Day 58 brief flagged. For Taiwan/CPC, the implication is asymmetric: the trilateral activation makes the Iran sanctioned-channel supply harder to remove (good for short-run Asian LNG availability if PRC buyers can absorb Iranian barrels in defiance posture) but harder to count on (bad for medium-run procurement architecture stability). Analytical judgment: Beijing's MOFA Tuesday/Wednesday briefing is the leading-indicator signal for whether the trilateral has actually consolidated, or whether Moscow is operating ahead of consensus. The Bessent waiver-termination shutter-clock now resolves inside a Russia-China-coordinated counter-pressure environment rather than a unilateral US blockade — which is exactly the architecture the four-mediator channel was designed to produce.",
++    },
++  ],
++  casualtyNotes: {
++    us: "No new KIA. Blockade enters Day 16; CENTCOM 38-ships-prevented stat unchanged. USS Frank E. Peterson and USS Michael Murphy de-mining ops enter Day 4 under Adm. Cooper. Hudson timeline: secure passageway in 1 week, full clearance up to 4 weeks. UK House of Commons reporting: Iran has 'lost track of mines it planted' — Tehran cannot fully reopen even if it wanted to. CSG Lincoln Gulf of Oman; CSG Ford northern Red Sea; CSG Bush transiting toward Arabian Sea. Hilton-shooting fallout fully resolved Monday operationally.",
++    israel:
++      'No new IDF KIA. Defense Minister Katz to UN coordinator Hennis-Plasschaert: Hezbollah chief Qassem "playing with fire that will burn Hezbollah and all of Lebanon." Netanyahu cancelled criminal-trial testimony for emergency security consultation. IDF strikes continued in Bint Jbeil, Tibnin, Yater, plus Bekaa Valley targets — depth expansion beyond prior buffer-zone framing. Western Galilee Hezbollah-suspected drone (Monday morning) unresolved.',
++    iran:
++      "No new Iranian military losses reported in Monday window. Araghchi met Putin in St. Petersburg — 'strategic partnership at the highest level.' Hormuz-first proposal formally rejected by Rubio Monday: 'we cannot normalize Iran controlling an international waterway.' Four-mediator channel (Pakistan, Egypt, Turkey, Qatar) survives the rejection; substantively different next-round proposal expected within 72 hours. UK House of Commons: Iran lost track of its own mines. Vahidi remains decisional axis; IRGC mine-laying continues per prior Axios sourcing.",
++    other:
++      'Lebanon: cumulative 2,310+ killed (Monday IDF strikes continuing in Bint Jbeil, Tibnin, Yater plus Bekaa Valley; Lebanese MOH daily counts pending). Aoun-Qassem public rupture: Aoun accuses Hezbollah of dragging Lebanon into war "for foreign Iranian interests"; Qassem frames direct talks as "grave sin," refuses Hezbollah disarmament. Putin overtly activates Russia as visible coalition partner. Pakistan + Egypt + Turkey + Qatar four-mediator hub remains open. UN Hennis-Plasschaert at centre of Katz "burn Lebanon" threat-channel. UK-led 40-nation FoN coalition continues; Macron-Starmer joint initiative carries.',
++  },
++};
++
++export default data;
+diff --git a/content/briefs/2026-04-28-day-060.mdx b/content/briefs/2026-04-28-day-060.mdx
+new file mode 100644
+index 0000000..814fed2
+--- /dev/null
++++ b/content/briefs/2026-04-28-day-060.mdx
+@@ -0,0 +1,172 @@
++---
++report_type: "full"
++day: 60
++date: "2026-04-28"
++title: "Day 60 brief — 2026-04-28"
++escalation_direction: "mixed"
++escalation_risk_7d: "extreme"
++spillover_risk: "conditional"
++ceasefire_probability_30d: 26
++key_developments:
++  - "Secretary of State Rubio formally rejected Iran's Hormuz-first proposal Monday: 'If what they mean by opening the strait is yes, it's open—but you must coordinate with us, get our permission, or we'll blow you up and charge you anyway, then that is not opening… We cannot accept—and it must never become normalized—a system where Iranians decide who uses an international waterway and how much they must pay to do so.'"
++  - "Rubio also explicitly ruled out any deal that defers Iran's nuclear program: 'we have to ensure that any deal… is one that definitively prevents them from sprinting towards a nuclear weapon.'"
++  - "Trump and the NSC reviewed the proposal Monday per Karoline Leavitt; the public Cabinet line frames the proposal as definitionally insufficient."
++  - "Putin met Araghchi in St. Petersburg Monday — 'we will do everything that serves your interests and the interests of all the peoples of the region to ensure that peace is achieved as quickly as possible'; Araghchi: 'strategic partnership at the highest level… regardless of circumstances.'"
++  - "Israeli Defense Minister Israel Katz, in a meeting with UN Special Coordinator for Lebanon Jeanine Hennis-Plasschaert, threatened: 'fire will break out and engulf the cedars of Lebanon… [Qassem is] playing with fire that will burn Hezbollah and all of Lebanon.'"
++  - "Hezbollah Secretary General Naim Qassem framed Lebanon-Israel direct talks as a 'grave sin' on Al-Manar TV: 'we will not give up our weapons… those in power should know that their actions will not benefit Lebanon or themselves.'"
++  - "Lebanese President Joseph Aoun publicly rebuked Hezbollah, accusing the party of 'dragging Lebanon into war for foreign [Iranian] interests'; Aoun: 'My goal is to reach an end to the state of war with Israel, similar to the armistice agreement.'"
++  - "Brent crude futures (June delivery) closed April 27 at $108.23/bbl — up nearly 3% intraday on the proposal-rejection news cycle; Citi analysts said Brent could reach $150/bbl if oil flows remain disrupted through end of June."
++  - "UK House of Commons Library briefing CBP-10636: Iran has 'lost track of mines it planted in the Strait of Hormuz' — Tehran cannot fully reopen the strait even if it wanted to."
++  - "US Navy de-mining (USS Frank E. Peterson, USS Michael Murphy) under Adm. Cooper enters Day 4 of operations under the Hegseth-formalised 'shoot to destroy' ROE."
++sources:
++  - name: "Bloomberg — Rubio Says US Rejects Iran's Control Over Strait of Hormuz Access"
++    url: "https://www.bloomberg.com/news/articles/2026-04-27/us-cannot-accept-iran-retaining-control-of-hormuz-rubio-says"
++    accessed_at: "2026-04-28T01:05:00Z"
++  - name: "Times of Israel — Rubio rejects new Iranian proposal to reopen Strait of Hormuz, with future of talks in limbo"
++    url: "https://www.timesofisrael.com/rubio-rejects-new-iranian-proposal-to-reopen-strait-of-hormuz-which-tehran-says-it-still-controls/"
++    accessed_at: "2026-04-28T01:07:00Z"
++  - name: "WorldOil — Rubio: U.S. will not accept Iran control of key oil chokepoint Hormuz"
++    url: "https://worldoil.com/news/2026/4/27/rubio-u-s-will-not-accept-iran-control-of-key-oil-chokepoint-hormuz/"
++    accessed_at: "2026-04-28T01:09:00Z"
++  - name: "CNBC — Trump discussed Iran's Hormuz Strait proposal with top aides, White House says"
++    url: "https://www.cnbc.com/2026/04/27/trump-iran-war-strait-of-hormuz-rubio.html"
++    accessed_at: "2026-04-28T01:11:00Z"
++  - name: "Fox News — Iran makes fresh offer hours after Trump declares US has 'all the cards' (April 27)"
++    url: "https://www.foxnews.com/live-news/trump-iran-peace-talks-hormuz-blockade-april-27"
++    accessed_at: "2026-04-28T01:13:00Z"
++  - name: "CNN — Trump meets team to discuss Iran proposal as Tehran's top diplomat visits Putin (April 27)"
++    url: "https://www.cnn.com/2026/04/27/world/live-news/iran-war-trump-israel"
++    accessed_at: "2026-04-28T01:15:00Z"
++  - name: "Jerusalem Post — Putin says he wants peace soon, pledges support for Iran in talks with Araghchi"
++    url: "https://www.jpost.com/middle-east/iran-news/article-894329"
++    accessed_at: "2026-04-28T01:17:00Z"
++  - name: "Washington Post — As U.S–Iran talks falter, Iran's foreign minister meets with Putin (April 27)"
++    url: "https://www.washingtonpost.com/world/2026/04/27/iran-talks-putin-araghchi-trump-russia/"
++    accessed_at: "2026-04-28T01:19:00Z"
++  - name: "Al Jazeera — Iran's top diplomat visits Russia as part of efforts to end the war (April 27)"
++    url: "https://www.aljazeera.com/news/2026/4/27/iran-foreign-minister-in-russia-for-putin-talks"
++    accessed_at: "2026-04-28T01:21:00Z"
++  - name: "CGTN — Putin meets Iranian FM Araghchi, pledges support for Iran"
++    url: "https://news.cgtn.com/news/2026-04-27/news-1MGOnvTJMLS/p.html"
++    accessed_at: "2026-04-28T01:23:00Z"
++  - name: "Moscow Times — Iran's Foreign Minister Meets With Putin in St. Petersburg"
++    url: "https://www.themoscowtimes.com/2026/04/27/irans-foreign-minister-meets-with-putin-in-st-petersburg-a92608"
++    accessed_at: "2026-04-28T01:25:00Z"
++  - name: "Al Jazeera — Hezbollah and Israel swap threats and strikes across Lebanon's border (April 27)"
++    url: "https://www.aljazeera.com/news/2026/4/27/hezbollah-and-israel-swap-threats-and-strikes-across-lebanons-border"
++    accessed_at: "2026-04-28T01:27:00Z"
++  - name: "Middle East Monitor — Israeli defense minister threatens Lebanon with 'fire that will burn entire country'"
++    url: "https://www.middleeastmonitor.com/20260427-israeli-defense-minister-threatens-lebanon-with-fire-that-will-burn-entire-country/"
++    accessed_at: "2026-04-28T01:29:00Z"
++  - name: "Times of Israel — Katz tells UN coordinator on Lebanon that Hezbollah chief is 'playing with fire'"
++    url: "https://www.timesofisrael.com/liveblog_entry/katz-tells-un-coordinator-on-lebanon-that-hezbollah-chief-is-playing-with-fire/"
++    accessed_at: "2026-04-28T01:31:00Z"
++  - name: "Voice of Emirates — Katz: Naim Qassem is playing with fire and it will burn Hezbollah and all of Lebanon"
++    url: "https://www.voiceofemirates.com/en/news/world/2026/04/28/katz-naim-qassem-is-playing-with-fire-and-it-will-burn-hezbollah-and-all-of-lebanon/"
++    accessed_at: "2026-04-28T01:33:00Z"
++  - name: "Times of Israel — Hezbollah leader rejects Lebanon-Israel direct talks, vows to confront Israel"
++    url: "https://www.timesofisrael.com/liveblog_entry/hezbollah-leader-rejects-lebanon-israel-direct-talks-vows-to-confront-israel/"
++    accessed_at: "2026-04-28T01:35:00Z"
++  - name: "Al-Monitor — 'Treason is war for external interests': Lebanon's Aoun hits back at Hezbollah"
++    url: "https://www.al-monitor.com/originals/2026/04/treason-war-external-interests-lebanons-aoun-hits-back-hezbollah"
++    accessed_at: "2026-04-28T01:37:00Z"
++  - name: "Free Malaysia Today — Lebanon's president hits back at Hezbollah over Israel talks criticism"
++    url: "https://www.freemalaysiatoday.com/category/world/2026/04/27/lebanons-president-hits-back-at-hezbollah-over-israel-talks-criticism"
++    accessed_at: "2026-04-28T01:39:00Z"
++  - name: "The National — Lebanon seeks armistice in talks with Israel, affirms Aoun"
++    url: "https://www.thenationalnews.com/news/mena/2026/04/27/lebanon-seeks-armistice-in-talks-with-israel-affirms-aoun/"
++    accessed_at: "2026-04-28T01:41:00Z"
++  - name: "CNBC — Brent oil prices top $108 per barrel after Iran peace talks unravel"
++    url: "https://www.cnbc.com/2026/04/26/oil-price-iran-war-strait-hormuz.html"
++    accessed_at: "2026-04-28T01:43:00Z"
++  - name: "Al Jazeera Economy — Oil prices rise amid stalled US-Iran peace talks (April 27)"
++    url: "https://www.aljazeera.com/economy/2026/4/27/oil-prices-rise-higher-amid-stalled-us-iran-peace-talks"
++    accessed_at: "2026-04-28T01:45:00Z"
++  - name: "Bloomberg — Oil Steadies as US Weighs Iran Proposal With Hormuz Still Shut (April 28 outlook)"
++    url: "https://www.bloomberg.com/news/articles/2026-04-27/latest-oil-market-news-and-analysis-for-april-28"
++    accessed_at: "2026-04-28T01:47:00Z"
++  - name: "UK House of Commons Library — Israel/US-Iran conflict 2026: Reopening the Strait of Hormuz (CBP-10636)"
++    url: "https://commonslibrary.parliament.uk/research-briefings/cbp-10636/"
++    accessed_at: "2026-04-28T01:49:00Z"
++  - name: "Euronews — Military action still needed to counter Hezbollah rockets and drones, Israel's PM says (April 27)"
++    url: "https://www.euronews.com/2026/04/27/military-action-still-needed-to-counter-hezbollah-rockets-and-drones-israels-pm-says"
++    accessed_at: "2026-04-28T01:51:00Z"
++casualties_snapshot:
++  us:
++    killed: 15
++    wounded: 395
++    delta_24_48h: "no new KIA in Monday window; USN de-mining enters Day 4 under Hegseth ROE; UK House of Commons reports Iran lost track of its own mines"
++  israel:
++    killed: 39
++    wounded: 6006
++    delta_24_48h: "no new IDF KIA reported in Monday window; Defense Minister Katz to UN coordinator threatens 'fire that will burn Hezbollah and all of Lebanon'"
++  iran:
++    killed: 3400
++    wounded: 0
++    delta_24_48h: "no new losses reported; Hormuz-first proposal formally rejected by Rubio; Putin-Araghchi St. Petersburg meeting elevates Russia to visible coalition partner"
++  other:
++    killed: 2450
++    wounded: 0
++    delta_24_48h: "Aoun-Qassem public rupture; IDF strikes continuing in Bint Jbeil/Tibnin/Yater plus Bekaa Valley depth expansion; Lebanese MOH daily counts pending"
++clocks:
++  negotiation_capacity:
++    state: "deteriorating"
++    trajectory: "worsening"
++  active_deadline:
++    state: "approaching"
++    trajectory: "worsening"
++  interceptor_reconstitution:
++    state: "advancing"
++    trajectory: "worsening"
++  energy_infrastructure:
++    state: "critical"
++    trajectory: "worsening"
++  humanitarian_escalation:
++    state: "elevated"
++    trajectory: "worsening"
++  coalition_cohesion:
++    state: "strained"
++    trajectory: "worsening"
++---
++
++# Day 60 brief — 2026-04-28
++
++*Day 60 of Operation Epic Fury — 2026-04-28*
++
++## Executive Summary
++
++Monday delivered four structurally significant moves in the same news cycle: a US formal rejection of the Iranian Hormuz-first proposal within 24 hours of its delivery; an Israeli rhetorical escalation on Lebanon to a "burn the entire country" threat level; an unprecedented public Aoun-Qassem rupture inside the Lebanese state; and a Putin-Araghchi St. Petersburg meeting that converted Russia from back-channel to visible coalition partner. Secretary of State Rubio rejected the Iranian proposal directly: "If what they mean by opening the strait is yes, it's open—but you must coordinate with us, get our permission, or we'll blow you up and charge you anyway, then that is not opening… We cannot accept—and it must never become normalized—a system where Iranians decide who uses an international waterway and how much they must pay to do so." Rubio also explicitly ruled out any deal that defers Iran's nuclear program. Trump and the NSC reviewed the proposal Monday but the public Cabinet line frames it as definitionally insufficient. Defense Minister Katz, in a meeting with UN Special Coordinator Hennis-Plasschaert, threatened that "fire will break out and engulf the cedars of Lebanon… [Qassem is] playing with fire that will burn Hezbollah and all of Lebanon." Hezbollah Secretary General Naim Qassem framed Lebanon-Israel direct talks as a "grave sin" and declared Hezbollah will not give up its weapons; President Aoun fired back, accusing Hezbollah of "dragging Lebanon into war for foreign [Iranian] interests." Putin met Araghchi in St. Petersburg and pledged Russia would "do everything" to bring peace, framing the relationship as "strategic partnership at the highest level." Brent closed $108.23 (~+3%); Citi flagged a $150-by-June risk path. UK House of Commons reporting: Iran has "lost track of mines it planted" in the strait — meaning Tehran cannot fully reopen even if it wanted to. US Navy de-mining (Peterson, Murphy) enters Day 4 of operations under the Hegseth ROE. Analytical judgment: 30-day ceasefire probability moves 30 → 26 — the Iranian proposal that produced Day 59's +2 move was rejected within 24 hours, the Lebanon track has acquired an Israeli all-Lebanon escalation threat layered on an Aoun-Qassem state rupture, and Russia's overt activation post-Vienna trilateral is the diplomatic countermove the four-mediator architecture needed to survive the rejection.
++
++## Escalation Gauge
++
++<EscalationGauge />
++
++The three indicators capture a day where US Cabinet-level rejection consumed Day 59's diplomatic gain in clean form, while the Lebanon track acquired an Israeli all-Lebanon escalation threat and a public state-vs-armed-actor rupture. Direction holds at *mixed* because the four-mediator channel survives the rejection (Pakistan + Egypt + Turkey + Qatar are simultaneously committed and cannot be cancelled bilaterally), Putin's St. Petersburg activation gives Russia visible mediator standing post-Vienna trilateral, and the UK House of Commons "Iran lost track of its own mines" reporting embeds a structural Iranian incentive to coordinate de-mining even if it refuses to coordinate command-and-control — but Rubio's "never normalize" framing and Israel's "burn Lebanon" threat together pull the kinetic ceiling materially higher. Seven-day risk holds at *extreme* because the Hegseth ROE remains in force, USN destroyers actively de-mining inside the strait under that ROE produce the highest-density US-IRGC encounter window of the war, the Bessent waiver-termination shutter-clock has now resolved into well-shut-in operating window, and Citi's $150-by-June downside scenario is the first major-bank publication of a permanent-supply-removal pricing path. Spillover holds at *conditional* with worsening trajectory because the Lebanon kinetic ceiling is now Beirut-strike rather than buffer-zone-expansion, the Aoun-Qassem public rupture removes the political safety valve, and Russia's visible activation creates a Beijing 72-hour decision window on whether to match — but the trilateral has not yet produced a coordinated escalation-resistance posture. Ceasefire probability moves 30 → 26: -4 net of the rejection consuming Day 59's gain, the Lebanon escalation threat layered on the Aoun-Qassem rupture, the four-mediator channel survival, and the Russian visible activation balancing partial credit. Analytical judgment: the next 72 hours are the determining window — substantively different next-round Iranian proposal via the four mediators, Beijing MOFA Tuesday-Wednesday briefing, Netanyahu cabinet output on Lebanon escalation authorisation.
++
++## Key Developments
++
++<EventsTable />
++
++## Casualties
++
++<CasualtiesTable />
++
++## Strategic Implications
++
++**1. The Rubio rejection has consumed the Day 59 +2 — but the four-mediator channel still has structural reasons to survive.**
++
++Rubio's Monday public rejection consumes the Day 59 ceasefire-probability gain in clean form: the Iranian Hormuz-first proposal that produced +2 has been declared definitionally insufficient ("that is not opening"), and the nuclear-deferral component has been declared categorically unacceptable ("we have to ensure that any deal… is one that definitively prevents them from sprinting towards a nuclear weapon"). The -4 move to 26 is the price of having the proposal arrive in a non-bilateral format that no US press conference could cancel — the trade-off Tehran made was rapid US Cabinet-level rejection in exchange for a non-cancellable channel. The Day 59 implication that "Tehran can yield on Hormuz, not on nuclear, in this window" has now collided with Rubio's framing that the nuclear cannot be deferred at all. There are three structural reasons the four-mediator channel survives the rejection: first, Pakistan, Egypt, Turkey, and Qatar are simultaneously committed reputation-bearers — none can be cancelled bilaterally, and the cost of channel collapse is now distributed across four governments rather than one; second, the UK House of Commons "Iran lost track of its own mines" reporting means Tehran has technical incentive to coordinate de-mining even if it refuses to coordinate command-and-control, which gives the channel substantive content even when the political track stalls; third, Putin's St. Petersburg activation Monday gives Russia visible mediator standing that Beijing will likely match within 72 hours rather than cede, which means the channel has adversary-coalition reputation behind it as well as mediator reputation. Analytical judgment: expect a substantively different next-round proposal from Tehran via the same four mediators — likely a coordinated US-Iran de-mining proposal that decouples Iranian permission/fees from strait reopening, and either a verifiable nuclear pause in lieu of full suspension or a Russian/Chinese third-party guarantor architecture. The window is roughly 72 hours before markets price the rejection structurally.
++
++**2. The Lebanon track is now on a Beirut-strike conditional — Aoun-Qassem rupture removes the political safety valve.**
++
++Defense Minister Katz's "fire will break out and engulf the cedars of Lebanon" threat, delivered to UN Special Coordinator Hennis-Plasschaert (rather than to Israeli press), is the highest-intensity Israeli rhetoric against Lebanon since the original 2024 escalation. The "cedars of Lebanon" phrasing pre-justifies an expansion of IDF operations to all-Lebanon depth rather than the Day 59 seven-village evacuation depth, and the diplomatic-channel choice puts the threat on multiple records simultaneously — UN, Israeli MoD, Lebanese government. The political safety valves on the Lebanon track are now publicly inoperative: Hezbollah Sec-Gen Qassem framed Lebanon-Israel direct talks as a "grave sin" and reserved the armed posture independent of the Lebanese state, while President Aoun fired back accusing Hezbollah of "dragging Lebanon into war for foreign Iranian interests" — putting Iran on the record as the principal Hezbollah serves. That public Aoun-Qassem rupture is the first openly bilateral state-vs-armed-actor split in Lebanon since the Taif Accord era. The structural implication: the Lebanese state cannot now negotiate Hezbollah disarmament terms with Israel because Hezbollah has publicly reserved its arms posture independent of the state, which means the Aoun-track US-mediated process and the Hezbollah-IDF kinetic process are now operating on independent and orthogonal clocks — the first delivering political extension paper, the second delivering KIA and burn-Lebanon threats. The Bekaa Valley strikes layered onto Bint Jbeil, Tibnin, and Yater Monday represent a depth expansion the prior buffer-zone framing did not include. Analytical judgment: the next 24 hours of Netanyahu cabinet output and any LAF intervention attempts are the determining inputs on whether this week's Lebanon trajectory matches the Hormuz trajectory; absent a US re-intervention specifically aimed at Hezbollah arms-disposition, the kinetic ceiling is now Beirut-strike rather than buffer-zone-expansion, and the standing thread has acquired its first scenario in which the Lebanon clock outpaces the Hormuz clock to escalation rather than tracking it.
++
++**3. Russia overtly activated — Beijing 72-hour-clock starts; the China-Russia-Iran trilateral is now operating reality.**
++
++The Putin-Araghchi St. Petersburg meeting Monday converted the China-Russia-Iran trilateral from optionality (the Vienna trilateral with Grossi flagged on Day 56) to operating reality. Putin's "we will do everything that serves your interests and the interests of all the peoples of the region to ensure that peace is achieved as quickly as possible" framing is a deliberate echo of the post-Vienna activation signal; Araghchi's "strategic partnership at the highest level… regardless of circumstances" framing publicly elevates the Russia leg above the Pakistan/Egypt/Turkey/Qatar mediator hub. Russia is now claiming peace-process actor status on the same terms Tehran wants — "Russia mediates after US-Iran talks collapse" is the Moscow Times-frame narrative tomorrow. This creates a 72-hour Beijing decision window: match Russian visibility (likely with a MOFA-level statement and possible Wang Yi positioning) or cede the trilateral leadership to Moscow. Bessent's waiver-termination signal has now acquired its visible counter-pressure response — Russian and Chinese visible activation will resist the termination's propagation through Asian buyers and complicate the shadow-fleet binary the Day 58 brief flagged. For Taiwan and CPC, the implication is asymmetric: the trilateral activation makes the Iran sanctioned-channel supply harder to remove (good for short-run Asian LNG availability if PRC buyers can absorb Iranian barrels in defiance posture) but harder to count on (bad for medium-run procurement architecture stability), and the Citi $150-by-June downside scenario is now operating inside an environment where the supply removal is being actively contested rather than passively accepted. Analytical judgment: Beijing's MOFA Tuesday/Wednesday briefing is the leading-indicator signal for whether the trilateral has actually consolidated, or whether Moscow is operating ahead of consensus. The Bessent waiver-termination shutter-clock now resolves inside a Russia-China-coordinated counter-pressure environment rather than a unilateral US blockade — which is exactly the architecture the four-mediator channel was designed to produce, and which makes the Hormuz-first-and-nuclear-deferred sequencing harder for the US to refuse without paying a coalition-cohesion cost.
++
++## Sources & Attribution
++
++Sources (24): Bloomberg (Rubio rejection / Bloomberg April 28 oil outlook) · Times of Israel (Rubio rejection / Katz to UN coordinator / Qassem rejection) · WorldOil (Rubio Hormuz chokepoint) · CNBC (Trump-NSC review / Brent $108) · Fox News (Iran fresh offer post-cards / April 27 liveblog) · CNN (Trump team meets / April 27 liveblog) · Jerusalem Post (Putin-Araghchi pledge) · Washington Post (Iran talks falter / Putin meeting) · Al Jazeera (Iran Russia tour / Hezbollah-Israel border / oil prices / April 27) · CGTN (Putin-Araghchi pledge) · Moscow Times (Iran FM St. Petersburg) · Middle East Monitor (Katz burn-Lebanon threat) · Voice of Emirates (Katz Qassem fire) · Al-Monitor (Aoun treason rhetoric) · Free Malaysia Today (Aoun-Hezbollah hits back) · The National (Aoun armistice goal) · Euronews (Netanyahu military-action framing) · UK House of Commons Library (CBP-10636 mines lost).
++
++Source category coverage: Western mainstream press ✓ (CNBC, CNN, WaPo, Bloomberg, Fox) · International/regional press ✓ (Al Jazeera, Al-Monitor, Free Malaysia Today, The National, Euronews, Voice of Emirates, Middle East Monitor) · Iranian officials direct ✓ (Araghchi via Putin meeting readouts) · Israeli press/government ✓ (Times of Israel, Jerusalem Post, Katz/Netanyahu direct) · US government/agencies ✓ (Rubio Fox interview, Leavitt White House readout, CENTCOM Cooper carry-forward, Treasury Bessent carry-forward) · European/international bodies ✓ (UN Hennis-Plasschaert at centre of Katz channel; UK House of Commons CBP-10636) · Market/maritime data ✓ (Brent close, Citi $150 forecast, Bloomberg April 28 outlook) · Think tanks/analysts partial (Hudson Institute carry-forward) · Iranian state media partial (CGTN proxy) · Russia/China adversary ✓ (CGTN, Moscow Times, Putin direct readouts) · Human-rights monitoring partial (Lebanese MOH carry-forward). 11 of 12 rubric categories covered.
+diff --git a/content/context.md b/content/context.md
+index 800523a..33487fc 100644
+--- a/content/context.md
++++ b/content/context.md
+@@ -1,56 +1,57 @@
+ # Rolling Context
+ 
+-Last updated by: morning Routine 2026-04-27 (Day 59)
+-Last brief day: 59
+-Last brief date: 2026-04-27
++Last updated by: morning Routine 2026-04-28 (Day 60)
++Last brief day: 60
++Last brief date: 2026-04-28
+ 
+ ## Current war status
+ 
+-Day 59 of Operation Epic Fury. The US–Iran indefinite ceasefire holds in name; the US naval blockade enters Day 15 with CENTCOM reporting 38 ships prevented from entering or leaving Iranian ports; Iranian mine-laying continues; and Sunday delivered a structural Iranian concession and a structural Lebanon escalation in the same news cycle. Per Axios, Iran formally submitted a new proposal through Pakistani, Egyptian, Turkish, and Qatari mediators: reopen the Strait of Hormuz first; postpone nuclear talks to a later stage. Araghchi told mediators there is "no consensus inside the Iranian leadership" on the US enrichment-suspension demand — the highest-fidelity public reading of the regime-cohesion thread to date and the operational explanation for Trump's Saturday cancellation. Sgt. Idan Fooks (19, 7th Armored Brigade) was killed by a Hezbollah explosive drone — the third IDF KIA of the ceasefire era and the first in a direct Hezbollah attack; six wounded (four severely). Israeli strikes killed at least 14 (including two children, two women) in southern Lebanon and the IDF ordered forced evacuation of seven villages beyond the buffer zone. USS Frank E. Peterson and USS Michael Murphy began "setting conditions" for de-mining the strait Saturday morning under Adm. Cooper; Hudson Institute estimates a secure passageway in one week, full clearance up to four weeks (materially shorter than Pentagon's six-month framing). Brent held above $105 over the weekend after Friday's $105.30 close (~16% weekly gain); Asian Monday open is the next price-discovery point. Trump-Starmer Sunday call on the "urgent need" to restore Hormuz shipping, with Starmer briefing his Macron joint initiative on freedom of navigation; Saturday-night White House Correspondents' Dinner shooting (suspect Cole Tomas Allen, 31, charged a checkpoint with shotgun, handgun, knives) left Trump and Cabinet unharmed but adds a US-domestic security-anxiety overlay. Araghchi en route to Moscow Monday for Putin meeting. Analytical judgment: 30-day ceasefire probability moves 28 → 30 — the Iranian Hormuz-first proposal is the largest substantive Tehran concession of the war, partially offset by the Lebanon kinetic escalation breaking the political-vs-tempo two-clock framing.
++Day 60 of Operation Epic Fury. The US–Iran indefinite ceasefire holds in name; the US naval blockade enters Day 16; Iranian mine-laying continues (with the UK House of Commons Library reporting Iran has "lost track of mines it planted"); and Monday delivered four structurally significant moves in the same news cycle. Secretary Rubio formally rejected Iran's Hormuz-first proposal: "If what they mean by opening the strait is yes, it's open—but you must coordinate with us, get our permission, or we'll blow you up and charge you anyway, then that is not opening… we cannot accept—and it must never become normalized—a system where Iranians decide who uses an international waterway and how much they must pay to do so." Rubio also explicitly ruled out any deal that defers Iran's nuclear program. Trump and the NSC reviewed the proposal Monday but the public Cabinet line frames it as definitionally insufficient. Defense Minister Katz, in a meeting with UN Special Coordinator Hennis-Plasschaert, threatened that "fire will break out and engulf the cedars of Lebanon… [Qassem is] playing with fire that will burn Hezbollah and all of Lebanon." Hezbollah Sec-Gen Naim Qassem framed Lebanon-Israel direct talks as a "grave sin" on Al-Manar TV: "we will not give up our weapons." President Aoun publicly rebuked Hezbollah, accusing the party of "dragging Lebanon into war for foreign [Iranian] interests" — first openly bilateral state-vs-armed-actor split in Lebanon since the Taif Accord era. Putin met Araghchi in St. Petersburg — "strategic partnership at the highest level" / "we will do everything that serves your interests" — overtly activating Russia as a visible coalition partner post-Vienna trilateral. Brent closed $108.23 (~+3% Monday); Citi flagged a $150-by-end-June risk path. USS Frank E. Peterson and USS Michael Murphy de-mining ops enter Day 4 under Adm. Cooper. Analytical judgment: 30-day ceasefire probability moves 30 → 26 — the Iranian proposal that produced Day 59's +2 was rejected within 24 hours, the Lebanon track has acquired an Israeli all-Lebanon escalation threat layered on an Aoun-Qassem state rupture, and Russia's overt activation is the diplomatic countermove the four-mediator architecture needed to survive the rejection.
+ 
+ ## Cumulative state
+ 
+-- Casualties (per Day 59 brief): US 15 KIA / 395 WIA; Israel 39 KIA (Sgt. Idan Fooks +1 Sunday) / 6,006 WIA; Iran ~3,400 KIA (LMO "nearly 3,400" April 22; HRANA 3,636+ April 7; Hengaw 6,620+ military April 8); Other 2,450+ KIA (Lebanon 2,310+ after Sunday +14 / Iraq 99+ / Gulf 32+ / UAE 11). 3.2M Iranians displaced.
+-- Energy: Brent settled $105.30 Friday close (+0.25%, ~16% weekly gain); WTI ~$95.85 (~14% weekly). Hormuz transit ~5 ships/day (~4% of 140-vessel pre-war baseline); CENTCOM reports 38 ships prevented from Iranian ports cumulatively. USN destroyers (Peterson, Murphy) began "setting conditions" for de-mining Saturday — Hudson timeline 1 week secure passageway, 4 weeks full clear. Bessent waiver-termination shutter-clock running; permanent-damage well-shut-in window Monday-Tuesday. Qatar Ras Laffan 17% LNG capacity out, 3–5yr repair.
+-- Interceptors: US CENTCOM "rearming, retooling" during truce window. Hegseth: blockade continues "as long as it takes"; minesweeping tempo tripled and now operational. CNN "dynamic targeting" plan on the shelf (small boats, mine-layers, dual-use energy, individually-named IRGC leaders incl. Vahidi). USN minesweeper/patrol build-up continues to compete with Arrow/David's Sling replenishment for industrial throughput.
++- Casualties (per Day 60 brief): US 15 KIA / 395 WIA; Israel 39 KIA (Sgt. Idan Fooks Sunday) / 6,006 WIA; Iran ~3,400 KIA (LMO "nearly 3,400" April 22; HRANA 3,636+ April 7; Hengaw 6,620+ military April 8); Other 2,450+ KIA (Lebanon ~2,310+ / Iraq 99+ / Gulf 32+ / UAE 11). 3.2M Iranians displaced.
++- Energy: Brent closed $108.23 Monday April 27 (+~3% intraday on rejection cycle); Citi $150 path if disruption through end-June. WTI above $96. Spot ~50% higher than war-start. Hormuz transit ~5 ships/day (~4% of 140-vessel pre-war baseline); CENTCOM 38 ships prevented from Iranian ports cumulative. USN destroyers (Peterson, Murphy) Day 4 of de-mining; Hudson timeline 1 week passageway / 4 weeks full clear; Pentagon original 6-month framing carries as conservative case. Bessent waiver-termination shutter-clock now resolved into well-shut-in operating window.
++- Interceptors: US CENTCOM "rearming, retooling" during truce window; Hegseth "shoot to destroy" ROE active; minesweeping tempo tripled. CNN "dynamic targeting" plan on the shelf (small boats, mine-layers, dual-use energy, individually-named IRGC leaders incl. Vahidi). USN minesweeper/patrol build-up continues to compete with Arrow/David's Sling replenishment for industrial throughput.
+ 
+ ## Active deadlines
+ 
+-- Israel–Lebanon ceasefire: three-week Oval Office extension (expiry ~2026-05-15) holds in name; operationally broken after Sgt. Fooks KIA and seven-village forced-evacuation order. Hezbollah: will not wait for "ineffective" diplomacy.
+-- US–Iran ceasefire: open-ended; Hegseth reserves right to declare further mine-laying a ceasefire violation.
+-- Bessent oil-waiver shutter-clock: 72h window from Friday now resolves Monday-Tuesday.
+-- Pentagon mine-clearance horizon was six months; Hudson Institute revised to one-week-passageway / four-week-clearance under active US Navy operations.
+-- Iranian Hormuz-first proposal: delivered Sunday via four mediators; White House response window open (no public deadline yet).
++- Israel–Lebanon ceasefire: three-week Oval Office extension (expiry ~2026-05-15) holds in name; operationally broken since Sgt. Fooks KIA. Aoun-Qassem state rupture removes political safety valve; Katz "burn Lebanon" threat raises kinetic ceiling to Beirut-strike scenario.
++- US–Iran ceasefire: open-ended; Hegseth reserves right to declare further mine-laying a ceasefire violation; Rubio rejection has not collapsed channel but proposal as submitted is dead.
++- Bessent oil-waiver shutter-clock: resolved into operating window — well-shut-in damage now accumulating in real time.
++- Pentagon mine-clearance horizon: Hudson Institute revises to 1-week passageway / 4-week full clear under active USN ops; UK House of Commons reporting that Iran lost track of its own mines means USN-led clearance is the only credible path.
++- Iranian Hormuz-first proposal: rejected by Rubio Monday; substantively different next-round expected within 72 hours via four-mediator hub.
+ 
+ ## Diplomatic state
+ 
+-The Witkoff/Kushner cancellation has crystallised into a four-mediator hub-and-spoke architecture Iran appears to have wanted from the start: Pakistan, Egypt, Turkey, and Qatar all carrying the proposal flow; Russia hosting Araghchi-Putin Monday for the highest-level political alignment; Oman activated via Araghchi's Saturday-Sunday Muscat stop. The Iranian Hormuz-first proposal explicitly defers nuclear, citing "no consensus inside the Iranian leadership" — a structural acknowledgement that the IRGC ascendance and Mojtaba Khamenei consolidation have not yet produced the unity to make a nuclear concession. Hezbollah is operating outside the diplomatic track entirely — the Sgt. Fooks KIA, the seven-village evacuation order in response, and Hezbollah's "will not wait for ineffective diplomacy" framing converge on a Lebanon clock that runs independently of the US-Iran clock. Trump-Starmer Sunday call introduced UK-France Macron joint initiative into the formal channel — first allied pressure on Trump to take a Hormuz-first deal, framed as "global economy and cost of living." Saturday-night Washington Hilton shooting incident adds a US-domestic security-anxiety overlay. Pakistan PM Sharif spoke with Pezeshkian Saturday night. China: post-Vienna trilateral; back-channel only. Russia: Araghchi-Putin Monday is the visible activation.
++The four-mediator hub-and-spoke (Pakistan + Egypt + Turkey + Qatar) survives the Rubio rejection structurally — none of the four can be cancelled bilaterally and the channel cost is distributed across four reputations. Russia overtly activated post-Vienna trilateral via the Putin-Araghchi St. Petersburg meeting Monday: "strategic partnership at the highest level… regardless of circumstances"; Putin "we will do everything." This creates a 72-hour Beijing decision window — match Russian visibility (likely MOFA-level statement, possible Wang Yi positioning) or cede trilateral leadership to Moscow. Trump-NSC reviewed Iranian proposal Monday but Cabinet line frames it as definitionally insufficient; nuclear-deferral component categorically rejected. UK House of Commons CBP-10636: Iran lost track of mines it planted — Tehran cannot fully reopen strait even if it wanted to; structural Iranian incentive to coordinate de-mining survives the political rejection. Aoun-Qassem public rupture: Aoun "Hezbollah dragging Lebanon for foreign Iranian interests"; Qassem "grave sin" framing on Lebanon-Israel direct talks; first openly bilateral state-vs-armed-actor split since Taif Accord era. Katz to UN coordinator Hennis-Plasschaert: "burn Hezbollah and all of Lebanon" — diplomatic-channel use puts threat on multiple records simultaneously. UK-led 40-nation FoN coalition continues acquiring co-signers; Macron-Starmer joint initiative carries.
+ 
+ ## Standing analytical threads
+ 
+-- **Taiwan LNG vulnerability:** Hudson Institute's one-week / four-week timeline introduces an optimistic case the Day 58 framing did not contemplate — if demining succeeds without a kinetic incident and the Hormuz-first proposal converts, MOEA can revert from a no-Hormuz-through-October scenario to a transit-recovery scenario. CPC coal-rotation hedge can ease toward a margin position. Downside scenario unchanged: a kinetic incident extends the home-front-endurance contest to year-long.
+-- **Israeli interceptor depletion:** Hegseth-formalised ROE plus CNN "dynamic targeting" plan plus active de-mining operations keep USN minesweeper/patrol build-up in competition with Arrow/David's Sling replenishment for industrial throughput.
+-- **US domestic political pressure:** Trump "we have all the cards" framing now in tension with Starmer/Macron "global economy and cost of living" allied pressure. Saturday-night Hilton shooting biases toward rhetorical hardening; Iranian Hormuz-first proposal biases toward acceptance opportunity. Net depends on Trump's Monday response.
+-- **Semiconductor supply chain:** TSMC 2026 CapEx pricing pass-through still operates in a cost environment Q1 BoD did not contemplate; Hudson timeline introduces a transit-recovery upside case for the back-month curve.
+-- **Chinese response posture:** Bessent waiver-termination still forces PRC shadow-fleet buyers into binary; Beijing's response post-Vienna trilateral remains the test of whether the Grossi sessions were activation or choreography. Russia's Araghchi-Putin meeting Monday is the next visible adversary-coalition activation.
+-- **Regime-cohesion / IRGC ascendance:** Araghchi's "no consensus inside the Iranian leadership" admission is the highest-fidelity public reading to date — confirms the IRGC line cannot be moved on nuclear in this window but Hormuz can be moved. Vahidi remains decisional axis; Mojtaba Khamenei home-front statement carries forward.
+-- **Non-US-hull harassment lane:** Unchanged; Panama and Greece protests stand; UK-led 40-nation FoN coalition acquired Macron-Starmer joint initiative as visible co-lead.
+-- **Hormuz kinetic small-boat lane:** US Navy demining now actively underway under Hegseth ROE while Iranian mine-laying continues — highest-density encounter window of the war is this week.
+-- **Permanent-damage clock:** Bessent waiver shutter-clock resolves Monday-Tuesday; Hormuz-first proposal includes blockade lifting as the precondition for any nuclear track, which mechanically links the shutter-clock to Trump's response window.
+-- **Home-front endurance contest:** Tehran's "betting Trump will blink first" posture from Day 58 is now formally framed by the Hormuz-first proposal. If Trump accepts the sequencing, Iran's bet pays. If Trump rejects, the home-front-endurance window extends.
+-- **Lebanon single-clock direct-attack track (NEW THREAD):** Sgt. Fooks KIA breaks the Lebanon political-vs-tempo two-clock framing. Hezbollah operating outside the diplomatic channel; IDF expanding kinetic reach beyond the buffer zone. The truce is now decorative on the ground.
++- **Taiwan LNG vulnerability:** Citi $150-by-end-June downside scenario operating inside a Russia-China-coordinated counter-pressure environment now; trilateral activation makes Iran sanctioned-channel supply harder to remove (short-run upside) but harder to count on (medium-run procurement architecture instability). MOEA no-Hormuz-through-October scenario remains central case; CPC coal-rotation default through summer.
++- **Israeli interceptor depletion:** Hegseth ROE plus active de-mining operations plus CNN dynamic-targeting plan-on-the-shelf keep USN minesweeper/patrol build-up in competition with Arrow/David's Sling replenishment for industrial throughput.
++- **US domestic political pressure:** Trump "we have all the cards" plus Rubio "never normalize" framing now in tension with Starmer-Macron "global economy and cost of living" allied pressure and Russia-China visible counter-pressure activation. Domestic Hilton-shooting fallout fully resolved Monday operationally.
++- **Semiconductor supply chain:** TSMC 2026 CapEx pricing pass-through now operates above $108 floor with Citi $150 risk path; back-month curve embeds permanent-supply-removal signal.
++- **Chinese response posture:** Beijing 72-hour decision window opened by Putin-Araghchi visible activation. MOFA Tuesday/Wednesday briefing is the leading-indicator signal for trilateral consolidation vs Moscow-ahead-of-consensus.
++- **Regime-cohesion / IRGC ascendance:** Day 59's "no consensus inside Iranian leadership on enrichment" admission carries through Day 60; Vahidi remains decisional axis. Mojtaba Khamenei home-front statement carries.
++- **Non-US-hull harassment lane:** Unchanged from prior days; flag-state coalition (Panama/Greece) intact.
++- **Hormuz kinetic small-boat lane:** Day 4 of USN active de-mining inside the Hegseth ROE; UK House of Commons reporting that Iran lost track of mines means structural Iranian incentive for coordinated clearance even amid political rejection.
++- **Permanent-damage clock:** Bessent waiver-termination shutter-clock resolved into operating window; well-shut-in damage accumulating in real time.
++- **Home-front endurance contest:** Tehran's "Trump will blink first" posture now operating against Cabinet-level rejection rather than envoy-level signal; Mojtaba Khamenei "considerate of one another" carries.
++- **Lebanon single-clock direct-attack track:** Sgt. Fooks KIA broke the Lebanon two-clock framing Day 59; Day 60 Aoun-Qassem state rupture plus Katz burn-Lebanon threat raise kinetic ceiling to Beirut-strike scenario.
++- **China-Russia-Iran trilateral activation (NEW THREAD):** Putin-Araghchi St. Petersburg Monday converts Vienna trilateral from optionality to operating reality. Beijing 72h window started; Moscow Times-frame narrative ("Russia mediates after US-Iran talks collapse") is the trilateral's operating thesis.
+ 
+ ## What to watch tomorrow
+ 
+-- Asian Monday Brent open: first market read on the Iranian Hormuz-first proposal plus US Navy demining beginning; gap higher = market reads as escalation, gap lower = market reads proposal as substantive movement.
+-- US response to the Hormuz-first proposal: any Trump social-media post; any Starmer/Macron-coordinated allied statement; any Bessent commentary aligning waiver flexibility with proposal terms.
+-- Demining-week incidents: any US Navy / IRGC small-boat encounter; any second-mine field discovered; CENTCOM Cooper readouts.
+-- Araghchi-Putin Moscow meeting: joint statement; any Russian rhetorical shift on enrichment timing; IAEA Grossi follow-up.
+-- Lebanon kinetic tempo: IDF strike count north of Litani; Hezbollah retaliation pattern; any second IDF KIA; Berri/Salam intervention.
+-- Hilton shooting fallout: any Trump rhetorical hardening on Iran framed through security-anxiety lens.
+-- Iranian home-front signals: any Mojtaba Khamenei follow-up; Pezeshkian press availability; IRGC commentary on mediator-transmitted proposal.
+-- China response: MOFA Monday briefing on Hormuz-first proposal; any visible PBoC/SAFE commentary on Bessent waiver.
++- Substantively different Iranian next-round proposal via the four mediators: any decoupling of Iranian permission/fees from strait reopening; any verifiable nuclear pause language; any third-party guarantor architecture (Russia/China).
++- Beijing MOFA Tuesday/Wednesday briefing: match Russian visibility or cede trilateral leadership; any Wang Yi positioning; PBoC/SAFE commentary on shadow-fleet routing.
++- Netanyahu cabinet output: authorisation level for Lebanon kinetic expansion beyond Bekaa Valley depth toward Katz's "burn the cedars" implied target set; LAF intervention attempts on Hezbollah arms-disposition.
++- Brent Tuesday Asian/European opens: structural pricing of Rubio rejection; Citi-flagged $150 path entry signals; back-month curve flattening or steepening.
++- Demining-week incidents: any USN/IRGC small-boat encounter under the Hegseth ROE; any newly-discovered minefield; CENTCOM Cooper readouts; Iranian "lost-track" mine reporting verification.
++- Aoun-Qassem rupture follow-through: any LAF mobilisation; any Qassem/Hezbollah operational response to Aoun's "foreign interests" framing; any Berri intervention.
++- US Cabinet positioning: any Trump social-media post overruling Rubio's "never normalize" line; any Bessent commentary aligning waiver flexibility with proposal terms; any Witkoff/Kushner phone-channel readout.
++- Russian follow-through: any Lavrov-Wang Yi readout; IAEA Grossi engagement; Russian peace-process actor framing tested in EU/UK statements.
+ 
+ ## Evening flash notes
+ 
+-> **[10:12 UTC]** Material change since the morning brief: Asian Monday Brent open spiked above $107 and touched ~$108 intraday (~+2.6% vs. Friday's $105.30 close) before easing back near $106 on reports of the Iranian Hormuz-first proposal — under the 3% threshold but the volatile session is the proposal's first market read. Trump's Monday response signal landed: "if they want to talk, all they have to do is call" — explicitly opens phone diplomacy while rejecting direct envoy travel; regional officials briefed that the proposal "is not likely to receive Trump's backing" without a nuclear component, signalling Washington will counter rather than accept the sequencing. Araghchi arrived in Moscow and publicly blamed the US for the Islamabad talks collapse ("excessive demands"), framed Hormuz safety as a "global issue," and met Putin — the highest-fidelity Iranian rhetorical hardening of the four-mediator era. On the Lebanon clock, a Hezbollah-suspected drone triggered sirens in the Western Galilee Monday morning (IDF lost contact); Netanyahu cancelled his criminal-trial testimony to chair an emergency security consultation on Hezbollah ceasefire violations; Naim Qassem reiterated rejection of Lebanon–Israel direct talks as a "grave sin." Analytical judgment for tomorrow's morning Routine: escalation direction stays `mixed` (Iran rhetorical hardening + Lebanon drone tempo offset by phone-channel opening); 30-day ceasefire probability bias is flat-to-slightly-down — Trump's "call us" framing preserves a landing zone but the "not likely to back" leak plus Araghchi's public blame attribution argue against another +2 move. (US News/Reuters — accessed 2026-04-27T10:10Z; Al Jazeera April 27 liveblog — accessed 2026-04-27T10:10Z; ClickOrlando/AP "Latest" — accessed 2026-04-27T10:11Z; France24 live — accessed 2026-04-27T10:11Z; Times of Israel April 27 liveblog — accessed 2026-04-27T10:11Z; Angle360 Brent forecast April 27 — accessed 2026-04-27T10:11Z.)
++(None yet for today.)
+diff --git a/lib/brief-data.ts b/lib/brief-data.ts
+index 9794cda..2147c67 100644
+--- a/lib/brief-data.ts
++++ b/lib/brief-data.ts
+@@ -8,6 +8,7 @@ import day056 from '@/content/briefs/2026-04-24-day-056.data';
+ import day057 from '@/content/briefs/2026-04-25-day-057.data';
+ import day058 from '@/content/briefs/2026-04-26-day-058.data';
+ import day059 from '@/content/briefs/2026-04-27-day-059.data';
++import day060 from '@/content/briefs/2026-04-28-day-060.data';
+ 
+ export type Implication = { title: string; body: string };
+ 
+@@ -36,6 +37,7 @@ const briefDataBySlug: Record<string, BriefData> = {
+   '2026-04-25-day-057': day057,
+   '2026-04-26-day-058': day058,
+   '2026-04-27-day-059': day059,
++  '2026-04-28-day-060': day060,
+ };
+ 
+ export function getBriefData(slug: string): BriefData | null {
+-- 
+2.34.1
+

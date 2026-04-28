@@ -1,0 +1,57 @@
+# Rolling Context
+
+Last updated by: morning Routine 2026-04-28 (Day 60)
+Last brief day: 60
+Last brief date: 2026-04-28
+
+## Current war status
+
+Day 60 of Operation Epic Fury. The US–Iran indefinite ceasefire holds in name; the US naval blockade enters Day 16; Iranian mine-laying continues (with the UK House of Commons Library reporting Iran has "lost track of mines it planted"); and Monday delivered four structurally significant moves in the same news cycle. Secretary Rubio formally rejected Iran's Hormuz-first proposal: "If what they mean by opening the strait is yes, it's open—but you must coordinate with us, get our permission, or we'll blow you up and charge you anyway, then that is not opening… we cannot accept—and it must never become normalized—a system where Iranians decide who uses an international waterway and how much they must pay to do so." Rubio also explicitly ruled out any deal that defers Iran's nuclear program. Trump and the NSC reviewed the proposal Monday but the public Cabinet line frames it as definitionally insufficient. Defense Minister Katz, in a meeting with UN Special Coordinator Hennis-Plasschaert, threatened that "fire will break out and engulf the cedars of Lebanon… [Qassem is] playing with fire that will burn Hezbollah and all of Lebanon." Hezbollah Sec-Gen Naim Qassem framed Lebanon-Israel direct talks as a "grave sin" on Al-Manar TV: "we will not give up our weapons." President Aoun publicly rebuked Hezbollah, accusing the party of "dragging Lebanon into war for foreign [Iranian] interests" — first openly bilateral state-vs-armed-actor split in Lebanon since the Taif Accord era. Putin met Araghchi in St. Petersburg — "strategic partnership at the highest level" / "we will do everything that serves your interests" — overtly activating Russia as a visible coalition partner post-Vienna trilateral. Brent closed $108.23 (~+3% Monday); Citi flagged a $150-by-end-June risk path. USS Frank E. Peterson and USS Michael Murphy de-mining ops enter Day 4 under Adm. Cooper. Analytical judgment: 30-day ceasefire probability moves 30 → 26 — the Iranian proposal that produced Day 59's +2 was rejected within 24 hours, the Lebanon track has acquired an Israeli all-Lebanon escalation threat layered on an Aoun-Qassem state rupture, and Russia's overt activation is the diplomatic countermove the four-mediator architecture needed to survive the rejection.
+
+## Cumulative state
+
+- Casualties (per Day 60 brief): US 15 KIA / 395 WIA; Israel 39 KIA (Sgt. Idan Fooks Sunday) / 6,006 WIA; Iran ~3,400 KIA (LMO "nearly 3,400" April 22; HRANA 3,636+ April 7; Hengaw 6,620+ military April 8); Other 2,450+ KIA (Lebanon ~2,310+ / Iraq 99+ / Gulf 32+ / UAE 11). 3.2M Iranians displaced.
+- Energy: Brent closed $108.23 Monday April 27 (+~3% intraday on rejection cycle); Citi $150 path if disruption through end-June. WTI above $96. Spot ~50% higher than war-start. Hormuz transit ~5 ships/day (~4% of 140-vessel pre-war baseline); CENTCOM 38 ships prevented from Iranian ports cumulative. USN destroyers (Peterson, Murphy) Day 4 of de-mining; Hudson timeline 1 week passageway / 4 weeks full clear; Pentagon original 6-month framing carries as conservative case. Bessent waiver-termination shutter-clock now resolved into well-shut-in operating window.
+- Interceptors: US CENTCOM "rearming, retooling" during truce window; Hegseth "shoot to destroy" ROE active; minesweeping tempo tripled. CNN "dynamic targeting" plan on the shelf (small boats, mine-layers, dual-use energy, individually-named IRGC leaders incl. Vahidi). USN minesweeper/patrol build-up continues to compete with Arrow/David's Sling replenishment for industrial throughput.
+
+## Active deadlines
+
+- Israel–Lebanon ceasefire: three-week Oval Office extension (expiry ~2026-05-15) holds in name; operationally broken since Sgt. Fooks KIA. Aoun-Qassem state rupture removes political safety valve; Katz "burn Lebanon" threat raises kinetic ceiling to Beirut-strike scenario.
+- US–Iran ceasefire: open-ended; Hegseth reserves right to declare further mine-laying a ceasefire violation; Rubio rejection has not collapsed channel but proposal as submitted is dead.
+- Bessent oil-waiver shutter-clock: resolved into operating window — well-shut-in damage now accumulating in real time.
+- Pentagon mine-clearance horizon: Hudson Institute revises to 1-week passageway / 4-week full clear under active USN ops; UK House of Commons reporting that Iran lost track of its own mines means USN-led clearance is the only credible path.
+- Iranian Hormuz-first proposal: rejected by Rubio Monday; substantively different next-round expected within 72 hours via four-mediator hub.
+
+## Diplomatic state
+
+The four-mediator hub-and-spoke (Pakistan + Egypt + Turkey + Qatar) survives the Rubio rejection structurally — none of the four can be cancelled bilaterally and the channel cost is distributed across four reputations. Russia overtly activated post-Vienna trilateral via the Putin-Araghchi St. Petersburg meeting Monday: "strategic partnership at the highest level… regardless of circumstances"; Putin "we will do everything." This creates a 72-hour Beijing decision window — match Russian visibility (likely MOFA-level statement, possible Wang Yi positioning) or cede trilateral leadership to Moscow. Trump-NSC reviewed Iranian proposal Monday but Cabinet line frames it as definitionally insufficient; nuclear-deferral component categorically rejected. UK House of Commons CBP-10636: Iran lost track of mines it planted — Tehran cannot fully reopen strait even if it wanted to; structural Iranian incentive to coordinate de-mining survives the political rejection. Aoun-Qassem public rupture: Aoun "Hezbollah dragging Lebanon for foreign Iranian interests"; Qassem "grave sin" framing on Lebanon-Israel direct talks; first openly bilateral state-vs-armed-actor split since Taif Accord era. Katz to UN coordinator Hennis-Plasschaert: "burn Hezbollah and all of Lebanon" — diplomatic-channel use puts threat on multiple records simultaneously. UK-led 40-nation FoN coalition continues acquiring co-signers; Macron-Starmer joint initiative carries.
+
+## Standing analytical threads
+
+- **Taiwan LNG vulnerability:** Citi $150-by-end-June downside scenario operating inside a Russia-China-coordinated counter-pressure environment now; trilateral activation makes Iran sanctioned-channel supply harder to remove (short-run upside) but harder to count on (medium-run procurement architecture instability). MOEA no-Hormuz-through-October scenario remains central case; CPC coal-rotation default through summer.
+- **Israeli interceptor depletion:** Hegseth ROE plus active de-mining operations plus CNN dynamic-targeting plan-on-the-shelf keep USN minesweeper/patrol build-up in competition with Arrow/David's Sling replenishment for industrial throughput.
+- **US domestic political pressure:** Trump "we have all the cards" plus Rubio "never normalize" framing now in tension with Starmer-Macron "global economy and cost of living" allied pressure and Russia-China visible counter-pressure activation. Domestic Hilton-shooting fallout fully resolved Monday operationally.
+- **Semiconductor supply chain:** TSMC 2026 CapEx pricing pass-through now operates above $108 floor with Citi $150 risk path; back-month curve embeds permanent-supply-removal signal.
+- **Chinese response posture:** Beijing 72-hour decision window opened by Putin-Araghchi visible activation. MOFA Tuesday/Wednesday briefing is the leading-indicator signal for trilateral consolidation vs Moscow-ahead-of-consensus.
+- **Regime-cohesion / IRGC ascendance:** Day 59's "no consensus inside Iranian leadership on enrichment" admission carries through Day 60; Vahidi remains decisional axis. Mojtaba Khamenei home-front statement carries.
+- **Non-US-hull harassment lane:** Unchanged from prior days; flag-state coalition (Panama/Greece) intact.
+- **Hormuz kinetic small-boat lane:** Day 4 of USN active de-mining inside the Hegseth ROE; UK House of Commons reporting that Iran lost track of mines means structural Iranian incentive for coordinated clearance even amid political rejection.
+- **Permanent-damage clock:** Bessent waiver-termination shutter-clock resolved into operating window; well-shut-in damage accumulating in real time.
+- **Home-front endurance contest:** Tehran's "Trump will blink first" posture now operating against Cabinet-level rejection rather than envoy-level signal; Mojtaba Khamenei "considerate of one another" carries.
+- **Lebanon single-clock direct-attack track:** Sgt. Fooks KIA broke the Lebanon two-clock framing Day 59; Day 60 Aoun-Qassem state rupture plus Katz burn-Lebanon threat raise kinetic ceiling to Beirut-strike scenario.
+- **China-Russia-Iran trilateral activation (NEW THREAD):** Putin-Araghchi St. Petersburg Monday converts Vienna trilateral from optionality to operating reality. Beijing 72h window started; Moscow Times-frame narrative ("Russia mediates after US-Iran talks collapse") is the trilateral's operating thesis.
+
+## What to watch tomorrow
+
+- Substantively different Iranian next-round proposal via the four mediators: any decoupling of Iranian permission/fees from strait reopening; any verifiable nuclear pause language; any third-party guarantor architecture (Russia/China).
+- Beijing MOFA Tuesday/Wednesday briefing: match Russian visibility or cede trilateral leadership; any Wang Yi positioning; PBoC/SAFE commentary on shadow-fleet routing.
+- Netanyahu cabinet output: authorisation level for Lebanon kinetic expansion beyond Bekaa Valley depth toward Katz's "burn the cedars" implied target set; LAF intervention attempts on Hezbollah arms-disposition.
+- Brent Tuesday Asian/European opens: structural pricing of Rubio rejection; Citi-flagged $150 path entry signals; back-month curve flattening or steepening.
+- Demining-week incidents: any USN/IRGC small-boat encounter under the Hegseth ROE; any newly-discovered minefield; CENTCOM Cooper readouts; Iranian "lost-track" mine reporting verification.
+- Aoun-Qassem rupture follow-through: any LAF mobilisation; any Qassem/Hezbollah operational response to Aoun's "foreign interests" framing; any Berri intervention.
+- US Cabinet positioning: any Trump social-media post overruling Rubio's "never normalize" line; any Bessent commentary aligning waiver flexibility with proposal terms; any Witkoff/Kushner phone-channel readout.
+- Russian follow-through: any Lavrov-Wang Yi readout; IAEA Grossi engagement; Russian peace-process actor framing tested in EU/UK statements.
+
+## Evening flash notes
+
+(None yet for today.)
