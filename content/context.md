@@ -63,4 +63,4 @@ The four-mediator hub-and-spoke (Pakistan + Egypt + Turkey + Qatar) survives Wed
 
 ## Evening flash notes
 
-(None yet for today.)
+**[13:05 UTC]** Adds: Hezbollah drone hit IDF M548 near Shomera, 12 IDF wounded — first material Lebanon-track WIA since April 16 ceasefire; IDF killed 5 Hezbollah, evacuation warnings 15 south Lebanon villages; Lebanon MOH 9 killed. Brent intraday $126.41 wartime high, settled ~$114.70 (-2.8%); rial 1.787M/USD. Tomorrow `escalating` holds, probability 25 down-lean. (TOI, JPost, Al Jazeera, CNN, BNN — 2026-04-30T13:05Z.)
