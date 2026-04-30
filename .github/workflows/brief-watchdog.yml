@@ -11,8 +11,13 @@ name: Brief watchdog
 # opens / updates an issue if no commit has landed on main since 01:00 UTC.
 
 on:
-  schedule:
-    - cron: '30 2 * * *'
+  # Daily cron disabled: the morning brief Routine moved off Claude Code
+  # scheduled sessions to a local Cowork Schedule task on the Mac (per v1.8),
+  # which direct-pushes to `main` without a `claude/...` branch + PR. The
+  # commit-since-01:00-UTC heuristic this watchdog used no longer matches the
+  # process and was firing false-positive "morning update not done" alerts.
+  # Left as workflow_dispatch only so it can still be triggered manually if
+  # the watchdog logic is ever updated for the new flow.
   workflow_dispatch:
 
 permissions:
