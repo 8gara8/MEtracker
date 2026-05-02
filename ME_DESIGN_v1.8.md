@@ -56,6 +56,7 @@ The doc has iterated through eight versions. Each version is preserved as its ow
 | v1.6 | Restored full source-diversity discipline. Added 12-category sourcing rubric, hard rule of minimum 6 categories per brief, explicit guidance on adversarial/state media, validator enforcement. The v1.2–v1.5 drafts had silently narrowed to 12 Western outlets — v1.6 fixes this regression in three places (§3.1 rubric, §3.5.7 lesson, validator). |
 | v1.7 | Folded in patterns from a sibling Evangent design doc: added this changelog, explicit scope boundaries (§11), success metrics (§12), and split risks from open questions (§10 → §10.1 + §10.2). No changes to architecture, rubric, or validation logic. |
 | v1.8 | **Migration of execution substrate from Anthropic-managed Claude Routines to a locally-running Cowork Schedule task on the user's persistently-on Mac.** Driven by recurring API timeout failures of the morning Routine. Replaces PR + GitHub Action + auto-merge with direct `gh` CLI push to `main` and an in-process local validator. Morning shifts 06:00 → 08:00 Taipei. Evening flash run formalised at 21:00 Taipei (was implicit in production). Folds in lessons from PR #22 (Day 059 validator failure): adds §3.5.12 mandatory `web.archive.org` URL wrapping, adds §3.5.13 pre-emit word-count guardrails, reconciles §3.5.4 length caps to actual production validator thresholds (Exec 150–300, Implications 400–800, body+sidecar 1200–4000), adds Appendix C.8 `normalize-sources.ts` helper. Corrects validator script path to `scripts/validate-brief.ts` (production) from the v1.7 doc's stale `scripts/validation/validate.js`. All §3 framework, §4 site design, §5 data model, §11 scope, §12 metrics preserved otherwise. Adds Appendix D — Cowork Schedule task definitions and `gh` CLI bootstrap. |
+| v1.9 | Added trailing-15-day ceasefire probability chart as new §01 on the Clocks tab (data already aggregated; no schema change). Documented previously undocumented routes (`/clocks`, `/casualties`, `/timeline`, `/about`, `/api`) and corrected the brief route name from `/briefs/[slug]` to `/brief/[slug]`. Repo name corrected throughout: `8gara8/MEtracker` (not `me-war-intel-brief`). |
 
 ---
 
@@ -513,6 +514,11 @@ These briefs (converted to MD from their existing DOCX archive) serve as the voi
 The website has one job: **let a person understand the current state of the war in under three seconds on a phone.**
 
 ### 4.1 Information Hierarchy
+
+**The Clocks tab (`/clocks`)** renders three sections in order:
+1. Trailing-15-day ceasefire probability chart (§01, added v1.9)
+2. Multi-clock dashboard — six dials, current state (§02)
+3. State history heatmap — one row per clock × N days (§03)
 
 **Above the fold (no scrolling on mobile):**
 - Date + Day number (e.g., "Day 52 — April 20, 2026")
