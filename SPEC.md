@@ -84,12 +84,19 @@
 ├── app/                              # Next.js App Router
 │   ├── page.tsx
 │   ├── archive/page.tsx
-│   └── briefs/[slug]/page.tsx
+│   ├── brief/[slug]/page.tsx
+│   ├── clocks/page.tsx
+│   ├── casualties/page.tsx
+│   ├── timeline/page.tsx
+│   ├── about/page.tsx
+│   └── api/...
 ├── components/
 │   ├── EscalationGauge.tsx
 │   ├── EventsTable.tsx
 │   ├── CasualtiesTable.tsx
-│   └── StatusBar.tsx
+│   ├── StatusBar.tsx
+│   └── charts/
+│       └── CeasefireProbabilityTrail.tsx
 ├── DESIGN_v1.8.md                    # Latest design doc (also lives at ~/Documents/MEwar/)
 ├── DESIGN_v1.7.md                    # Preserved for posterity
 ├── SPEC.md                           # This file (also lives at ~/Documents/MEwar/)
