@@ -70,4 +70,4 @@ The four-mediator hub-and-spoke (Pakistan + Egypt + Turkey + Qatar) continues to
 
 ## Evening flash notes
 
-(None yet for today.)
+**[13:07 UTC, Day 64]** Hezbollah resumed kinetic action vs. IDF in south Lebanon — rockets plus explosive drones; one drone wounded two Israeli soldiers in northern Israel (first IDF Lebanon-track WIA since April 16/17 ceasefire reset). IDF replied with multi-village strike wave (Kfar Dajal, Lwaizeh, Shoukin), Adraee evacuation warnings extended to nine additional south-Lebanon villages, 50+ Hezbollah sites struck since Friday per Haaretz. Analytical judgment: Lebanon track materially escalated inside the April 16/17 ceasefire architecture; spillover holds *critical*, escalation-direction Lebanon-limb hardens; 30-day Iran-track ceasefire probability holds at 19. Sources: TOI liveblog May 2, Haaretz, CBC News, Al Jazeera (2026-05-02T13:07Z).
