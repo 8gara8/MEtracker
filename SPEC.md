@@ -522,6 +522,20 @@ The phases below are **migration phases**, not greenfield phases. Phases 1–3 o
 ```
 You are running the daily Middle East War Intelligence Brief — the morning run.
 
+TOOL SELECTION (LOAD-BEARING — read before doing anything else):
+Use Desktop Commander (`mcp__Desktop_Commander__*`) for ALL shell, file, git,
+and notification operations. DO NOT use the Cowork Linux sandbox
+(`mcp__workspace__bash`). The spec repo at ~/Documents/MEwar/me-war-intel-brief
+lives on the macOS host and is NOT bind-mounted into the Cowork sandbox; `gh`
+and `osascript` are macOS-only as well. If a precondition `cd` returns "No such
+file or directory", you almost certainly used the wrong tool — switch to
+Desktop Commander before writing any abort file.
+
+For commits, use the corrected author flags so attribution lands as 8gara8:
+  git -c user.name="8gara8" \
+      -c user.email="62337733+8gara8@users.noreply.github.com" \
+      commit -m "brief: Day N — YYYY-MM-DD"
+
 PRECONDITIONS (abort if any fail):
 1. cd ~/Documents/MEwar/me-war-intel-brief
 2. git status --porcelain → must be empty (no uncommitted manual changes)
@@ -530,7 +544,11 @@ PRECONDITIONS (abort if any fail):
 5. ping -c 1 github.com → must succeed
 
 If any precondition fails, write a one-line reason to ~/Documents/MEwar/needs-review/
-abort-YYYY-MM-DD.txt, fire osascript notification, exit.
+abort-YYYY-MM-DD.txt, fire osascript notification, exit. Note: between
+2026-05-03 and 2026-05-06, five consecutive aborts were written here that
+misdiagnosed a tool-selection mistake (Cowork sandbox bash) as an
+infrastructure blocker. If your abort reason resembles "sandbox cannot reach
+spec repo", re-read the TOOL SELECTION section above before writing it.
 
 ON PRECONDITIONS PASSING:
 - touch .lock
@@ -554,7 +572,9 @@ ON PRECONDITIONS PASSING:
     Step 7  Verify rolling context update
 - On validator pass:
     git add content/ lib/brief-data.ts
-    git commit -m "brief: Day N — YYYY-MM-DD"
+    git -c user.name="8gara8" \
+        -c user.email="62337733+8gara8@users.noreply.github.com" \
+        commit -m "brief: Day N — YYYY-MM-DD"
     git push origin main
     osascript -e 'display notification "Day N brief live" with title "ME War Brief"'
 - On validator fail:
@@ -571,6 +591,16 @@ ON PRECONDITIONS PASSING:
 
 ```
 You are running the evening flash-notes pass for today's Middle East War Brief.
+
+TOOL SELECTION (LOAD-BEARING): same as §10.1 morning prompt — use Desktop
+Commander (`mcp__Desktop_Commander__*`), NOT the Cowork sandbox bash
+(`mcp__workspace__bash`). The spec repo lives on the macOS host. If the
+precondition `cd` fails, switch tools before aborting.
+
+For commits, use the corrected author flags:
+  git -c user.name="8gara8" \
+      -c user.email="62337733+8gara8@users.noreply.github.com" \
+      commit -m "brief: Day N evening flash — YYYY-MM-DD"
 
 PRECONDITIONS (same as morning, with one exception):
 - .lock check: if .lock exists AND is < 30 min old, exit cleanly with no

@@ -15,6 +15,46 @@ Authoritative source for analytical discipline: `DESIGN_v1.8.md` §3.1–§3.6.
 Authoritative source for execution flow: `SPEC.md` §9 (Phase 3) and §10
 (Routine prompts).
 
+## Execution environment (LOAD-BEARING — read before Step 1)
+
+The spec repo at `~/Documents/MEwar/me-war-intel-brief` lives on the **macOS
+host**. Use the **Desktop Commander MCP** (`mcp__Desktop_Commander__*`) for
+ALL shell, file, git, and notification operations in this skill. Do NOT use
+the Cowork Linux sandbox (`mcp__workspace__bash`) — the repo is not
+bind-mounted into the sandbox, and `gh`, `git`, and `osascript` are macOS-only
+on this machine.
+
+Concrete tool mapping:
+
+- Shell session: `mcp__Desktop_Commander__start_process` with `zsh -i`, then
+  `mcp__Desktop_Commander__interact_with_process` for each command.
+- File creation: `mcp__Desktop_Commander__write_file` (chunk to ~30 lines per
+  call; use `mode: "rewrite"` for the first chunk and `mode: "append"`
+  thereafter). The file tools available in Cowork (`Write`, `Edit`) cannot
+  reach the spec repo and will return an "outside connected folders" error.
+- File reads: `mcp__Desktop_Commander__interact_with_process` with `cat` is
+  the most reliable. `mcp__Desktop_Commander__read_file` sometimes returns
+  metadata only — fall back to `cat` if it does.
+- Surgical edits: `mcp__Desktop_Commander__edit_block`.
+
+If a precondition `cd ~/Documents/MEwar/me-war-intel-brief` returns "No such
+file or directory", you used the wrong tool — switch to Desktop Commander
+**before** writing any abort file. Five consecutive runs (2026-05-03 →
+2026-05-06 morning) wrote elaborate misdiagnostic abort files at
+`~/Documents/Claude/Projects/MEwar/needs-review/` for this exact mistake.
+Don't add a sixth.
+
+For commits, use the corrected author flags so attribution lands as `8gara8`:
+
+```bash
+git -c user.name="8gara8" \
+    -c user.email="62337733+8gara8@users.noreply.github.com" \
+    commit -m "brief: Day N — YYYY-MM-DD"
+```
+
+Without these flags the local Mac identity (`kobol@MacBookPro.mymeshdevice.home`)
+gets baked into the commit and a separate `--amend --reset-author` is needed.
+
 ## When to use this skill
 
 Invoke when the user says any of:
@@ -138,7 +178,9 @@ Then:
 ```bash
 git add content/briefs/<slug>.mdx content/briefs/<slug>.data.ts \
         lib/brief-data.ts content/context.md
-git commit -m "brief: Day N — YYYY-MM-DD"
+git -c user.name="8gara8" \
+    -c user.email="62337733+8gara8@users.noreply.github.com" \
+    commit -m "brief: Day N — YYYY-MM-DD"
 git push origin main
 ```
 
