@@ -1,93 +1,101 @@
 # Rolling Context
 
-Last updated by: morning Routine 2026-05-06 (Day 68)
-Last brief day: 68
-Last brief date: 2026-05-06
+Last updated by: morning Routine 2026-05-07 (Day 69)
+Last brief day: 69
+Last brief date: 2026-05-07
 
 ## Current war status
 
-Day 68 of Operation Epic Fury. Tuesday converted Monday's kinetic exchange into the most explicit US de-escalation reversal since the April 8 ceasefire — and simultaneously surfaced the most explicit civilian-military regime split inside Iran of the entire war. Trump on Truth Social paused Project Freedom "for a short period of time" citing "Great Progress" toward a "Complete and Final Agreement"; blockade remains in full force during the pause (CNBC, NBC, Bloomberg, Axios, Al Jazeera). Rubio at the White House declared Operation Epic Fury's offensive phase "over" — "this is not an offensive operation; there's no shooting unless we're shot at first" — shifting US to defensive posture with Hormuz reopening + Iranian nuclear concessions as the dual peace conditions (TIME, Al Arabiya, NPR, Times of Israel, CBC). Hegseth: "the ceasefire is not over." Inside Iran, Pezeshkian publicly attacked the IRGC over Monday's UAE strikes — "completely irresponsible," "madness," carried out without government coordination — directed anger at IRGC commander Vahidi and requested an urgent meeting with new Supreme Leader Mojtaba Khamenei to halt IRGC attacks on Gulf states (Israel Hayom, Iran International ×2, Türkiye Today). Presidential admin's Mohsen Haji Mirzaei pushed back via state TV that "there are no disputes" — confirming the dispute exists. Araghchi: "Project Freedom is Project Deadlock," cited Pakistan-mediated talks "making progress," set to travel to Beijing for Wang Yi talks (ANI, Daily Pakistan). Iran IRIB: Iran "has no pre-planned programme to attack" Fujairah; attributes to "US military adventurism." Brent eased $114.44 → $113.54 Tuesday. Lebanon: lower-intensity kinetic — Hezbollah rockets and a drone landed near IDF without injuries; German FM Wadephul defended Israel's south-Lebanon presence. Mladenov travelled Cairo → Israel for Netanyahu meeting May 5; Hamas-Cairo disarmament track stalled on sequencing. AlanChand USD-Remittance 1,818,000 IRR Tuesday (+0.28% vs Monday). Bahrain led 90+ country joint statement; US-Bahrain-Saudi-UAE-Kuwait-Qatar UNSC draft resolution requires Iran cease attacks/mining/tolling. Analytical judgment: 30-day ceasefire probability moves 8 → 12 — diplomatic surface re-engaged after Monday's exchange, but Pezeshkian-IRGC public rupture signals Iran's commitment authority is fractured.
+Day 69 of Operation Epic Fury. Wednesday produced the most material framework-convergence signal of the war: Axios broke that the US and Iran are closing in on a one-page 14-point MOU negotiated by Witkoff and Kushner — declares end of war, opens a 30-day window to finalize Hormuz reopening, lifts the US blockade in stages, delivers sanctions relief and frozen-fund release, locks Iran into a 12-15 year uranium-enrichment moratorium, snap UN inspections, no-underground-facilities clause under discussion; Iranian responses on "several key points" expected in 48 hours (Axios, CNN, US News, Al-Monitor, JPost). Brent crashed ~8% to $101.27 (WTI ~$95.08) — single largest daily move of the war (CNBC, Colorado Politics). In Beijing, Wang Yi told Araghchi a "comprehensive ceasefire is urgently needed" and a "resumption of hostilities is not acceptable," demanded "prompt resumption of shipping traffic" through Hormuz — carried in China's readout but omitted from Iran's; meeting comes one week before May 14-15 Trump-Xi summit (Xinhua, Washington Times, Al Jazeera, CNBC). Trump warned Iran will be "bombed at a much higher level and intensity than before" if no deal — "never a deadline" (CNBC, NPR, ABC). The IDF struck Beirut for the first time since the April 16 ceasefire, targeting the Hezbollah Radwan Force commander; three IDF soldiers wounded earlier in Hezbollah explosive-drone attacks; 12-village evacuation warnings preceded an IDF airstrike wave (Haaretz, Times of Israel, Jerusalem Post). French CMA CGM San Antonio (Maltese-flagged, 2,824 TEU) struck May 5 in Hormuz transit, several crew wounded, possibly cruise-missile per analysts (Maritime Executive, World Cargo News, JPost). Pezeshkian reportedly remains unable to reach Mojtaba Khamenei — IRGC "military council" of senior officers controls Supreme Leader access (Iran International carry, Just Security, Fox News, IranWire). IRGC navy: Hormuz transit "ensured" under "new procedures" (RT, Al Jazeera). Netanyahu convened security cabinet, said he'd speak to Trump tonight on "Iran developments," insisted "full coordination," set "removal of all enriched material from Iran" as the goal — return-to-Gaza-fighting reportedly also discussed (Times of Israel, Jerusalem Post, PBS). AlanChand: cash USD 1,762,000 IRR Wednesday (-3.48% — rial strengthens on de-escalation expectations); USD-Remittance 1,831,000 IRR (+0.71% vs Tuesday). Analytical judgment: 30-day ceasefire probability moves 12 → 25 — framework genuinely convergent and market-validated, but Iranian commitment authority remains fractured and Lebanon track is independently re-escalating.
 
 ## Cumulative state
 
-- Casualties (per Day 68 brief): US 15 KIA / 400+ WIA (no new Tuesday); Israel 47 KIA / 8,594 WIA (no new Tuesday after Monday's revision); Iran ~3,400 KIA cumulative (LMO carries; HRANA April 7: 3,636+ incl. 1,701 civilians + 1,221 military + 254+ children; Hengaw 6,620+ military; 6 IRGC small boats destroyed Monday, crew unconfirmed); Other: Lebanon MOH 2,663+ KIA / 8,183+ WIA / Iraq 117+ / Gulf 32+ / UAE 11+3 injured Monday. 3.2M Iranians displaced.
-- Energy: Brent $113.54 Tuesday close — ~$1 pullback from Monday's $114.44 on Trump pause / Rubio "offensive over" framing. Structural premium remains (Brent up >50% since war start; daily production shortfall ~14.5 million bbl/day; IMO ~20,000 seafarers stranded on ~2,000 vessels). Floor $115-130 → $120-135 with Fujairah priced in; kinetic-tail $130-$170 ceiling probability-weighted dominant. Asia ~84% Hormuz crude, ~83% LNG. CPC procurement floor $135 for no-Hormuz-through-October. Citi $150-by-end-June carries.
-- Iranian financial state: AlanChand USD-Remittance 1,818,000 IRR Tuesday (+0.28% vs Monday) — mild market reaction to Monday's kinetic exchange relative to mid-March panic. CBI inflation 65.8% YoY. IMF: 6.1% 2026 GDP contraction. War preparations continue per Al Jazeera.
-- Iranian leadership cohesion (CRITICAL Day 68): Pezeshkian-IRGC public rupture confirmed. Pezeshkian "completely irresponsible" / "madness" attack on IRGC over UAE strikes; anger at Vahidi; urgent meeting requested with Mojtaba Khamenei. Mirzaei state-TV pushback ("no disputes") reads as confirmation. Iran's commitment credibility fractured: civilian negotiating track empowered diplomatically while IRGC operational chain intact regardless of what Araghchi signs.
-- Project Freedom (Day 68 PAUSED): Trump suspends "for a short period of time" pending agreement. Blockade remains in full force. 15,000-troop posture intact. Reactivation is one Truth Social post away.
-- US doctrine (Day 68 PIVOT): Rubio "offensive phase over" / "no shooting unless we're shot at first" / "Iran war has concluded" framing. Defensive ROE explicit. Trump-Rubio civilian-principal alignment around diplomatic surface.
-- Ceasefire status: April 8 functionally collapsed Monday across maritime/air/missile domains; Tuesday's diplomatic re-engagement preserves the formal-non-collapse fiction. Witkoff "in conversation" + Pakistan + Beijing tracks all active.
-- UAE under attack (Day 67 carry, Day 68 update): Fujairah ADCOP/VTTI bypass-terminal damage persists. UAE MOFA "immediate and unconditional" Hormuz reopening demand. Bahrain-led 90+ country joint statement. UNSC draft by US-Bahrain-Saudi-UAE-Kuwait-Qatar.
-- IRGC Hormuz control zone (Day 67 carry): Military zone overlay on parliamentary statutory regime. Force declaration intact; not retracted on Tuesday.
-- South Korean HMM NAMU (Day 67 carry, Day 68 update): Investigation "several days" per Seoul; Korea Maritime Safety Tribunal + National Fire Agency dispatched; Vanguard maritime risk weighs attack vs. drifting sea mine vs. external object.
-- Trump 14-point rejection (Day 66 carry): Now contextualized by Day 68 "Great Progress" reframe — implies revised package on the table.
+- Casualties (per Day 69 brief): US 15 KIA / 400+ WIA (no new); Israel 47 KIA / 8,597 WIA (+3 WIA Wednesday from Hezbollah drone attacks); Iran ~3,400 KIA cumulative (LMO; HRANA April 7: 3,636+ incl. 1,701 civilians + 1,221 military + 254+ children; Hengaw 6,620+ military); Other: Lebanon MOH 2,663+ KIA / 8,197+ WIA (~+14 estimated WIA from IDF airstrike wave) / Iraq 117+ / Gulf 32+ / UAE 11+3 injured Monday. 3.2M Iranians displaced.
+- Energy: Brent $101.27 Wednesday close — ~$12 capitulation from Tuesday's $113.54 on US-Iran deal-near reports. Largest daily move of the war. WTI ~$95.08. Brent still up >40% since war start; daily production shortfall ~14.5M bbl/day; IMO ~23,000 seafarers stranded across vessels from 87 countries (revised up from ~20,000 / ~2,000). Floor moves $115-130 → $95-115 with framework convergence priced (assuming MOU signature within 7-10 days). Kinetic-tail $130-$170 ceiling carries Lebanon-spillover-and-IRGC-fracture hazard premium. Asia ~84% Hormuz crude, ~83% LNG. CPC procurement floor $135 for no-Hormuz-through-October now soft until MOU signature.
+- Iranian financial state: AlanChand cash USD 1,762,000 IRR Wednesday (-3.48%, rial strengthens) — first significant rial appreciation of the war on framework convergence pricing. USD-Remittance 1,831,000 IRR (+0.71%) — divergence reads as cash-market repricing on MOU progress while remittance lags. CBI inflation 65.8% YoY. IMF: 6.1% 2026 GDP contraction.
+- Iranian leadership cohesion (CRITICAL Day 69): Pezeshkian-IRGC public rupture of Day 68 sharpens — Pezeshkian reportedly unable to reach Mojtaba Khamenei because IRGC "military council" of senior officers controls Supreme Leader access. Sources: Iran International carry, Just Security, Fox News, IranWire exclusive. Whose signature binds Iran on any 14-point MOU is the dominant remaining variable.
+- 14-point MOU (NEW Day 69): Axios exclusive — Witkoff/Kushner direct envoys + Pakistan mediation. Mechanics: end-of-war declaration, 30-day window, gradual blockade-lift + sanctions relief + frozen-fund release, 12-15 year enrichment moratorium, snap UN inspections, no-underground-facilities clause under discussion, IRR 48-hour response window on "key points." Confirmed by CNN, US News, Al-Monitor, JPost.
+- Project Freedom (Day 68 PAUSED carries): Trump suspended "for a short period" pending agreement. Blockade remains. 15,000-troop posture intact. Reactivation is one Truth Social post away — Trump bomb threat carried Day 69.
+- US doctrine (Day 69 carry): Rubio "offensive over" framing intact; Trump bomb threat sets failed-MOU floor. Trump-Rubio civilian-principal alignment around diplomatic surface holds.
+- Ceasefire status: April 8 framework formally preserved; 14-point MOU framework now overlaid as 30-day end-of-war track. Witkoff direct + Pakistan + Beijing + Egypt-Mladenov on Gaza = four-laned diplomatic architecture.
+- Lebanon (NEW HOT Day 69): IDF first Beirut strike since April 16 ceasefire — Radwan Force commander targeted. 3 IDF soldiers wounded in Hezbollah drone attacks. 12-village evacuation warnings + IDF airstrike wave on Hezbollah infrastructure. Ceasefire central tactical norm broken. Israel structurally independent of any US-Iran framework.
+- UAE under attack (Day 67 carry, Day 69 update): Fujairah ADCOP/VTTI bypass-terminal damage persists. UAE MOFA "immediate and unconditional" Hormuz reopening demand. Bahrain-led 90+ country joint statement carries. UNSC draft by US-Bahrain-Saudi-UAE-Kuwait-Qatar pending.
+- IRGC Hormuz control zone (Day 67 carry): Military zone overlay intact. IRGC navy Day 69 statement: transit "ensured" under "new procedures" — preserves operational sovereignty regardless of MOU.
+- HMM NAMU (Day 67 carry, Day 69 update): Investigation continues "several days" per Seoul.
+- CMA CGM San Antonio (NEW Day 69): Maltese-flagged 2,824 TEU vessel struck May 5 in Hormuz, several crew wounded, possibly cruise-missile per analysts. Third major commercial-shipping casualty of week alongside HMM NAMU and Fujairah.
+- Trump-Xi summit May 14-15 Beijing: Hard deadline now in calendar — China's structural incentive to press Iranian restraint before Trump arrives.
+- Hamas-Cairo Mladenov (Day 68 carry, Day 69 update): Mladenov-Netanyahu May 5 reaffirmed Trump 20-point plan implementation; Hamas presented response to 15-point phase-two roadmap, rejects staged-disarmament sequencing. Israel security cabinet reportedly discussed return-to-Gaza-fighting.
 
 ## Active deadlines
 
-- Mojtaba Khamenei response: Pezeshkian's urgent-meeting request is the dominant near-term variable. New Supreme Leader siding with Pezeshkian-Araghchi diplomatic line vs. IRGC operational line determines whether Tuesday's de-escalation surface holds.
-- Project Freedom resumption signal: Pause length unspecified ("short period"). Any Iranian provocation reactivates.
-- Araghchi-Beijing visit: Wang Yi talks bilateral + regional — activates fifth diplomatic lane parallel to Pakistan/Egypt/Turkey/Qatar.
-- UNSC draft resolution: US-Bahrain-Saudi-UAE-Kuwait-Qatar; tests China-Russia veto pattern from April 7 given Araghchi-Beijing track.
-- Lebanon trajectory: lower-intensity Tuesday but Berri's no-negotiations declaration carries; mid-May expanded-campaign trigger remains operationally live; German FM cover for IDF posture.
-- Murkowski AUMF push: Week of May 11 residual constraint indicator now reframed by Rubio "Epic Fury concluded" framing.
+- Iranian 48-hour response on "several key points" of 14-point MOU (per Axios) — dominant near-term variable. Falls within 2026-05-08 to 2026-05-09 window.
+- Trump-Xi summit May 14-15 Beijing — hard deadline now in calendar; China's structural incentive to press Iranian restraint.
+- Mojtaba Khamenei accessibility: Pezeshkian's blocked-access reporting is the regime-cohesion crux; whether IRGC "military council" can be bypassed determines whose signature binds Iran.
+- Project Freedom resumption signal: Pause length unspecified ("short period"). Trump bomb threat resets the kinetic-floor.
+- Lebanon trajectory: Beirut strike-and-response cycle in next 48-72 hours determines whether MOU "end of war" can hold across theaters or only Iran-Hormuz dyad.
+- UNSC draft resolution: US-Bahrain-Saudi-UAE-Kuwait-Qatar; tests China-Russia veto pattern post-Araghchi-Beijing.
+- Murkowski AUMF push: Week of May 11 residual indicator now reframed by MOU-emergence framing.
 - HMM NAMU investigation: "several days" per Seoul.
-- Hamas-Cairo: stalled on disarmament sequencing; Mladenov-Netanyahu meeting May 5.
-- Pentagon mine-clearance: Hudson Institute 1-week passageway / 4-week full clear; Day 12 as of Tuesday.
+- Hamas-Cairo: stalled on disarmament sequencing; security cabinet reportedly weighed return-to-Gaza-fighting.
+- Pentagon mine-clearance: Hudson Institute 1-week passageway / 4-week full clear; Day 13 as of Wednesday.
 
 ## Diplomatic state
 
-The diplomatic surface re-engaged Tuesday across the Pakistan, Beijing, and US-Iran direct tracks simultaneously, while the Iranian regime's internal command structure publicly forked. Trump's "Great Progress" Truth Social framing and Rubio's "offensive phase over" White House framing are reciprocally aligned with Araghchi's "Project Deadlock" / "Pakistan talks making progress" / Beijing-bound posture; the Pakistan-channel buffer that Witkoff's "in conversation" represented is now multi-lane and active. The Bahrain-led 90+ country joint statement and the US-Bahrain-Saudi-UAE-Kuwait-Qatar UNSC draft resolution convert the Monday UAE attack into a procedural multilateral instrument; whether China-Russia reapply the April 7 veto pattern post-Araghchi-Beijing is the test. Pezeshkian's public rupture with the IRGC empowers the civilian negotiating track while eliminating Iran's commitment credibility — whose signature binds Iran is now the dominant constraint on framework durability. In Lebanon, Berri's no-negotiations declaration closes the Aoun-Netanyahu track; German FM Wadephul's defense of Israel's south-Lebanon posture imports European cover for IDF operations even as the broader US line softens. Hamas-Cairo Mladenov stalled on disarmament sequencing.
+The diplomatic architecture is now formally four-laned: Witkoff-Kushner direct + Pakistan mediation + Araghchi-Beijing track + Mladenov on Gaza. The 14-point MOU's mechanical maturity (30-day clock, phased blockade-lift, snap inspections, enrichment moratorium, sanctions sequencing) is structurally more durable than the Trump-pause + Rubio-concluded surface alignment that preceded it, and Brent's $113.54 → $101.27 capitulation is the market's vote of confidence in framework convergence. Wang Yi's "comprehensive ceasefire" + "prompt Hormuz shipping resumption" carries explicit Chinese pressure on Iranian restraint that previously was passive multilateral cover; the Trump-Xi May 14-15 summit gives Beijing structural incentive to deliver before Trump arrives. The dominant remaining variable is Iranian commitment authority: Pezeshkian's reported inability to reach Mojtaba Khamenei via the IRGC "military council" means whose signature binds Iran is unresolved at the moment of MOU mechanical maturity. Trump's "much higher level" bomb threat backstops the MOU's coercive arithmetic from the kinetic floor. Israel's first Beirut strike since the April 16 ceasefire makes Israel's structural independence from any US-Iran framework operationally visible — Netanyahu's security cabinet move with "full coordination" framing reads as position-staking ahead of MOU finalization.
 
 ## Standing analytical threads
 
-- **Taiwan LNG vulnerability:** Brent $113.54 Tuesday close. Floor $115-130 → $120-135 with Fujairah priced in. Kinetic-tail $130-$170 ceiling now carries Iranian-commitment-credibility hazard premium reflecting Pezeshkian-IRGC fracture. CPC procurement $135 floor for no-Hormuz-through-October holds. TSMC 2026 CapEx: third risk vector emerges (framework-collapse-from-Iranian-internal-fracture even after agreement signed).
-- **Israeli interceptor depletion:** Rubio $8.6B emergency arms package carries. IDF "high readiness" posture spans both tracks. Lebanon Tuesday lower-intensity but Hezbollah ATGM/drone capability intact.
-- **US domestic political pressure:** Rubio "Iran war concluded" framing pre-empts Murkowski week-of-May-11 AUMF push. Senate WPR failed 50-47 carries. Trump-Rubio alignment on de-escalation reduces congressional kinetic scrutiny.
-- **Semiconductor supply chain:** Dual Hormuz transit + bypass-infrastructure risk. Pezeshkian-IRGC fracture adds commitment-credibility hazard.
-- **Chinese response posture:** Araghchi-Beijing visit activates China track. Wang Yi talks bilateral + regional + international developments. April 7 veto pattern testable on UNSC draft.
-- **Regime-cohesion / IRGC ascendance:** PUBLIC RUPTURE Day 68. Pezeshkian "madness" attack on IRGC; Vahidi anger; Mojtaba Khamenei urgent-meeting request. Mirzaei state-TV denial confirms split. Civilian track empowered diplomatically; IRGC operational chain intact regardless.
-- **Non-US-hull harassment lane:** HMM NAMU investigation "several days." Vanguard menu (attack vs. mine vs. external object). Seoul reviewing Hormuz mission participation.
-- **Hormuz kinetic small-boat lane:** Project Freedom paused; Iranian Monday boat deployment retroactively legible as space-creating restraint per Cooper "today we saw just six."
-- **Permanent-damage clock:** Fujairah ADCOP/VTTI infrastructure damage persists; cannot be priced out by diplomatic surface.
-- **Home-front endurance contest:** Rial 1,818,000 IRR Tuesday — mild reaction. War preparations carry per Al Jazeera. CBI 65.8% YoY.
-- **Lebanon single-clock direct-attack track:** Tuesday lower-intensity vs. Monday's Deir Seryan. German FM cover for IDF. Berri no-negotiations carries. Mid-May trigger live.
-- **China-Russia-Iran trilateral activation:** Araghchi-Beijing visit Day 68. UNSC veto pattern testable.
-- **Arab-state architecture:** Bahrain-led 90+ country joint statement = procedural escalator. UAE MOFA reopening demand. UNSC draft by 6-state coalition.
+- **Taiwan LNG vulnerability:** Brent $101.27 Wednesday close. Floor moves $115-130 → $95-115 with framework convergence priced (assuming MOU signature within 7-10 days). Kinetic-tail $130-$170 ceiling carries Lebanon-spillover-and-IRGC-commitment-fracture hazard premium asymmetrically in upper tail. CPC procurement floor soft until MOU signature. TSMC 2026 CapEx: hedge symmetrically across both tails.
+- **Israeli interceptor depletion:** Rubio $8.6B emergency arms package carries. IDF "high readiness" intact. Lebanon Wednesday re-escalation tests Iron Dome / David's Sling / Arrow rates.
+- **US domestic political pressure:** Rubio "concluded" + MOU emergence pre-empt Murkowski week-of-May-11 AUMF push. Senate WPR failed 50-47 carries. Trump-Rubio alignment on de-escalation reduces congressional kinetic scrutiny.
+- **Semiconductor supply chain:** Dual Hormuz transit + bypass-infrastructure risk + IRGC commitment-fracture + Lebanon-spillover. CMA CGM San Antonio strike adds third commercial-casualty vector.
+- **Chinese response posture:** Wang Yi "comprehensive ceasefire" + Hormuz reopening demand. April 7 veto pattern testable on UNSC draft. Trump-Xi May 14-15 summit hard deadline.
+- **Regime-cohesion / IRGC ascendance:** STRUCTURAL FRACTURE Day 69. Pezeshkian reportedly unable to reach Mojtaba Khamenei via IRGC "military council." Whose signature binds Iran is dominant MOU variable.
+- **Non-US-hull harassment lane:** HMM NAMU (Korean) + CMA CGM San Antonio (Maltese-flagged, French operator). Vanguard maritime risk menu. Seoul + Paris reviewing posture.
+- **Hormuz kinetic small-boat lane:** Project Freedom paused; IRGC navy Day 69 "new procedures" framing preserves operational sovereignty.
+- **Permanent-damage clock:** Fujairah ADCOP/VTTI persists; CMA CGM hit ladder.
+- **Home-front endurance contest:** Cash USD -3.48% / Remittance +0.71% Wednesday — first divergence reading on framework convergence. CBI 65.8% YoY.
+- **Lebanon single-clock direct-attack track:** ESCALATING Day 69. Beirut Radwan strike + 3 IDF wounded + 12-village evac + airstrike wave. Berri no-negotiations carries.
+- **China-Russia-Iran trilateral activation:** Wang Yi-Araghchi Beijing → active Chinese pressure track. UNSC veto pattern testable.
+- **Arab-state architecture:** Bahrain-led 90+ country statement carries. UNSC draft pending.
 - **OPEC fragmentation:** UAE exit carries. Fujairah supply-side risk priced.
-- **UN principal-channel activation:** UNSC draft by US-Bahrain-Saudi-UAE-Kuwait-Qatar tests China-Russia post-Beijing-visit posture.
-- **Cabinet posture spread:** Trump pause + Rubio "concluded" + Hegseth "ceasefire not over" = reciprocally aligned diplomatic-civilian principal posture. Witkoff in-conversation framing reactivated.
-- **Iranian financial-collapse track:** Rial 1,818,000 / +0.28% Tuesday. Six-month +60% compounding. CBI 65.8%.
-- **Pakistan trade-corridor track:** Pakistan-mediated talks "making progress" per Araghchi. Structural relief. Mediator-channel buffer multi-laned with Beijing.
-- **CENTCOM kinetic-option track:** Cooper-Caine kinetic option PAUSED via Project Freedom suspension. ROE explicitly defensive per Rubio.
-- **Trump duration-signal track:** "Great Progress" / "Complete and Final Agreement" Truth Social framing reverses Monday's "blown off face of earth." 24-hour US doctrine swing.
-- **Iranian negotiating-authority fracture:** PUBLIC Day 68. Pezeshkian-Vahidi rupture; Mojtaba Khamenei pivotal. Whose-signature-binds-Iran is dominant framework variable.
-- **Iran parliamentary Hormuz law:** 12-point regime + IRGC military zone overlay both intact regardless of Tuesday's diplomatic surface.
+- **UN principal-channel activation:** UNSC draft post-Wang-Yi-Beijing.
+- **Cabinet posture spread:** Trump pause + Rubio "concluded" + Trump bomb threat + Hegseth fiction-preservation + Witkoff-Kushner direct envoys = US civilian-principal alignment around MOU finalization.
+- **Iranian financial-collapse track:** Cash USD 1,762,000 (-3.48%) / Remittance 1,831,000 (+0.71%). CBI 65.8%.
+- **Pakistan trade-corridor track:** Pakistan mediation continues per Iran response routing. Mediator-channel buffer four-laned.
+- **CENTCOM kinetic-option track:** Cooper-Caine kinetic option PAUSED via Project Freedom suspension. Trump bomb threat = kinetic floor.
+- **Trump duration-signal track:** "Great Progress" (Day 68) → "much higher level" bomb threat (Day 69). Bargaining-leverage configuration consistent with framework finalization rather than collapse.
+- **Iranian negotiating-authority fracture:** STRUCTURAL Day 69. Pezeshkian reportedly cannot reach Mojtaba Khamenei. IRGC chain controls access and execution.
+- **Iran parliamentary Hormuz law:** 12-point regime + IRGC military zone overlay + IRGC navy "new procedures" all intact regardless of MOU language.
 - **US emergency-arms-determination track:** Rubio $8.6B carries.
-- **Hamas-Cairo blockage track:** Stalled on sequencing; Mladenov-Netanyahu meeting May 5.
-- **Project Freedom escort track:** PAUSED Day 68.
-- **Ceasefire-collapse track:** April 8 functionally collapsed Monday but Tuesday's diplomatic re-engagement preserves formal-non-collapse fiction.
-- **UAE under attack track:** Fujairah damage persists; 90+ country statement; UNSC draft resolution.
-- **IRGC Hormuz control zone track:** Not retracted; Pezeshkian-IRGC rupture exposes whether civilian track can override military zone.
-- **Pezeshkian-IRGC public rupture (NEW THREAD Day 68):** Most explicit civilian-military regime split of war. Mojtaba Khamenei response is dominant near-term variable.
-- **Trump-Rubio diplomatic-principal alignment (NEW THREAD Day 68):** Truth Social pause + Rubio "concluded" framing + Hegseth fiction-preservation = civilian-principal trilateral alignment around de-escalation surface.
+- **Hamas-Cairo blockage track:** Stalled on sequencing; security cabinet reportedly weighed return-to-Gaza-fighting.
+- **Project Freedom escort track:** PAUSED Day 68; Trump bomb threat resets kinetic floor Day 69.
+- **Ceasefire-collapse track:** April 8 formally preserved. 14-point MOU now overlay; 30-day window framework.
+- **UAE under attack track:** Fujairah persists; 90+ country statement; UNSC draft.
+- **IRGC Hormuz control zone track:** Not retracted; IRGC navy "new procedures" preserves operational sovereignty regardless of MOU.
+- **Pezeshkian-IRGC public rupture (Day 68 thread):** SHARPENS Day 69. Mojtaba Khamenei reportedly unreachable via IRGC "military council."
+- **Trump-Rubio diplomatic-principal alignment (Day 68 thread):** Witkoff-Kushner add direct-envoy track; MOU mechanical maturity = framework-level alignment.
+- **14-point MOU framework (NEW Day 69):** First market-validated framework convergence of the war. Witkoff-Kushner envoys; 30-day window; phased blockade-lift; sanctions relief; 12-15 year enrichment moratorium; snap UN inspections.
+- **Trump-Xi May 14-15 summit (NEW Day 69):** Hard deadline; structural Chinese incentive to deliver Iranian restraint pre-summit.
+- **Lebanon Beirut-strike re-escalation (NEW Day 69):** April 16 ceasefire central tactical norm broken; Israel structurally independent of US-Iran framework operationally visible.
+- **CMA CGM commercial-casualty lane (NEW Day 69):** Maltese-flagged 2,824 TEU vessel struck May 5; several crew wounded; possibly cruise-missile. Third major weekly casualty.
 
 ## What to watch tomorrow
 
-- Mojtaba Khamenei response to Pezeshkian's urgent-meeting request — pivotal regime-cohesion variable.
-- Project Freedom resumption signal — any Iranian provocation reactivates; pause length unspecified.
-- Araghchi-Beijing visit outcomes — Wang Yi statement; bilateral readouts; signals on UNSC draft.
-- UNSC draft resolution: any tabling, any China-Russia veto signal, any Bahrain-coordinated diplomatic offensive follow-up.
-- Iranian official statements on UAE strikes — any IRGC retraction; any Vahidi pushback; any Khamenei (Mojtaba) public position.
-- Pezeshkian-IRGC rupture trajectory: any new statements from Pezeshkian, Vahidi, IRGC spokesman; any Mirzaei follow-up; any reformist parliamentary echo.
-- Brent / energy: any further pullback past $113 or rebound past $115; any MOEA/CPC statement; any Fujairah damage assessment update; any HMM NAMU investigation milestone.
-- Lebanon: any IDF advance; any Hezbollah escalation; any Berri/Aoun statement; any UNIFIL position.
-- US domestic: any Congressional reaction to Rubio "Iran war concluded" framing; any Murkowski AUMF positioning shift.
-- Iranian rial: any move past 1,820,000 or below 1,810,000 on AlanChand.
-- GCC: any Albudaiwi statement; any UAE MOFA follow-up; any Saudi positioning post-90-country statement.
-- Trump kinetic-decision: any Truth Social escalation reversal; any CENTCOM activation signal.
-- Hamas-Cairo: any Mladenov readout from Netanyahu meeting; any Israel/BoP movement on sequencing.
-- HMM NAMU: any Seoul determination; any Vanguard/insurance attribution; any Trump follow-up.
+- Iranian 48-hour response on 14-point MOU "key points" — dominant near-term variable.
+- Mojtaba Khamenei accessibility — any Pezeshkian-Khamenei meeting; any IRGC "military council" confirmation/denial; any Vahidi statement.
+- Lebanon trajectory — any Hezbollah retaliation for Beirut Radwan strike; any further IDF Beirut activity; any Berri/Aoun statement; any UNIFIL position.
+- Brent / energy: any further pullback past $100 or rebound past $110; any MOEA/CPC statement; any HMM NAMU / CMA CGM investigation milestone.
+- Project Freedom resumption — any Truth Social escalation reversal; any CENTCOM activation signal.
+- Trump-Xi May 14-15 summit prep — any further Wang Yi statement; any Iranian Beijing-track readout.
+- US domestic — any Murkowski AUMF positioning; any congressional reaction to MOU mechanics.
+- Iranian rial: cash USD next move past 1,750,000 or rebound past 1,800,000; any further remittance-cash divergence.
+- GCC: any Albudaiwi statement; any UAE MOFA follow-up; any Saudi positioning.
+- Hamas-Cairo — any Mladenov/Netanyahu readout; any IDF Gaza posture shift; any return-to-fighting decision.
+- Israel-US coordination — any Netanyahu-Trump readout post-Wednesday call; any cabinet leak on enriched-material-removal terms.
+- HMM NAMU + CMA CGM — any Seoul/CMA CGM determination; any Vanguard/insurance attribution.
+- Iranian state-media line on MOU specifics — any Press TV / IRIB framing on enrichment moratorium duration.
 
 ## Evening flash notes
 
-**[13:05 UTC — Day 68 — 2026-05-06]** Araghchi held talks with China's Wang Yi in Beijing on Wednesday; Wang Yi declared a "comprehensive ceasefire is urgently needed" and that "a resumption of hostilities is not acceptable," and called for prompt restoration of Hormuz shipping traffic — a Hormuz-specific demand China's readout carried that Iran's official statement omitted, marking a visible scope gap in the Beijing-Tehran alignment. Araghchi replied Iran "will only accept a fair and comprehensive agreement," holding the Project Deadlock ceiling while accepting the diplomatic lane. The meeting comes one week before a Trump-Xi summit on May 14–15 in Beijing, a hard deadline not priced in the morning brief that gives China a structural incentive to press Iranian restraint before Trump arrives. Analytical judgment: the Beijing track upgrades from passive multilateral cover to active Chinese pressure on Hormuz reopening; the China-Iran readout divergence is a material de-escalation signal arguing for a modest upward revision to the ceasefire probability and for treating the May 14–15 Trump-Xi summit as the dominant near-term diplomatic deadline in tomorrow's brief. (CNBC, Al Jazeera, AP — 2026-05-06T13:05Z.)
+(None yet for today.)
