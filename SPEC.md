@@ -536,6 +536,27 @@ For commits, use the corrected author flags so attribution lands as 8gara8:
       -c user.email="62337733+8gara8@users.noreply.github.com" \
       commit -m "brief: Day N — YYYY-MM-DD"
 
+AUTONOMOUS RUN DISCIPLINE (LOAD-BEARING — read alongside TOOL SELECTION):
+This task runs without a user present. Once you start the workflow below,
+drive it to ONE of these terminal states before ending the response:
+  (a) Success: validator passed, commit pushed, success notification fired,
+      .lock removed.
+  (b) Validator/word-count fail: files moved to needs-review/, Basso
+      notification fired, .lock removed.
+  (c) Precondition abort: abort file written, Basso notification fired,
+      .lock not touched.
+
+If the orchestrator interjects mid-run with a generic continuation message
+such as "Continue from where you left off." or "No response requested.",
+treat it as a signal to keep executing the NEXT step of this workflow.
+Never echo "No response requested." or similar text back as your reply —
+that abandons the run with .lock left behind and no notification, exactly
+how the morning run died on 2026-05-10 after only completing preconditions
++ git pull + day count.
+
+Step 0 is preconditions/lock/git pull/day count. The workflow has Steps 1–7
+after that. Reaching Step 0 alone is NOT a valid exit.
+
 PRECONDITIONS (abort if any fail):
 1. cd ~/Documents/MEwar/me-war-intel-brief
 2. git status --porcelain → must be empty (no uncommitted manual changes)
@@ -601,6 +622,25 @@ For commits, use the corrected author flags:
   git -c user.name="8gara8" \
       -c user.email="62337733+8gara8@users.noreply.github.com" \
       commit -m "brief: Day N evening flash — YYYY-MM-DD"
+
+AUTONOMOUS RUN DISCIPLINE (LOAD-BEARING — same principle as morning §10.1):
+This task runs without a user present. Drive it to ONE of these terminal
+states before ending the response:
+  (a) Material development found, validator passed, commit pushed,
+      success notification fired, .lock removed.
+  (b) Material development found, validator failed: files moved to
+      needs-review/, Basso notification fired, .lock removed.
+  (c) No material development: exit cleanly with no commit/push/notification,
+      .lock removed.
+  (d) Precondition abort (non-.lock): abort file written, Basso notification
+      fired, .lock not touched.
+  (e) Lock <30 min old: exit cleanly with no notification, .lock not touched.
+
+If the orchestrator interjects mid-run with "Continue from where you left
+off." or "No response requested.", treat it as a signal to keep executing
+the NEXT step of this workflow. Never echo "No response requested." back —
+that abandons the run silently. (See §10.1 for the 2026-05-10 incident that
+prompted this rule.)
 
 PRECONDITIONS (same as morning, with one exception):
 - .lock check: if .lock exists AND is < 30 min old, exit cleanly with no
