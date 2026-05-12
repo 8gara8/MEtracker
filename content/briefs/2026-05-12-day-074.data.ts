@@ -159,6 +159,8 @@ const data: BriefData = {
     other:
       "Lebanon: +17 KIA past 24 hours per AJ Monday liveblog (cumulative ~2,724+); IDF Kfar Tibnit strikes; two Lebanese medics reported killed. Sunday Gulf-state incidents carry. GCC bloc operationalizes Saudi/Bahrain/UAE/Kuwait condemnation chain. Hormuz: zero transits since May 4.",
   },
+  flash:
+    "**[13:04 UTC]** Trump physically departed Tuesday for Beijing, converting the T-minus-2 summit window into an active diplomatic clock; the administration front-loaded the trip with Monday-announced US Treasury and State Department sanctions on 12 China-linked entities facilitating Iranian oil purchases and satellite imagery enabling Iranian military strikes against US forces — Beijing responded the same day by activating its 2021 blocking statute for the first time, prohibiting Chinese entities from complying with the oil-trade sanctions (Al-Monitor, KSAT/AP, NPR — accessed 2026-05-12T13:00Z). The blocking-statute activation is the first formal Chinese countermove going beyond verbal protest and directly preempts the US pressure architecture ahead of a summit whose Iran agenda already has no clear resolution path. Global equity markets declined on war-related risk and elevated oil prices (AP — 2026-05-12T09:08Z). Analytical judgment: these developments argue for escalation direction to hold `escalating` in tomorrow's brief and for ceasefire probability to hold in the low single digits; the summit now convenes with a live US sanctions mandate and a live Chinese blocking statute running simultaneously, eliminating the pre-summit diplomatic lubricant Bessent needed.",
 };
 
 export default data;
