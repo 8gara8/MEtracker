@@ -1,73 +1,71 @@
 # Rolling Context
 
-Last updated by: morning Routine 2026-05-15 (Day 77)
-Last brief day: 77
-Last brief date: 2026-05-15
+Last updated by: morning Routine 2026-05-16 (Day 78)
+Last brief day: 78
+Last brief date: 2026-05-16
 
 ## Current war status
 
-Day 77 converts Day 76's evening flash into the brief's lead: the Trump-Xi Beijing summit produced the war's most concrete de-escalatory signal. After Thursday's bilateral, Trump said Xi offered to help broker an end to the Iran war and pledged China "is not going to give military equipment" to Tehran; a White House readout confirmed both leaders agreed Iran can never have a nuclear weapon and that the Strait of Hormuz must remain open, with Xi opposing its militarization and any transit toll and expressing interest in buying more American oil (CNBC, Time, CBS News, CNN). The summit concludes Friday with a bilateral tea and photo opportunity. Against that signal, the kinetic track diverged the same day: the Honduras-flagged Hui Chuan was boarded by "unauthorized personnel" ~38nm NE of Fujairah and tracked by UKMTO toward Iranian waters, with a second vessel reported attacked off Oman and another said sunk (Fox News, Euronews, gCaptain, Al Arabiya, Times of Israel, Bloomberg). The third round of Israel-Lebanon talks opened in Washington "split on key issues" — Lebanon wants a permanent truce + halt to border-village destruction, Israel wants full freedom of operations until Hezbollah disarmed — as the cessation-of-hostilities period expires Sunday May 17 (Haaretz, AP, The National, Washington Times). Hezbollah, excluded from the talks, sent drones into northern Israel wounding ≥3 Israeli soldiers Friday. Brent held ~$106; gold slipped below $4,700 as markets fully priced out a 2026 Fed cut; rial eased to ~1,811,000 IRR/USD. Analytical judgment: 30-day ceasefire probability nudges 8 → 9 on the Beijing opening, but the same-day ship seizure, the Sunday Lebanon cliff, and the absence of Iranian buy-in cap the upside — direction is mixed, not de-escalating.
+Day 78 delivers a split verdict: the war's hardest near-term clock was defused even as the Beijing summit's de-escalatory signal deflated. The US State Department announced Friday that Israel and Lebanon agreed to extend the cessation of hostilities by 45 days after "highly productive" third-round Washington talks, scheduling political negotiations for June 2–3 and a Pentagon-hosted security track beginning May 29 with military delegations from both sides (Bloomberg, US News, Times of Israel, The National). Trump left Beijing with "few clear wins" — China's foreign ministry readout omitted the commitment that Iran can never have a nuclear weapon, instead saying the conflict "should never have happened" and "has no reason to continue" (Al Jazeera, CNN, NBC News). Israel killed at least 16 including four children in southern Lebanon on Friday even as the extension was announced — 657+ killed during the truce (Al Jazeera). Brent surged to ~$111/bbl, reversing the Beijing-signal easing (Fortune). Iran remained silent on the summit language. Analytical judgment: 30-day ceasefire probability nudges 9 → 10 on the Lebanon extension, but the summit deflation, continued killing in Lebanon, and Iran's silence cap direction as mixed.
 
 ## Cumulative state
 
-- Casualties (per Day 77 brief): US 15 KIA / 400+ WIA (no new); Israel 47 KIA / 8,603+ WIA (+3 WIA — Hezbollah drone strike Friday, first new Israeli casualties in days); Iran ~3,400 KIA cumulative (LMO; HRANA 3,636+ incl. 1,701 civ + 1,221 mil + 254+ children; Hengaw 6,620+ mil); Other: Lebanon MOH ~2,882 KIA / 8,768 WIA (cumulative carries, no new May 14-15 figure) / Iraq 117+ / Gulf 32+ / UAE 14+9 wounded / Kuwait 1 wounded. 3.2M Iranians displaced.
-- Trump-Xi summit outcome (NEW Day 77): Xi offered to broker an end to the war + pledged no military equipment to Iran; joint agreement Iran can never have a nuclear weapon + Hormuz must remain open + Xi opposes militarization/tolls + Xi interested in buying more US oil. Skeptical counter: pledge unverified and narrow (leaves intel-sharing, dual-use electronics, oil revenue untouched); Iran not at the table and silent on the language.
-- Iranian nuclear status: Day 76 Wright SASC testimony (~1 ton 60% HEU "weeks" from weapons-grade; 11 tons 20% close behind; months-long weaponization still required) carries. IAEA verification gap is the backdrop: continuity of knowledge lost since mid-2025; Cairo monitoring agreement terminated Nov 2025; access to only 4 of 6 remaining unaffected facilities; Isfahan tunnel-complex vehicular activity on satellite.
-- Energy: Brent held ~$106 Thursday (EIA May STEO projects ~$106 May-June; ~$5 below Wed's $110.87 intraday high); gold slipped below $4,700 as April US wholesale inflation (fastest since 2022) led investors to fully price out a 2026 Fed cut and raise hike odds. War cost lodged inside the US inflation print. Kalshi $5/gal pressure carries. $130-170 kinetic-tail reads as scenario.
-- Iranian financial state: Rial ~1,811,000 IRR/USD remittance Thursday (eased off Wed's 1,817,000 — modest reversal after Wed's first daily strengthening of the cycle). CBI inflation 65.8% YoY. IMF 6.1% 2026 GDP contraction.
-- Iranian leadership cohesion: Five-layer public-defiance posture carries (presidency + foreign ministry + diplomacy channel + parliament + supreme leader's office via Velayati's Tasnim "no triumphant Beijing entry" warning). No Iranian official reaction to the Beijing joint language surfaced yet.
-- US doctrine: Day 76 Pentagon "Operation Sledgehammer" contingency rename (War Powers clock reset) + Wright weaponization testimony carry as the re-escalation substrate. Day 75 Trump national-security-team military-options consultation carries. Pentagon $29B war cost carries. The Hui Chuan seizure hands the re-escalation camp a fresh dated provocation.
-- Project Freedom / blockade: "Restart" remains one of three published military re-escalation options. Blockade floor: 58+ vessels redirected since April 13; zero Hormuz transits since May 4.
-- Hormuz maritime (NEW Day 77): Honduras-flagged Hui Chuan seized off Fujairah, taken toward Iranian waters; second vessel attacked off Oman; another said sunk — the kinetic track indifferent to the Beijing "strait must remain open" language.
-- Trump-Xi leverage frame: CFR / Soufan / CSIS converge — China buys >80% of Iran's shipped crude, holds the more direct lever; the war may give Xi leverage on Trump. Xi's brokering offer is the first time Beijing co-signed US positions rather than extracting a price.
-- Ceasefire status: April 8 US-Iran framework triply-broken. April 16 Lebanon ceasefire broken both sides. Third Israel-Lebanon Washington round opened May 14, continues May 15; cessation-of-hostilities period expires Sunday May 17 — the hardest near-term clock.
+- Casualties (per Day 78 brief): US 15 KIA / 400+ WIA (no new); Israel 47 KIA / 8,603+ WIA (no new beyond Day 77 carry); Iran ~3,400 KIA cumulative (LMO; HRANA 3,636+ incl. 1,701 civ + 1,221 mil + 254+ children; Hengaw 6,620+ mil); Other: Lebanon MOH ~2,898+ KIA / ~8,822+ WIA (+16 KIA / +54 WIA Friday Israeli attacks) / Iraq 117+ / Gulf 32+ / UAE 14+9 wounded / Kuwait 1 wounded. 3.2M Iranians displaced.
+- Lebanon ceasefire extended 45 days (NEW Day 78): State Department announced after "highly productive" talks. Political negotiations June 2–3; Pentagon security track May 29 with military delegations. The Sunday May 17 cliff is defused. But 657+ killed during "truce"; Israel killed 16 including 4 children on Friday. Hezbollah excluded.
+- Trump-Xi summit outcome (UPDATED Day 78): Day 77's "most concrete de-escalatory signal" deflated. China's readout omitted no-bomb commitment; said conflict "should never have happened." Two sides "disagree on what they agreed on" (Al Jazeera). Only announced deal was a Boeing order. CSIS: "stabilization, not breakthrough." Xi's brokering offer unconfirmed in Beijing's own language.
+- Iranian nuclear status: Wright SASC testimony (~1 ton 60% HEU "weeks" from weapons-grade) carries. Parliament's May 12 threat to pursue 90% enrichment if strikes resume carries. IAEA verification gap: no access to declared enrichment facilities since mid-2025; continuity of knowledge lost; 440.9 kg of 60% uranium accumulated before attacks.
+- Energy: Brent surged to ~$111/bbl Friday (up $3+ from Thursday), reversing Beijing-signal easing. Gold below $4,700; 2026 Fed cut fully priced out. Taiwan working floor revised from $105 to ~$110; $130-170 kinetic-tail unchanged.
+- Iranian financial state: Rial last ~1,811,000 IRR/USD remittance Thursday (no Friday update). CBI inflation 65.8% YoY. IMF 6.1% 2026 GDP contraction.
+- Iranian leadership cohesion: Five-layer public-defiance posture carries. Iran silent on Beijing joint language — neither confirmed by offeror nor accepted by target.
+- US doctrine: Pentagon Sledgehammer contingency + Wright weaponization testimony carry. Hui Chuan seizure unresolved. Murkowski AUMF substrate carries.
+- Project Freedom / blockade: Zero Hormuz transits since May 4; 58+ vessels redirected; Iran retains 30 of 33 missile sites.
+- Ceasefire status: April 8 US-Iran framework triply-broken. Israel-Lebanon cessation extended 45 days (NEW). Political track June 2–3; security track May 29.
 
 ## Active deadlines
 
-- Israel-Lebanon cessation-of-hostilities expiry — Sunday May 17; Washington round-3 talks "split on key issues"; fixed-date cliff, the most binding clock on the board.
-- Trump-Xi summit close — Friday May 15 bilateral tea + photo op; watch for final readout, any Iran deliverable, any US concession.
-- Iranian reaction to Beijing joint language — not yet surfaced; whether Tehran hardens or signals an opening.
-- Pentagon "Operation Sledgehammer" contingency — active planning; would reset the War Powers clock if the truce collapses.
-- Murkowski AUMF window — substrate hardened by Pentagon $29B cost + Wright weaponization testimony + Sledgehammer contingency.
-- Trump military re-escalation decision — three options published (Project Freedom restart, strikes on remaining ~25% targets, Israeli HEU-seizure proposal).
-- Iran weaponization clock — Wright: ~1 ton 60% HEU "weeks" from weapons-grade; IAEA continuity-of-knowledge gap makes the claim unfalsifiable.
-- Enriched-uranium destination — Iran dilute-in-place + IAEA supervision vs US full-handover + 20-year-halt, both rejected; Israeli special-forces HEU-seizure proposal in published discourse.
+- Pentagon security track — May 29; Lebanese and Israeli military delegations at Pentagon; first military-to-military channel.
+- Israel-Lebanon political negotiations — June 2–3; continuation of Washington round 3.
+- 45-day ceasefire extension expiry — ~late June/early July (from May 17 + 45 days).
+- Iranian reaction to Beijing summit — still not surfaced; critical variable.
+- Pentagon "Operation Sledgehammer" contingency — active planning; War Powers clock reset.
+- Murkowski AUMF window — substrate hardened by Pentagon $29B cost + Wright weaponization testimony + Sledgehammer.
+- Trump military re-escalation decision — three options published (Project Freedom restart, strikes on remaining targets, Israeli HEU-seizure proposal).
+- Iran weaponization clock — Wright: ~1 ton 60% HEU "weeks" from weapons-grade; parliament's 90% enrichment threat.
 
 ## Diplomatic state
 
-The architecture's task converts Day 76's "summit convenes without an Iran mechanism" into Day 77's "summit produces a mechanism — unconverted." Xi's offer to broker an end to the war and his no-military-equipment pledge are the first genuine expansion of negotiation capacity since the April framework broke: Beijing has publicly co-signed both the no-Iranian-bomb and open-Hormuz positions. But the opening is contingent on three unresolved facts — the pledge is unverified and narrow (intel-sharing, electronics, oil revenue untouched), Iran was not at the table and has not accepted the language, and the Hui Chuan seizure the same day shows the kinetic track ignores communiqués. The one structurally-intact process — the Israel-Lebanon Washington track — now carries a hard Sunday expiry with the talks "split on key issues" and Hezbollah escalating outside the room. Probability nudges 8 → 9; direction is mixed.
+The architecture on Day 78 shows a split: the Lebanon track structurally improved while the Iran track stalled. The 45-day ceasefire extension replaces the Sunday cliff with a dual-track schedule — political (June 2–3) and Pentagon security (May 29) — giving the process institutional depth for the first time. But the Trump-Xi summit deflated on landing: China's readout omitted the core commitments, and analysts found "few clear wins." Xi's brokering offer is unconfirmed in Beijing's own language and unaccepted by Iran. The one intact process is the Lebanon track; the Iran track has no active mechanism beyond the broken April framework. Probability 9 → 10; direction mixed.
 
 ## Standing analytical threads
 
-- **Taiwan LNG vulnerability:** Brent held ~$106; CPC should continue to treat Brent above $105 as the confirmed working floor; $130-170 kinetic-tail reads as scenario, unchanged by the Beijing language given the Hui Chuan seizure + zero Hormuz transits since May 4. Xi's interest in buying more US crude, if realized, would slowly diversify the demand side. Korean/Japanese LNG mirror.
-- **Semiconductor supply chain:** TSMC 2026 CapEx framework-signature path reads ~8% (Day 76's ~7%), nudged up by the negotiation-capacity opening.
-- **US domestic political pressure:** Murkowski AUMF substrate hardened by Pentagon $29B cost + Wright weaponization testimony + Sledgehammer contingency. April US wholesale inflation fastest since 2022; 2026 Fed cut fully priced out.
-- **Chinese response posture (UPDATED Day 77):** Xi offered to broker peace + pledged no military equipment to Iran — first Beijing co-signing of US positions rather than price-extraction. Unverified, narrow; China still buys >80% of Iran's shipped crude. The war may still give Xi leverage on Trump.
-- **US re-escalation architecture:** Pentagon "Operation Sledgehammer" contingency (War Powers reset) + Wright weaponization testimony carry. The Hui Chuan seizure is a fresh dated provocation for the re-escalation camp.
-- **Iran weaponization clock:** Wright SASC testimony carries; IAEA continuity-of-knowledge gap (lost since mid-2025; 4 of 6 facilities accessible; Cairo agreement terminated) makes the timeline claim unfalsifiable and politically potent.
-- **Israeli interceptor depletion:** IDF Lebanon ops tempo carries; Hezbollah drone strikes resumed (≥3 Israeli soldiers wounded Friday); Israeli HEU-seizure special-forces proposal in published discourse.
-- **Regime-cohesion / IRGC ascendance:** Five-layer public-defiance posture carries (Velayati supreme-leader-office layer). IRGC "missiles locked" threat carries; Kuwait Bubiyan amphibious infiltration carries.
-- **Hormuz kinetic small-boat lane:** Hui Chuan seized off Fujairah, taken toward Iranian waters; second vessel attacked off Oman; another said sunk. 58+ vessels redirected; zero transits since May 4; Iran retains 30 of 33 Hormuz missile sites.
-- **Home-front endurance contest:** Rial ~1,811,000 IRR/USD remittance Thursday (modest reversal off Wed's 1,817,000). CBI 65.8% YoY.
-- **Lebanon single-clock track:** Cumulative MOH ~2,882 KIA / 8,768 WIA. Washington round-3 talks "split on key issues"; cessation-of-hostilities period expires Sunday May 17 — fixed-date cliff. SNSC linkage couples the track to MOU collapse; Aoun refuses Netanyahu meeting pending security agreement.
-- **China-Russia-Iran trilateral activation:** Wang Yi-Araghchi Beijing carries; Araghchi multi-capital tour carries.
-- **Arab-state architecture:** Day 75 Kuwait Bubiyan IRGC infiltration + UAE/Qatar condemnations carry; Hui Chuan seized off the UAE's Fujairah; UNSC draft on Hormuz freedom of navigation carries.
-- **Energy-inflation transmission:** April US wholesale inflation fastest since 2022; gold below $4,700; 2026 Fed cut fully priced out — the war is inside the inflation print, the Fed path downstream of Hormuz.
-- **Trump duration-signal track:** "Love tap" → "garbage" / "1% chance" → Day 75 national-security-team consultation → Day 76 "does not need Xi's help" → Day 77 "Xi offered to help broker peace." First positive duration signal since the framework broke — but contingent.
-- **Ceasefire-collapse track:** April 8 framework triply-broken. April 16 Lebanon norm broken. Israel-Lebanon Washington track continues May 15 as the one intact process — with a Sunday expiry.
+- **Taiwan LNG vulnerability:** Brent ~$111; CPC working floor revised to ~$110; $130-170 kinetic-tail unchanged. Lebanon extension offers first time-bound path toward Hormuz conditions. TSMC CapEx path ~8%.
+- **Semiconductor supply chain:** TSMC 2026 CapEx framework-signature path ~8% (unchanged from Day 77).
+- **US domestic political pressure:** Murkowski AUMF substrate hardened. April US wholesale inflation fastest since 2022; 2026 Fed cut priced out.
+- **Chinese response posture (UPDATED Day 78):** Summit deflated — China's readout omitted no-bomb commitment; "stabilization, not breakthrough." Xi's brokering offer unconfirmed. China still buys >80% of Iran's shipped crude.
+- **US re-escalation architecture:** Pentagon Sledgehammer + Wright testimony + Hui Chuan seizure + 90% enrichment threat compound.
+- **Iran weaponization clock:** Wright SASC testimony carries; parliament 90% threat (May 12). IAEA verification gap makes timeline unfalsifiable.
+- **Israeli interceptor depletion:** IDF southern Lebanon ops continue; 16 killed Friday; Hezbollah drone capability demonstrated.
+- **Regime-cohesion / IRGC ascendance:** Five-layer defiance posture carries. Iran silent on Beijing language.
+- **Hormuz kinetic small-boat lane:** Hui Chuan fate unresolved; 58+ vessels redirected; zero transits since May 4; 30 of 33 missile sites intact.
+- **Home-front endurance contest:** Rial ~1,811,000 IRR/USD (last Thursday). CBI 65.8% YoY.
+- **Lebanon single-clock track (UPDATED Day 78):** 45-day extension defuses Sunday cliff. Pentagon security track May 29 + political June 2–3. But 657+ killed during truce; Israel killed 16 Friday; Hezbollah excluded. SNSC linkage couples track to MOU.
+- **China-Russia-Iran trilateral activation:** Wang Yi-Araghchi Beijing carries.
+- **Arab-state architecture:** Hui Chuan seized off UAE's Fujairah; UNSC Hormuz draft carries.
+- **Energy-inflation transmission:** Brent $111; war inside inflation print; Fed cut priced out.
+- **Trump duration-signal track:** Summit produced "few clear wins"; deflated from Day 77's positive signal.
+- **Ceasefire-collapse track:** April 8 framework triply-broken. Lebanon cessation extended 45 days (positive).
 - **Pentagon mine-clearance:** Hudson Institute 1-week passageway / 4-week full clear.
 
 ## What to watch tomorrow
 
-- Trump-Xi summit final readout — Friday close; any Iran deliverable, any US concession, joint statement; whether Xi's brokering offer gets operationalized.
-- Iranian reaction to the Beijing joint language — Tehran / IAEA / AEOI; whether Iran hardens or signals an opening; any Velayati / Pezeshkian / Ghalibaf escalation.
-- Israel-Lebanon Washington round 3 — Friday session outcome ahead of the Sunday May 17 expiry; whether "consolidation" advances; any Israeli strike pause.
-- Hormuz maritime — Hui Chuan fate; any further seizures/attacks; Project Freedom restart signal; vessel count past 58.
-- Brent / energy — Friday print; whether the Beijing easing holds or the seizure reverses it; gold direction; Fed commentary.
-- Iran rial — whether the modest reversal continues or the recovery resumes; AlanChand Friday rates.
-- Pentagon Sledgehammer — any official confirmation/denial; War Powers commentary from Congress.
-- US domestic — Murkowski AUMF positioning post-summit; Republican framing of the Xi brokering offer.
-- Iran state media — Tasnim / IRNA / PressTV framing on the summit outcome and the joint language.
+- Iranian reaction to the Beijing summit — whether Tehran hardens, signals an opening, or continues silence; any Velayati / Pezeshkian / Ghalibaf statement.
+- Lebanon ceasefire implementation — whether the 45-day extension produces an immediate change in Israeli operations tempo; any Hezbollah statement on the extension.
+- Pentagon security track preparations — any DoD/Pentagon signals ahead of the May 29 session.
+- Hormuz maritime — Hui Chuan fate; any further seizures/attacks; vessel count past 58; Project Freedom restart signal.
+- Brent / energy — Saturday/Monday print; whether $111 holds or extends; gold direction.
+- Iran rial — whether recovery resumes or silence depresses; AlanChand rates.
+- US domestic — Congressional reaction to summit outcome; Murkowski AUMF positioning.
+- Iran state media — Tasnim / IRNA / PressTV framing on summit and ceasefire extension.
 
 ## Evening flash notes
 
