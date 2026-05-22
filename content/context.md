@@ -1,76 +1,69 @@
 # Rolling Context
 
-Last updated by: morning Routine 2026-05-22 (Day 84)
-Last brief day: 84
-Last brief date: 2026-05-22
+Last updated by: morning Routine 2026-05-23 (Day 85)
+Last brief day: 85
+Last brief date: 2026-05-23
 
 ## Current war status
 
-Day 84 opens a visible gap between Washington and Jerusalem on the eve of the May 23 Rome fifth round. President Trump softened the Day 83 posture: he said he is willing to wait "a couple of days" to "get the right answers" from Tehran, that his negotiating team is "pretty impressed" by Iran's negotiators, and Iran confirmed it is reviewing the latest US proposal carried through Pakistani mediation on the 14-point framework (CNBC, CBS News). The shift loosens the "two or three days — Friday, Saturday, Sunday" kinetic window that defined Day 83 and gives the formally scheduled May 23 Rome round, where enrichment remains the central issue, room to work (PBS News). Trump also staked out two specific new US positions: that Washington does not want tolls on the Strait of Hormuz — set directly against Iran's PGSA permit-and-fee regime — and that the US intends to "retrieve" Iran's stockpile of highly enriched uranium and "probably destroy it after we get it" (Fox News, Al Jazeera). Against the softening, Israel's security cabinet pushed the other way: Netanyahu convened ministers a second time on renewing the war and spoke with Trump, and the IDF was told to prepare for any scenario — though Israeli analysts and officials assess Israel cannot resume strikes without US authorisation (Al Jazeera, Times of Israel). An Israeli report says US interceptors carried more of the load defending Israel from Iranian missiles than IDF systems did. Brent eased to roughly $108.76/bbl on the softening; rial AlanChand printed 1,787,000 IRR/USD; independent trackers show open Hormuz transits near zero against the IRGC's higher PGSA count. The 30-day ceasefire probability rises modestly to 18; direction holds mixed; seven-day risk eases from critical to conditional, contingent on the Rome outcome.
+Day 85 carries the war into the fifth round of indirect US-Iran nuclear talks, convening in Rome on May 23 under Omani mediation (FM Badr al-Busaidi) with the dismantle-versus-continue enrichment question unbridged. The round opens against a pre-Rome posture that hardened sharply over May 22. Supreme Leader Khamenei publicly ordered Iran's enriched-uranium stockpile to remain inside the country and dismissed the US zero-enrichment demand as "outrageous" — directly rejecting Trump's Day 84 "retrieve and probably destroy" vow and closing the physical-removal track before the talks open (Al Jazeera). CNN reported Israel is preparing to strike Iranian nuclear facilities, a step Israeli analysts say would break with Trump's diplomacy; Iran warned any attack would draw a "devastating and decisive response" (Al Jazeera, Times of Israel). Washington imposed new sanctions on Iran's IRGC-linked construction sector and restricted ten categories of nuclear/military-program materials (NBC News). Before leaving Tehran, Araghchi wrote a deal is "not rocket science" — possible if the aim is to verify Iran will not weaponise, impossible if the aim is to dismantle enrichment — restating "no enrichment, no deal" (RFE/RL, PBS News). Trump said the war "will be over with soon" and Iran is "never going to have a nuclear weapon"; Rubio saw "some good signs" but "we're not there yet." Brent eased to ~$104.50/bbl; rial AlanChand firmed slightly to 1,777,000 IRR/USD; the IRGC claimed 26 Hormuz transits in 24h against trackers' near-zero open count; Israeli warplanes struck near Brital in eastern Lebanon. The 30-day ceasefire probability eases to 17; direction holds mixed; seven-day risk holds conditional on the Rome outcome.
 
 ## Cumulative state
 
-- Casualties (per Day 84 brief, no new confirmed figures): US 15 KIA / 400+ WIA; Israel 47 KIA / 8,603+ WIA; Iran LMO ~3,400 KIA (HRANA 3,636+ incl. 1,701 civ + 1,221 mil + 254+ children; Hengaw 6,620+ mil); Lebanon MOH war-cumulative 3,020 KIA (292 women + 211 children), ≥657 truce-period KIA; Other war-cumulative ~8,946+ WIA / Iraq 117+ / Gulf 32+ / UAE 14+9 wounded / Kuwait 1 wounded. 3.2M Iranians displaced.
-- Trump softening (NEW Day 84): Trump says he is willing to wait "a couple of days" for "the right answers"; his team is "pretty impressed" by Iran's negotiators; Iran is reviewing the latest US proposal. Loosens the Day 83 "Friday-Saturday-Sunday" window onto the Rome outcome. Trump has now swung "garbage" (May 11) → "life support" → "impressed" within ten days — the volatility is itself the structural feature.
-- Trump's two new US positions (NEW Day 84): (1) US "does not want tolls" on the Strait of Hormuz — first explicit US rejection of the PGSA permit-and-fee model; (2) US will "retrieve" Iran's HEU stockpile and "probably destroy it after we get it" — a physical-removal endpoint on the nuclear file, beyond freeze or dilution.
-- US-Israel divergence (NEW Day 84): Netanyahu's security cabinet met a second time on renewing the war; Netanyahu-Trump call; IDF told to prepare for any scenario. Israel assessed unable to resume strikes without US permission — the resumption decision is concentrated on the White House. Coalition-cohesion clock worsens.
-- Interceptor-burden report (NEW Day 84): an Israeli report says US interceptors did more of the work defending Israeli airspace from Iranian missiles than IDF systems — feeds the interceptor-depletion prior; raises the materiel cost of any resumption.
-- Rome fifth round (UPDATED Day 84): formally scheduled May 23, mediated by Oman; enrichment and the management of Iran's enriched-uranium stockpile the central issues. Iran's 14-point proposal under Trump review remains the document Tehran carries in.
-- Hormuz / PGSA (UPDATED Day 84): independent trackers show open commercial transits near zero/day vs a pre-war ~95/day baseline; IRGC reports higher numbers under the PGSA permit regime — the divergence is the data point. Trump's anti-toll statement is rhetoric, not yet a change on the water. UK Royal Navy warship + aircraft committed to an international shipping-protection mission.
-- Iranian financial state (UPDATED Day 84): rial AlanChand 1,787,000 IRR/USD — modest further slippage from ~1,780,000; official rate ~1,321,000. CBI 65.8% YoY inflation; IMF 6.1% 2026 contraction estimate unchanged. The post-stand-down stabilization reads as shallow.
-- Lebanon track (UPDATED Day 84): MOH war-cumulative 3,020 KIA (292 women + 211 children); ≥657 truce-period KIA. Israeli strikes continue across southern Lebanon under the May 15 45-day extension; IDF Litani-extension posture ~30 km holds.
-- US doctrine: Pentagon Sledgehammer architecture remains operational; the resumption decision now rests almost entirely with the White House.
-- Ceasefire status: April 8 US-Iran framework triply broken; Pakistan-mediated proposal exchange active; fifth Rome round formally scheduled May 23.
+- Casualties (per Day 85 brief, no new confirmed figures): US 15 KIA / 400+ WIA; Israel 47 KIA / 8,603+ WIA; Iran LMO ~3,400 KIA (HRANA 3,636+ incl. 1,701 civ + 1,221 mil + 254+ children; Hengaw 6,620+ mil); Lebanon MOH war-cumulative 3,020 KIA (292 women + 211 children), ≥657 truce-period KIA; Other war-cumulative ~8,946+ WIA / Iraq 117+ / Gulf 32+ / UAE 14+9 wounded / Kuwait 1 wounded. 3.2M Iranians displaced.
+- Rome fifth round (NEW Day 85): convenes May 23 in Rome, mediated by Oman; enrichment dismantlement-vs-continuation the central unbridged issue. Araghchi pre-departure: deal possible if goal is verified non-weaponisation, impossible if aim is to dismantle enrichment; "no enrichment, no deal." Outcome pending — evening-flash material.
+- Khamenei HEU order (NEW Day 85): Supreme Leader ordered the enriched-uranium stockpile to remain in Iran; called zero-enrichment "outrageous." Closes Trump's Day 84 "retrieve and destroy" endpoint before Rome. Stockpile ~440 kg of 60% material.
+- Israel strike-preparation reports (NEW Day 85): CNN reports Israel preparing to strike Iranian nuclear facilities — would break openly with Trump's diplomacy; Iran warns "devastating and decisive response." Israel still assessed unable to act without US authorisation. Sharpest US-Israel divergence of the war.
+- US sanctions (NEW Day 85): new US sanctions on Iran's IRGC-linked construction sector + restrictions on 10 categories of nuclear/military-program materials.
+- Trump/Rubio (UPDATED Day 85): Trump — war "will be over with soon," Iran "never going to have a nuclear weapon"; Rubio — "some good signs," "not there yet."
+- Markets (UPDATED Day 85): Brent ~$104.50/bbl (down ~$4 from Day 84's $108.76); rial AlanChand 1,777,000 IRR/USD (slight firming from 1,787,000); official rate ~1,321,000.
+- Hormuz / PGSA (UPDATED Day 85): IRGC claims 26 vessels coordinated out of Hormuz in 24h; independent trackers show open commercial transits near zero. PGSA permit-and-fee regime live; US/Gulf/Europe reject its legality.
+- Lebanon track (UPDATED Day 85): MOH war-cumulative 3,020 KIA (292 women + 211 children); ≥657 truce-period. Israeli warplanes struck near Brital in eastern Lebanon — spared since the April 17 ceasefire — extending strike geography northward under the 45-day extension.
+- US doctrine: Pentagon Sledgehammer architecture operational; the resumption decision rests almost entirely with the White House.
+- Ceasefire status: April 8 US-Iran framework triply broken; fifth Rome round convening May 23.
 
 ## Active deadlines
 
-- Fifth Rome round (Iran-US nuclear talks) — May 23, mediated by Oman; enrichment the central issue.
-- Trump "a couple of days" wait window — open-ended; replaces the Day 83 fixed Friday-Saturday-Sunday band; contingent on the Rome outcome.
+- Fifth Rome round (Iran-US nuclear talks) — May 23, convening; enrichment dismantlement-vs-continuation central; outcome pending.
 - Pentagon security track (Lebanon) — May 29.
 - Israel-Lebanon political negotiations — June 2–3.
 - 45-day Lebanon ceasefire extension expiry — ~late June/early July.
-- Iran weaponization clock — Wright SASC ~1 ton 60% HEU "weeks" from weapons-grade; experts estimate 60%→90% in days-to-weeks; ~440 kg of 60% material ≈ several weapons if fully enriched; parliament 90% enrichment threat (May 12) unretracted.
-- PGSA toll regime — LIVE; Trump's anti-toll statement is the first explicit US challenge to it.
+- Iran weaponization clock — ~440 kg of 60% HEU; 60%→90% in days-to-weeks; parliament 90% enrichment threat (May 12) unretracted; Khamenei has ordered the stockpile to remain in Iran.
+- PGSA toll regime — LIVE; Trump's Day 84 anti-toll statement stands as the first explicit US challenge.
 
 ## Diplomatic state
 
-Day 84 holds the Day 83 architecture with Trump's softening as the principal adjustment. Washington has moved from the recompressed kinetic window to an explicit willingness to wait on the eve of the Rome fifth round, while Israel's security cabinet pushes the opposite way — a visible US-Israel divergence over tempo, reconciled by the structural fact that Israel cannot resume strikes without US authorisation. Trump's two new positions (no Hormuz tolls; retrieve-and-destroy the HEU stockpile) clarify the US endpoint but collide with two Iranian demands Araghchi has already called a "deadlock." Iran's posture remains structurally maximalist (enrichment and nuclear material sovereign) but it is reviewing the US text rather than rejecting it. The Lebanon track remains operationally decoupled and structurally bleeding. The Sledgehammer architecture remains operational; the resumption decision is concentrated on the White House. Probability rises to 18; direction holds mixed; seven-day risk eases to conditional entering the Rome weekend.
+Day 85 places the war's near-term trajectory on a single day's diplomacy. The fifth Rome round convenes with the two capitals anchored to opposite ends of a binary — US zero-enrichment dismantlement vs. Iran's sovereign-enrichment continuation — and the Day 84 evening hardening (Khamenei's HEU order, Israel's reported strike preparations, fresh US sanctions) has narrowed the zone of possible agreement before the table opens. The Omani channel is intact and functioning; what it lacks is a visible ZOPA. The resumption decision remains concentrated on the White House — Israel can prepare and lobby but is assessed unable to act without US authorisation — even as Israel's reported strike preparations push the US-Israel divergence toward a possible rupture. The Lebanon track remains operationally decoupled and structurally bleeding, now with strike geography extending into eastern Lebanon. Probability eases to 17; direction holds mixed; seven-day risk holds conditional on the Rome outcome.
 
 ## Standing analytical threads
 
-- **Taiwan LNG vulnerability:** Brent eases to ~$108.76/bbl on Trump's softening; CPC working floor ~$110 still brackets spot. The market now trades the Rome round as a binary — a credible outcome could pull Brent <$105; failure/recompression keeps the $130–170 kinetic tail in two-to-three-week watch. LNG cover through September confirmed.
+- **Taiwan LNG vulnerability:** Brent eases to ~$104.50 on the held softening; CPC working floor ~$110 now above spot. Market trades the Rome round as a binary — a credible outcome could pull Brent toward the mid-$90s; failure/recompression keeps the $130–170 kinetic tail in two-to-three-week watch. LNG cover through September confirmed.
 - **Semiconductor supply chain:** TSMC 2026 CapEx framework-signature path ~8%.
-- **US domestic political pressure:** Trump softening preserves political space for diplomacy; "impressed by negotiators" is the warmest US language since "garbage." Volatility (garbage→life support→impressed in ten days) is the structural risk.
-- **Chinese response posture:** Beijing readout omitted the no-bomb commitment. China still buys >80% of Iran's shipped crude; $2M-per-transit Hormuz fees reportedly paid in Chinese yuan. Araghchi has floated consulting Russia to break the enriched-uranium deadlock.
-- **US re-escalation architecture (UPDATED Day 84):** Sledgehammer operational; Trump's kinetic window loosened from a fixed 72-hour band to an open "couple of days"; the resumption decision is concentrated on the White House. Iran's Day 83 army "new fronts" pre-commitment carries.
-- **Iran weaponization clock (UPDATED Day 84):** ~440 kg of 60% HEU; 60%→90% in days-to-weeks; parliament 90% threat unretracted; Trump now vows to "retrieve and destroy" the stockpile; Araghchi/AEOI hold enrichment and material sovereign.
-- **Israeli interceptor depletion (UPDATED Day 84):** an Israeli report says US interceptors did more of the airspace-defence work than IDF systems — raises the materiel cost of any resumption.
-- **Regime-cohesion / IRGC ascendance:** Pezeshkian–IRGC rift carries; judiciary execution disclosures carry as the institutional face of regime-cohesion stress.
-- **Hormuz kinetic small-boat lane (UPDATED Day 84):** open commercial transits near zero/day on independent trackers vs the IRGC's higher PGSA count; UK Royal Navy warship + aircraft committed. Trump's anti-toll statement challenges the PGSA model rhetorically.
-- **Home-front endurance contest (UPDATED Day 84):** rial AlanChand 1,787,000 IRR/USD — modest slippage; the post-stand-down stabilization reads shallow. CBI 65.8% YoY.
-- **Lebanon single-clock track (UPDATED Day 84):** cumulative 3,020 KIA (292 women, 211 children); ≥657 truce-period. Israeli strikes continue under the 45-day extension; IDF Litani-extension ~30 km.
-- **China-Russia-Iran trilateral activation:** Maritime Security Belt 2026 naval drills upcoming in Hormuz; Araghchi-Russia consultation on the enriched-uranium file flagged.
-- **Arab-state architecture:** Gulf stand-down framing carries; the UAE-Iraq Barakah state channel is active.
-- **Energy-inflation transmission (UPDATED Day 84):** Brent eases to ~$108.76 on the softening — modest, procedural, not structural; the strait remains effectively closed.
-- **Trump duration-signal track (UPDATED Day 84):** "a couple of days" / "willing to wait" / "impressed by negotiators" replaces the Day 83 fixed window; the kinetic option is preserved as a contingency on the Rome outcome.
-- **Ceasefire-collapse track:** April 8 framework triply broken; Iran 14-point text under Trump review; fifth Rome round May 23.
-- **Toll-institutionalization risk (UPDATED Day 84):** PGSA permit regime live; Trump's "no tolls" statement is the first explicit US challenge — a new fault line for Rome.
-- **Gulf-nuclear-facility risk:** UAE Barakah Iraqi-origin drone confirmation carries; the energy-infrastructure clock holds critical.
-- **Iraqi-airspace launch pattern:** Iraq investigating the Iraqi-origin drones that struck the UAE and targeted Saudi Arabia; PMF 600+ strikes on US bases since the war began.
-- **Iranian internal repression:** Iran judiciary execution disclosures, lengthy prison sentences and property confiscations carry.
+- **US domestic political pressure:** Trump's "over with soon" framing preserves space for diplomacy; the volatility (garbage → life support → impressed → "over soon" inside two weeks) is the structural risk.
+- **US re-escalation architecture:** Sledgehammer operational; the resumption decision is concentrated on the White House.
+- **Iran weaponization clock (UPDATED Day 85):** ~440 kg of 60% HEU; 60%→90% days-to-weeks; Khamenei has ordered the stockpile to remain in Iran, closing Trump's retrieve-and-destroy endpoint; AEOI holds enrichment/material sovereign.
+- **US-Israel coalition cohesion (UPDATED Day 85):** Israel reported preparing strikes on Iranian nuclear facilities that would break openly with Trump's diplomacy — the sharpest divergence of the war; coalition-cohesion clock worsening toward potential rupture.
+- **Israeli interceptor depletion:** Day 84 report — US interceptors carried more airspace-defence load than IDF systems; raises the materiel cost of any resumption.
+- **Hormuz kinetic small-boat lane (UPDATED Day 85):** IRGC claims 26 transits coordinated in 24h vs trackers' near-zero open count; the divergence is the data point. UK Royal Navy committed to shipping protection.
+- **Home-front endurance contest (UPDATED Day 85):** rial AlanChand 1,777,000 IRR/USD — slight firming; the post-stand-down stabilization reads shallow. CBI 65.8% YoY inflation.
+- **Lebanon single-clock track (UPDATED Day 85):** cumulative 3,020 KIA (292 women, 211 children); ≥657 truce-period. Israeli strikes now reaching eastern Lebanon (Brital) under the 45-day extension.
+- **Chinese / trilateral posture:** China still buys >80% of Iran's shipped crude; Hormuz fees reportedly paid in yuan; Araghchi-Russia consultation on the enriched-uranium file flagged; Maritime Security Belt 2026 drills upcoming in Hormuz.
+- **Ceasefire-collapse track:** April 8 framework triply broken; fifth Rome round convening May 23.
+- **Toll-institutionalization risk:** PGSA permit regime live; Trump's "no tolls" statement the first explicit US challenge.
+- **Gulf-nuclear-facility / Iraqi-airspace risk:** UAE Barakah Iraqi-origin drone confirmation carries; Iraq investigating the drones that struck the UAE and targeted Saudi Arabia; PMF 600+ strikes on US bases since the war began.
+- **Regime-cohesion / internal repression:** Pezeshkian–IRGC rift carries; Iran judiciary execution disclosures, lengthy sentences and property confiscations carry as the institutional face of regime-cohesion stress.
 
 ## What to watch tomorrow
 
-- Whether the May 23 Rome fifth round opens on schedule, and any opening read on enrichment, the enriched-uranium stockpile, or Hormuz governance.
-- Any Trump statement hardening or re-softening the window; any reaction to Iran's review of the US proposal.
-- Iranian official / Araghchi pre-Rome statements; any positional movement on enrichment or the HEU stockpile.
-- Israeli security-cabinet follow-on signaling; any further Netanyahu-Trump contact.
-- Hormuz Friday transit prints — independent trackers vs the IRGC/PGSA count; any PGSA permit statistics.
-- Brent overnight read into the Rome weekend — whether it holds ~$108 or moves on the round.
-- Iran rial — AlanChand Friday remittance vs Bonbast Tehran open.
-- Lebanon ceasefire — IDF action inside the Litani-extension zone; Hezbollah response.
-- Congressional reaction to the softened window and the Rome round.
+- The Rome fifth-round outcome — any Omani, US, or Iranian readout; whether the sides agree to continue, and any movement on enrichment or the enriched-uranium stockpile.
+- Any Trump or Araghchi statement on the result; whether Trump hardens or re-softens the window.
+- Whether Israel hardens or steps back from the reported strike preparations; Israeli security-cabinet follow-on signaling.
+- Hormuz weekend transit prints — independent trackers vs the IRGC/PGSA count.
+- Brent overnight read into and out of the Rome result.
+- Iran rial — AlanChand weekend remittance vs Bonbast Tehran open.
+- Lebanon — IDF action inside/near the Litani-extension zone after the Brital strike; Hezbollah response.
+- Congressional reaction to the Rome round and the new US sanctions.
 
 ## Evening flash notes
 
-> **[13:06 UTC]** Three developments arrived since this morning that harden the pre-Rome framing. Iran's Supreme Leader Khamenei publicly ordered the country's enriched-uranium stockpile to remain inside Iran — a direct rejection of Trump's Day 84 "retrieve and probably destroy" statement, closing the physical-removal track before the May 23 Rome round opens (Al Jazeera — accessed 2026-05-22T13:06Z). Israel is reported to be actively preparing strikes against Iranian nuclear facilities, with Iran issuing a warning of a "devastating and decisive response" — a kinetic-signal exchange not in this morning's brief that raises the stakes of a Rome failure (Times of Israel, Al Jazeera — accessed 2026-05-22T13:06Z). Washington also imposed new sanctions on Iran's IRGC-linked construction sector and restricted 10 materials tied to Iran's nuclear and military programmes, applying coercive pressure on the eve of the round (NBC News — accessed 2026-05-22T13:06Z). Analytical judgment: the Khamenei HEU order is the load-bearing development — it narrows the zone of possible agreement at Rome; tomorrow's brief should hold the 30-day ceasefire probability at or below 18 and hold escalation direction at *mixed* rather than improving it.
+> (None yet for today.)
