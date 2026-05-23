@@ -66,4 +66,4 @@ Day 85 places the war's near-term trajectory on a single day's diplomacy. The fi
 
 ## Evening flash notes
 
-> (None yet for today.)
+> **Day 85 — 2026-05-23 [13:15 UTC]:** Fifth Rome round concluded without a breakthrough — Oman FM: 'some but not conclusive progress'; both sides to review proposals in capitals before sixth round. NYT (via two ME officials): Israel and US making 'most intense preparations yet' to renew attacks on Iran possibly as early as next week (options: intensified bombing, Kharg Island seizure, commandos to extract nuclear material). 7-day risk shifts conditional → elevated. Brent ~$104 flat. (NBC News, Axios, ToI — 2026-05-23T13:15Z.)

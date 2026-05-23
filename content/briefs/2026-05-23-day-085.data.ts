@@ -124,8 +124,7 @@ const data: BriefData = {
     other:
       "Lebanon MOH war-cumulative 3,020 (292 women + 211 children); truce-period KIA at least 657 carries. Israeli warplanes struck near Brital in eastern Lebanon, an area spared since the April 17 ceasefire.",
   },
-  flash:
-    '*(reserved for evening run — the Rome fifth round outcome and any Omani or US/Iranian readout; any Trump or Araghchi statement on the result; whether Israel hardens or steps back from the reported strike preparations; Hormuz weekend transit prints; Brent overnight read into the Rome result; AlanChand rial print; IDF action inside the Litani-extension zone)*',
+  flash: 'The fifth Rome round concluded without a breakthrough. Oman\'s FM Badr al-Busaidi reported only \'some but not conclusive progress\' — no deal, no joint statement, enrichment binary unresolved; both sides to review proposals in capitals before scheduling a sixth round. Araghchi: Iran is \'on a reasonable path.\' Separately, the NYT (via two Middle Eastern officials) reports Israel and the US are making their \'most intense preparations yet\' to renew attacks on Iran possibly as early as next week, with options including a more intense bombing campaign, seizure of Kharg Island, and commandos to extract nuclear material. Analytical judgment: the 17 ceasefire probability holds; direction holds mixed; 7-day risk shifts from conditional to elevated — the diplomatic binary has closed without resolution, handing Israel a public argument for action; coalition-cohesion clock accelerates toward rupture. Brent ~$104 flat. (NBC News, Axios, Times of Israel — accessed 2026-05-23T13:15-13:20Z.)',
 };
 
 export default data;
