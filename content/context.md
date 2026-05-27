@@ -1,6 +1,6 @@
 # Rolling Context
 
-Last updated by: morning Routine 2026-05-27 (Day 89)
+Last updated by: evening flash 2026-05-27 (Day 89)
 Last brief day: 89
 Last brief date: 2026-05-27
 
@@ -66,4 +66,4 @@ Day 89 narrowed the verbal gap and tightened the political ceiling at the same t
 
 ## Evening flash notes
 
-(None yet for today.)
+> **[13:04 UTC]** Israel expanded ground operations in southern Lebanon through the afternoon of Day 89, with IDF forces clashing with Hezbollah beyond the Litani line; Lebanon's health ministry revised Day 89 casualties to at least 31 killed and 40 wounded — including 14 in Burj al-Shamali near Tyre — while Hezbollah fired explosive drones into northern Israeli border communities in response (UPI, Euronews, Times of Israel — 2026-05-27T13:00Z). Brent crude erased most of Day 88's fall, jumping more than 3% to close at $99.58 a barrel as IRGC threat language stepped up from "decisive response" to a warning that resumed US aggression would ignite a "regional war beyond the region" with "crushing blows in places you do not expect" (CNBC — 2026-05-26). No new Iran-US diplomatic movement detected in the late window: the Doha delegation's return to Tehran for political clearance carries unchanged, and no Araghchi or Rubio post-trip statement was published. Analytical judgment: Lebanon ground-ops expansion and the Brent reversal argue for escalation direction to shift from *mixed* to *escalating* in tomorrow's brief; the IRGC threat step-change warrants leading the Escalation Gauge rationale with the re-escalation architecture risk; ceasefire probability may warrant downward revision from 25 if the Lebanon tempo continues overnight into the May 29 Washington meeting.
