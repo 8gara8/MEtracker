@@ -29,7 +29,7 @@ const data: BriefData = {
     },
     {
       id: 2,
-      direction: 'escalation',
+      direction: 'escalating',
       importance: 'high',
       source: "Time / Euronews / Wikipedia 2026 Iran war ceasefire (Shamkhani 'fantasy'; Mojtaba Khamenei 'no US bases' speech)",
       event:
@@ -41,7 +41,7 @@ const data: BriefData = {
     },
     {
       id: 3,
-      direction: 'escalation',
+      direction: 'escalating',
       importance: 'high',
       source: "PBS News / The Washington Times / The Times of Israel (IDF 100+ Hezbollah-site strike, Mashghara 12 killed; Litani clashes; Netanyahu authorisation; Washington talks May 29)",
       event:
