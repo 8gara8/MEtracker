@@ -68,4 +68,4 @@ Day 94 hardens the principal-position-contestation distinction into a cross-trac
 
 ## Evening flash notes
 
-(None yet for today.)
+**[13:06 UTC]** CENTCOM struck Iranian radar/drone sites at Goruk and Qeshm Island after Iran downed a US MQ-1; IRGC retaliated on Ali Al-Salem Air Base, Kuwait (intercepted, no casualties) — second Kuwait attack in five days. IDF struck Beirut suburbs, killing Qassem's nephew Ali Yusuf Harshi. Ceasefire probability should fall below 17 tomorrow. (CENTCOM · Al Jazeera · The National — 2026-06-01T13:06Z.)
