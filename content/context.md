@@ -69,4 +69,4 @@ Day 96 closes the cycle-widest publicly-named UNSC split on Lebanon: Ambassador 
 
 ## Evening flash notes
 
-(None yet for today.)
+**[13:00 UTC — Day 96 evening]** Rubio Senate testimony (first since war began): US demands Hormuz reopening *and* nuclear-program commitment before sanctions relief — no guaranteed payout for Hormuz alone; Mojtaba Khamenei named as "more active" in negotiations, communicating in writing through intermediaries (PBS NewsHour, Washington Post, Al Jazeera). Iran reversed Hormuz reopening decision — fired on vessel attempting passage after Trump confirmed blockade continues; strait restored to pre-ceasefire closure (Crisis Group). Round 4 Day 2 concluded without joint statement — "progress continues" framing held but no breakthrough (Times of Israel, Middle East Eye). Analytical judgment: ceasefire probability holds at 11 or drifts lower; direction remains escalating.
