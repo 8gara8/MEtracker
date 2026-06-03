@@ -45,6 +45,7 @@ import day093 from '@/content/briefs/2026-05-31-day-093.data';
 import day094 from '@/content/briefs/2026-06-01-day-094.data';
 import day095 from '@/content/briefs/2026-06-02-day-095.data';
 import day096 from '@/content/briefs/2026-06-03-day-096.data';
+import day097 from '@/content/briefs/2026-06-04-day-097.data';
 export type Implication = { title: string; body: string };
 
 export type ActorCasualtyNotes = {
@@ -109,6 +110,7 @@ const briefDataBySlug: Record<string, BriefData> = {
   '2026-06-01-day-094': day094,
   '2026-06-02-day-095': day095,
   '2026-06-03-day-096': day096,
+  '2026-06-04-day-097': day097,
 };
 
 export function getBriefData(slug: string): BriefData | null {
