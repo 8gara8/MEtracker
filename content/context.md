@@ -70,4 +70,4 @@ Day 97 closes with the Lebanon track posting the cycle's largest publicly-named 
 
 ## Evening flash notes
 
-(None yet for today.)
+Saudi Arabia and Jordan FM publicly condemned Iran's Wednesday attacks on Kuwait/Bahrain as "brutal Iranian aggression and flagrant violation of sovereignty" — cycle-first Gulf-monarchy principal-level adoption of explicit-aggression framing, updating morning brief's "no Gulf-monarchy adoption as of Wednesday evening Washington time" baseline (Al Arabiya, Arab News, Dawn — Jun 3). House WPR 215-208 is a concurrent resolution not subject to presidential veto and not requiring the president's signature — adjusts morning brief's "presumptive veto" framing; Senate must still pass (Time, OPB — Jun 3–4). No new kinetic strikes, ceasefire-track changes, or material market moves since morning run. No revision to escalation direction (mixed) or 30-day ceasefire probability (14).
