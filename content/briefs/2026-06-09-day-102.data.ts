@@ -136,6 +136,8 @@ const data: BriefData = {
     other:
       "No new confirmed casualties; Lebanon MOH ~3,355-3,500 carries and rising after Kfar Tebnit. Pakistan's reopened Sharif-to-Mojtaba channel drew a measured Iranian response; Aoun 'must stop interfering' carries. Kuwait 1 KIA + 63 WIA (Day 97) carries; Bahrain none.",
   },
+  flash:
+    "**[10:04 UTC]** A U.S. Army AH-64 Apache helicopter went down off the coast of Oman near the Strait of Hormuz on June 9; both crew members were rescued approximately two hours later by a U.S. Navy Task Force 59 maritime surface drone — the first use of autonomous maritime assets for a combat-zone crew rescue (Axios, 2026-06-09; CENTCOM via Axios; AP, 2026-06-09). U.S. officials are investigating whether Iranian fire brought the aircraft down; President Trump confirmed the pilots are safe and said a report would follow on June 10. The incident extends the active-deadline clock beyond the four-day Hormuz drone-intercept cadence registered in the morning brief and arrives one day after the June 8 kinetic exchange. Analytical judgment: if Iranian fire is confirmed in the June 10 Trump report, the escalation direction should shift from mixed to escalating and 30-day ceasefire probability should face downward pressure; pending confirmation, the morning brief's direction holds while the Hormuz active-deadline clock carries a June 10 attribution watch.",
 };
 
 export default data;
