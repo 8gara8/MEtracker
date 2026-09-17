@@ -22,6 +22,23 @@ const SCHEMA_PATH = path.join(
 );
 const BRIEFS_DIR = path.join(process.cwd(), 'content', 'briefs');
 
+/**
+ * Sidecar `exec` band (DESIGN §3.5.13, SPEC §10.1 priority rule).
+ *
+ * `exec` is optional in the BriefData type and BriefView renders it as
+ * `{data?.exec && <OverallRead ... />}`, so a sidecar that omits it loses the
+ * "Overall read" panel silently — no type error, no validator error. Days 201
+ * and 202 both shipped that way because each morning run templates off the
+ * previous day. Missing `exec` is therefore a hard error here.
+ *
+ * The 200–400 word band is only enforced from day 72 onward: five legacy
+ * briefs (days 1, 55, 63, 64, 71) predate the convention and run short. They
+ * warn rather than fail so the historical corpus stays green.
+ */
+const EXEC_MIN_WORDS = 200;
+const EXEC_MAX_WORDS = 400;
+const EXEC_BAND_ENFORCED_FROM_DAY = 72;
+
 type ValidationResult = {
   file: string;
   errors: string[];
@@ -64,6 +81,7 @@ type SidecarShape = {
   escalation?: { rationale?: { direction?: string; risk7d?: string; spillover?: string } };
   events?: Array<{ event?: string; summary?: string; impact?: string; source?: string }>;
   casualties?: Record<string, { cumulative?: string; status?: string } | undefined>;
+  exec?: string;
 };
 
 async function loadSidecar(briefFile: string): Promise<SidecarShape | null> {
@@ -268,6 +286,33 @@ async function validateOne(
   const bodyWc = countWords(`${target.body} ${sidecarProse(sidecar)}`);
   if (bodyWc < 1200 || bodyWc > 4000) {
     errors.push(`Total body word count ${bodyWc}; expected 1200–4000.`);
+  }
+
+  // Sidecar `exec` — the "Overall read" panel. Renders conditionally, so its
+  // absence is invisible to tsc and to every other check here. See the
+  // EXEC_* constants above for why the band is day-gated.
+  if (sidecar) {
+    const sidecarExec = sidecar.exec;
+    if (typeof sidecarExec !== 'string' || sidecarExec.trim().length === 0) {
+      errors.push(
+        `Missing sidecar \`exec\` in ${path.relative(process.cwd(), sidecarPathFor(target.file))}. ` +
+          'BriefView renders the "Overall read" panel only when `exec` is set, so omitting it ' +
+          'silently drops that section from the published page. It should mirror the ' +
+          '"## Executive Summary" body text (see Days 186–200).',
+      );
+    } else {
+      const execWc = countWords(sidecarExec);
+      const outOfBand = execWc < EXEC_MIN_WORDS || execWc > EXEC_MAX_WORDS;
+      if (outOfBand) {
+        const msg =
+          `Sidecar \`exec\` word count ${execWc}; expected ${EXEC_MIN_WORDS}–${EXEC_MAX_WORDS}.`;
+        if ((day ?? 0) >= EXEC_BAND_ENFORCED_FROM_DAY) {
+          errors.push(msg);
+        } else {
+          warnings.push(`${msg} (legacy brief, pre-day-${EXEC_BAND_ENFORCED_FROM_DAY}; not enforced)`);
+        }
+      }
+    }
   }
 
   return { file: target.file, errors, warnings };

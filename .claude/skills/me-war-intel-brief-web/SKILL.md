@@ -109,6 +109,20 @@ Before writing files to disk, count words in:
 | `## Executive Summary` | 150 | 300 |
 | `## Strategic Implications` (all subsections) | 400 | 800 |
 | Body + `sidecarProse(data)` | 1200 | 4000 |
+| Sidecar `exec` (REQUIRED) | 200 | 400 |
+
+**`exec` is not optional.** It is optional in the `BriefData` *type*, and
+`BriefView` renders it as `{data?.exec && <OverallRead ... />}` — so a sidecar
+that omits it silently drops the "Overall read" panel from the published page
+with tsc and (before this rule existed) the validator both green. Days 201 and
+202 shipped that way because each morning run templates off the previous day's
+sidecar. `exec` mirrors the `## Executive Summary` body text verbatim (see
+Days 186–200). `scripts/validate-brief.ts` now hard-fails a missing or
+out-of-band `exec` (band enforced from day 72 onward).
+
+**Do not template blindly off yesterday's files.** If yesterday's sidecar is
+missing a field the ones before it had, that is a regression to fix, not a
+convention to copy.
 
 `sidecarProse` concatenates `escalation.rationale.{direction,risk7d,spillover}`,
 every event's `event/summary/impact/source`, and every actor's
