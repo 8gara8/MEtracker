@@ -76,13 +76,20 @@ export function clockScore(state: ClockState): number {
   return CLOCK_SCORE[state] ?? 0;
 }
 
-// Clocks where a high state value is BAD for peace — invert the base tone.
+// Tone polarity per clock.
+//
+// `active_deadline` and `humanitarian_escalation` were previously 'invert'. That
+// flipped the BASE TONE of a state whose SCORE was already oriented bad→good, so
+// the inversion double-counted: `humanitarian_escalation: critical` (score 0, the
+// worst reading) painted green, and `active_deadline: holding` would have painted
+// red. Every clock's state vocabulary already runs critical(bad) → strong(good),
+// so no clock needs its tone inverted.
 const CLOCK_POLARITY: Record<ClockKey, 'normal' | 'invert'> = {
   negotiation_capacity: 'normal',
-  active_deadline: 'invert',
+  active_deadline: 'normal',
   interceptor_reconstitution: 'normal',
   energy_infrastructure: 'normal',
-  humanitarian_escalation: 'invert',
+  humanitarian_escalation: 'normal',
   coalition_cohesion: 'normal',
 };
 

@@ -27,7 +27,11 @@ export function ClockDial({
   const pct = Math.max(0, Math.min(1, score / 5));
 
   const SEGS = 12;
-  const filled = Math.round(pct * SEGS);
+  // A gauge pegged at its worst reading must still read as a gauge. `critical`
+  // scores 0, which rounded to zero lit segments and left an unlit arc with a
+  // stub needle — visually identical to a broken/no-data dial. Floor at one
+  // segment so the tone colour is always present.
+  const filled = Math.max(1, Math.round(pct * SEGS));
   const cx = 60;
   const cy = 56;
   const r0 = 44;
