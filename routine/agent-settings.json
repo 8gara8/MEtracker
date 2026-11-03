@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": ["WebSearch", "WebFetch", "Read", "Glob", "Grep", "Write(drafts/**)", "Edit(drafts/**)"],
+    "deny": ["Bash", "Task", "NotebookEdit",
+             "Write(content/**)", "Edit(content/**)", "Write(lib/**)", "Edit(lib/**)",
+             "Write(scripts/**)", "Edit(scripts/**)", "Write(routine/**)", "Edit(routine/**)",
+             "Write(.claude/**)", "Edit(.claude/**)", "Read(.git/**)", "Read(logs/**)"]
+  },
+  "env": { "DISABLE_AUTOUPDATER": "1" }
+}
