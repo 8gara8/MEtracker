@@ -52,10 +52,11 @@ jobs:
         if: steps.files.outputs.files != ''
         env: { FILES: '${{ steps.files.outputs.files }}' }
         run: |
-          git diff --quiet -- content/archive.json && exit 0
+          # Stage first: the map may be new (untracked), which a plain git diff misses.
+          git add content/archive.json
+          git diff --cached --quiet -- content/archive.json && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add content/archive.json
           git commit -m "archive: source snapshots for $FILES"
           for i in 1 2 3; do
             git pull --rebase origin main && git push origin HEAD:main && exit 0
