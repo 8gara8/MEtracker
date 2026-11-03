@@ -14,7 +14,9 @@
     "validate-brief": "tsx scripts/validate-brief.ts",
     "typecheck": "tsc --noEmit",
     "validate:ci": "tsx scripts/validate-brief.ts --no-urls --from-day 68",
-    "archive-sources": "tsx scripts/archive-sources.ts"
+    "archive-sources": "tsx scripts/archive-sources.ts",
+    "test": "tsx --test scripts/test/*.test.ts",
+    "daily": "tsx scripts/daily.ts"
   },
   "dependencies": {
     "@next/mdx": "^15.0.0",

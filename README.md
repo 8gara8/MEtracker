@@ -6,19 +6,25 @@ Epic Fury), researched and written by Claude every morning and published at
 
 ## How a brief gets published
 
-1. **Producer.** A Claude desktop scheduled task on JL's Mac runs every morning
-   (Asia/Taipei) in the local checkout `~/Projects/MEtracker`. It follows
-   `.claude/skills/me-war-intel-brief-web/SKILL.md`: research, draft
-   `content/briefs/YYYY-MM-DD-day-NNN.mdx` plus its `.data.ts` sidecar, register
-   it in `lib/brief-data.ts`, rewrite `content/context.md`, validate, and push
-   one commit straight to `main`. Failures go to `~/Documents/MEwar/needs-review/`.
-2. **Checks on GitHub.** `.github/workflows/ci.yml` typechecks, validates every
+1. **Producer.** A Claude desktop scheduled task on JL's Mac runs `scripts/daily.sh` every morning
+   (Asia/Taipei) in the local checkout `~/Projects/MEtracker`, following `routine/TASK.md`. The
+   script (`scripts/daily.ts`) owns the lock, git sync, validation, the single commit and push, the
+   live check and the failure path. It starts a headless, restricted Claude research agent
+   (`routine/RUN_PROMPT.md`) that can only search, read and write three drafts in `drafts/DATE/`:
+   the brief, its `.data.ts` sidecar and the rolling context. The script stages them, registers the
+   brief in `lib/brief-data.ts`, validates (link check, source rubric, word limits, `tsc`, and that
+   every cited URL was seen in this run) and sends errors back to the agent for up to two repairs.
+   It writes `logs/DATE.summary.md`, which the task posts as JL's morning update. Failed drafts go
+   to `~/Documents/MEwar/needs-review/`.
+2. **Checks on GitHub.** `.github/workflows/ci.yml` typechecks, runs the tests, validates every
    brief from day 68 on, and builds the site on every PR and push.
    `.github/workflows/archive.yml` then saves Wayback Machine snapshots of the new
    brief's sources into `content/archive.json`.
 3. **Site.** Vercel builds the Next.js 15 site on every push to `main`.
 
-House rules for agents working on the Mac are in `~/Documents/MEwar/AGENTS.md`.
+The agent uses the isolated Claude CLI and keychain token set up for EuropeTracker
+(`~/.europetracker/cli`, keychain item `europetracker-claude-oauth`) with its own config directory
+`~/.metracker/claude`. House rules for agents on the Mac are in `~/Documents/MEwar/AGENTS.md`.
 
 ## Repo layout
 
@@ -45,6 +51,8 @@ npm run validate-brief content/briefs/<slug>.mdx   # one brief, with link checks
 npm run validate:ci       # every brief from day 68, offline
 npm run typecheck
 npm run build             # runs build:data first
+npm test                  # pipeline unit tests
+npm run daily -- --dry-run   # full morning run without commit or push
 ```
 
 ## Source rules

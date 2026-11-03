@@ -44,3 +44,7 @@ next-env.d.ts
 
 # Cowork Schedule task lock (v1.8)
 .lock
+
+# Daily pipeline (scripts/daily.ts)
+drafts/
+logs/
