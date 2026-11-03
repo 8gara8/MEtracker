@@ -8,7 +8,7 @@ export interface Transcript {
   model: string | null;
   /** URLs the agent opened with WebFetch. */
   fetched: string[];
-  /** Every URL that appeared in a tool result: search results and fetched pages. */
+  /** Every URL in a WebSearch or WebFetch result (not in local files the agent read). */
   resultUrls: string[];
   searches: number;
   isError: boolean | null;
@@ -17,7 +17,10 @@ export interface Transcript {
   authFailed: boolean;
 }
 
-type Block = { type?: string; name?: string; input?: Record<string, unknown>; content?: unknown };
+type Block = { type?: string; id?: string; tool_use_id?: string; name?: string; input?: Record<string, unknown>; content?: unknown };
+
+/** Only these tools' results count as research evidence; Read/Grep of local files never do. */
+const WEB_TOOLS = new Set(['WebSearch', 'WebFetch']);
 
 const URL_RE = /https?:\/\/[^\s"'<>()\]\\]+/g;
 
@@ -41,6 +44,7 @@ export function parseTranscript(jsonl: string): Transcript {
     sessionId: null, model: null, fetched: [], resultUrls: [], searches: 0,
     isError: null, numTurns: null, costUsd: null, authFailed: false,
   };
+  const webCalls = new Set<string>();
   for (const line of jsonl.split('\n')) {
     if (!line.trim().startsWith('{')) continue;
     let e: Record<string, unknown>;
@@ -57,11 +61,12 @@ export function parseTranscript(jsonl: string): Transcript {
     const content = (e.message as { content?: unknown } | undefined)?.content;
     if (Array.isArray(content)) {
       for (const block of content as Block[]) {
+        if (block.type === 'tool_use' && block.id && block.name && WEB_TOOLS.has(block.name)) webCalls.add(block.id);
         if (block.type === 'tool_use' && block.name === 'WebFetch' && typeof block.input?.url === 'string') {
           t.fetched.push(block.input.url);
         }
         if (block.type === 'tool_use' && block.name === 'WebSearch') t.searches++;
-        if (block.type === 'tool_result') {
+        if (block.type === 'tool_result' && block.tool_use_id && webCalls.has(block.tool_use_id)) {
           const text = typeof block.content === 'string' ? block.content : JSON.stringify(block.content ?? '');
           t.resultUrls.push(...extractUrls(text));
         }

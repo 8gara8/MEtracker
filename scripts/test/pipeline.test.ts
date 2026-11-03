@@ -7,6 +7,7 @@ import { renderTemplate } from '../lib/agent';
 import { dayFor, registerBrief, slugFor, taipeiToday } from '../lib/brief-files';
 import { isBriefFile } from '../lib/git';
 import { acquireLock, releaseLock } from '../lib/lock';
+import { sidecarProblems } from '../lib/sidecar-check';
 import { evidence, parseTranscript, urlKey } from '../lib/transcript';
 import { renderSummary, stampAccessed, taipeiStamp } from '../daily';
 
@@ -52,11 +53,18 @@ test('only brief files may be pushed automatically', () => {
   assert.ok(!isBriefFile('scripts/daily.ts'));
 });
 
-test('transcript evidence covers fetches and result URLs', () => {
+test('transcript evidence counts only web-tool results', () => {
   const jsonl = [
     JSON.stringify({ type: 'system', subtype: 'init', session_id: 's1', model: 'claude-opus' }),
-    JSON.stringify({ type: 'assistant', message: { content: [{ type: 'tool_use', name: 'WebFetch', input: { url: 'https://www.reuters.com/world/a/' } }, { type: 'tool_use', name: 'WebSearch', input: { query: 'iran' } }] } }),
-    JSON.stringify({ type: 'user', message: { content: [{ type: 'tool_result', content: 'see https://apnews.com/article/b?utm=1.' }] } }),
+    JSON.stringify({ type: 'assistant', message: { content: [
+      { type: 'tool_use', id: 't1', name: 'WebFetch', input: { url: 'https://www.reuters.com/world/a/' } },
+      { type: 'tool_use', id: 't2', name: 'WebSearch', input: { query: 'iran' } },
+      { type: 'tool_use', id: 't3', name: 'Read', input: { file_path: 'content/briefs/old.mdx' } },
+    ] } }),
+    JSON.stringify({ type: 'user', message: { content: [
+      { type: 'tool_result', tool_use_id: 't2', content: 'see https://apnews.com/article/b?utm=1.' },
+      { type: 'tool_result', tool_use_id: 't3', content: 'url: "https://old.example.com/yesterday"' },
+    ] } }),
     JSON.stringify({ type: 'result', is_error: false, num_turns: 7, total_cost_usd: 1.5 }),
   ].join('\n');
   const t = parseTranscript(jsonl);
@@ -67,6 +75,29 @@ test('transcript evidence covers fetches and result URLs', () => {
   assert.ok(seen.has(urlKey('http://reuters.com/world/a')));
   assert.ok(seen.has(urlKey('https://apnews.com/article/b')));
   assert.ok(!seen.has(urlKey('https://apnews.com/article/c')));
+  assert.ok(!seen.has(urlKey('https://old.example.com/yesterday')), 'a local Read is not evidence');
+});
+
+test('sidecars must be pure data', () => {
+  const ok = "import type { BriefData } from '@/lib/brief-data';\n\nconst data: BriefData = {\n  exec: 'x',\n  events: [{ n: -1, ok: true, none: null, t: `plain` }],\n};\n\nexport default data;\n";
+  assert.deepEqual(sidecarProblems(ok), []);
+  const bad = [
+    ok.replace("exec: 'x'", "exec: require('child_process').execSync('id').toString()"),
+    ok.replace("exec: 'x'", 'exec: `${process.env.HOME}`'),
+    ok.replace("exec: 'x'", "...other, exec: 'x'"),
+    ok.replace("exec: 'x'", "get exec() { return 'x'; }"),
+    ok.replace("import type { BriefData } from '@/lib/brief-data';", "import fs from 'node:fs';"),
+    `${ok}fetch('https://example.com');\n`,
+    ok.replace('export default data;', 'export default { exec: 1 };'),
+  ];
+  for (const b of bad) assert.notDeepEqual(sidecarProblems(b), [], b);
+});
+
+test('every existing sidecar passes the pure-data check', () => {
+  const dir = path.join(__dirname, '..', '..', 'content', 'briefs');
+  for (const f of fs.readdirSync(dir).filter((f) => f.endsWith('.data.ts'))) {
+    assert.deepEqual(sidecarProblems(fs.readFileSync(path.join(dir, f), 'utf8')), [], f);
+  }
 });
 
 test('lock: one holder at a time, stale locks replaced', () => {

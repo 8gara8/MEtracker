@@ -19,9 +19,10 @@ import matter from 'gray-matter';
 import { originalUrl } from '../lib/sources';
 import { runAgent, renderTemplate, type AgentConfig } from './lib/agent';
 import { briefPaths, dayFor, latestSlug, registerBrief, slugFor, taipeiToday } from './lib/brief-files';
-import { git, isClean, pushWithRetry, syncMain, type Git } from './lib/git';
+import { git, isClean, onOrigin, pushWithRetry, syncMain, type Git } from './lib/git';
 import { CLAUDE_TOKEN_SERVICE, readSecret } from './lib/keychain';
 import { acquireLock, releaseLock } from './lib/lock';
+import { sidecarProblems } from './lib/sidecar-check';
 import { RunLog } from './lib/log';
 import { run } from './lib/run';
 import { evidence, urlKey, type Transcript } from './lib/transcript';
@@ -88,8 +89,9 @@ async function validate(slug: string, transcripts: Transcript[], log: RunLog): P
     errors.push(...t.stdout.split('\n').filter((l) => l.includes('error TS')).slice(0, 20).map((l) => `tsc: ${l.trim()}`));
   }
   // Every cited source must be a page the agent saw this run, in a search result or a fetch.
+  // (Skipped only when no agent ran, i.e. --drafts.)
   const seen = evidence(transcripts);
-  if (seen.size > 0) {
+  if (transcripts.length > 0) {
     const fm = matter(fs.readFileSync(p.mdx, 'utf8')).data as { sources?: Array<{ url?: string }> };
     for (const s of fm.sources ?? []) {
       if (s.url && !seen.has(urlKey(originalUrl(s.url)))) {
@@ -116,25 +118,35 @@ export function stampAccessed(mdx: string, stamp: string): string {
   return mdx.slice(0, end).replace(/^(\s+accessed_at:\s*).*$/gm, `$1"${stamp}"`) + mdx.slice(end);
 }
 
-/** Copies the drafts into place and registers the brief. Returns false if a draft file is missing. */
-function stage(draftDir: string, slug: string, log: RunLog, researchedAt: number): boolean {
+/**
+ * Copies the drafts into place and registers the brief. Returns the problems that stopped it instead:
+ * missing files, or a sidecar that isn't pure data (the validator imports the sidecar, which would run
+ * any code in it, so it is checked by parsing before it is staged).
+ */
+function stage(draftDir: string, slug: string, log: RunLog, researchedAt: number): string[] {
   const p = briefPaths(ROOT, slug);
   const files = { mdx: path.join(draftDir, 'brief.mdx'), data: path.join(draftDir, 'brief.data.ts'), context: path.join(draftDir, 'context.md') };
   const missing = Object.values(files).filter((f) => !fs.existsSync(f));
   if (missing.length) {
     log.line(`Draft incomplete: missing ${missing.map((f) => path.basename(f)).join(', ')}.`);
-    return false;
+    return [`error: The draft is incomplete: write ${missing.map((f) => path.basename(f)).join(', ')}.`];
+  }
+  const unsafe = sidecarProblems(fs.readFileSync(files.data, 'utf8'));
+  if (unsafe.length) {
+    log.line(`Sidecar rejected before staging: ${unsafe[0]}`);
+    return unsafe.map((u) => `error: brief.data.ts: ${u}`);
   }
   fs.writeFileSync(p.mdx, stampAccessed(fs.readFileSync(files.mdx, 'utf8'), taipeiStamp(researchedAt)));
   fs.copyFileSync(files.data, p.data);
   fs.copyFileSync(files.context, p.context);
   fs.writeFileSync(p.registry, registerBrief(fs.readFileSync(p.registry, 'utf8'), slug));
-  return true;
+  return [];
 }
 
-/** Puts the working tree back as it was before staging. */
+/** Puts the index and working tree back as they were before staging (also after a failed commit). */
 async function unstage(g: Git, slug: string): Promise<void> {
   const p = briefPaths(ROOT, slug);
+  await g(['reset', '-q', 'HEAD', '--', path.relative(ROOT, p.mdx), path.relative(ROOT, p.data), 'content/context.md', 'lib/brief-data.ts']);
   fs.rmSync(p.mdx, { force: true });
   fs.rmSync(p.data, { force: true });
   await g(['checkout', '--', 'content/context.md', 'lib/brief-data.ts']);
@@ -144,6 +156,14 @@ function sourceStats(slug: string): { sources: number; categories: number } {
   const fm = matter(fs.readFileSync(briefPaths(ROOT, slug).mdx, 'utf8')).data as { sources?: Array<{ category?: string }> };
   const sources = fm.sources ?? [];
   return { sources: sources.length, categories: new Set(sources.map((s) => s.category).filter(Boolean)).size };
+}
+
+/** Confirms GitHub's main is the commit just pushed. */
+async function verifyPushed(g: Git, commit: string): Promise<void> {
+  const remote = (await g(['ls-remote', 'origin', 'refs/heads/main'])).split(/\s/)[0];
+  if (!remote.startsWith(commit)) {
+    throw new RunFailure('E_PUSH', `GitHub main is ${remote.slice(0, 7)}, not ${commit}. The commit stays local and goes out with the next run.`);
+  }
 }
 
 async function waitLive(url: string, maxMs: number, log: RunLog): Promise<boolean> {
@@ -225,6 +245,18 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
       });
     }
     if (fs.existsSync(briefPaths(ROOT, slug).mdx)) {
+      // A brief committed by an earlier run whose push failed: push it now instead of skipping.
+      const rel = path.relative(ROOT, briefPaths(ROOT, slug).mdx);
+      if (!values['dry-run'] && !(await onOrigin(g, rel))) {
+        log.line(`Day ${facts.day} is committed here but not on GitHub; pushing it.`);
+        await pushWithRetry(g, ['origin', 'main']);
+        facts.commit = await g(['rev-parse', '--short', 'HEAD']);
+        await verifyPushed(g, facts.commit);
+        facts.outcome = 'published';
+        Object.assign(facts, sourceStats(slug));
+        facts.live = await waitLive(`${CONFIG.siteUrl}/brief/${slug}`, CONFIG.liveWaitMax, log);
+        return finish(facts, log, lockFile, true);
+      }
       facts.outcome = 'skipped';
       facts.message = `Day ${facts.day} is already published.`;
       return finish(facts, log, lockFile, true);
@@ -258,8 +290,9 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
     // Stage, validate, repair
     let errors: string[] = [];
     for (let attempt = 0; ; attempt++) {
-      staged = stage(draftDir, slug, log, researchedAt);
-      errors = staged ? await validate(slug, transcripts, log) : ['error: The draft is incomplete: write brief.mdx, brief.data.ts and context.md.'];
+      errors = stage(draftDir, slug, log, researchedAt);
+      staged = errors.length === 0;
+      if (staged) errors = await validate(slug, transcripts, log);
       if (errors.length === 0) break;
       if (staged) {
         await unstage(g, slug);
@@ -294,6 +327,7 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
 
     // Publish: one commit, pushed; a rejected push is rebased onto GitHub's main and retried.
     await g(['add', '--', path.relative(ROOT, briefPaths(ROOT, slug).mdx), path.relative(ROOT, briefPaths(ROOT, slug).data), 'content/context.md', 'lib/brief-data.ts']);
+    staged = true;
     await g(['commit', '-m', `brief: Day ${facts.day} — ${date}`]);
     staged = false;
     facts.commit = (await g(['rev-parse', '--short', 'HEAD']));
@@ -305,8 +339,7 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
       await pushWithRetry(g, ['origin', 'main']);
       facts.commit = await g(['rev-parse', '--short', 'HEAD']);
     }
-    const remote = (await g(['ls-remote', 'origin', 'refs/heads/main'])).split(/\s/)[0];
-    if (!remote.startsWith(facts.commit)) throw new RunFailure('E_PUSH', `GitHub main is ${remote.slice(0, 7)}, not ${facts.commit}. The commit stays local and goes out with the next run.`);
+    await verifyPushed(g, facts.commit);
     log.line(`Pushed ${facts.commit}.`);
     facts.outcome = 'published';
     facts.live = await waitLive(`${CONFIG.siteUrl}/brief/${slug}`, CONFIG.liveWaitMax, log);
