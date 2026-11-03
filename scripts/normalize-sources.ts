@@ -1,14 +1,15 @@
 /**
- * normalize-sources.ts — URL archive-wrap helper (v1.8, SPEC §7.2)
+ * normalize-sources.ts — source URL normalizer
  *
  * Rewrites every URL in a brief's frontmatter `sources:` array AND its
- * `## Sources` body section to `https://web.archive.org/web/2026/<original>`.
- * Idempotent: URLs that are already wrapped are left untouched.
+ * `## Sources` body section to the publisher's own URL, removing any
+ * `https://web.archive.org/web/2026/` wrapper. Idempotent.
  *
- * The validator (`scripts/validate-brief.ts`) HEAD-checks every URL in the
- * frontmatter `sources[].url` field, so the frontmatter is the primary
- * archive-wrap target. The body section is wrapped too, in case briefs ever
- * embed bare URLs there (current briefs use prose-form attribution).
+ * Until November 2026 this script did the opposite: it wrapped every URL in a
+ * bare Wayback prefix without saving a snapshot, so most wrapped links led to
+ * "not archived". Snapshots are now saved after publishing by
+ * scripts/archive-sources.ts and listed in content/archive.json; the site shows
+ * the publisher link plus an [archived] link when a snapshot exists.
  *
  * Usage:
  *   # Pipe form
@@ -16,25 +17,19 @@
  *
  *   # In-place form
  *   npx tsx scripts/normalize-sources.ts --in-place content/briefs/<slug>.mdx
- *
- * The skill (Step 4b) is expected to perform the equivalent transform in-process
- * before write. This script is a backup utility for manual fixes.
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
-
-const ARCHIVE_PREFIX = 'https://web.archive.org/web/2026/';
+import { originalUrl } from '../lib/sources';
 
 // Body-section URL match. Allows `(` and `)` inside the path so that URLs like
 // https://en.wikipedia.org/wiki/Iran_(country) round-trip cleanly. Trailing
 // punctuation that's clearly not part of a URL is trimmed post-match.
 const BODY_URL_RE = /https?:\/\/[^\s<>"'`]+/g;
 
-export function wrapUrl(url: string): string {
-  if (url.startsWith(ARCHIVE_PREFIX)) return url;
-  if (url.includes('web.archive.org/web/')) return url;
-  return `${ARCHIVE_PREFIX}${url}`;
+export function unwrapUrl(url: string): string {
+  return originalUrl(url);
 }
 
 /**
@@ -160,13 +155,13 @@ function rewriteYamlUrlLine(line: string): string {
   }
 
   if (!/^https?:\/\//.test(url)) return line;
-  const wrapped = wrapUrl(url);
-  if (wrapped === url) return line;
+  const unwrapped = unwrapUrl(url);
+  if (unwrapped === url) return line;
 
   if (openQuote) {
-    return `${prefix}${openQuote}${wrapped}${openQuote}`;
+    return `${prefix}${openQuote}${unwrapped}${openQuote}`;
   }
-  return `${prefix}${wrapped}`;
+  return `${prefix}${unwrapped}`;
 }
 
 function rewriteFrontmatterUrls(lines: string[], start: number, end: number): void {
@@ -179,7 +174,7 @@ function rewriteBodyUrls(lines: string[], start: number, end: number): void {
   for (let i = start; i < end; i++) {
     lines[i] = lines[i].replace(BODY_URL_RE, (match) => {
       const { url, trailer } = trimTrailingPunctuation(match);
-      return `${wrapUrl(url)}${trailer}`;
+      return `${unwrapUrl(url)}${trailer}`;
     });
   }
 }
@@ -221,7 +216,7 @@ async function main() {
   if (args.includes('--help') || args.includes('-h')) {
     process.stdout.write(
       [
-        'normalize-sources.ts — wrap URLs in ## Sources with web.archive.org/web/2026/',
+        'normalize-sources.ts — strip web.archive.org/web/2026/ wrappers from source URLs',
         '',
         'Usage:',
         '  npx tsx scripts/normalize-sources.ts < in.mdx > out.mdx',

@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { SOURCE_CATEGORIES } from './sources';
 
 export const EscalationDirection = z.enum(['escalating', 'mixed', 'de-escalating']);
 export type EscalationDirection = z.infer<typeof EscalationDirection>;
@@ -52,6 +53,7 @@ export const SourceSchema = z.object({
   name: z.string().min(1),
   url: z.union([z.string().url(), z.literal('')]),
   accessed_at: z.string(),
+  category: z.enum(SOURCE_CATEGORIES).optional(),
 });
 export type Source = z.infer<typeof SourceSchema>;
 
@@ -68,7 +70,7 @@ export type ClockKey = (typeof ClockKeys)[number];
 
 export const BriefFrontmatterSchema = z.object({
   report_type: z.string().optional(),
-  day: z.number().int().min(1).max(999),
+  day: z.number().int().min(1).max(9999),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   title: z.string(),
   escalation_direction: EscalationDirection,
