@@ -1,0 +1,65 @@
+name: archive sources
+
+# After a brief lands on main, find or save a Wayback Machine snapshot of each
+# of its sources and record it in content/archive.json, which the site uses for
+# the [archived] link next to each source. Runs on GitHub, not on the Mac, so
+# the morning run never waits for archive.org.
+
+on:
+  push:
+    branches: [main]
+    paths: ['content/briefs/**.mdx']
+  workflow_dispatch:
+    inputs:
+      files:
+        description: 'Brief files to archive (space separated)'
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: archive-sources
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Briefs in this push
+        id: files
+        env:
+          BEFORE: ${{ github.event.before }}
+          INPUT_FILES: ${{ github.event.inputs.files }}
+        run: |
+          if [ -n "$INPUT_FILES" ]; then
+            files="$INPUT_FILES"
+          else
+            files=$(git diff --name-only --diff-filter=AM "$BEFORE" HEAD -- 'content/briefs/*.mdx' | tr '\n' ' ')
+          fi
+          echo "files=$files" >> "$GITHUB_OUTPUT"
+      - name: Archive
+        if: steps.files.outputs.files != ''
+        env: { FILES: '${{ steps.files.outputs.files }}' }
+        run: npx tsx scripts/archive-sources.ts $FILES
+      - name: Commit snapshot map
+        if: steps.files.outputs.files != ''
+        env: { FILES: '${{ steps.files.outputs.files }}' }
+        run: |
+          # Stage first: the map may be new (untracked), which a plain git diff misses.
+          git add content/archive.json
+          git diff --cached --quiet -- content/archive.json && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "archive: source snapshots for $FILES"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 10
+          done
+          exit 1

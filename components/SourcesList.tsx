@@ -1,5 +1,6 @@
 import React from 'react';
 import type { BriefFrontmatter } from '@/lib/types';
+import { SourceLink } from './SourceLink';
 
 export function SourcesList({ frontmatter }: { frontmatter: BriefFrontmatter }) {
   const sources = frontmatter.sources ?? [];
@@ -25,14 +26,7 @@ export function SourcesList({ frontmatter }: { frontmatter: BriefFrontmatter }) 
             {s.url && (
               <>
                 <br />
-                <a
-                  className="break-all text-paper-ink-mute hover:text-accent"
-                  href={s.url}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                >
-                  ↳ {s.url}
-                </a>
+                <SourceLink className="break-all text-paper-ink-mute hover:text-accent" url={s.url} />
               </>
             )}
           </span>

@@ -11,7 +11,10 @@
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
-    "validate-brief": "tsx scripts/validate-brief.ts"
+    "validate-brief": "tsx scripts/validate-brief.ts",
+    "typecheck": "tsc --noEmit",
+    "validate:ci": "tsx scripts/validate-brief.ts --no-urls --from-day 68",
+    "archive-sources": "tsx scripts/archive-sources.ts"
   },
   "dependencies": {
     "@next/mdx": "^15.0.0",

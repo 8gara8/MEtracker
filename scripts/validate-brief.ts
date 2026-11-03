@@ -3,6 +3,7 @@
  *
  * Usage:
  *   tsx scripts/validate-brief.ts content/briefs/2026-02-28-day-001.mdx [more-files...]
+ *   tsx scripts/validate-brief.ts --no-urls --from-day 68   # every brief from day 68, offline (CI)
  *
  * Exit code 0 on pass, 1 on fail.
  */
@@ -13,6 +14,12 @@ import { pathToFileURL } from 'node:url';
 import matter from 'gray-matter';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
+import {
+  MAX_CATEGORY_SHARE,
+  MIN_SOURCE_CATEGORIES,
+  SOURCE_RULES_FROM_DAY,
+  originalUrl,
+} from '../lib/sources';
 
 const SCHEMA_PATH = path.join(
   process.cwd(),
@@ -130,23 +137,33 @@ function extractSection(body: string, heading: string): string | null {
   return lines.slice(start, end).join('\n').trim();
 }
 
+// Statuses that mean the page exists but refuses scripted requests (Reuters,
+// WSJ and AP answer bots with 401/403; some sites rate-limit with 429).
+const BLOCKED_BUT_LIVE = new Set([401, 403, 429]);
+
+async function fetchStatus(url: string, method: 'HEAD' | 'GET'): Promise<number> {
+  const ctrl = new AbortController();
+  const timeout = setTimeout(() => ctrl.abort(), 8000);
+  try {
+    const res = await fetch(url, { method, signal: ctrl.signal, redirect: 'follow' });
+    return res.status;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+/**
+ * Checks the publisher's page, not a Wayback wrapper: a bare
+ * web.archive.org/web/2026/<url> link says nothing about whether the source
+ * exists, so the prefix is stripped before the request.
+ */
 async function checkUrl(url: unknown): Promise<boolean> {
   if (typeof url !== 'string' || url.length === 0) return false;
-  if (url.includes('web.archive.org')) return true;
+  const target = originalUrl(url);
   try {
-    const ctrl = new AbortController();
-    const timeout = setTimeout(() => ctrl.abort(), 8000);
-    const res = await fetch(url, { method: 'HEAD', signal: ctrl.signal });
-    clearTimeout(timeout);
-    if (res.ok) return true;
-    if (res.status === 405 || res.status === 403) {
-      const ctrl2 = new AbortController();
-      const t2 = setTimeout(() => ctrl2.abort(), 8000);
-      const res2 = await fetch(url, { method: 'GET', signal: ctrl2.signal });
-      clearTimeout(t2);
-      return res2.ok;
-    }
-    return false;
+    let status = await fetchStatus(target, 'HEAD');
+    if (status >= 400 && !BLOCKED_BUT_LIVE.has(status)) status = await fetchStatus(target, 'GET');
+    return status < 400 || BLOCKED_BUT_LIVE.has(status);
   } catch {
     return false;
   }
@@ -157,6 +174,7 @@ async function validateOne(
   allBriefs: LoadedBrief[],
   ajvValidate: (d: unknown) => boolean,
   ajvErrors: () => string,
+  checkUrls: boolean,
 ): Promise<ValidationResult> {
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -230,14 +248,37 @@ async function validateOne(
     }
   }
 
-  const sources = (data.sources as Array<{ url: string }> | undefined) ?? [];
+  const sources = (data.sources as Array<{ url: string; category?: string }> | undefined) ?? [];
   if (data.quiet_day !== true && sources.length < 8) {
     errors.push(
       `Sources floor: need >= 8 sources for non-quiet days; got ${sources.length}. Set \`quiet_day: true\` to waive.`,
     );
   }
 
-  if (sources.length > 0) {
+  // Sourcing rubric (DESIGN §3.1): every source names its category, at least
+  // six categories appear, and no single category supplies over half.
+  if ((day ?? 0) >= SOURCE_RULES_FROM_DAY && sources.length > 0) {
+    const missing = sources.filter((s) => !s.category).length;
+    if (missing > 0) {
+      errors.push(`Source categories: ${missing} source(s) have no \`category\`.`);
+    }
+    const counts = new Map<string, number>();
+    for (const s of sources) if (s.category) counts.set(s.category, (counts.get(s.category) ?? 0) + 1);
+    if (data.quiet_day !== true && counts.size < MIN_SOURCE_CATEGORIES) {
+      errors.push(
+        `Source categories: ${counts.size} distinct (${[...counts.keys()].join(', ')}); need >= ${MIN_SOURCE_CATEGORIES}.`,
+      );
+    }
+    for (const [cat, n] of counts) {
+      if (n / sources.length > MAX_CATEGORY_SHARE) {
+        errors.push(
+          `Source categories: ${cat} supplies ${n} of ${sources.length} sources; max ${Math.round(MAX_CATEGORY_SHARE * 100)}%.`,
+        );
+      }
+    }
+  }
+
+  if (checkUrls && sources.length > 0) {
     const results = await Promise.all(sources.map((s) => checkUrl(s.url)));
     const broken = results
       .map((ok, i) => ({ ok, url: sources[i].url }))
@@ -320,9 +361,15 @@ async function validateOne(
 
 async function main() {
   const args = process.argv.slice(2);
-  const targetFiles = args.length > 0
-    ? args.map((a) => path.resolve(process.cwd(), a))
-    : loadAllBriefs().map((b) => b.file);
+  const checkUrls = !args.includes('--no-urls');
+  const fromIdx = args.indexOf('--from-day');
+  const fromDay = fromIdx >= 0 ? Number(args[fromIdx + 1]) : 0;
+  const files = args.filter((a, i) => !a.startsWith('--') && (fromIdx < 0 || i !== fromIdx + 1));
+  const targetFiles = files.length > 0
+    ? files.map((a) => path.resolve(process.cwd(), a))
+    : loadAllBriefs()
+        .filter((b) => typeof b.data.day === 'number' && b.data.day >= fromDay)
+        .map((b) => b.file);
 
   if (targetFiles.length === 0) {
     console.log('[validate-brief] no brief files to validate.');
@@ -349,6 +396,7 @@ async function main() {
       allBriefs,
       (d) => validator(d) as boolean,
       () => ajv.errorsText(validator.errors),
+      checkUrls,
     );
     if (result.errors.length === 0) {
       console.log(

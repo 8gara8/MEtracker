@@ -2,11 +2,11 @@
 name: me-war-intel-brief-web
 description: |
   Produce the daily Middle East War Intelligence Brief (Operation Epic Fury) for
-  publication at mewar.moltbook.com. v1.8 cutover: invoked by Cowork Schedule
+  publication at metracker.vercel.app. v1.8 cutover: invoked by Cowork Schedule
   tasks on the local Mac, validates with the local TypeScript validator, and
   performs a direct push to main (no PR, no GitHub Actions, no auto-merge).
   Closes the PR #22 (Day 059) failure modes by enforcing pre-emit word-count
-  guardrails (§3.5.13) and URL archive-wrapping (§3.5.12) at draft time.
+  guardrails (§3.5.13) and source rules (§3.5.12, publisher URLs + categories) at draft time.
 ---
 
 # me-war-intel-brief-web — v1.8
@@ -17,7 +17,7 @@ Authoritative source for execution flow: `SPEC.md` §9 (Phase 3) and §10
 
 ## Execution environment (LOAD-BEARING — read before Step 1)
 
-The spec repo at `~/Documents/MEwar/me-war-intel-brief` lives on the **macOS
+The spec repo at `~/Projects/MEtracker` lives on the **macOS
 host**. Use the **Desktop Commander MCP** (`mcp__Desktop_Commander__*`) for
 ALL shell, file, git, and notification operations in this skill. Do NOT use
 the Cowork Linux sandbox (`mcp__workspace__bash`) — the repo is not
@@ -37,7 +37,7 @@ Concrete tool mapping:
   metadata only — fall back to `cat` if it does.
 - Surgical edits: `mcp__Desktop_Commander__edit_block`.
 
-If a precondition `cd ~/Documents/MEwar/me-war-intel-brief` returns "No such
+If a precondition `cd ~/Projects/MEtracker` returns "No such
 file or directory", you used the wrong tool — switch to Desktop Commander
 **before** writing any abort file. Five consecutive runs (2026-05-03 →
 2026-05-06 morning) wrote elaborate misdiagnostic abort files at
@@ -69,7 +69,7 @@ Invoke when the user says any of:
 ## Workflow (seven steps + 4a / 4b guardrails)
 
 ### Step 1 — Read context
-- `cd ~/Documents/MEwar/me-war-intel-brief`
+- `cd ~/Projects/MEtracker`
 - Read `content/context.md` end-to-end.
 - Note the previous day number, the rolling cumulative casualty figures, the
   active deadlines, and the standing analytical threads. Do not draft yet.
@@ -140,29 +140,32 @@ Common culprit on high-event days: each Strategic Implications subsection runs
 ~330 words and the three subsections sum to ~990, busting the 800 ceiling.
 Target ~250 words per subsection.
 
-### Step 4b — URL archive-wrap (SPEC §7.2, DESIGN §3.5.12)
+### Step 4b — Source URLs and categories (DESIGN §3.5.12, Nov 2026)
 
-Before writing the `.mdx` to disk, transform every source URL to
-`https://web.archive.org/web/2026/<original>`. Idempotent: do not double-wrap
-URLs that already contain `web.archive.org/web/`.
+Every entry in the frontmatter `sources:` array has:
 
-Two locations to wrap:
+- `url` — the publisher's own URL, exactly as read. **Do not** wrap it in
+  `https://web.archive.org/web/2026/`; that prefix never saved a snapshot and
+  sent readers to "not archived" pages. Snapshots are saved after publishing by
+  `.github/workflows/archive.yml` and shown on the site as an `[archived]` link.
+  If an old wrapper slips in, `npx tsx scripts/normalize-sources.ts --in-place
+  content/briefs/<file>.mdx` strips it.
+- `accessed_at` — the time you actually read that page (Asia/Taipei, ISO 8601).
+  Do not stamp every source with the same time.
+- `category` — one of the twelve rubric categories (DESIGN §3.1):
+  `western_press`, `regional_press`, `iran_state_media`, `iran_officials`,
+  `israel_official`, `arab_regional_gov`, `russia_china_other`,
+  `monitors_humanitarian`, `us_government`, `europe_international`,
+  `think_tanks_experts`, `markets_maritime_data`.
 
-1. **Frontmatter `sources:` array — primary target.** This is what
-   `scripts/validate-brief.ts` HEAD-checks; failing to wrap here is what trips
-   the `>2 broken URLs` validator failure mode.
-2. **Body `## Sources` / `## Sources & Attribution` section.** Current briefs
-   use prose-form attribution with no embedded URLs, but wrap any that exist.
+From day 250 the validator fails a brief whose sources lack a category, cover
+fewer than six categories, or draw more than half from one category. Cite only
+pages you read this run; a source carried over from yesterday's file without
+re-reading it does not count.
 
-Two equivalent paths:
-- **In-process**: rewrite the source list in the draft string before
-  `Write`-ing it.
-- **Subprocess**: write the unwrapped draft, then run
-  `npx tsx scripts/normalize-sources.ts --in-place content/briefs/<file>.mdx`.
-
-The validator's `web.archive.org` short-circuit (SPEC §7.1, check 2) means a
-fully-wrapped brief never trips the >2 broken-URL ceiling regardless of
-publisher health.
+The validator checks the publisher URLs themselves. Pages that refuse scripted
+requests (401/403/429, e.g. Reuters, AP, WSJ) count as live; 404s, dead hosts and
+5xx count as broken, and more than two broken links fails the brief.
 
 ### Step 5 — Validate
 
@@ -179,10 +182,17 @@ The skill is responsible for never handing the validator a brief that should
 fail. Steps 4a and 4b are the primary length and URL governors; the validator
 is a backstop.
 
+### Step 5a — Rewrite the rolling context (before committing)
+
+Rewrite `content/context.md` for today now, so the brief and its context land
+in ONE commit. Never leave `content/context.md` modified after the run: a dirty
+tree makes tomorrow's run abort. Check it against Step 7's list.
+
 ### Step 6 — Commit + push (DIRECT TO MAIN — v1.8)
 
 Pre-push checks:
-- `gh auth status` succeeds.
+- `GIT_TERMINAL_PROMPT=0 git ls-remote origin main` succeeds (this is the
+  publish-capability check; `gh` is not used by the run).
 - `git status --porcelain` shows only the expected files
   (`content/briefs/<slug>.mdx`, `<slug>.data.ts`, `lib/brief-data.ts`,
   `content/context.md`).
@@ -197,6 +207,10 @@ git -c user.name="8gara8" \
     commit -m "brief: Day N — YYYY-MM-DD"
 git push origin main
 ```
+
+If the push is rejected as non-fast-forward (the archive workflow commits
+`content/archive.json` to main after each brief), run
+`git pull --rebase origin main` and push again. Never force-push.
 
 If `COWORK_BRIEF_DIRECT_PUSH=false` is set, skip the push and deposit the
 files in `needs-review/` instead (per SPEC §8.4).
@@ -216,7 +230,7 @@ osascript -e 'display notification "Day N brief FAILED — see needs-review" \
 
 ### Step 7 — Verify rolling context
 
-After push, re-read `content/context.md` and confirm:
+After push, re-read `content/context.md` (written in Step 5a) and confirm:
 - Day-N developments are reflected in §1 (Current war status), §2 (Cumulative
   state), §3 (Active deadlines), §6 (What to watch tomorrow).
 - §7 (Evening flash notes) was reset to `(None yet for today.)` by the morning
@@ -430,19 +444,11 @@ Known standing priors as of April 20, 2026 (to migrate into initial rolling cont
 
 **Rule:** ⭐ emoji reserved for genuine inflection points in the war's trajectory. Maximum one per brief, often zero. Excessive use (observed in the ceasefire period) dilutes meaning.
 
-##### 3.5.12 URL archive wrapping (NEW v1.8 — codified from PR #22 failure)
+##### 3.5.12 Source URLs (REVISED Nov 2026)
 
-**Problem observed:** Day 059 (PR #22) produced a brief mixing wrapped (`https://web.archive.org/web/2026/<original>`) and unwrapped publisher URLs. Three of the unwrapped ones (Axios + two US News) returned non-OK from the validator's HEAD probe, busting the >2 broken-URL ceiling. Day 058 had wrapped every URL and passed. The convention existed in production; v1.8 makes it an enforceable rule.
+**History:** v1.8 required every source URL to be wrapped as `https://web.archive.org/web/2026/<original-url>`, and the validator skipped any wrapped URL. Nothing ever saved a snapshot, so by November 2026 most source links on the site led to "not archived" pages and the link check was switched off in practice.
 
-**Rule:** Every source URL the skill emits in `## Sources` MUST be wrapped as:
-
-```
-https://web.archive.org/web/2026/<original-url>
-```
-
-regardless of publisher, regardless of whether the bare URL would resolve right now. The validator short-circuits any URL containing `web.archive.org` (no network call, treated as resolved). Wrapping is the cheap fix that eliminates an entire class of CI false-positive — publisher rate-limits, geo-blocks, transient 5xx, paywall walls, and the occasional URL that resolves locally but not from the validator's HEAD-request user-agent.
-
-This is a hard rule on skill output, not a validator rule. Optional helper: `scripts/normalize-sources.ts` can rewrite any unwrapped URL to its archive-wrapped form as a final transform step before write — see Appendix C.8.
+**Rule:** Emit the publisher's own URL with a `category` and a real `accessed_at` (see Step 4b). The validator checks the original URLs, treating bot-blocking 401/403/429 answers as live. Snapshots are saved after publishing and listed in `content/archive.json`.
 
 ##### 3.5.13 Pre-emit word-count guardrails (NEW v1.8 — codified from PR #22 failure)
 
@@ -486,11 +492,12 @@ Refer to these whenever the §3.5 voice discipline drifts.
 ## What this skill must never do
 
 - Open a pull request. v1.8 is direct-push.
-- Invoke any GitHub Action. The remote validator was retired in Phase 1.
-- Hand the validator a brief with un-wrapped URLs in `## Sources` (Step 4b
-  must run first).
+- Invoke any GitHub Action by hand. (CI and the archive workflow run on
+  GitHub automatically after the push.)
+- Wrap source URLs in `web.archive.org/web/2026/`, or omit a source's
+  `category` (Step 4b).
 - Hand the validator a brief whose Exec / Implications / total bands were
   not pre-checked (Step 4a must run first).
-- Push without `gh auth status` succeeding.
+- Push without `git ls-remote origin main` succeeding.
 - Leave `.lock` on disk after the run terminates.
 - Invent analytical rules not present in DESIGN_v1.8.md §3.

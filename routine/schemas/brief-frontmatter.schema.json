@@ -25,7 +25,7 @@
     "day": {
       "type": "integer",
       "minimum": 1,
-      "maximum": 999,
+      "maximum": 9999,
       "description": "Day count from 2026-02-28 (Day 1)."
     },
     "date": {
@@ -69,7 +69,15 @@
         "properties": {
           "name": { "type": "string", "minLength": 1 },
           "url": { "type": "string" },
-          "accessed_at": { "type": "string" }
+          "accessed_at": { "type": "string" },
+          "category": {
+            "description": "Sourcing-rubric category (DESIGN §3.1). Required from day 250.",
+            "enum": [
+              "western_press", "regional_press", "iran_state_media", "iran_officials",
+              "israel_official", "arab_regional_gov", "russia_china_other", "monitors_humanitarian",
+              "us_government", "europe_international", "think_tanks_experts", "markets_maritime_data"
+            ]
+          }
         }
       }
     },

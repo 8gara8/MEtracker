@@ -1,0 +1,23 @@
+name: ci
+
+# Checks every PR and every push to main: types, the brief contract for every
+# brief from day 68 on (offline; link checks run in the morning task), and the
+# production build that Vercel will run. Days 1–67 predate the current
+# contract and are not re-validated.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run validate:ci
+      - run: npm run build
