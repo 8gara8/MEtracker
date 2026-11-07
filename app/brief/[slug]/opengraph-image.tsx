@@ -1,7 +1,11 @@
 import { ImageResponse } from 'next/og';
 import { getBriefBySlug } from '@/lib/briefs';
 
-export const runtime = 'nodejs';
+export const alt = 'ME War Intel Brief';
+export const size = { width: 1200, height: 630 };
+export const contentType = 'image/png';
+export const dynamic = 'force-static';
+export { generateStaticParams } from './page';
 
 const BADGE_COLORS: Record<string, { bg: string; fg: string }> = {
   escalating: { bg: '#F1D9D5', fg: '#B33A2E' },
@@ -33,10 +37,11 @@ function badgeStyle(value: string) {
   };
 }
 
-export async function GET(
-  _request: Request,
-  { params }: { params: Promise<{ slug: string }> },
-) {
+export default async function Image({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const brief = getBriefBySlug(slug);
 
@@ -68,7 +73,7 @@ export async function GET(
             display: 'flex',
             alignItems: 'center',
             gap: 16,
-            borderBottom: '3px double #14161A',
+            borderBottom: '3px solid #14161A',
             paddingBottom: 14,
           }}
         >
