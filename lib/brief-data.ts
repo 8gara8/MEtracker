@@ -200,6 +200,7 @@ import day250 from '@/content/briefs/2026-11-04-day-250.data';
 import day251 from '@/content/briefs/2026-11-05-day-251.data';
 import day252 from '@/content/briefs/2026-11-06-day-252.data';
 import day253 from '@/content/briefs/2026-11-07-day-253.data';
+import day254 from '@/content/briefs/2026-11-08-day-254.data';
 
 export type Implication = { title: string; body: string };
 
@@ -420,6 +421,7 @@ const briefDataBySlug: Record<string, BriefData> = {
   '2026-11-05-day-251': day251,
   '2026-11-06-day-252': day252,
   '2026-11-07-day-253': day253,
+  '2026-11-08-day-254': day254,
 };
 
 export function getBriefData(slug: string): BriefData | null {
