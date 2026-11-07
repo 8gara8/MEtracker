@@ -3,6 +3,9 @@ import type { Metadata } from 'next';
 import { getBriefBySlug, listBriefFilenames } from '@/lib/briefs';
 import { BriefView } from '@/components/BriefView';
 
+// Only the briefs that exist at build time; there is nothing to render on demand.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return listBriefFilenames().map((f) => ({
     slug: f.replace(/\.mdx?$/, ''),
@@ -22,12 +25,10 @@ export async function generateMetadata({
     title,
     openGraph: {
       title,
-      images: [{ url: `/api/og/${slug}` }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
-      images: [`/api/og/${slug}`],
     },
   };
 }
