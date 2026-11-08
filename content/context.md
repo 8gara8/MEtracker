@@ -1,67 +1,70 @@
 # Rolling Context
 
-Last updated by: morning brief 2026-11-08 (Day 254)
-Last brief day: 254
-Last brief date: 2026-11-08
-Gap note: no brief for Day 207 (2026-09-22); Days 208-254 are contiguous.
+Last updated by: morning brief 2026-11-09 (Day 255)
+Last brief day: 255
+Last brief date: 2026-11-09
+Gap note: no brief for Day 207 (2026-09-22); Days 208-255 are contiguous.
 Day-count rule: Day N = (Taipei date − 2026-02-28) + 1. Take the date from Taipei time, never the scheduler's UTC date; cross-check against the last file in `content/briefs/`.
-Drafting recipe: write the Executive Summary at about 260-280 words and mirror it verbatim into `exec`. Keep Strategic Implications at about 700-750 words across three subsections, event summaries at about 65 words and impacts at about 25, and sources at 15-22 pages across at least 6 categories, with no category above half. Every source carries a `category`. Cite only pages opened or seen in this run. 403 to WebFetch: CENTCOM, UKMTO, HRANA, understandingwar.org, criticalthreats.org (search results usable), The Hill, Washington Post, The New Arab, Israel Hayom, IranWire, UANI, war.gov. CNN 451; en.kremlin.ru fails; i24news empty; en.irna.ir returns only a redirect; the ToI liveblog index loads a 2020 page (use article URLs from search). Good same-day pages: Tasnim English front page (dated URLs, many official statements), The Peninsula front page (QNA, IMO-Qatar), CBS live blog (`https://www.cbsnews.com/live-updates/iran-war-trump-us-strait-hormuz-persian-gulf/` on Day 254), fm.gov.om/en/, tass.com/world (undated headlines; article pages carry dates), Trading Economics, hormuz.now, ynetnews.com/category/3089 (headlines only), CNBC, Al Jazeera. Search returns stale results for dated queries; name-specific searches work better. Day 254 again had no direct Israeli-government, US-government, European or monitor page: look for these first tomorrow (try gov.il, state.gov, news.un.org, iaea.org, UNIFIL).
+Drafting recipe: write the Executive Summary at about 260-280 words and mirror it verbatim into `exec`. Keep Strategic Implications at about 700-750 words across three subsections, event summaries at about 65 words and impacts at about 25, and sources at 15-25 pages across at least 6 categories, with no category above half. Every source carries a `category`. Cite only pages opened or seen in this run. Blocked to WebFetch: CENTCOM, UKMTO, HRANA, gov.il, state.gov, ReliefWeb (403); IAEA press page (402); also understandingwar.org, criticalthreats.org, The Hill, Washington Post, The New Arab, Israel Hayom, IranWire, UANI, war.gov; CNN 451; en.kremlin.ru fails. Good same-day pages: Tasnim English front page (dated URLs), aljazeera.com/news/ (dated article URLs), rudaw.net/english, The Peninsula front page (Qatar MoFA, Saudi Energy Ministry, coalition), CBS live blog (same URL each day), tass.com/world, fm.gov.om/en/, ofac.treasury.gov/recent-actions (US government), mfa.gov.cn spokesperson transcripts, whitehouse.gov/news (no Iran item 5-8 Nov), hormuz.now/oil, Trading Economics (figures internally inconsistent on Day 255), ynetnews.com/category/3089 (headlines only). Search returns stale results for dated queries. Still missing on Day 255: direct Israeli-government, European and monitor pages. Try UN News country pages, Lebanon's NNA, idf.il and EU EEAS first.
 
 ## Current war status
 
-**DAY 254 (8 NOV): US "MINOR STRIKES" ON QESHM; TRUMP CLAIMS PROGRESS; CENTCOM TAKES THE BLOCKADE INLAND; HERZOG TAPS EISENKOT.** Trump (Fri 6 Nov evening, West Palm Beach, via CNBC/CBS): "We do minor strikes, but they knock out"; an Iranian anti-aircraft device "knocked out in about 15 minutes, maybe five"; would not discuss Qeshm; Iran wants a deal "very badly"; "nobody getting hurt." Tasnim: two missiles hit Qeshm, state TV two explosions, no damage word. First strikes since the midterms (after Monday's "defensive" strike). HNGN: advisers split on resuming major operations before January. Ynet headline: Trump "meeting with Iran and making very good progress." Qatar IMO called reports that the PM declared talks failed "false and misleading"; Al-Ansari: both sides committed, mediators coordinating closely; Ynet headline: Qatari PM says no "full agreement" yet. Qatar PM-Saudi FM call (7 Nov). Bagheri Kani (SNSC deputy) to IRIB via CNBC: "practical measures," not "paper commitments." Araghchi: 12 FM calls in 48h (Oman, Egypt, Jordan, Saudi, Qatar, Cyprus, Turkey, Kuwait, UAE, Tunisia, Iraq, Pakistan). IRGC spokesman Mohebbi: missile-range limit (1,200 miles per CBS) "lifted for us"; underground missile city to be unveiled. CENTCOM (via CBS): Task Force Iron Gate (~20 staff, Florida) against land-border and Caspian flows; blockade kept ~$25bn crude off market; M/V Huda (St. Kitts) disabled in the Gulf of Oman 7 Nov (TASS relays). Direction **MIXED**; probability **10 (held)**.
+**DAY 255 (9 NOV): CONDITIONAL THREATS, MEDIATION PAUSED, SPILLOVER TO RIYADH AND KHOR MOR.** Trump to CNN (via Rudaw/AJ): renewed war "highly unlikely" if Iran signs "a very strong agreement"; three carriers "locked and loaded," "the other one just arrived" (unnamed); 38 bridges "in literally one hour"; Channel 13 (via Rudaw): CENTCOM told Israel Tehran strikes would target power plants and bridges. Trump: Iron Gate "in full force and effect." Araghchi (X): Iran will "rain down hell" if attacks resume; two-day proposal "stands," with "requirements, including end to war on all fronts"; mediators stopped travelling since the midterms, "we have to wait"; "time for the White House" to choose. Ynet headline (undated): Rubio "not close to breakthrough with Iran," demands "ridiculous and unrealistic." Rezaei (SNSC secretary, X): "You lost the war and the election." Mohebbi: "existential war," "absolute deterrence." IRNA: four Qeshm explosions (unconfirmed by US); Fars: warning shots at vessels; IRNA via AJ: blasts in Jask, Sirik, Bandar Abbas. Guards spokesman: Iron Gate "merely a wordplay." SNSC ratified Rasht-Astara railway with Russia (last 37 of 162 km handed over). Direction **MIXED**; probability **10 (held)**.
 
-Prior cycles: Day 253, Iran's nuclear proposal via Qatar behind seven conditions (US reportedly wants nuclear first); Velos Sapphire seafarer killed; Akraminia relayed the leader's "without geographical limitations" directive; IRGC advisers named UAE and Bahrain; Trump's aid cutoff to Israel. Day 252, Oman/Qatar spoke of ending "the state of war"; Rezaei met Putin; Roosevelt ≥2 weeks out (6 Nov). Day 251, Democrats took both houses. Day 250, US "defensive" strikes on Qeshm.
+Prior cycles: Day 254, US "minor strikes" on Qeshm; Iron Gate stood up (~20 staff, Tampa); M/V Huda disabled; IRGC "range limit lifted"; Bagheri Kani "practical measures, not paper"; Herzog named Eisenkot. Day 253, Iranian nuclear proposal via Qatar behind seven conditions; Velos Sapphire seafarer killed; leader's "without geographical limitations"; Trump's aid cutoff to Israel. Day 252, Rezaei met Putin. Day 251, Democrats took both houses. Day 250, US "defensive" strikes on Qeshm.
 
 ## Cumulative state
 
-- Casualties (Day 254): **US 23 KIA / 865 WIA** (DCAS 15/417 + 8/448; CBS 11/12 split held apart), +0, 39th cycle with no disclosure statement. **Israel 58 / 8,679+**, +0. **Iran 3,559 official / HRANA 3,636+ / 27,400+ WIA**, +0 (none reported from Qeshm). **Other 3,716+ / 11,203+**, +0. Held apart: Houthi claims (22 killed, 30 wounded at Bani Hashish, 7 Nov; Yemen MoH 306 civilians killed since the escalation), IRGC tanker claims (no hull named), IMO's 128 incidents / 24 seafarer deaths, CENTCOM's >20 and AFP's 24 killed in Saudi Arabia. CBS cites the UN: >1,600 killed, 300,000 displaced in Yemen since fighting resumed. Minab: Tasnim/Jalalian 168 dead and a claimed UN rapporteur war-crime finding; UN fact-finding mission (Sep) found reasonable grounds of a US war crime, local authorities ≥156. Lebanon on a parallel series (MoH 4,389 to 30 Oct; +1 on 4 Nov). 60th day with no confirmed Iranian attack on a host state's territory.
-- Hormuz: hormuz.now **19 AIS tanker crossings in 7 days, 2.7/day vs 47.6 pre-crisis** (updated 7 Nov 23:11 UTC; 3.0 on Day 253); 0 LNG/LPG in 7 days, 1 LNG in 30. Iran's navy: an unnamed tanker running dark mined in the eastern strait 7 Nov morning. IRGC claims all week name no hull; the only named casualty ship (Velos Sapphire) came from its manager. IRGC: 16th MQ-1, 6 MQM-170, 55th MQ-9 (claims). Blockade: 144 redirected through October (CENTCOM via CBS).
-- Energy: **Brent $98.32 for 6 Nov (+0.03%; >12.5% weekly fall, steepest since March 2020, Trading Economics; the page showed $97.76 a day earlier)**; weekend: Qeshm and Iron Gate unpriced. ~$116-118 late Oct. US gasoline $4.06 (GasBuddy, Day 253). QatarEnergy force majeure into early Dec (Sep report). Fed hike priced ~85% for 9 Dec.
-- Saudi theatre: coalition destroyed a Houthi missile fired toward Riyadh province (7 Nov, CBS), after Najran, Mecca and Madinah. EU (2 Nov) told Iran to end support to the Houthis; Baqaei rejects.
-- US-Israel: Trump says military aid (~$3.8bn/yr, MoU to 2028) ends at year-end; Herzog "bolt from the blue"; PMO "beyond partnership" (Ynet headline). US security warnings to diplomats in the region, including Jerusalem (Ynet headline).
-- Israel politics: **Herzog tapped Eisenkot (Sat 7 Nov)**: 67 recommendations vs 46 Netanyahu, UTJ (7) none; mandate ceremony Sun 8 Nov 17:00; 28 days + up to 14. Eisenkot rules out Arab parties as partners (AJ); Tibi expects a minority government with outside Arab support; Shas denies joining. Netanyahu: a unity government under him would "permanently remove the nuclear threat from Iran." Knesset sworn in 10 Nov.
-- Iran internal and nuclear: Mojtaba Khamenei, unseen since 28 Feb, directs by message (no geographic limits; target database update). Critical Threats (4 Nov): Iranian leaders read the midterms as proof their strategy imposed costs. State Dept Rewards for Justice: up to $20m for nuclear-programme information (CBS, 6 Nov); stockpile includes 60% material; IAEA ~440 kg HEU unverified, no November statement located. HRANA ≥2,003 executions.
-- China/Russia: Putin received Rezaei 5 Nov (Peskov confirmation per Tasnim). Ynet headline: Iran "optimistic" Russia will supply advanced air defence; no Russian statement. TASS relays CENTCOM without comment. Zhai Jun visits Iran, Oman, Saudi Arabia in November. No Chinese MFA statement located since June.
-- Taiwan: no fresh development. Price relief holds; LNG volume (0 in 7 days) binding; missile-range declaration and Qeshm strikes add war-risk premium. Taipower/CPC supplementary budget unpassed.
+- Casualties (Day 255): **US 23 KIA / 865 WIA** (DCAS 15/417 + 8/448; CBS 11/12 split held apart), +0, 40th cycle with no disclosure statement. **Israel 58 / 8,679+**, +0. **Iran 3,559 official / HRANA 3,636+ / 27,400+ WIA**, +0. **Other 3,716+ / 11,203+**, +0. Held apart: Houthi MoH 33 killed / 39 wounded at al-Shariyah (up from 22); Saree claims 105 coalition strikes in 24h; IRGC tanker claims (no hull); IMO 128 incidents / 24 seafarer deaths; CENTCOM >20 and AFP 24 killed in Saudi Arabia. UN: >1,600 killed, ~300,000 displaced in Yemen since July. Minab: Tasnim 168 vs local authorities ≥156; UN fact-finding mission (Sep) found reasonable grounds of a US war crime. Lebanon on a parallel series (MoH 4,389 to 30 Oct). 61st day with no confirmed Iranian attack on a host state's territory (Khor Mor claimed only by pro-Iran Iraqi Telegram channels).
+- Hormuz: hormuz.now **22 AIS tanker crossings in 7 days, 3.1/day vs 47.6 pre-crisis** (8 Nov 23:12 UTC; 2.7 on Day 254); 0 LNG/LPG in 7 days, 1 LNG in 30; IMF PortWatch deadweight 0.6% of normal to 1 Nov. IRGC Navy: two more unnamed tankers mined (7 Nov night). CBS: UKMTO tanker fire near Khasab; UAE rescued 22 crew from a burning cargo ship in the Sea of Oman (no names). Blockade: 147 redirected since July, 5 disabled (CENTCOM via AJ). Trading Economics claims Gulf crude exports near pre-war levels (unverified; contradicts strait counts unless bypass routes).
+- Energy: **Brent ~$98** (6 Nov settle $98.32; >12.5% weekly fall); Monday open not yet captured. NIOEC: 80% of damaged Iranian storage restored, full by late Nov. Kpler (via Iran International): no Iranian export loading since mid-Aug. QatarEnergy force majeure into early Dec (Sep report). Fed hike priced ~85% for 9 Dec.
+- Saudi theatre: Houthi attack damaged an Aramco tower in Riyadh's KAFD (8 Nov); Energy Ministry: "attempted attack," minor shrapnel damage, no casualties; witnesses: several floors damaged. Coalition (al-Maliki): missiles at Riyadh and Eastern Province destroyed; two launchers destroyed in Saada. Qatar condemned. Oman FM met UN envoy Grundberg (8 Nov). Turkey ratified the Mecca defence pact (6 Nov).
+- Iraq: Khor Mor gas field halted late 8 Nov by a projectile (storage and loading unit); KRG says −2,800 MW; launched from Tuz Khurmatu (security source); first strike after a ~4-month lull.
+- US-Israel: Trump says military aid ends at year-end; Herzog cites a "new political reality" in the US.
+- Israel politics: **Eisenkot holds the mandate (from 8 Nov), six weeks (28 + 14 days, to about 20 Dec)**; open to Netanyahu and Smotrich; rules out Arab-led parties (19 seats); bloc 48 vs Netanyahu 53; UTJ+Shas would give 61. Liberman and Bennett meetings due; Eisenkot not swearing in a government this week. Katz: Iran "mission is still not complete," warned Hezbollah. Knesset sworn in 10 Nov.
+- Iran internal and nuclear: Mojtaba Khamenei directs by message; called hopes of US change "seriously mistaken" (5 Nov). UN SG report (6 Nov, via Iran International): 151 executions in Q1, 53,777 protest arrests. HRANA ≥2,003 executions (year to 8 Oct). IAEA ~440 kg HEU unverified; no November statement located. State Dept Rewards for Justice up to $20m.
+- China/Russia: Rasht-Astara ratified (Russian contractor). Putin received Rezaei 5 Nov. China's MFA 6 Nov briefing did not mention Iran; no Chinese statement since June. Zhai Jun tour in November.
+- US sanctions: OFAC 6 Nov designated eight Canadian money services businesses ("Operation Economic Outcast").
+- Taiwan: no fresh development. LNG volume (0 in 7 days) binding; Brent relief holds. Taipower/CPC supplementary budget unpassed.
 
 ## Active deadlines
 
-- **CRITICAL: the lame-duck window to 3 Jan.** Grade by tasking, munitions and carrier position, not statements. "Minor strikes" are the defensive-scoping pattern; a strike beyond air defences or a CENTCOM major-combat statement is the upgrade trigger. Roosevelt ≥2 weeks out from 6 Nov points to late November.
-- **CRITICAL: the Iranian proposal via Qatar.** Grade on a published text, a named US response, or a named session or venue. "Very good progress" (Trump) vs "practical measures, not paper" (Bagheri Kani) is the sequencing test.
-- **Israel**: Eisenkot's mandate (from 8 Nov; 28 + 14 days, to about 6 Dec, extension to about 20 Dec); Knesset 10 Nov; his stated Iran line; aid-cutoff clarification.
-- **Congress**: lame-duck war-powers vote; Schumer funding levers; Hegseth.
-- **Blockade**: Task Force Iron Gate's first action, especially in the Caspian; further disablings.
-- **Hull claims**: names for Iranian mine claims; Velos Sapphire attribution.
-- **Dated**: G7 FMs in Paris (this week, Rubio); Zhai Jun's tour (Nov); OPEC+ capacity review (mid-Nov) and 2027 quotas (29 Nov); Roosevelt CSG (late Nov); Fed (9 Dec); UNIFIL mandate (31 Dec); new Congress (3 Jan).
+- **CRITICAL: the lame-duck window to 3 Jan.** Grade by tasking, munitions and carrier position. Upgrade trigger: strikes beyond air defences, on power plants or bridges (the target set Trump and Channel 13 now name), or a CENTCOM major-combat statement. Identify the carrier that "just arrived."
+- **CRITICAL: the Iranian proposal via Qatar.** Mediation paused by Araghchi's account. Grade on mediator travel resuming, a published text, or a named session. Rubio's "not close" vs Trump's "very good progress" is the US-side split to watch.
+- **Israel**: Eisenkot's coalition talks (to about 6 Dec, extension to about 20 Dec); Knesset 10 Nov; his Iran line; aid-cutoff clarification.
+- **Congress**: lame-duck war-powers vote; Schumer funding levers; Hegseth's status.
+- **Blockade**: Iron Gate's first action; Caspian or Azerbaijan-border enforcement; Rasht-Astara works.
+- **Hull claims**: names for the 6-8 Nov mine claims; the Khasab fire and the UAE-rescued cargo ship.
+- **Dated**: G7 FMs (Rubio; no November statement located); Zhai Jun (Nov); OPEC+ review (mid-Nov) and 2027 quotas (29 Nov); Fed (9 Dec); UNIFIL mandate ends (31 Dec); new Congress (3 Jan).
 - CARRIED, low activity: Oman's "joint technical mechanisms"; Lebanon's checkpoint answer; HRANA at the UN; Gulf cable threat; Taiwan's budget and tariff review.
-- RETIRED Day 254: "Herzog names the mandate recipient" (done: Eisenkot).
 
 ## Standing analytical priors (§3.5.6)
 
-- **Blockade-goes-inland (NEW Day 254):** Iron Gate targets land borders and the Caspian; ties the blockade to the China/Russia resupply prior. Graded an enforcement cell until it acts.
-- **Range-declaration (NEW Day 254, extends declared-scope deterrence):** the IRGC says the range limit is lifted but declines to claim capability before use.
-- **Sequencing-wall (Day 253):** conditions first (Tehran) vs nuclear first (Washington); restated Day 254 as "practical measures, not paper commitments." Only a text that resolves sequencing upgrades.
-- **Declared-scope deterrence (Day 253):** "without geographical limitations"; UAE, Bahrain named. Strains mediator-as-victim: Tehran phones the capitals it threatens (12 calls, Day 254).
-- **Aid-to-partnership (Day 253):** US aid cutoff during Israeli government formation; now an Eisenkot-led formation.
-- **Opposite-running clocks (Day 252):** confirmed Day 254 (minor strikes and claimed progress in the same remarks).
-- **Hormuz-as-price (Day 252); Moscow-as-venue (Day 252); lame-duck-window (Day 251); political-will clock; leader-against-concession (Day 251).**
-- **Diplomacy-priced-not-supply (Day 242):** Brent fell >12.5% on the week while crossings ran ~94% below normal.
-- **Defensive-scoping; answer-by-omission; inverted-restraint; one-day-permit / planning-is-not-decision** (six called-off strikes since July is the base rate; Day 254's strikes were sized to air defences).
-- **Hull-named-by-the-third-party / claim-inflation (Days 238-254).**
-- **Unannounced-majority / contested-count; Saudi theatre (Houthi claims unadopted); disclosure-is-a-choice; Lebanon gap (Day 40); Israel's independence.**
+- **Infrastructure-target signalling (NEW Day 255):** Trump names bridges and power plants; Channel 13 says CENTCOM briefed Israel the same. A strike on that set is the escalation marker, not more air-defence hits.
+- **Mediation-pause (NEW Day 255):** Tehran says mediators stopped travelling after the midterms and adds "end to war on all fronts." Retire when mediator travel resumes.
+- **Blockade-goes-inland (Day 254):** now with a named counter-move (Rasht-Astara). Graded an enforcement cell until it acts.
+- **Range-declaration / declared-scope deterrence (Days 253-254):** "without geographical limitations"; range limit "lifted"; "rain down hell." Strains mediator-as-victim (Tehran phones capitals it threatens).
+- **Sequencing-wall (Day 253):** conditions first (Tehran) vs nuclear first (Washington).
+- **Aid-to-partnership (Day 253):** aid cutoff during an Eisenkot-led formation.
+- **Opposite-running clocks (Day 252):** confirmed again Day 255 (highly unlikely / locked and loaded).
+- **Proxy-periphery (Day 255, extends Saudi theatre):** Houthis in Riyadh; pro-Iran Iraqi groups at Khor Mor. Iran itself still unattributed.
+- **Hormuz-as-price; Moscow-as-venue; lame-duck-window; political-will clock; leader-against-concession.**
+- **Diplomacy-priced-not-supply (Day 242):** Brent ~$98 with crossings ~7% of normal.
+- **Defensive-scoping; answer-by-omission; inverted-restraint; one-day-permit / planning-is-not-decision** (six called-off strikes since July).
+- **Hull-named-by-the-third-party / claim-inflation (Days 238-255):** third-party fires reported Day 255, still unnamed.
+- **Unannounced-majority / contested-count; disclosure-is-a-choice; Lebanon gap (Day 40); Israel's independence.**
 - **Also holding:** mine clearance; China/Russia air-defence resupply risk; Taiwan's appropriation, utility-balance-sheet and cable-exposure priors.
 
 ## What to watch tomorrow
 
-- **Strikes**: any CENTCOM statement on Qeshm; strikes beyond air defences; Roosevelt's position; Trump's language.
-- **Talks**: a named venue, session or text; Qatari or Omani follow-up; a US response to "practical measures."
-- **Blockade**: Iron Gate's first action; further disablings; Iranian response to the Caspian move.
-- **Israel**: the mandate ceremony; Eisenkot's coalition moves and any Iran statement; Knesset on 10 Nov; Lebanese deaths.
-- **Maritime**: crossings against 2.7/day (hormuz.now); a name for the mined tanker; UKMTO incidents.
-- **Energy**: Monday's Asian open after the weekend strikes; LNG transits; OPEC+ mid-Nov review.
-- **Saudi theatre**: Houthi launches at Riyadh, Najran, holy cities; Saudi or UN casualty statements.
-- **China, Russia, nuclear, Taiwan**: a Kremlin or Chinese MFA readout; Zhai Jun's first stop; any IAEA statement; G7 Paris agenda; Taiwan's budget and Qatari LNG.
+- **Strikes**: US confirmation or denial on Qeshm; any hit on bridges or power plants; the carrier that "just arrived"; Trump's language.
+- **Talks**: mediator travel resuming; Qatari or Omani statements; a State Department text on Rubio's remark.
+- **Blockade**: Iron Gate's first action; Iranian or Russian response; further disablings.
+- **Israel**: Knesset swearing-in 10 Nov; Eisenkot's meetings with Liberman, Bennett and the Haredi parties; any Iran statement; Lebanese deaths.
+- **Maritime**: crossings against 3.1/day; names for the mined tankers, the Khasab fire and the UAE-rescued ship.
+- **Energy**: Monday's Asian open and Brent; Khor Mor restart; LNG transits; OPEC+ mid-Nov review.
+- **Saudi theatre and Iraq**: further Houthi launches on Riyadh; Saudi or UN casualty statements; claims for Khor Mor.
+- **China, Russia, nuclear, Taiwan**: a Kremlin or Chinese MFA readout; Zhai Jun's first stop; any IAEA statement; Taiwan's budget and Qatari LNG.
 
 ## Evening flash notes
 
